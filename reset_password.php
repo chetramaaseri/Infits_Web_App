@@ -1,35 +1,92 @@
-<?php include('connection.php');
-session_start(); ?>
+<?php include('config.php'); ?>
+<?php session_start(); ?>
 
-//comapring otp  values
+<!------------------resend password---------------->
+<?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    
+    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\PHPMailer.php';
+    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\SMTP.php';
+    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\Exception.php';
+
+      if(isset($_POST['resend_otp']))
+         {
+    $otp = rand(100000,999999);
+   $email = $_SESSION['mail'];
+    //echo $otp;
+    
+    $mail = new PHPMailer();
+    $mail->CharSet = "utf-8";
+    
+    $mail->isSMTP();              
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = '<email>';                     //SMTP user name
+    $mail->Password  ='<app password>';                            //Password
+    $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+    $mail->Port       = 587;              //Default port 587
+    $mail->SMTPDebug = 0;
+    //Receipents
+    
+    $mail->setFrom('<email>','<app password>');
+     $mail->addAddress($email);     //Add a recipient
+    
+      //Attachments
+    // $mail->addAttachment('/file');         //Add attachments
+    
+       //Set email format to HTML
+       $mail->Subject = 'Verify your code';
+
+         $mail->Body=(" Your otp number.".$otp);
+        //$mail->AltBody = 'This is the body in plain text for
+        $mail->isHTML(true);  
+    
+         if(!$mail -> send())
+         {
+             
+            echo'<div class="alert alert-primary" role="alert" style="text-align:center;">
+            Mail not send, try again!
+          </div>';
+             
+        } 
+    
+        else {
+        
+            echo'<div class="alert alert-primary" role="alert" style="text-align:center;">
+            Mail send Please check your email for otp!
+          </div>';
+            
+            
+     }
+        }
+       ?>
+ 
+
+
 <?php 
-$opt1 = $_SESSION['otp'];
-if(isset($_POST['otp_input']))
+
+$vry_otp = $_SESSION['otp'];
+
+if(isset($_POST['otp_btn']))
 {
-    $otp_var = $_POST['otp_input'];
-    if($otp_var == $otp1  )
-    {
-           location('');
-    }
-    else{
-        echo "Some problem, click on resend password";
-    }
+$otp=  $_POST['otp_input'];
+if($vry_otp == $otp)
+{
+      header('Location:final_password_set.php');
+
 }
+else
+{  
+     echo'<div class="alert alert-primary" role="alert" style="text-align:center;">
+    Mail send Please check your email for otp!
+  </div>';
+  
 
- ?>
-
- // Resend out
- <?php
-
- if(isset($_POST['resend_otp']))
- {
-    header("Location:forgot_password.php");
- }
-
- ?>
-
-
-
+   
+      
+} } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,18 +98,28 @@ if(isset($_POST['otp_input']))
     <title>Document</title>
 </head>
 <style>
-.top_bar{
+ body {
+    /* position: relative; */
+    max-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.top_bar {
     display: flex;
     justify-content: space-between;
-    align-items:;
-   
+    /* align-items:; */
+
 }
-.top_bar img{
-    margin-top: -80px;
-    width: 275px;
-height: 312px;
+
+.top_bar img {
+    /* margin-left:10px; */
+    margin-top: -20px;
+    width: 210px;
+    height: auto;
 }
-.bg{
+
+.bg {
     position: absolute;
     margin-top: -10px;
     z-index: -1;
@@ -378,13 +445,13 @@ margin: 10px;
     margin-top: 10px;
 }
 .get_otp_btn{
-    background: #4B99FB;
+    background:grey;
 border-radius: 15px;
 border:none;
 width: 120px;
 height: 40px;
 margin-right: 40px;
-
+cursor:pointer;
 font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
@@ -394,6 +461,11 @@ font-size: 15px;
 
 
 color: #FFFFFF;
+}
+
+.get_otp_btn:hover{
+    background-color: #4B99FB;
+    color:white;
 }
 </style>
 <body>
@@ -429,9 +501,10 @@ color: #FFFFFF;
                     </div>
                     <div class="get_otp">
                         <button class="get_otp_btn" name="otp_btn" id="otp_btn">Confirm</button>
-                        <span name="resend_otp" id="resend_otp">Resend OTP</span>
+                        <button class ="get_otp_btn" name="resend_otp" id="resend_otp">Resend OTP</button>
                     </div>
                 </div>
+                <div> <p id ="msg" style="color:blue;">... </p> </div>
             </div>
 </form>
             <div class="col-sm-6">
@@ -499,4 +572,9 @@ color: #FFFFFF;
         </div>
         </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6S
+
 </html>

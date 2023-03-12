@@ -16,7 +16,7 @@ if (isset($_POST['reg_user'])) {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
-  $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
+  // $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -25,9 +25,9 @@ if (isset($_POST['reg_user'])) {
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($mobile)) { array_push($errors, "Phone Number is required"); }
   if (empty($password)) { array_push($errors, "Password is required"); }
-  if ($password != $password_2) {
-	array_push($errors, "The two passwords do not match");
-  }
+  // if ($password != $password_2) {
+	// array_push($errors, "The two passwords do not match");
+  // }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -52,6 +52,12 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO dietitian (dietitianuserID, name, email, mobile, password) 
   			  VALUES('$dietitianuserID','$name', '$email', '$mobile', '$password')";
   	mysqli_query($conn, $query);
+
+    # creating the Session
+    $_SESSION['dietitianuserID'] = $user['dietitianuserID'];
+    $_SESSION['name'] = $user['name'];
+    $_SESSION['dietitian_id'] = $user['dietitian_id'];
+
   	$_SESSION['name'] = $name;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
@@ -76,6 +82,8 @@ if (isset($_POST['login_user'])) {
     if (count($errors) == 0) {
         // $password = md5($password);
         if(strpos($dietitianuserID, $word) !== false){
+
+
           // emailid entered
           $query = "SELECT * FROM dietitian WHERE `email`='$dietitianuserID' AND `password`='$password'";
           $results = mysqli_query($conn, $query);
@@ -85,7 +93,11 @@ if (isset($_POST['login_user'])) {
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result) ;
 
-            $_SESSION['name'] = $row['dietitianuserID'];
+        # creating the Session
+        $_SESSION['dietitianuserID'] = $row['dietitianuserID'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['dietitian_id'] = $row['dietitian_id'];
+            // $_SESSION['name'] = $row['dietitianuserID'];
             // echo $row['dietitianuserID'] ;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
@@ -95,11 +107,27 @@ if (isset($_POST['login_user'])) {
           }
       } 
       else{
+
           // Username entered
           $query = "SELECT * FROM dietitian WHERE `dietitianuserID`='$dietitianuserID' AND `password`='$password'";
           $results = mysqli_query($conn, $query);
           if (mysqli_num_rows($results) == 1) {
-            $_SESSION['name'] = $dietitianuserID;
+        
+
+          
+          $sql = "SELECT * FROM dietitian WHERE `dietitianuserID`='$dietitianuserID'";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_assoc($result);
+
+          # creating the Session
+          $_SESSION['dietitianuserID'] = $row['dietitianuserID'];
+          $_SESSION['name'] = $row['name'];
+          $_SESSION['dietitian_id'] = $row['dietitian_id']; 
+          // var_dump($_SESSION);
+          // print_r($result);
+          // echo '123';
+          // die();
+            // $_SESSION['name'] = $dietitianuserID;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
           }else {

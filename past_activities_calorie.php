@@ -1,9 +1,12 @@
 <?php
+if(isset($_SESSION['name'])){
+    header('location: login.php');
+}
 // Client Id
 if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
-    header("Location: track_stats_calorie.php");
+    header("Location: index.php");
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");

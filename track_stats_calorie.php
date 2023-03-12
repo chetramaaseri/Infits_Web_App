@@ -1,32 +1,8 @@
-
 <?php
-// Client Id
-$clientId = 'Eden';
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
 $today = new DateTime();
-// Goal Insertion
-if(isset($_POST['savegoal'])){
-    $client = $_POST['clientid'];
-    $goal =$_POST['setgoal'];
-    $conn = new mysqli("localhost", "root", "", "infits");
-
-    if($conn->connect_error){
-        die("Connection failed :" . $conn->connect_error);
-    }
-    
-    $query="INSERT INTO goals (forWhat, goal, clientID) VALUES ('calorie' , $goal, '$client' )";
-    $result = $conn->query($query) or die("Query Failed");
-    
-    if($result){
-        unset($_POST["savegoal"]);
-        unset($_POST["setgoal"]);
-        header(("Location: track_stats_calorie.php"));
-        // exit();
-    }
-}
 // funtion to fetch
-// This can be more Simple by String Concatination
 function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
     // Connect to Database
     $conn = new mysqli("localhost", "root", "", "infits");
@@ -49,7 +25,7 @@ function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
             AND `time` < '{$to_date} 00:00:00';";
     // for get latest goal from goals table
     }else if($isCustom==4){
-        $query="SELECT goal FROM goals WHERE forWhat = 'calorie' ORDER BY time DESC LIMIT 1";
+        $query="SELECT calorie FROM goals WHERE client_id = {$clientId}";
     // for getting past actvities 
     }else if($isCustom==5){
         $query = "SELECT * FROM `calorietracker` WHERE clientID = '$clientId' AND `time` >= '{$from_date} 00:00:00'
@@ -60,8 +36,6 @@ function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
             `time` >= '{$from_date} 00:00:00'
             AND `time` <= '{$to_date} 23:59:59';";
     }
-    // echo($query);
-    // echo ('<br>');
     $result = $conn->query($query) or die("Query Failed");
     $data = array();
     while($row = $result->fetch_assoc()){
@@ -76,10 +50,10 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
         'date' => array(),
         'range' => "",
     );
-    $CustomDay_1 = new DateTime($_POST['from_date']);
-    $CustomDay_2 = new DateTime($_POST['to_date']);
+    $CustomDay_1 = new DateTime(substr($_POST['from_date'],4,11));
+    $CustomDay_2 = new DateTime(substr($_POST['to_date'],4,11));
+    $clientId = $_POST['client'];
     $CustomData['range'] =  $CustomDay_1->format('d M Y') ." - ". $CustomDay_2->format('d M Y') ;
-    
     while ($CustomDay_2 >= $CustomDay_1) {
         $CustomDataValue = (int) fetchDataSql($clientId,$CustomDay_1->format('Y-m-d'), $CustomDay_1->format('Y-m-d'),2)[0]['SUM(caloriesconsumed)'];
     
@@ -93,6 +67,52 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
     echo ($CustomData);
     exit();
 }
+ob_start();
+include('navbar.php');
+$dietition = $_SESSION['name'];
+// Client Id
+if(isset($_GET['id'])){
+    $clientId = $_GET['id'];
+}else{ 
+    header(("Location: index.php}"));
+}
+
+// Goal Insertion
+if(isset($_POST['savegoal'])){
+    $client = $_POST['clientid'];
+    $goal =$_POST['setgoal'];
+    $conn = new mysqli("localhost", "root", "", "infits");
+
+    if($conn->connect_error){
+        die("Connection failed :" . $conn->connect_error);
+    }
+    $isSame =false;
+    $query = "SELECT `calorie` FROM `goals` WHERE `client_id` = {$client} AND `dietition_id` = '{$dietition}'";
+    $result = $conn->query($query) or die('Query Failed');
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            if($row['calorie'] == $goal){
+                $isSame = true;
+                break;
+            }
+        }
+    }
+    if(!$isSame){
+        $query = "UPDATE `goals` SET `calorie` = $goal WHERE `client_id` = $client";
+        $result = $conn->query($query) or die("Query Failed");
+        if($conn->affected_rows == 0){
+            $query="INSERT INTO `goals`(`dietition_id`, `client_id`, `calorie`) VALUES ('{$dietition}','{$client}','{$goal}')";
+            $result = $conn->query($query) or die("Query Failed");
+        }
+        
+        if($result){
+            unset($_POST["savegoal"]);
+            unset($_POST["setgoal"]);
+            header(("Location: track_stats_calorie.php?id={$clientId}"));
+        }
+    }
+}
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,7 +131,6 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
     <title>Document</title>
     
 </head>
-<?php include('navbar.php') ?>
 <style>
 
 .content{
@@ -123,7 +142,7 @@ tst-left-t{
     padding-left: 3%;
 }
 .heading{
-    width: 145px;
+    /* width: 145px; */
     height: 68px;
 
 }
@@ -161,24 +180,27 @@ margin-bottom: 15px;
 .client-card a{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 23px;
+    height: 65%;
+    margin-top: 15px;
 }
 .client-card-calorie{
 background: linear-gradient(37.35deg, #E2809B 0%, #EBD3C8 100%);
 }
 .client-card i{
-    scale: 1.5;
+    scale: 2;
 }
 .client-card a img {
     height: 30px;
     width: auto;
+    margin-bottom: -15px;
 }
 .client-card p{
 font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
 line-height: 1;
-font-size: 19px;
+font-size: 22px;
     margin: 0;
 }
 
@@ -195,7 +217,7 @@ background-color: #f1f1f1;
 border: 1px solid #F8F5F5;
 max-width: 365px;
 width: 100%;
-height: 27px;
+height: 31px;
 border-top-left-radius: 1em;
 border-bottom-left-radius: 1em;
 border-top-right-radius: 1em;
@@ -207,7 +229,7 @@ background: #FFFFFF;
 border: 1px solid #FCFBFB;
 border-radius: 0px;
 width: 24%;
-height: 24px;
+/* height: 24px; */
 float: left;
 border: none;
 outline: none;
@@ -279,11 +301,20 @@ border-bottom-right-radius: 1em;
     width: 100%;
     height: 100%;
 }
-.i-button {
+.i-button-box {
     position: absolute;
-    top: -4%;
-    right: -12%;
+    top: 1%;
+    right: -17%;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.i-button-box span{
+    font-family: 'NATS';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    color: #9C74F5;
 }
 .i-pop {
     background: #ffffff;
@@ -416,7 +447,7 @@ text-align: center;
     max-height: 57.45px; */
     height: 57.45px;
     /* width: 25%; */
-    width: 134px;
+    width: 150px;
     /* height: 100%; */
     background: #FFFFFF;
     border: 1px solid #F1F1F1;
@@ -439,14 +470,14 @@ text-align: center;
 font-size: 18px;
 line-height: 0;
 color: #5D5D5D;
-margin-left: 5px;
+margin-left: 10px;
 }
 .stat-data .value{
 font-size: 25px;
 line-height: 0;
 text-align: center;
 color: #000000;
-margin-left: 5px;
+margin-left: 20px;
 }
 .stat-data .unit{
 font-size: 17px;
@@ -591,7 +622,7 @@ margin-left: 5px;
 }
 .total-remaining{
     position: absolute;
-    bottom: -20px;
+    bottom: 0px;
     left: -110px;
 }
 .progress-circle{
@@ -654,43 +685,43 @@ margin-left: 5px;
 
             <div class="tst-left-t">
                 <div class="heading">
-                    <p>Clients Stats</p>
+                    <p style="margin-top: -15px;">Clients Stats</p>
                 </div>
                 <div class="card-container">
                 <div class="client-card" style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
-                        <a href="track_stats_steps.php">
+                        <a href="track_stats_steps.php?id=<?php echo($clientId) ?>">
                             <i class="fa-solid fa-shoe-prints" style="color:#FF6C6CCA; rotate: -90deg;"></i>
-                            <p style="color: #FF6C6CCA;">Step</p>
+                            <p style="color: #FF6C6CCA;">Steps</p>
                         </a>
                         </div>
                         <div class="client-card" style="color:#E266A9; border: 1px solid #E266A9;">
-                        <a href="track_stats_heart.php">
+                        <a href="track_stats_heart.php?id=<?php echo($clientId) ?>">
                             <i style="color:#E266A9;" class="fa-solid fa-heart-pulse"></i>
-                            <p style="color:#E266A9;">Heart Rate</p>
+                            <p style="color:#E266A9;">Heart<br>Rate</p>
                             </a>
                         </div>
                         <div class="client-card" style="color:#52A4FF; border: 1px solid #52A4FF;">
-                        <a href="track_stats_water.php">
+                        <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
                             <i style="color:#52A4FF;" class="fa-solid fa-droplet"></i>
                             <p style="color:#52A4FF;">Water</p>
                             </a>
                         </div>
                         <div class="client-card" style="color:#7D5DE6; border: 1px solid #7D5DE6;">
-                        <a href="track_stats_weight.php">
+                        <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                             <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i>
-                            <p style="color:#7D5DE6;">Weight Track</p>
+                            <p style="color:#7D5DE6;">Weight<br>Track</p>
                             </a>
                         </div>
                         <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
-                        <a href="track_stats_sleep.php">
+                        <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
                             <i style="color:#54AFAC;" class="fa-solid fa-moon"></i>
                             <p style="color:#54AFAC;">Sleep</p>
                             </a>
                         </div>
                         <div class="client-card client-card-calorie" style="color:#E3738D; border: 1px solid #E3738D;">
-                        <a href="track_stats_calorie.php">
+                        <a style="margin-top: 5px;" href="track_stats_calorie.php?id=<?php echo($clientId) ?>">
                             <img src="images/calorie_selected.svg" alt="">
-                            <p style="color:#FFFFFF;">Calorie Track</p>
+                            <p style="color:#FFFFFF;">Calorie<br>Track</p>
                             </a>
                         </div>
                 </div>
@@ -712,28 +743,40 @@ margin-left: 5px;
                     <div id="London" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChart"></canvas>
-                    <img class="i-button" src="./images/i-button.svg" alt="">
+                    <div class="i-button-box">
+                        <img class="i-button" src="./images/i-button.svg" alt="">
+                        <span>info</span>
+                    </div>
                     <div id="london_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Year" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartYearly"></canvas>
-                    <img class="i-button" src="./images/i-button.svg" alt="">
+                    <div class="i-button-box">
+                        <img class="i-button" src="./images/i-button.svg" alt="">
+                        <span>info</span>
+                    </div>
                     <div id="year_pop" class="i-pop"></div>
                     </div>
 
                     <div id="Month" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartMonthly"></canvas>
-                    <img class="i-button" src="./images/i-button.svg" alt="">
+                    <div class="i-button-box">
+                        <img class="i-button" src="./images/i-button.svg" alt="">
+                        <span>info</span>
+                    </div>
                     <div id="month_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Week" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartWeekly"></canvas>
-                    <img class="i-button" src="./images/i-button.svg" alt="">
+                    <div class="i-button-box">
+                        <img class="i-button" src="./images/i-button.svg" alt="">
+                        <span>info</span>
+                    </div>
                     <div id="week_pop" class="i-pop"></div>
                     </div>
                 
@@ -871,11 +914,11 @@ if(empty($calorieConsumed)){
 }else{
     $calorieConsumed = $calorieConsumed[0]['SUM(caloriesconsumed)'];
 }
-if(empty($progressBarData)){
+if(empty($progressBarData) OR $progressBarData[0]['calorie'] == 0 ){
     $currentGoal =  0;
     $progressPercent = 0;
 }else{
-    $currentGoal =  $progressBarData[0]['goal'];
+    $currentGoal =  $progressBarData[0]['calorie'];
     $progressPercent = round(($calorieConsumed / $currentGoal) * 100,2);
 }
 $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
@@ -1000,7 +1043,7 @@ if(<?php echo($month_pop) ?>){
 }
 
 if(<?php echo($week_pop) ?>){
-    week_pop.innerText = "As it is fresh year, we are showing you the previous week's data until the latest data is synced for the week!";
+    week_pop.innerText = "As it is fresh week, we are showing you the previous week's data until the latest data is synced for the week!";
 }else{
     week_pop.innerText = "We are showing you the ongoing week's data and it keeps updating realtime!";
 }
@@ -1021,8 +1064,8 @@ function CustomChart_Data(from_date,to_date){
     window.customChart.destroy();
     $.ajax({
         type: "POST",
-        url: "track_stats_calorie.php",
-        data: {from_date: from_date, to_date: to_date},
+        url: "track_stats_calorie.php?id=<?php echo ($clientId) ?>",
+        data: {client: <?php echo($clientId) ?> ,from_date: from_date, to_date: to_date},
         success: function(result) {
         london_pop.innerHTML = "We are showing you the data in range <br>"+ result['range'] +" !";
         window.customChart = new Chart(defaultChart, {
@@ -1107,7 +1150,8 @@ const fp = flatpickr("input[type = date-range]", {
         function(selectedDates){
             const Date_1 = new Date(selectedDates[0]);
             const Date_2 = new Date(selectedDates[1]);
-            CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
+            // CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
+            CustomChart_Data(selectedDates[0],selectedDates[1]);
         }
     ]
 });
@@ -1260,7 +1304,7 @@ new Chart(monthlyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-                stepSize:500,
+                // stepSize:500,
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,
@@ -1324,7 +1368,7 @@ new Chart(weeklyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-                stepSize:500,
+                // stepSize:500,
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,
