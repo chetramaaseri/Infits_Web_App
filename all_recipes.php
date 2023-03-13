@@ -1,15 +1,17 @@
 <?php
-include('navbar.php');
+include('navbar.php');?>
+<style>
+<?php
+include 'css/all_recipes.css'; 
 ?>
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/all_recipes.css">
 
     <!-- link ref -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -43,87 +45,52 @@ include('navbar.php');
 </head>
 
 <body>
-
     <br>
     <div class="header" style="">
-        <div style="font-size:3.5rem;margin-left:3rem ">Recipes</div>
-        <div style="margin-right:2rem;display:flex;gap:1.5rem">
+    <div class="heading">
+        <h1 style="margin-left:3rem ;font-family: 'NATS';font-style: normal;font-weight: 500;">Recipes</h1>
+    </div>
+        <div class="search" style="margin-right:2.2rem;display:flex;gap:1.5rem">
             <div class="searchbox">
-
                 <button style="background-color:white;border:none;" id="seabtn" name="seabtn"><img src="images/vec_search.png" alt=""></button>
-                <input type="search" name="sinput" placeholder="Search recipe here" style="border:none;font-size:1rem;margin-left:1rem">
+                <input type="search" name="sinput" placeholder="Search here" style="border:none;font-size:1.3rem;margin-left:1rem;width:200px;">
 
             </div>
         </div>
     </div>
 
-
+    
     <!-- breakfast lunch snacks dinner -->
-    <div class="grid-container" style="display:flex; flex-direction:row;justify-content:space-evenly; cursor:pointer; margin-left:10px;" id="myDIV" onscroll="myFunction()">
+    <div class="grid-container" id="myDIV" onscroll="myFunction()">
         <a href="recipe_breakfast.php" style="color: inherit;" class="breakfast" id="btn1">
-
-            <img src=".\images\breakfast.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header">Breakfast</div>
-                <div class="grid-text">Free menu planning
-                    to suit your needs</div>
-            </div>
-
-
-
-
+            <img src=".\images\Breakfast.png" style="float:right;margin-top:-20px;top-border-radius:20%">
         </a>
 
         <a href="recipe_lunch.php" style="color: inherit;" class="lunch" id="btn2">
-            <img src=".\images\lunch.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header">Lunch</div>
-                <div class="grid-text">Free menu planning
-                    to suit your needs</div>
-            </div>
-
+            <img src=".\images\Lunch.png" style="float:right; margin-top:-20px;">
         </a>
 
-
-
         <a href="recipe_snacks.php" style="color: inherit;" class="snacks" id="btn3">
-            <img src=".\images\snacks.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header">Snacks</div>
-                <div class="grid-text">Free menu planning
-                    to suit your needs</div>
-            </div>
+            <img src=".\images\snack.png" style="float:right; margin-top:-20px;">
         </a>
 
         <a href="recipe_dinner.php" style="color: inherit;" class="dinner" id="btn4">
-            <img src=".\images\dinner.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header">Dinner</div>
-                <div class="grid-text">Free menu planning
-                    to suit your needs</div>
-            </div>
-
+            <img src=".\images\Dinner.png" style="float:right; margin-top:-20px;">
         </a>
     </div>
 
 
-
-
-
     <!-- all recipes -->
-    <div class="middle_wrapper" style="display:flex;justify-content:space-between;margin:20px;margin-left:17rem;margin-right:2.5rem">
-        <span style="font-size:25px;font-weight:400; margin-left:20px">ALL Recipes</span>
-        <a href="all_recipe_list.php" style="background-color:none;border:nome;color: #6A6A6A;font-size:20px">View All</a>
-
+    <div class="middle_wrapper" style="display:flex;justify-content:space-between;margin-top:20px;margin-left:5rem;margin-right:2.5rem">
+        <h3 class="recipe" style="font-weight:500;margin-left:20px;color:black">All Recipes</h3>
+        <a href="all_recipe_list.php" style="background-color:none;border:nome;color: #6A6A6A;font-size:20px"><h3>View All</h3></a>
     </div>
-
-
     <?php
     $sql = "SELECT * FROM `default_recipes`";
     $res = mysqli_query($conn, $sql);
     ?>
 
-    <div class="flex row">
+    <div class="flex row" >
         <?php $counter = 0;
         while ($d = mysqli_fetch_assoc($res)) {
             $drecipe_recipe = explode(',', $d['drecipe_recipe']);
@@ -163,7 +130,7 @@ include('navbar.php');
 
                             <div id="myDropdownContent" class="dropdown-content dropdown-card ">
                                 <a style="color: white;" class="edit-button" href="#">Edit</a>
-                                <a style="color: white;" class="delete-button" href="#">Delete</a>
+                                <a onclick="return confirm('Are you sure to delete this?')" style="color: white;" class="delete-button" href="delete-recipe.php?recid=<?php echo $d['drecipe_id']; ?>">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -221,7 +188,7 @@ include('navbar.php');
 
 
         <div class="recipe-add-btn" style="padding-right:100px">
-            <img src="./images/recipe_add.png" alt="">
+            <img src="./images/create_recipe.png" alt="">
         </div>
     </div>
 

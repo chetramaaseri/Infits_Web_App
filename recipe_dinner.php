@@ -46,13 +46,14 @@ include('navbar.php');
 
     <br>
     <div class="header" style="">
-        <div style="font-size:3.5rem;margin-left:3rem ">Recipes</div>
-        <div style="margin-right:2rem;display:flex;gap:1.5rem">
+        <div class="heading" style="display:flex;justify-content:space-between;margin-top:-5px">
+            <h2 style="margin-left:20px;font-weight:500">Recipes</h2>
+            <h4 style="margin-top:30px;margin-left:25px;color:#787885;">Dinner</h4>
+        </div>
+        <div class="search" style="margin-right:2.2rem;display:flex;gap:1.5rem">
             <div class="searchbox">
-
                 <button style="background-color:white;border:none;" id="seabtn" name="seabtn"><img src="images/vec_search.png" alt=""></button>
-                <input type="search" name="sinput" placeholder="Search recipe here" style="border:none;font-size:1rem;margin-left:1rem">
-
+                <input type="search" name="sinput" placeholder="Search here" style="border:none;font-size:1.3rem;margin-left:1rem;width:200px;">
             </div>
         </div>
     </div>
@@ -63,69 +64,44 @@ include('navbar.php');
     <!-- breakfast lunch dinner -->
     <div class="grid-container" style="display:flex; flex-direction:row;justify-content: space-around; cursor:pointer;" id="myDIV1" onscroll="myFunction()">
         <a href="all_recipes.php" style="color: inherit;" class="breakfast" id="btn1">
-
-            <img src="./images/recipe_all.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header white">All Recipe</div>
-                <div class="grid-text lwhite">Free menu planning
-                    to suit your needs</div>
-            </div>
+            <img src="./images/Lunch1.png" style="float:right; margin-top:-20px;">
         </a>
 
-        <a href="#" style="color: inherit;" class="lunch" id="btn2">
-            <img src="./images/recipe_all_time_fav.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header white">All time fav</div>
-                <div class="grid-text lwhite">Free menu planning
-                    to suit your needs</div>
-            </div>
-
+        <a href="all_recipes.php" style="color: inherit;" class="lunch" id="btn2">
+            <img src="./images/lunch 2.png" style="float:right; margin-top:-20px;">
         </a>
 
-
-
-        <a href="#" style="color: inherit;" class="snacks" id="btn3">
-            <img src="./images/recipe_recomended.png" style="float:right; margin-top:-20px;">
-            <div class="img-container">
-                <div class="grid-header white">Recommended</div>
-                <div class="grid-text lwhite">Free menu planning
-                    to suit your needs</div>
-            </div>
+        <a href="all_recipes.php" style="color: inherit;" class="snacks" id="btn3">
+            <img src="./images/lunch 3.png" style="float:right; margin-top:-20px;">
         </a>
-
-
     </div>
 
 
-    <div class="middle_wrapper" style="display:flex;justify-content:flex-start;margin:20px;margin-left:17rem;margin-right:2.5rem">
+    <div class="category" style="display:flex;justify-content:flex-start;margin:20px;margin-right:2.5rem">
 
         <div class="filter-outline" style="display:flex; justify-content:space-between; align-items:center; margin:5px; margin-left:20px;">
-            <div style="padding:15px 30px; 
-color: #B85AEC;">Oats</div>
-            <img class="filter-line" style="padding:5px;" src="./images/recipe_default.png" alt="">
+            <div style="padding:15px 30px; color: #B85AEC;">Noodles</div>
+            <img class="filter-line" style="padding:8px;" src="./images/Noodles.png" alt="">
         </div>
         <div class="filter-outline" style="display:flex; justify-content:space-between; align-items:center; margin:5px; margin-left:20px;">
-            <div style="padding:15px 30px; 
-color: #B85AEC; ">Oats</div>
-            <img class="filter-line" style="padding:5px;" src="./images/recipe_default.png" alt="">
+            <div style="padding:15px 30px; color: #B85AEC; ">Soup</div>
+            <img class="filter-line" style="padding:10px;" src="./images/Soup.png" alt="">
         </div>
         <div class="filter-outline" style="display:flex; justify-content:space-between; align-items:center; margin:5px; margin-left:20px;">
-            <div style="padding:15px 30px;
-color: #B85AEC; ">Oats</div>
-            <img class="filter-line" style="padding:5px;" src="./images/recipe_default.png" alt="">
+            <div style="padding:15px 30px;color: #B85AEC; ">Curd</div>
+            <img class="filter-line" style="padding:10px;" src="./images/Curd.png" alt="">
         </div>
-
-
-
-
+        <div class="filter-outline" style="display:flex; justify-content:space-between; align-items:center; margin:5px; margin-left:20px;">
+            <div style="padding:15px 30px;color: #B85AEC; ">Paratha</div>
+            <img class="filter-line" style="padding:10px;" src="./images/Parantha.png" alt="">
+        </div>
     </div>
 
 
     <!-- all recipes -->
-    <div class="middle_wrapper" style="display:flex;justify-content:space-between;margin:20px;margin-left:17rem;margin-right:2.5rem">
-        <span style="font-size:25px;font-weight:400; margin-left:20px">ALL Recipes</span>
-        <a href="recipe_all_dinner.php" style="background-color:none;border:nome;color: #6A6A6A;font-size:20px">View All</a>
-
+    <div class="middle_wrapper" style="display:flex;justify-content:space-between;margin-top:20px;margin-left:5rem;margin-right:2.5rem">
+        <h3 class="recipe" style="font-weight:500;margin-left:20px;color:black">All Recipes</h3>
+        <a href="all_recipe_list.php" style="background-color:none;border:nome;color: #6A6A6A;font-size:20px"><h3>View All</h3></a>
     </div>
 
     <!-- recipes from db -->
@@ -189,7 +165,9 @@ color: #B85AEC; ">Oats</div>
             </div>
         <?php } ?>
     </div>
-
+    <div class="recipe-add-btn" style="padding-right:100px">
+            <img src="./images/recipe_add.png" alt="">
+    </div>
 
 
     <script>
@@ -200,8 +178,6 @@ color: #B85AEC; ">Oats</div>
             document.getElementById("demo").innerHTML = "Horizontally: " + x.toFixed() + "<br>Vertically: " + y.toFixed();
         }
 
-
-       
         function showDropdown(event) {
             var dropdown = event.currentTarget.parentNode.querySelector(".dropdown-content");
             dropdown.classList.toggle("show");
