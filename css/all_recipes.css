@@ -5,11 +5,9 @@
         font-style: normal;
     }
     
-     ::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
+    ::placeholder {
         color: #bbbbbb;
         opacity: 1;
-        /* Firefox */
     }
     
     body {
@@ -30,7 +28,7 @@
     .searchbox {
         width: auto;
         width: 360px;
-        height: 45px;
+        height: 50px;
         background: #ffffff;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -47,60 +45,22 @@
     }
     
     .grid-container {
-        display: relative;
-        flex-direction: row !important;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin-top: 34px;
+        margin-left: 250px;
         gap: 2rem;
-        display: flex;
-        justify-content: space-between;
-        margin: 40px;
-        margin-right: -40px;
-        padding: 30px;
-        /* margin-left: 100px; */
-    }
-    
-    .img-container {
-        position: relative;
-    }
-    
-    .grid-header {
-        position: absolute;
-        margin-top: 2rem;
-        margin-left: 1rem;
-        font-family: NATS;
-        font-size: 35px;
-        font-weight: 400;
-        line-height: 31px;
-        letter-spacing: 0em;
-        text-align: left;
-    }
-    
-    .grid-text {
-        font-family: "NATS";
-        font-style: normal;
-        position: absolute;
-        margin-top: 5rem;
-        margin-left: 1rem;
-        font-family: NATS;
-        font-weight: 400;
-        line-height: 17px;
-        letter-spacing: 0em;
-        text-align: left;
-        color: #6a6a6a;
-        font-size: 19.1321px;
-        line-height: 88%;
-        display: flex;
-        align-items: center;
-        width: 150px;
-    }
+        width: auto;
+        height: max-content;
+        padding: 40px 3px;
+        overflow-x: scroll;
+}
     
     #myDIV {
-        padding-left: 350px;
-        overflow: auto;
-        width: auto;
+        margin-right: 0px;
     }
     
     #myDIV1 {
-        /* padding-left: 350px; */
         overflow: auto;
         width: auto;
     }
@@ -109,7 +69,7 @@
         background: #FFFFFF;
         border-radius: 15.8334px;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-        margin: 20px;
+        margin: 60px;
     }
     
     .card-upper-text {
@@ -124,7 +84,6 @@
         font-size: 12px;
         line-height: 18px;
     }
-    
     .card-food {
         font-size: 20px;
         font-weight: 500;
@@ -157,8 +116,6 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 18px;
-        /* identical to box height */
-        /* color: #FFFFFF; */
         color: #9C74F5;
     }
     
@@ -240,15 +197,167 @@
     .lwhite {
         color: rgba(255, 255, 255, 0.9);
     }
-    
-    @media screen and (max-width: 720px) {
-        .searchbox {
-            width: auto;
-        }
-        .header {
-            display: flex;
+
+    /* @media only screen and (max-width:300px){
+        .header{
             flex-direction: column !important;
-            margin: 10px;
-            margin-left: 20px;
+            margin-top: 20px;
         }
+
+        .header .heading h2{
+            font-size: 90px;
+            margin-top: 16px;
+        }
+        .header .heading h4{
+            font-size: 50px;
+            margin-right:300px;
+            margin-bottom: 60px;
+        }
+
+        .header .search{
+            width: 100%;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        .header .search .searchbox{
+            width: 400px;
+        }
+        .header .search .searchbox input{
+            font-size: 1.4rem;
+            margin-bottom: 90px;
+            margin-left: 10px;
+            width: 50px;
+        }
+
+        .grid-container{
+            width: 300%;
+            margin-left: 60px;
+        }
+
+        .breakfast-container{
+            width: 300%;
+            margin-right: -820px;
+        }
+
+        .category{
+            width: 100%;
+            margin-left: -300px;;
+            margin-right: 19rem;
+        }
+
+        .category > .filter-outline:hover{
+            background-color: #B85AEC;
+            color:#FFFFFF;
+
+        }
+        .middle_wrapper{
+            width: 370%;
+        }
+
+        .middle_wrapper h3{
+            font-size: 70px;
+        }
+
+        .flex{
+            border: 2px solid red;
+            display: flex;
+            flex-direction: row;
+            width: 800px;
+            margin-left: 260px;
+        }
+
+        .card{
+            margin-left: 180px;
+            width: 600px;
+            height: 300px;
+        }
+
+        .recipe-add-btn{
+            width: 380%;
+            margin-left: 60px;
+            margin-top: 130rem;
+        }
+
+    } */
+
+    @media only screen and (min-width:300px) and (max-width:600px){
+        .header{
+            flex-direction: column !important;
+            margin-top: 20px;
+        }
+
+        .grid-container{
+        grid-template-columns: auto auto auto auto;
+        margin: 34px 10px;
+        gap: 1.5rem;
+        }
+
+        .category{
+            width:100%;
+            overflow-x:scroll
+        }
+
+
+
+        /* .header .heading h2{
+            font-size: 90px;
+            margin-top: 16px;
+        }
+
+        .header .heading h4{
+            font-size: 50px;
+            margin-right:300px;
+            margin-bottom: 60px;
+        }
+
+        .header .search{
+            width: 300%;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        .header .search .searchbox{
+            width: 400px;
+        }
+        .header .search .searchbox input{
+            font-size: 2rem;
+        } */
+
+        /* .grid-container{
+            margin-left: 60px;
+        }
+
+        .breakfast-container{
+            width: 300%;
+            margin-right: -820px;
+        }
+
+        .category{
+            width: 100%;
+            margin-left: -300px;;
+            margin-right: 19rem;
+        }
+
+        .middle_wrapper{
+            width: 370%;
+        }
+
+        .middle_wrapper h3{
+            font-size: 70px;
+        }
+
+
+        .flex{
+            display: flex;
+            flex-direction: row;
+            width: 1400px;
+        }
+
+        .recipe-add-btn{
+            width: 380%;
+            margin-left: 100px;
+            margin-top: 130rem;
+        } */
     }
+
