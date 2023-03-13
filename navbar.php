@@ -1,15 +1,15 @@
 <?php if (session_status() === PHP_SESSION_NONE) { session_start(); }
 include('config.php');
-  if (!isset($_SESSION['name'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
+if (!isset($_SESSION['name'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
 
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['name']);
-  	header("location: login.php");
-  }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    header("location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -136,6 +136,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: auto;
     padding-top: 1vh;
     border-bottom: #E8ECF5 2px solid;
 }
@@ -218,17 +219,50 @@ a {
 
 @media screen and (min-width: 720px) {
 
-    /* Styles go here */
-    .mobile-menu {
-        display: none;
-    }
+/* Styles go here */
+.mobile-menu {
+    display: none;
+}
 }
 
 @media (min-width: 0px) and (max-width: 720px) {
-    .sidenav {
-        display: none;
-    }
+.sidenav {
+    display: none;
 }
+}
+
+@media only screen and (max-width:300px){
+        .sidenav {
+            display: none;
+        }
+
+        .topnav{
+            width: 350%;
+            border-bottom: 4px solid #E8ECF5;
+        }
+
+        #topnav-content-1{
+            font-size: 70px;
+        }
+
+        #topnav-content-2{
+            font-size: 60px;
+        }
+
+    }
+
+
+    @media only screen and (min-width:300px) and (max-width:600px){
+        .sidenav {
+            display: none;
+        }
+
+        .topnav{
+            width:120%;
+            border-bottom: 4px solid #E8ECF5;
+        }
+
+    }
 
 /*--------------------- MOBILE SIDENAV---------------------*/
 /*HAMBURGER MENU*/
@@ -286,7 +320,6 @@ a {
     border-radius: 20px;
     background: #FFFFFF;
     padding: 15px 20px;
-
     display: none;
     /* transition: 0.3s ease-in-out; */
     /* animation: slideDown 1s forwards; */
@@ -376,11 +409,12 @@ a {
                 <strong>
                     <?php
 
-                     $id11 = $_SESSION['dietitianuserID'] ;
+                    $id11 = $_SESSION['dietitianuserID'] ;
                     $sql1 = "SELECT name FROM dietitian WHERE dietitianuserID ='$id11'";
                     $res = mysqli_query($conn,$sql1);
-                    $row = mysqli_fetch_assoc($res) ; 
-                    echo $row['name'];
+                    $user = mysqli_fetch_array($res, MYSQLI_ASSOC);
+                    // $row = mysqli_fetch_assoc($res) ; 
+                    echo ($_SESSION['dietitianuserID']);
                     ?>
                 </strong></span></p>
             <p id="topnav-content-2">Your performance summary this week</p>
@@ -388,13 +422,25 @@ a {
         <div class="topnav-icons">
             <img src="images/pp.png" style="height: 24px; width: 24; display:none;" id="addusermale">
 
-            <img src="images/vec_search.png" style="height: 20px; width: 20px;">
-            <img id="notifications-pop" src="images/vec_notification.png" style="height: 20px; width: 20px;">
+            <!-- <img src="images/vec_search.png" style="height: 20px; width: 20px;" class="sea"> -->
+        <!-- <div style="margin-right:2rem;display:flex;gap:1.5rem">
+            <div class="searchbox">
+                <form action="searching.php" method="POST">
+                    <input type="text" name="search" placeholder="Search here" style="border:none;font-size:1rem;margin-left:1rem">
+                    <button><img src="images/vec_search.png" alt=""></button>
+            </div>
+        </div> -->
 
+            <div class="search-box">
+                <form action="search_results.php" method="POST">
+                    <input type="text" name="search" placeholder="Type to search">
+                    <button onclick="mysearchFunc()" style="border-style:none;background:white;"><img src="images/vec_search.png" style="height: 20px; width: 20px;" class="sea"></button>
+            </div>
+            <img id="notifications-pop" src="images/vec_notification.png" style="height: 20px; width: 20px;">
             <div class="noti-box">
                 <div class="top"><span>Notifications</span><span id="noti-close">x</span></div>
                 <div class="notifications">
-                    <!-- noti -->
+                    <!-- noti-->
                     <div class="notification">
                         <img src="./upload/pp.jpg" alt="">
                         <div class="noti-description">
@@ -525,7 +571,7 @@ a {
             <a href="#"><img src="images/vec_settings.png">&nbsp&nbsp Settings</a>
             <a href="#"><img src="images/vec_logout.png">&nbsp&nbsp Log Out</a>
         </div>
-        <span style="font-size:20px;cursor:pointer; margin: 5px;" onclick="openNav()">&#9776; Menu</span>
+        <span style="font-size:60px;cursor:pointer; margin: 5px;" onclick="openNav()" id="navbar-res">&#9776;</span>
     </div>
     <script>
     function openNav() {
@@ -566,6 +612,11 @@ a {
     console.log(lastPage);
     // document.getElementById(lastPage).classList.add('navactive');
     document.getElementsByClassName('nav-' + lastPage)[0].classList.add('navactive');
+
+    // function mysearchFunc{
+        
+        
+    // }
     </script>
 </body>
 
