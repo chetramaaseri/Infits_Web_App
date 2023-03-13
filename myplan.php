@@ -39,13 +39,14 @@
         background: #FFFFFF;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
+       
     }
 
     .cards {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
         display: grid;
-        gap: 1rem;
+        gap: 1.5rem;
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     }
 
@@ -100,6 +101,7 @@
 
     .search-box {
         border: none !important;
+       
 
     }
 
@@ -110,6 +112,7 @@
     .search-icon {
         border: none;
         background: white;
+        padding: 0 10px;
 
     }
 
@@ -119,6 +122,14 @@
         float: right;
         /* padding: 2px; */
         border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        width:40%;
+        right: 20%;
+       left:70%;
+       background: #FFFFFF;
+       border: 2px solid #E1E1E1;
+    
     }
 
     a:hover {
@@ -140,9 +151,7 @@
         background-color: lightblue;
     }
 
-    #display {
-        z-index: 10 !important;
-    }
+    
     
     #btn1{
     border: none;
@@ -163,6 +172,8 @@
         font-size:35px !important;
     }
 }
+
+
     </style>
     <script>
     $(document).ready(function() {
@@ -182,12 +193,13 @@ include "navbar.php";
     <div class="row" style="padding:1rem;">
         <div class="col-6" id="heading"style="font-weight:400;font-size:48px;color:black !important">Diet Plans</div>
         <div class="col-6" style="text-align:right">
-            <div class="card-body">
-                <form method="POST" class="search-form form-inline" style="width:200px;display:inline-block;">
-                    <input type="text" placeholder="Search plan" class="search-box form-control w-75" id="search"
-                        name="search">
-                    <button type="submit" id="btn_search" class="search-icon" name="search-btn"><i
+            <div class="card-body dig">
+                <form method="POST" class="search-form form-inline " >
+                <button type="submit" id="btn_search" class="search-icon" name="search-btn"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search plan" class="search-box form-control w-75" id="search"
+                        name="search" >
+                    
                     <div id="display">
                     </div>
                 </form>
