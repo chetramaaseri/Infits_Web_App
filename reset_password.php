@@ -1,4 +1,5 @@
-<?php include('config.php'); ?>
+<?php include('config.php'); 
+error_reporting(0);?>
 <?php session_start(); ?>
 
 <!------------------resend password---------------->
@@ -7,14 +8,14 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     
-    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\PHPMailer.php';
-    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\SMTP.php';
-    require 'C:\xampp\htdocs\Linking_branch\infits\PHPMailer\PHPMailer-master\src\Exception.php';
+    require 'C:\xampp\htdocs\Infits_Web_App\PHPMailer\PHPMailer-master\src\PHPMailer.php';
+    require 'C:\xampp\htdocs\Infits_Web_App\PHPMailer\PHPMailer-master\src\SMTP.php';
+    require 'C:\xampp\htdocs\Infits_Web_App\PHPMailer\PHPMailer-master\src\Exception.php';
 
       if(isset($_POST['resend_otp']))
          {
     $otp = rand(100000,999999);
-   $email = $_SESSION['mail'];
+    $email = $_SESSION['mail'];
     //echo $otp;
     
     $mail = new PHPMailer();
@@ -31,7 +32,7 @@
     //Receipents
     
     $mail->setFrom('<email>','<app password>');
-     $mail->addAddress($email);     //Add a recipient
+    $mail->addAddress($email);     //Add a recipient
     
       //Attachments
     // $mail->addAttachment('/file');         //Add attachments

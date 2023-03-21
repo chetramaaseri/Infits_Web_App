@@ -1,10 +1,10 @@
 <?php
 include "navbar.php";
-$id = $_SESSION["name"];
+$name = $_SESSION["name"];
+$id = substr($name, 0, -4);
 $sql = "SELECT * FROM dietitian Where dietitianuserID ='$id' ";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
-$name =  explode(" ", $row['name'] );
 ?>
 <!DOCTYPE HTML>
 <html lang="en" dir="ltr">
@@ -370,8 +370,9 @@ border-radius: 18px;
         </div> -->
     </div>
     <div>
-        <button class="logout">Logout</button>
-        
+        <form action="logout.php">
+            <button tupe="submit" class="logout">Logout</button>
+        </form>
     </div>
     </div>
 <!--------------------------------------------------MOBVIEW------------------------------>
