@@ -1,4 +1,4 @@
-let handleMemberJoined = async(MemberId) => {
+let handleMemberJoined = async (MemberId) => {
     console.log('A new member has joined the room:', MemberId)
     addMemberToDom(MemberId)
 
@@ -9,7 +9,7 @@ let handleMemberJoined = async(MemberId) => {
     addBotMessageToDom(`Welcome to the room ${name}! 👋`)
 }
 
-let addMemberToDom = async(MemberId) => {
+let addMemberToDom = async (MemberId) => {
     let { name } = await rtmClient.getUserAttributesByKeys(MemberId, ['name'])
 
     let membersWrapper = document.getElementById('member__list')
@@ -21,19 +21,19 @@ let addMemberToDom = async(MemberId) => {
     membersWrapper.insertAdjacentHTML('beforeend', memberItem)
 }
 
-let updateMemberTotal = async(members) => {
+let updateMemberTotal = async (members) => {
     let total = document.getElementById('members__count')
     total.innerText = members.length
 }
 
-let handleMemberLeft = async(MemberId) => {
+let handleMemberLeft = async (MemberId) => {
     removeMemberFromDom(MemberId)
 
     let members = await channel.getMembers()
     updateMemberTotal(members)
 }
 
-let removeMemberFromDom = async(MemberId) => {
+let removeMemberFromDom = async (MemberId) => {
     let memberWrapper = document.getElementById(`member__${MemberId}__wrapper`)
     let name = memberWrapper.getElementsByClassName('member_name')[0].textContent
     addBotMessageToDom(`${name} has left the room.`)
@@ -41,7 +41,7 @@ let removeMemberFromDom = async(MemberId) => {
     memberWrapper.remove()
 }
 
-let getMembers = async() => {
+let getMembers = async () => {
     let members = await channel.getMembers()
     updateMemberTotal(members)
     for (let i = 0; members.length > i; i++) {
@@ -49,7 +49,7 @@ let getMembers = async() => {
     }
 }
 
-let handleChannelMessage = async(messageData, MemberId) => {
+let handleChannelMessage = async (messageData, MemberId) => {
     console.log('A new message was received')
     let data = JSON.parse(messageData.text)
 
@@ -71,7 +71,7 @@ let handleChannelMessage = async(messageData, MemberId) => {
     }
 }
 
-let sendMessage = async(e) => {
+let sendMessage = async (e) => {
     e.preventDefault()
 
     let message = e.target.message.value
@@ -81,7 +81,7 @@ let sendMessage = async(e) => {
 }
 
 let addMessageToDom = (name, message) => {
-    let messagesWrapper = document.getElementById('messages')
+    let messagesWrapper = document.getElementById('_messages')
 
     let newMessage = `<div class="message__wrapper">
                         <div class="message__body">
@@ -92,7 +92,7 @@ let addMessageToDom = (name, message) => {
 
     messagesWrapper.insertAdjacentHTML('beforeend', newMessage)
 
-    let lastMessage = document.querySelector('#messages .message__wrapper:last-child')
+    let lastMessage = document.querySelector('#_messages .message__wrapper:last-child')
     if (lastMessage) {
         lastMessage.scrollIntoView()
     }
@@ -100,7 +100,7 @@ let addMessageToDom = (name, message) => {
 
 
 let addBotMessageToDom = (botMessage) => {
-    let messagesWrapper = document.getElementById('messages')
+    let messagesWrapper = document.getElementById('_messages')
 
     let newMessage = `<div class="message__wrapper">
                         <div class="message__body__bot">
@@ -111,13 +111,13 @@ let addBotMessageToDom = (botMessage) => {
 
     messagesWrapper.insertAdjacentHTML('beforeend', newMessage)
 
-    let lastMessage = document.querySelector('#messages .message__wrapper:last-child')
+    let lastMessage = document.querySelector('#_messages .message__wrapper:last-child')
     if (lastMessage) {
         lastMessage.scrollIntoView()
     }
 }
 
-let leaveChannel = async() => {
+let leaveChannel = async () => {
     await channel.leave()
     await rtmClient.logout()
 }
