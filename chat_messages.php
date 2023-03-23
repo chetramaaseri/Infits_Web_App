@@ -312,7 +312,7 @@ if (isset($_SESSION['dietitianuserID'])) {
 
                         <form id="form_input" action="app/ajax/upload.php" method="post" enctype="multipart/form-data">
 
-                            <label for="file-input" class="file-input-label" style="margin-left: 20px">
+                            <label for="file-input" class="file-input-label" style="margin-left: 20px; cursor: pointer;">
                                 <i class="fa fa-paperclip "></i>
                             </label>
                             <input type="file" id="file-input" name="my_image" class="hide_input" style="position: absolute;top: 0;
@@ -327,9 +327,8 @@ if (isset($_SESSION['dietitianuserID'])) {
                         </form>
 
                         <input type="text" id="message" class="form-control rounded-pill m-3 align-items-center " style="height: 50px;" ></input>
-                        <button class="btn text-primary " styles="color: #0177FD!importtant;" id="sendBtn">
-                            Send Message1
-
+                        <button type="submit" class="btn text-primary " styles="color: #0177FD!importtant;" id="sendBtn">
+                            Send Message
                         </button>
                     </div>
                 </div>

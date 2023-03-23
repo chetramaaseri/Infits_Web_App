@@ -2,6 +2,7 @@
 ob_start();
 // session_start();
 include 'navbar.php';
+error_reporting(0);
 
 // die();
 if (isset($_SESSION['dietitianuserID'])) {
