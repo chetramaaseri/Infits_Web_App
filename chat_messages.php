@@ -327,8 +327,9 @@ if (isset($_SESSION['dietitianuserID'])) {
                         </form>
 
                         <input type="text" id="message" class="form-control rounded-pill m-3 align-items-center " style="height: 50px;" ></input>
-                        <button type="submit" class="btn text-primary " styles="color: #0177FD!importtant;" id="sendBtn">
+                        <button class="btn text-primary " styles="color: #0177FD!importtant;" id="sendBtn">
                             Send Message
+
                         </button>
                     </div>
                 </div>

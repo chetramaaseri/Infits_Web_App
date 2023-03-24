@@ -1,14 +1,19 @@
 <?php
+error_reporting(0);
 ob_start();
 // session_start();
 include 'navbar.php';
-error_reporting(0);
 
 // die();
 if (isset($_SESSION['dietitianuserID'])) {
+    $user=$_SESSION['dietitianuserID'];
+    $sql="SELECT * FROM messages where dietitianID='$user'";
+    $result=$conn->query($sql);
+    if(mysqli_num_rows($result)<1){
+        header('Location:message.php');
+    }
     # database connection file
     include 'app/db.conn.php';
-
     include 'app/helpers/user.php';
     include 'app/helpers/conversations.php';
     include 'app/helpers/timeAgo.php';

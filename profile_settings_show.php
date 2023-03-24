@@ -1,8 +1,8 @@
 <?php 
  include "navbar.php";
     $name = $_SESSION['name'];
-    $currentUser = substr($name, 0, -4);
-    $query = "select * from `dietitian` where `dietitianuserID` = '$currentUser' ";
+    // $currentUser = substr($name, 0, -4);
+    $query = "select * from `dietitian` where `dietitianuserID` = '$name' ";
     $result = mysqli_query($conn, $query); // Use curly braces to access array members inside strings
     if($result->num_rows > 0){ 
       while($row = $result->fetch_assoc()){

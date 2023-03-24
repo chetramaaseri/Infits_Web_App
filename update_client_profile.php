@@ -105,20 +105,22 @@ input {
                     <?php
 
 $client_id = $_GET['client_id'];
-// echo $id ;
+
 $sql = "SELECT * from `addclient` where client_id='$client_id'";
 $result = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($result)){
-            $plan_id = $row["plan_id"] ;
-
-                        $sql1 = "SELECT * FROM create_plan WHERE `plan_id`= $plan_id";
-                        $result1 = mysqli_query($conn, $sql1);
-                        $row1 = mysqli_fetch_assoc($result1);
-                        $date1 = strtotime($row1["start_date"]);
-                        $date2 = strtotime($row1["end_date"]);
-                        $months = 0;
+                    $plan_id = $row["plan_id"] ;
+                    $sql1 = "SELECT * FROM create_plan WHERE `plan_id`= $plan_id";
+                    $sql2 = "SELECT * FROM client WHERE client_id = $client_id";
+                    $result1 = mysqli_query($conn, $sql1);
+                    $result2 = mysqli_query($conn, $sql2);
+                    $row1 = mysqli_fetch_assoc($result1);
+                    $row2 = mysqli_fetch_assoc($result2);
+                    $date1 = strtotime($row1["start_date"]);
+                    $date2 = strtotime($row1["end_date"]);
+                    $months = 0;
                         
-                        while (($date1 = strtotime('+1 MONTH', $date1)) <= $date2)
+                while (($date1 = strtotime('+1 MONTH', $date1)) <= $date2)
                             $months++;
             // echo;
         ?>
@@ -185,13 +187,14 @@ border-radius: 8px;">Select</a>
                             </div>
                             <div class="col">
                                 <div class="row">Location</div>
-                                <input type="text" class="row input-tag" value="<?php echo $row['location']; ?>">
+                                <input type="text" class="row input-tag" value="<?php echo $row2['location']; ?>">
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center align-items-center">
 
-                            <button type=" submit" class="editBtn" name="edit_client" style="width:20%;
-    margin-top:30px"><a href="client_profile.php?client_id=<?php echo $client_id?>">Confirm Edit</a></button>
+                            
+
+                            <a class="editBtn" name="edit_client" style="width:20%;margin-top:20px;text-align:center" href="client_profile.php?client_id=<?php echo $client_id?>">Confirm Edit</a>
 
 
                         </div>
