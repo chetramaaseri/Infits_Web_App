@@ -197,19 +197,58 @@ function fetchInformation($client_id){
 	gap: 1rem;
 	margin-right: 25px;
 	margin-top: 10px;
+    /* -webkit-transform: translateZ(0); */
+    
 }
 .btn-add {
     width: 50px;
     height: 50px;
     display: flex;
+    /* gap: 2rem; */
     justify-content: center;
     align-items: center;
+    transform: rotate(45deg) translateX(20px);
+    
 }
+/* .addbutton:active{
+    animation: bounce 0.5s ease-in-out;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+} */
+
+
+
 .addbutton{
     margin-top:0.5rem;
+    display: flex;
+    justify-content: space-between;
+    
+    /* box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15); */
+    
+    /* transition: transform 0.2s;
+    transform: scale(0.9); */
 }
 #addbutton{
     display:none;
+   
+
+    /* transition: transform 0.2s;
+    transform: scale(0.9); */
+    
+    /* justify-content: space-between;
+    flex-direction: column;
+    width: 100px;
+    height:60px;
+    gap: 2rem; */
 }
 #btn1{
     border: none;
@@ -224,12 +263,16 @@ function fetchInformation($client_id){
 }
 #addbtn{
     border-radius:0.7rem;
+    /* gap: 5rem; */
     background-color:white;
     box-shadow: 1px 1px 2px 1px  rgba(0, 0, 0, 0.25);
     border:none;
     padding:0.5rem;
     padding-left:2.5rem;
     padding-right:2.5rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    
    
 
 
@@ -331,8 +374,11 @@ function fetchInformation($client_id){
 }
 .details {
     /* margin-left: 45rem; */
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
     border: none;
-    margin-right: 4rem;
+    margin-right: 2rem;
     font-size: 20px;
 }
 .dashboard_container3 {
@@ -393,18 +439,25 @@ function fetchInformation($client_id){
 }
 .dashboard_container5{
     display: flex;
+    /* flex-direction: column; */
     /* gap: 14rem; */
     justify-content: space-between;
+    /* align-items: center; */
+    /* width: 50%; */
     margin-top: 1rem;
     margin-bottom: 5rem;
-    margin-right:4rem;
-}
+    margin-right:4rem; 
+} 
 .tasklist{
     display: flex;
+    /* flex-direction: row; */
     gap: 16rem;
+    /* margin-left:1rem; */
 }
 .list_tasklist{
     padding: 1rem;
+    /* margin-left: 30%; */
+    /* margin-left: 1rem; */
 }
 #btn6{
     border: none;
@@ -460,17 +513,17 @@ function fetchInformation($client_id){
 }
 
 .list_tasklist {
-    width: auto;
+    width: 100%;
     background-color: #FDFDFD;
     border: 1px solid  #e4e1e1;
     border-radius: 0.6rem;
-    margin-left: 2rem;
+    margin-left: 0rem;
 }
 
 .tasklist_wrapper2{
     display: flex;
     flex-direction: column;
-    font-size: 1em;
+    font-size: 1rem;
 }
 .tasklist_wrapper3{
     margin-left: 6rem;
@@ -524,7 +577,188 @@ function fetchInformation($client_id){
     background-color: #7282FB;
     color:white;
 }
+.me{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-left:30px; */
+}
 
+.row14{
+    width:  226px;
+    height: 167px;
+    border-radius: 11.9259px;
+    background: #A6B5FF;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content:row;
+    align-items:center; */
+
+}
+.row11{
+    width:  226px;
+    height: 167px;
+    border-radius: 11.9259px;
+    background: rgba(136, 201, 137, 0.5);
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content:row;
+    align-items:center; */
+
+}
+.row12{
+    width:  226px;
+    height: 167px;
+    border-radius: 11.9259px;
+    background:rgba(203, 142, 71, 0.19);
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content:row;
+    align-items:center; */
+
+}
+.row13{
+    width:  226px;
+    height: 167px;
+    border-radius: 11.9259px;
+    background: rgba(114, 130, 251, 0.19) ;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content:row;
+    align-items:center; */
+
+}
+.do{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-weight: 500;
+    font-size: 18.6296px;
+    color: #000;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+
+}
+
+h4{
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 90.84%;
+/* or 18px */
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-top: 40px;
+    color: #000;
+
+
+}
+.but14{
+    box-sizing: border-box;
+
+    /* position: relative;
+    width: 124.57px;
+    height: 29.36px;
+    /* left: 50.17px; */
+    width: 120px;
+    height: 29px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+   
+
+   background:white;
+   border: 0.851852px solid #F5F5F5;
+   border-radius: 21.2963px;
+}
+/* .but:hover{
+    background:white;
+} */
+.but11{
+    box-sizing: border-box;
+
+    /* position: relative;
+    width: 124.57px;
+    height: 29.36px;
+    /* left: 50.17px; */
+    width: 120px;
+    height: 29px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+   
+
+   background:white;
+   border: 0.851852px solid #88C989;
+   border-radius: 21.2963px;
+}
+.but12{
+    box-sizing: border-box;
+
+/* position: relative;
+width: 124.57px;
+height: 29.36px;
+/* left: 50.17px; */
+width: 120px;
+height: 29px;
+margin-top: 20px;
+margin-left: 50px;
+margin-right: 20px;
+margin-bottom: 10px;
+
+
+background:white;
+border: 0.851852px solid #CB8E47;
+
+border-radius: 21.2963px;
+}
+.but13{
+    box-sizing: border-box;
+
+/* position: relative;
+width: 124.57px;
+height: 29.36px;
+/* left: 50.17px; */
+width: 120px;
+height: 29px;
+margin-top: 20px;
+margin-left: 50px;
+margin-right: 20px;
+margin-bottom: 10px;
+
+
+background:white;
+border: 0.851852px solid #7282FB;
+border-radius: 21.2963px;
+}
+/* .container5_wrapper2{
+    margin-left: 0%;
+} */
+
+/* .container2_rightside{
+   animation-duration: 10s;
+   animation-timing-function: ease-out;
+}
+@keyframes slide-out {
+    from {
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+    
+} */
 @media screen and (max-width: 920px) {
     .dashboard_container4{
         display: none;
@@ -536,16 +770,41 @@ function fetchInformation($client_id){
     box-shadow: 0 4px 7px rgba(0,0,0,0.12);
     border-radius: 0.7rem;
     padding: 1rem;
-    width: 260px;
+    width: 280px;
     height: 283px;
-    margin-left: 1rem;
+    margin-left: 3rem;
+    margin-right: 2rem;
+}
+.row1{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.row2{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    /* margin-left: 0rem; */
+    padding-right: 2rem;
+}
+/* .row2 img{
+    width: 100%;
+} */
+.row3{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding-right:1.5rem;
 }
     .dashboard_container3{
         display: flex;
         flex-direction: column;
     }
     .details{
-        margin-left:0px;
+        margin-left:1px;
     }
     .dashboard_container5{
         display: flex;
@@ -563,7 +822,8 @@ function fetchInformation($client_id){
     }
     #btn7{
         padding-left: 2rem;
-        padding-right: 2rem
+        padding-right: 2rem;
+        margin-left: 3rem;
     }
     .tasklist_wrapper3{
         margin-left: 0.5rem;
@@ -583,11 +843,14 @@ function fetchInformation($client_id){
     background-color:white;
     box-shadow: 1px 1px 2px 1px  rgba(0, 0, 0, 0.25);
     border:none;
-    padding:0.3rem;
+    padding:0rem;
     padding-left:1rem;
     padding-right:1rem;
-    position:absoute;
-    margin-left:0.3rem;
+    position:relative;
+    margin-left: 0.3rem;
+    margin-top: 1rem;
+    /* margin-bottom: 1rem; */
+    /* margin-right:1rem; */
 
 
 }
@@ -595,6 +858,12 @@ function fetchInformation($client_id){
     margin-top:0.2rem;
     margin-left:0% !important;
 }
+/* span{
+   margin-left:2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+} */
 }
 @media screen and (max-width: 720px) {
     .dashboard_comtainer1{
@@ -610,7 +879,74 @@ function fetchInformation($client_id){
         gap: 1rem;
         margin-left: 3rem;
     }
+    
 }
+@media screen and (max-width: 720px){
+
+    .me{
+        overflow: scroll;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+
+    }
+}
+ @media screen and (max-width: 720px){
+
+    .details{
+        margin-left: 2rem;
+    }
+   
+} 
+@media screen and (max-width: 720px){
+
+.up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+} 
+@media screen and (max-width: 720px){
+
+.down{
+    padding-left: 3rem;
+}
+.down2{
+    padding-left: 4rem;
+}
+
+
+} 
+@media screen and (max-width: 720px){
+     .symbols1{
+        margin-left:1.5rem;
+    }
+    /* .symbols2{
+        margin-left: 1rem;
+    } */
+    .symbols3{
+        margin-left: 1.5rem;
+
+    }
+    .symbols4{
+        margin-left: 2rem;
+
+    }
+    .symbols5{
+        margin-left: 1.5rem;
+
+    }
+    .symbols6{
+        margin-left: 2rem;
+
+    }
+}
+
+
 </style>
 </head>
 <body>
@@ -619,12 +955,13 @@ function fetchInformation($client_id){
 
         <div class="dashboard_comtainer1">
             <div class="container1_leftside">
-                <p style="font-size: 40px;font-weight:600;margin-bottom: 0;">Dashboard</p>
-                <p style="font-weight:600;font-size:25px">Upcoming Events</p>
+                <p style="font-size: 40px;font-weight:400;margin-bottom: 0;">Dashboard</p>
+                <p style="font-weight:400;font-size:25px">Upcoming Events</p>
                 
             </div>
             <div class="container2_rightside" >
                 <div class="addbutton" id="addbutton">
+                    <button id="addbtn" onclick ="window.location.href='task_list.php'">Add Event</button>
                     <button id="addbtn" onclick ="window.location.href='task_list.php'">Add Task</button>
                     <button id="addbtn" onclick ="window.location.href='client_list.php'" class="add">Add Client</button>
                 </div>
@@ -648,6 +985,67 @@ function fetchInformation($client_id){
             </div>
             
         </div>
+   <!-- my work start upperside boxes -->
+    
+    <div class="me">
+    
+    <div class="row14">
+        <!-- <ul class="do">
+            <li class="left">oct 23</li>
+            <li class="right">5:00 PM</li>
+         </ul>
+
+      <h4 style="margin-top: 15px;">Micheal Simpson</h4>
+      <button class="but"> <span>join the call<span></button> -->
+
+      <ul class="do">
+            <li class="left">oct 23</li>
+            <li class="right">5:00 PM</li>
+         </ul>
+         <h4>Micheal Simpson</h4>
+         <button class="but14"> join the call</button>
+
+     </div>
+    <div class="row11">
+    <ul class="do">
+            <li class="left">oct 23</li>
+            <li class="right">5:00 PM</li>
+         </ul>
+         <h4>live class</h4>
+         <button class="but11">join the call</button>
+      
+    
+
+    </div>
+    <div class="row12">
+    <ul class="do">
+            <li class="left">oct 23</li>
+            <li class="right">5:00 PM</li>
+         </ul>
+         <h4>Client Meeting</h4>
+         <button class="but12"> join the call</button>
+
+    
+
+    </div>
+    <div class="row13">
+    <ul class="do">
+            <li class="left">oct 23</li>
+            <li class="right">5:00 PM</li>
+         </ul>
+         <h4>Micheal Simpson</h4>
+         <button class="but13"> join the call</button>
+    
+
+    </div>
+               
+
+</div>
+
+
+
+ 
+    <!-- my work ends -->
 <?php
 $today = new DateTime();
 $query = "SELECT * FROM `create_event` WHERE dietitianuserID = '{$dietitian_id}' AND start_date > '{$today->format('Y-m-d')} 00:00:00' ORDER BY start_date;";
@@ -680,7 +1078,7 @@ if(!empty($up_event)){
 </div>
 
         <div class="dashboard_container3">
-            <div style="font-size:35px; font-weight:600"> Client Progress</div>
+            <div style="font-size:35px; font-weight:400"> Client Progress</div>
             <div class="details">
                 <a href="client_progress.php"><button id="details">View All</button></a>
                 <a href="client_detailed_progress.php"><button id="details">View Detailed Progress</button></a>
@@ -713,10 +1111,12 @@ if(!empty($data)){
         $infom = fetchInformation($data[$i]['client_id']);
 ?>
             <div class="container4_wrapper2">
+                <div class="show">
                 <span style="width: 25%;">
                 <a href="" style="background-color:#FDFDFD; color:black;font-weight:600; font-size:20px; border:none; margin-top:1rem">
                 <img src="images/ronald.jpg" style="width:2rem; background-color:#FDFDFD;border-radius:1rem"> <?php echo($data[$i]['name']) ?></a>
                 </span>
+                   </div>
                 <div class="values-container col-12">
                     <span class="col-2"><a href="track_stats_steps.php?id=<?php echo($data[$i]['client_id']) ?>" class="values"><?php echo($infom['steps']['progress'] . '/' . $infom['steps']['goal']) ?></a></span>
                     <span class="col-2"><a href="track_stats_heart.php?id=<?php echo($data[$i]['client_id']) ?>" class="values" ><?php echo($infom['heart']['progress']) ?> Bpm</a></span>
@@ -753,17 +1153,17 @@ if(!empty($data)){
 
 
         <div class="mob_wrapper1" >
-            <span><a href="" style=" color:black;font-weight:500; border:none; margin-top:1rem;background-color:white; margin-left:1rem"><span><img src="images/ronald.jpg" style="width:2rem;border-radius:1rem"> <?php echo($data[$i]['name']) ?></span></a></span>
+            <span class="up"><a href="" style=" color:black;font-weight:500; border:none; margin-top:1rem;background-color:white; margin-left:1rem"><span><img src="images/ronald.jpg" style="width:2rem;border-radius:1rem"> <?php echo($data[$i]['name']) ?></span></a></span>
             <div class="row1" style="display:flex ; gap:2rem ">
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#F6A682"><img src="images/Frame.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Steps</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545"><?php echo($infom['steps']['progress'] . '/' . $infom['steps']['goal']) ?></span>
+                        <span class="symbols1" style="font-size:0.9rem;color:#454545 left:3rem;"><?php echo($infom['steps']['progress'] . '/' . $infom['steps']['goal']) ?></span>
                     </div>
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#EF80B2"><img src="images/Frame-1.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Heart Rate</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545"><?php echo($infom['heart']['progress']) ?> bpm</span>
+                        <span class="symbols2" style="font-size:0.9rem;color:#454545"><?php echo($infom['heart']['progress']) ?> bpm</span>
                     </div>
             </div>
 
@@ -771,12 +1171,12 @@ if(!empty($data)){
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#8FAFF3"><img src="images/Frame-2.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Water</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545"><?php echo($infom['water']['progress'] . '/' . $infom['water']['goal']) ?> ltrs</span>
+                        <span class="symbols3" style="font-size:0.9rem;color:#454545"><?php echo($infom['water']['progress'] . '/' . $infom['water']['goal']) ?> ltrs</span>
                     </div>
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#7550E2"><img src="images/Frame-3.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Sleep</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545">7/8 hrs.</span>
+                        <span class="symbols4" style="font-size:0.9rem;color:#454545">7/8 hrs.</span>
                     </div>
             </div>
 
@@ -784,12 +1184,12 @@ if(!empty($data)){
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#788F96"><img src="images/Frame-4.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Weight</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545"><?php echo($infom['weight']['progress'] . '/' . $infom['weight']['goal']) ?> kg</span>
+                        <span class="symbols5" style="font-size:0.9rem;color:#454545"><?php echo($infom['weight']['progress'] . '/' . $infom['weight']['goal']) ?> kg</span>
                     </div>
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#E388A0"><img src="images/Frame-5.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Calories</span></div></div>
-                        <span style="font-size:0.9rem;color:#454545"><?php echo($infom['calorie']['progress'] . '/' . $infom['calorie']['goal']) ?> kcal</span>
+                        <span class="symbols6" style="font-size:0.9rem;color:#454545"><?php echo($infom['calorie']['progress'] . '/' . $infom['calorie']['goal']) ?> kcal</span>
                     </div>
             </div>
         </div>
@@ -805,99 +1205,13 @@ if(!empty($data)){
 
 <!----------------------------------------------------------------------------------------------------------------------------------->
         <div class="dashboard_container5">
-
-
-            <!-- chat -->
-
-<div class="container5_wrapper2">
-                <div class="tasklist">
-                    <p style="font-size:1.3rem ; font-weight:600">Messages</p>
-
-                    <span><a href="chat_home.php" style=" color:#717171 ; border:none">View All</a></span>
-                </div>
-                <!-- chat just added here -->
-                <div class="d-flex flex-coloumn chat messages" style="outline: 2px solid #EEEEEE; padding:20px!important;">
-                    <div class="" style="width:360px">
-                        <?php
-                        $counter = 0;
-                        foreach ($conversations as $conversation) { ?>
-                            <li class="list-group-item">
-                                <a href="chat_messages.php?user=<?= $conversation['dietitianuserID'] ?>" class="d-flex
-	    				          justify-content-between
-	    				          align-items-center">
-                                    <div class="d-flex
-	    					            align-items-center">
-                                        <img src="chat/uploads/<?= $conversation['p_p'] ?>" class="rounded-circle" style="width:40px">
-                                        <h3 class="fs-xs m-2 text-dark">
-                                            <?= $conversation['name'] ?><br>
-                                            <small class="small-text-message">
-                                                <?php
-                                                echo lastChat($_SESSION['dietitian_id'], $conversation['dietitianuserID'], $conn);
-                                                ?>
-                                            </small>
-
-                                        </h3>
-                                    </div>
-                                    <div class="d-flex
-	    					            align-items-center " style="margin-left: auto;">
-                                        <h3 class="fs-xs p-2 text-dark">
-
-                                            <small class="small-text-message">
-                                                <?php
-                                                echo last_time($conversation['last_seen']);
-                                                ?>
-                                            </small><br />
-                                            <img class="" src="icons/DoubleTick.svg" style="width:16px">
-                                        </h3>
-
-
-                                    </div>
-                                    <?php if (last_seen($conversation['last_seen']) == "1") { ?>
-                                        <div title="online">
-
-                                        </div>
-                                    <?php } else { ?>
-                                        <div title="offline">
-                                        </div>
-                                    <?php } ?>
-                                </a>
-                            </li>
-                        <?php
-                          $counter++;
-                          if ($counter == 4) {
-                              break;
-                          }
-                    } ?>
-                    </div>
-
-
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-                    <script>
-                        $(document).ready(function() {
-
-                            let lastSeenUpdate = function() {
-                                $.get("app/ajax/update_last_seen.php");
-                            }
-                            lastSeenUpdate();
-
-                            setInterval(lastSeenUpdate, 10000);
-
-                        });
-                    </script>
-                </div>
-            </div>
-
-
-
-
-            <div class="container5_wrapper1">
+        <div class="container5_wrapper1">
                 <div class="tasklist">
                     <p style="font-size:1.3rem ; font-weight:600">My Task List</p>
-                    <span><a href="task_list.php" style="background-color:white; color:#717171; border:none" >View All</a></span> 
+                    <span class="down"><a href="task_list.php" style="background-color:white; color:#717171; border:none" >View All</a></span> 
                 </div>
                 <div class="list_tasklist">
-                    <button id="btn6" class="task-btn" onclick="openTask('btn6','today_tasks')">Today</button>
+                    <button id="btn6" class="task-btn" onclick="openTask('btn6','today_tasks')"><strong>Today</strong></button>
                     <button id="btn7" class="btn6 task-btn" onclick="openTask('btn7','upcoming_tasks')">Upcoming</button>
                     <div id="today_tasks">
 <?php 
@@ -1024,10 +1338,98 @@ if (mysqli_num_rows($result) > 0) {
                     </div> 
                 
             </div> -->
-         
-        </div>
+<!--          
+        </div> -->
 
-    </div>
+
+    
+
+
+            <!-- chat -->
+
+<div class="container5_wrapper2">
+                <div class="tasklist">
+                    <p style="font-size:1.3rem ; font-weight:600">Messages</p>
+
+                    <span class="down2"><a href="chat_home.php" style=" color:#717171 ; border:none">View All</a></span>
+                </div>
+                <!-- chat just added here -->
+                <div class="d-flex flex-coloumn chat messages" style="outline: 2px solid #EEEEEE; padding:20px;">
+                    <div class="" style="width:300px">
+                        <?php
+                        $counter = 0;
+                        foreach ($conversations as $conversation) { ?>
+                            <li class="list-group-item">
+                                <a href="chat_messages.php?user=<?= $conversation['dietitianuserID'] ?>" class="d-flex
+	    				          justify-content-between
+	    				          align-items-center">
+                                    <div class="d-flex
+	    					            align-items-center">
+                                        <img src="chat/uploads/<?= $conversation['p_p'] ?>" class="rounded-circle" style="width:40px">
+                                        <h3 class="fs-xs m-2 text-dark">
+                                            <?= $conversation['name'] ?><br>
+                                            <small class="small-text-message">
+                                                <?php
+                                                echo lastChat($_SESSION['dietitian_id'], $conversation['dietitianuserID'], $conn);
+                                                ?>
+                                            </small>
+
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex
+	    					            align-items-center " style="margin-left: auto;">
+                                        <h3 class="fs-xs p-2 text-dark">
+
+                                            <small class="small-text-message">
+                                                <?php
+                                                echo last_time($conversation['last_seen']);
+                                                ?>
+                                            </small><br />
+                                            <img class="" src="icons/DoubleTick.svg" style="width:16px">
+                                        </h3>
+
+
+                                    </div>
+                                    <?php if (last_seen($conversation['last_seen']) == "1") { ?>
+                                        <div title="online">
+
+                                        </div>
+                                    <?php } else { ?>
+                                        <div title="offline">
+                                        </div>
+                                    <?php } ?>
+                                </a>
+                            </li>
+                        <?php
+                          $counter++;
+                          if ($counter == 4) {
+                              break;
+                          }
+                    } ?>
+                    </div>
+
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                    <script>
+                        $(document).ready(function() {
+
+                            let lastSeenUpdate = function() {
+                                $.get("app/ajax/update_last_seen.php");
+                            }
+                            lastSeenUpdate();
+
+                            setInterval(lastSeenUpdate, 10000);
+
+                        });
+                    </script>
+                </div>
+            </div>
+
+
+
+
+            
     <script>
         function openTask(b,id){
             const taskbtn = document.getElementsByClassName('task-btn');
