@@ -338,7 +338,7 @@ border-radius: 18px;
                 </div>
             </li>
              </a>
-             <a href="achivement.php">
+             <a href="myachievements.php">
             <li>
                 <div class="box img-4">
                     <img src="icons/settings/icon4.svg" alt="">
