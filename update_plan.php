@@ -255,8 +255,8 @@ border-radius: 10px;
 
         <!-- Other content -->
         <?php
-        $id = $_GET['id'];
-        // echo $id ;
+        $id = $_POST['id'];
+        //echo $id ;
         $sql = "SELECT * from `create_plan` where plan_id='$id'";
         $result = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($result)){
@@ -274,6 +274,7 @@ border-radius: 10px;
             <br>
             <form action="#" method="post">
                 <!-- Plan name -->
+                <input type="hidden" name="plan_id" value="<?php echo $row['plan_id']?>">
                 <div style="text-align:center; !important;;margin-top:2rem;" class="plan_name_box">
                     <input required type="text" placeholder="Plan Name" class="plan_name" name="plan_name" style="border:none;"
                         value="<?php echo $row['name']?>"><i class="fa-solid fa-pen" style="color:#7282FB;cursor:pointer;"></i>
@@ -382,7 +383,7 @@ border-radius: 10px;
                             name="price" placeholder="₹000 / month" style="height: 45px; background: #FFFFFF;box-shadow: 0px 1.7px 5px rgba(0, 0, 0, 0.25);width: 482px;border-radius: 10px;border:none;padding:15px" />
                         <br>
                         <div style="display:flex">
-                            <button name="final_cancel_btn" class="cancelbutton">Cancel</button>
+                            <button name="final_cancel_btn" type="button" class="cancelbutton" onclick="window.location.href = 'myplan.php'">Cancel</button>
                             <button name="final_update_btn" class="savebutton" type="submit">Save</button>
                             
                             
@@ -406,7 +407,7 @@ border-radius: 10px;
     <?php
 if (isset($_POST['final_update_btn'])){
         
-        $id = $_GET['id'];
+        $id = $_POST['plan_id'];
     // For tags
         $name_arr = $_POST['languages'];
         $tags = implode(" , ",$name_arr);
@@ -427,7 +428,10 @@ if (isset($_POST['final_update_btn'])){
         }
 
 
-        $sql1 = "UPDATE `create_plan` SET name='$planname',tags='$tags',start_date='$start_date',end_date='$end_date',features='$features',description='$description',price='$price' WHERE plan_id=$id AND dietitianuserID = '$dietitianuserID'";
+        $sql1 = "UPDATE create_plan 
+        SET name='$planname', tags='$tags', start_date='$start_date', end_date='$end_date', features='$features', description='$description', price='$price' 
+        WHERE plan_id=$id AND dietitianuserID='$dietitianuserID'
+        ";
         // echo $sql1;
         $result1=mysqli_query($conn,$sql1);
         // echo $result1;
@@ -444,7 +448,7 @@ if (isset($_POST['final_update_btn'])){
 }
 else if (isset($_POST['final_save_btn'])){
         
-    $id = $_GET['id'];
+    //$id = $_POST['id'];
 // For tags
     $name_arr = $_POST['languages'];
     $tags = implode(" , ",$name_arr);

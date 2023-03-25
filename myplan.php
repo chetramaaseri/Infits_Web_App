@@ -250,7 +250,7 @@ if(isset($_POST['search-btn']))
                             <div class="card-upper-options col-1">
                                 <div class="row">
                                     <div style="display:inline-block">
-                                        <a href="update_plan.php?id=<?php echo $row1['plan_id'] ?>"
+                                        <a onclick="redirectTo('<?php echo $row['plan_id'] ?>')"
                                             title="Update Record" style="color#7282FB" data-toggle="tooltip"><span
                                                 class="fa fa-pencil"></span></a>
                                     </div>
@@ -348,7 +348,7 @@ else{
                             <div class="card-upper-options col-1">
                                 <div class="row">
                                     <div style="display:inline-block">
-                                        <a href="update_plan.php?id=<?php echo $row['plan_id'] ?>" title="Update Record"
+                                        <a onclick="redirectTo('<?php echo $row['plan_id'] ?>')" title="Update Record"
                                             style="color:#7282FB;padding-left:0.5rem;padding-right:0.5rem;height: 30px;border-radius: 8px;" data-toggle="tooltip"><span
                                                 class="fa fa-pencil"></span></a>
                                     </div>
@@ -436,6 +436,34 @@ $(document).ready(function() {
         }
     });
 });
+
+function redirectTo(planid) {
+    //alert(planid);
+    // createElement Create a new form element
+    const form = document.createElement('form');
+
+    // Define form attributes
+    form.method = 'POST';
+    form.action = 'update_plan.php';
+
+    // input element for the ID value
+    const idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'id';
+    idInput.value = planid;
+
+    // Append the input element to the form
+    form.appendChild(idInput);
+
+    // Submiting the form to redirect to the update_plan.php
+    document.body.appendChild(form);
+    form.submit();
+
+    }
+
+
+
+
 </script>
 
 </html>
