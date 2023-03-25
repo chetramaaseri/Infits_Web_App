@@ -176,9 +176,55 @@ body{
     border-radius: 10px #fff;
     box-shadow: 2px 3px 3px gray;
     width: 50%;
-    
-
 }
+   
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 140px;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+border-radius: 10px;
+}
+.edit-button{
+  color:white;
+  cursor:pointer;
+  background-color: #9C74F5;
+  border-color: #9C74F5;
+  border: 1px;
+  width:100px;
+  padding:8px;
+  border-radius:10px;
+  margin-top:20px;
+  margin-left: 8px;   
+}
+.delete-button{
+  color:white;
+  cursor:pointer;
+  background-color: red;
+  border-color: red;
+  border: 1px;
+  width:100px;
+  padding:8px;
+  border-radius:10px;
+  margin-bottom:20px;
+  margin-left: 8px;   
+}
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+
+.show {display: block;}
 
   @media screen and (min-width: 720px) and (max-width:1500px) {
 
@@ -262,7 +308,64 @@ body{
       .main-card a{
           margin-left: 44%;
       }
-     
+
+
+
+
+
+      .dropdown-content {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 100px;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+border-radius: 10px;
+
+}
+.edit-button{
+  color:white;
+  cursor:pointer;
+  background-color: #9C74F5;
+  border-color: #9C74F5;
+  border: 1px;
+  width:60px;
+  padding:8px;
+  font-size: 12px;
+  border-radius:10px;
+   
+}
+.delete-button{
+  color:white;
+  cursor:pointer;
+  background-color: red;
+  border-color: red;
+  border: 1px;
+  width:60px;
+  padding:8px;
+  font-size: 12px;
+  border-radius:10px;
+ 
+  margin: none;   
+}
+.dropdown-content a {
+color: black;
+padding: 3px;
+margin-left: 10px;
+text-decoration: none;
+display: block;
+}
+.show {display: block;}
+
+
+
+
+
+
+
+
+
   }
   @media screen and (min-width: 0px) and (max-width: 720px) {
       .sidenav {
@@ -310,6 +413,59 @@ body{
       .main-card a{
           margin-left: 41%;
       }   
+
+ .dropdown-content {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 80px;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+border-radius: 10px;
+
+}
+.edit-button{
+  color:white;
+  cursor:pointer;
+  background-color: #9C74F5;
+  border-color: #9C74F5;
+  border: 1px;
+  width:60px;
+  padding:8px;
+  font-size: 12px;
+  border-radius:10px;
+   
+}
+.delete-button{
+  color:white;
+  cursor:pointer;
+  background-color: red;
+  border-color: red;
+  border: 1px;
+  width:60px;
+  padding:8px;
+  font-size: 12px;
+  border-radius:10px;
+ 
+  margin: none;   
+}
+.dropdown-content a {
+color: black;
+padding: 3px;
+margin-left: 10px;
+text-decoration: none;
+display: block;
+}
+.show {display: block;}
+
+
+
+
+
+
+
+
       
   }
 </style>
@@ -350,8 +506,16 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-            <a href="#"><img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
         </div>
+       
         <div class="content">
             <div class="sub_content">
                 <img src="images/6_steps.png" width="20px" height="20px" style="margin-left: 10px;">
@@ -379,8 +543,16 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-            <a href="#"><img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
         </div>
+       
         <div class="content">
             <div class="sub_content">
                 <img src="images/6_steps.png" width="20px" height="20px" style="margin-left: 10px;">
@@ -407,8 +579,16 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-            <a href="#"><img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
         </div>
+       
         <div class="content">
             <div class="sub_content">
                 <img src="images/6_steps.png" width="20px" height="20px" style="margin-left: 10px;">
@@ -435,8 +615,16 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-            <a href="#"> <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
         </div>
+       
         <div class="content">
             <div class="sub_content">
                 <img src="images/6_steps.png" width="20px" height="20px" style="margin-left: 10px;">
@@ -463,8 +651,16 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-            <a href="#"> <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
         </div>
+       
         <div class="content">
             <div class="sub_content">
                 <img src="images/6_steps.png" width="20px" height="20px" style="margin-left: 10px;">
@@ -491,8 +687,15 @@ body{
         </div>
         <div class="title">
             <h5 style="margin-left: 10px;">Recipe Name</h5>
-         <a href="#"><img src="images/vec_more.png" class="clickable-image" height="15px" style="margin-right: 15px; margin-top: 8px;"></a>             
-        </div >
+            <div class="dropdown">
+                <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
+       
+                <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                    <a href="#"><button style="color: white;" class="edit-button">Edit</button></a>
+  		            <a href="#"><button style="color: white;" class="delete-button">delete</button></a>
+                </div>
+            </div >
+        </div>
        
         <div class="content">
             <div class="sub_content">
@@ -519,22 +722,37 @@ body{
     <a href="#"><img src="images/9_plus.png" width="150px" style="margin-left: -40px;"></a>
 </div> 
 </div>    
-<!--<script>
-    const clickableImage = document.querySelector('.clickable-image');
-    const btn=document.querySelector('.btn');
-    const button1 = document.getElementById('button1');
-    const button2 = document.getElementById('button2');
 
-    clickableImage.addEventListener('click', function() {
-        btn.classList.remove('hidden');
-        setTimeout(function(){
-            btn.classList.add('hidden');
-    },5000);
+<script>
+       
 
-   // button1.classList.remove('hidden');
-  //button2.classList.remove('hidden');
-    });
-    btn.classList.add('hidden');
-</script>-->
+
+       function showDropdown(event) {
+           var dropdown = event.currentTarget.parentNode.querySelector(".dropdown-content");
+           dropdown.classList.toggle("show");
+           setTimeout(removeDropDown, 5000);
+       }
+
+       function removeDropDown() {
+           var dropdowns = document.getElementsByClassName("dropdown-content");
+           for (var i = 0; i < dropdowns.length; i++) {
+               dropdowns[i].classList.remove('show');
+           }
+       }
+
+       function removeDropdown(event) {
+           var dropdowns = document.getElementsByClassName("dropdown-content");
+           var i;
+           for (i = 0; i < dropdowns.length; i++) {
+               var openDropdown = dropdowns[i];
+               if (openDropdown.classList.contains("show") && !openDropdown.contains(event.target)) {
+                   openDropdown.classList.remove("show");
+               }
+           }
+       }
+
+       // document.addEventListener("click", removeDropdown);
+   </script>
+
 </body>
 </html>
