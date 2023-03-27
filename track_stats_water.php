@@ -1,8 +1,8 @@
 
 <?php
 // Client Id
-if(isset($_GET['id'])){
-    $clientId = $_GET['id'];
+if(isset($_POST['id'])){
+    $clientId = $_POST['id'];
 }else{
     header('location: index.php');
 }

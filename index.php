@@ -718,12 +718,12 @@ if(!empty($data)){
                 <img src="images/ronald.jpg" style="width:2rem; background-color:#FDFDFD;border-radius:1rem"> <?php echo($data[$i]['name']) ?></a>
                 </span>
                 <div class="values-container col-12">
-                    <span class="col-2"><a href="track_stats_steps.php?id=<?php echo($data[$i]['client_id']) ?>" class="values"><?php echo($infom['steps']['progress'] . '/' . $infom['steps']['goal']) ?></a></span>
-                    <span class="col-2"><a href="track_stats_heart.php?id=<?php echo($data[$i]['client_id']) ?>" class="values" ><?php echo($infom['heart']['progress']) ?> Bpm</a></span>
-                    <span class="col-2"><a href="track_stats_water.php?id=<?php echo($data[$i]['client_id']) ?>" class="values" ><?php echo($infom['water']['progress'] . '/' . $infom['water']['goal']) ?> ltrs</a></span>
-                    <span class="col-2"><a href="track_stats_sleep.php?id=<?php echo($data[$i]['client_id']) ?>" class="values" ><?php echo(round($infom['sleep']['progress'],2) . '/' . $infom['sleep']['goal']) ?> hrs.</a></span>
-                    <span class="col-2"><a href="track_stats_weight.php?id=<?php echo($data[$i]['client_id']) ?>" class="values"><?php echo($infom['weight']['progress'] . '/' . $infom['weight']['goal']) ?> kg</a></span>
-                    <span class="col-2"><a href="track_stats_calorie.php?id=<?php echo($data[$i]['client_id']) ?>" class="values" ><?php echo($infom['calorie']['progress'] . '/' . $infom['calorie']['goal']) ?> kcal</a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_steps.php')" class="values"><?php echo($infom['steps']['progress'] . '/' . $infom['steps']['goal']) ?></a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_heart.php')" class="values" ><?php echo($infom['heart']['progress']) ?> Bpm</a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_water.php')" class="values" ><?php echo($infom['water']['progress'] . '/' . $infom['water']['goal']) ?> ltrs</a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_sleep.php')" class="values" ><?php echo(round($infom['sleep']['progress'],2) . '/' . $infom['sleep']['goal']) ?> hrs.</a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_weight.php')" class="values"><?php echo($infom['weight']['progress'] . '/' . $infom['weight']['goal']) ?> kg</a></span>
+                    <span class="col-2"><a onclick="redirectTo('<?php echo($data[$i]['client_id']) ?>', 'track_stats_calorie.php')" class="values" ><?php echo($infom['calorie']['progress'] . '/' . $infom['calorie']['goal']) ?> kcal</a></span>
                 </div>
             </div>
 <?php
@@ -1040,6 +1040,30 @@ if (mysqli_num_rows($result) > 0) {
             btn.classList.add = 'active-btn';
         }
         document.getElementById('btn6').click();
+
+    function redirectTo(id, topage) {
+    //alert(topage);
+
+    // createElement Create a new form element
+    const form = document.createElement('form');
+
+    // Define form attributes
+    form.method = 'POST';
+    form.action = topage;
+
+    // input element for the ID value
+    const idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'id';
+    idInput.value = id;
+
+    // Append the input element to the form
+    form.appendChild(idInput);
+
+    // Submiting the form to redirect to the update_plan.php
+    document.body.appendChild(form);
+    form.submit();
+    }
     </script>
 </body>
 </html>

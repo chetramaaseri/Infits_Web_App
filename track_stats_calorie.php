@@ -71,8 +71,8 @@ ob_start();
 include('navbar.php');
 $dietition = $_SESSION['name'];
 // Client Id
-if(isset($_GET['id'])){
-    $clientId = $_GET['id'];
+if(isset($_POST['id'])){
+    $clientId = $_POST['id'];
 }else{ 
     header(("Location: index.php}"));
 }
