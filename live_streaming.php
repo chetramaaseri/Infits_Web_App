@@ -315,6 +315,9 @@ height: 400px;
   align-items: center;
   margin-top: 25px;
   margin-bottom: 20px;
+
+  height: 440px;
+
 }
 
 .video__container{
@@ -366,6 +369,7 @@ width: 700px;
   display: none; */
   gap: 1rem;
   /* transform: translateX(-50%); */
+  display: none;
 }
 
 .stream__actions a,
