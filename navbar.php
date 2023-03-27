@@ -21,6 +21,7 @@ if (isset($_GET['logout'])) {
     <title>Infits</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <style>
@@ -341,7 +342,9 @@ a {
       top: -500px;
     }
 }
-
+.serchi{
+    display:none;
+}
 .top {
     display: flex;
     justify-content: space-between;
@@ -431,11 +434,18 @@ a {
             </div>
         </div> -->
 
-            <div class="search-box">
-                <form action="search_results.php" method="POST">
-                    <input type="text" name="search" placeholder="Type to search">
-                    <button onclick="mysearchFunc()" style="border-style:none;background:white;"><img src="images/vec_search.png" style="height: 20px; width: 20px;" class="sea"></button>
-            </div>
+        <div class="search-box">
+                <button onclick="mysearchFunc()" id="toggleSearch" style="border-style:none;background:white;"><img src="images/vec_search.png" style="height: 20px; width: 20px;" class="sea"></button> 
+                <form class="serchi">
+                <div style="display:flex;">
+                <input type="text" name="search" id="search-box">
+                <button type="submit" style="border-style:none;background:white;"><img src="images/vec_search.png" style="height: 20px; width: 20px;" class="sea"></button>
+                <ul id="suggestions">
+                </ul>
+                </div>
+                </form>
+        </div> 
+        
             <img id="notifications-pop" src="images/vec_notification.png" style="height: 20px; width: 20px;">
             <div class="noti-box">
                 <div class="top"><span>Notifications</span><span id="noti-close">x</span></div>
@@ -609,14 +619,60 @@ a {
     // get the url and add active to page 
     const currentPath = window.location.pathname;
     const lastPage = currentPath.split('/').pop().split('.').shift();
-    console.log(lastPage);
+    // console.log(lastPage);
     // document.getElementById(lastPage).classList.add('navactive');
-    document.getElementsByClassName('nav-' + lastPage)[0].classList.add('navactive');
+    // document.getElementsByClassName('nav-' + lastPage)[0].classList.add('navactive');
 
-    // function mysearchFunc{
-        
-        
-    // }
+    $(document).ready(function(){
+            $('#search-box').on('input', function(){
+                var query = $(this).val();
+                $.ajax({
+                    url: 'search.php',
+                    type: 'GET',
+                    data: {query: query},
+                    dataType: 'json',
+                    success: function(data){
+                        $('#suggestions').empty();
+                        $.each(data, function(index, value){
+                            $('#suggestions').append('<li>'+value+'</li>');
+                        });
+                    }
+                });
+            });
+            $('form').on('submit', function(event){
+                event.preventDefault();
+                var query = $('#search-box').val();
+                // // var inputBox = document.getElementById("tableColumnInput");
+                // // var inputValue = inputBox.value;
+                // var url = "pages.php?query=" + query;
+                // window.location.href = url;
+
+                window.location.href = 'recipe_breakfast.php?query=' + query; // Navigate to search.php with search query parameter
+            });
+
+            $(document).on('click', '.suggestion', function(event){
+                event.preventDefault();
+                var suggestion = $(this).text();
+                $('#search-box').val(suggestion);
+                console.log(suggestion);
+                // $('#suggestions').empty();
+                // window.location.href = 'recipe_breakfast.php?query=' + suggestion; // Navigate to search.php with suggestion parameter
+            });
+        });
+        var flag=false;
+        function mysearchFunc() {
+            var d=document.getElementsByClassName("serchi")[0];
+            console.log(d);
+            if (flag==true){
+                d.style.display="none";
+                flag=false;
+            }
+            else{
+                d.style.display="flex";
+                flag=true;
+                document.getElementById("toggleSearch").style.display="none";
+            }
+        }
     </script>
 </body>
 
