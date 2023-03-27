@@ -61,10 +61,29 @@ body{
   }
  
   .cards{
-        position: relative;
+      position: relative;
       margin-right: 30px;
       margin-left: 50px;
   }
+  .cards a{
+    display:inline-block;
+}
+
+  .grid-header {
+        position: absolute;
+        margin-top: -6.5rem;
+        margin-left: 5rem;
+        font-family: NATS;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 31px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+  
+
+
   .cards img{
       margin-top: 30px;
       border-radius: 20px;
@@ -86,7 +105,7 @@ body{
       margin-top: 30px;
   } 
   .main-card{
-    margin-left: 230px;
+    margin-left: -20px;
   }
   .cards1{
       position: relative;
@@ -125,6 +144,10 @@ body{
      display: flex;
      justify-content: space-between;
       
+  }
+  .title h5{
+    font-size: 15px;
+    width: 150px;
   }
   .content{
       width:100%;
@@ -226,6 +249,10 @@ display: block;
 
 .show {display: block;}
 
+
+
+
+
   @media screen and (min-width: 720px) and (max-width:1500px) {
 
       /* Styles go here */
@@ -261,13 +288,24 @@ display: block;
         margin-top:70px;
      }
      .cards img{
-       
-        margin-right: 35px;
-          margin-left: 30px;
-          width:200px;
+            margin-right: 35px;
+          margin-left: 20px;
+          width:250px;
       }
+      .grid-header {
+        position: absolute;
+        margin-top: -6rem;
+        margin-left: 4rem;
+        font-family: NATS;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 31px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
       .main-card{
-        margin-left: 230px;
+        margin-left: -20px;
       }
     
       .cards1 {
@@ -283,7 +321,8 @@ display: block;
           width: 80px;;
       }
       .title h5{
-          font-size: 15px;
+          font-size: 12px;
+          width:150px;
       }
       .title img{
           height: 11px;
@@ -309,65 +348,51 @@ display: block;
           margin-left: 44%;
       }
 
-
-
-
-
       .dropdown-content {
-display: none;
-position: absolute;
-background-color: #f1f1f1;
-min-width: 100px;
-overflow: auto;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
-border-radius: 10px;
-
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 100px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 10px;
+    }
+    .edit-button{
+        color:white;
+        cursor:pointer;
+        background-color: #9C74F5;
+        border-color: #9C74F5;
+        border: 1px;
+        width:60px;
+        padding:8px;
+        font-size: 12px;
+        border-radius:10px;
+    
+    }
+    .delete-button{
+        color:white;
+        cursor:pointer;
+        background-color: red;
+        border-color: red;
+        border: 1px;
+        width:60px;
+        padding:8px;
+        font-size: 12px;
+        border-radius:10px;
+        margin: none;   
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 3px;
+        margin-left: 10px;
+        text-decoration: none;
+        display: block;
+    }
+    .show {display: block;}
 }
-.edit-button{
-  color:white;
-  cursor:pointer;
-  background-color: #9C74F5;
-  border-color: #9C74F5;
-  border: 1px;
-  width:60px;
-  padding:8px;
-  font-size: 12px;
-  border-radius:10px;
-   
-}
-.delete-button{
-  color:white;
-  cursor:pointer;
-  background-color: red;
-  border-color: red;
-  border: 1px;
-  width:60px;
-  padding:8px;
-  font-size: 12px;
-  border-radius:10px;
- 
-  margin: none;   
-}
-.dropdown-content a {
-color: black;
-padding: 3px;
-margin-left: 10px;
-text-decoration: none;
-display: block;
-}
-.show {display: block;}
 
-
-
-
-
-
-
-
-
-  }
-  @media screen and (min-width: 0px) and (max-width: 720px) {
+@media screen and (min-width: 0px) and (max-width: 720px) {
       .sidenav {
           display: none;
       }
@@ -397,7 +422,7 @@ display: block;
         
       }
       .main-card{
-        margin-left:10px;
+        margin-left:-2px;
       }
       .cards1 {
           display: inline-block;
@@ -415,59 +440,47 @@ display: block;
       }   
 
  .dropdown-content {
-display: none;
-position: absolute;
-background-color: #f1f1f1;
-min-width: 80px;
-overflow: auto;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
-border-radius: 10px;
-
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 80px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
 }
 .edit-button{
-  color:white;
-  cursor:pointer;
-  background-color: #9C74F5;
-  border-color: #9C74F5;
-  border: 1px;
-  width:60px;
-  padding:8px;
-  font-size: 12px;
-  border-radius:10px;
-   
+    color:white;
+    cursor:pointer;
+    background-color: #9C74F5;
+    border-color: #9C74F5;
+    border: 1px;
+    width:60px;
+    padding:8px;
+    font-size: 12px;
+    border-radius:10px;
 }
 .delete-button{
-  color:white;
-  cursor:pointer;
-  background-color: red;
-  border-color: red;
-  border: 1px;
-  width:60px;
-  padding:8px;
-  font-size: 12px;
-  border-radius:10px;
- 
-  margin: none;   
+    color:white;
+    cursor:pointer;
+    background-color: red;
+    border-color: red;
+    border: 1px;
+    width:60px;
+    padding:8px;
+    font-size: 12px;
+    border-radius:10px;
+    margin: none;   
 }
 .dropdown-content a {
-color: black;
-padding: 3px;
-margin-left: 10px;
-text-decoration: none;
-display: block;
+    color: black;
+    padding: 3px;
+    margin-left: 10px;
+    text-decoration: none;
+    display: block;
 }
 .show {display: block;}
-
-
-
-
-
-
-
-
-      
-  }
+}
 </style>
 
 </head>
@@ -482,14 +495,42 @@ display: block;
             <button type="button">Search</button>
         </div> 
     </div> 
-    
+
     <div class="cards" style="margin-left:20px">
-        <img src="images/1_breakfast.png" width="270px" heigth="250px" style=" margin-left:20px;">
-        <img src="images/2_lunch.png" width="270px" heigth="250px" style=" margin-left: 20px;">
-        <img src="images/3_Snacks.png" width="270px" heigth="250px" style=" margin-left: 20px;">
-        <img src="images/4_Dinner.png" width="270px" heigth="250px" style=" margin-left: 20px;">
+        
+        <a href="recipe_breakfast.php" style="color: inherit;" class="breakfast" id="btn1">
+        <img src="images/breakfast.png" width="270px" heigth="250px" style=" margin-left:40px;">
+            <div class="img-container">
+                    <div class="grid-header" style="margin-left:5.5rem;">Breakfast</div>
+                </div>
+            </a>
+
+        <a href="recipe_lunch.php" style="color: inherit;" class="lunch" id="btn2">
+        <img src="images/lunch.png" width="270px" heigth="250px" style=" margin-left:20px;">
+            <div class="img-container">
+                <div class="grid-header" style="margin-left:7rem;">Lunch</div>
+            </div>
+
+        </a>
+
+        <a href="recipe_lunch.php" style="color: inherit;" class="lunch" id="btn2">
+        <img src="images/Snacks.png" width="270px" heigth="250px" style=" margin-left:20px;">
+       <div class="img-container">
+                <div class="grid-header" style="margin-left:6.5rem;">Snacks</div>
+            </div>
+
+        </a>
+        <a href="recipe_lunch.php" style="color: inherit;" class="lunch" id="btn2">
+        <img src="images/Dinner.png" width="270px" heigth="250px" style=" margin-left:20px;">
+         <div class="img-container">
+                <div class="grid-header"  style="margin-left:7rem;">Dinner</div>
+            </div>
+
+        </a>
     </div>
-    
+
+
+
     <div> 
         <div class="left1"> 
             <h3>All recipes</h3> 
@@ -498,6 +539,37 @@ display: block;
             <h6><a href="#" style="color:#818181">View all</a></h6>
         </div> 
     </div> 
+
+
+  <?php
+    $sql = "SELECT * FROM `default_recipes`";
+    $res = mysqli_query($conn, $sql);
+    ?>
+
+    <div class="flex row">
+        <?php $counter = 0;
+        while ($d = mysqli_fetch_assoc($res)) {
+            $drecipe_recipe = explode(',', $d['drecipe_recipe']);
+            $steps = count($drecipe_recipe);
+            $drecipe_nutritional = $d['drecipe_nutritional information'];
+
+            $drecipe_nutritional = trim($drecipe_nutritional, '{}');
+            $pairs = explode(', ', $drecipe_nutritional);
+            $nutritional = array();
+            foreach ($pairs as $pair) {
+                list($key, $value) = explode(': ', $pair);
+                $key = trim($key, "'");
+                $value = trim($value, "'");
+                $nutritional[$key] = $value;
+            }
+            if ($counter == 5) {
+                break;
+            }
+            $counter++;
+        }
+        ?>
+
+        
 <div class="main-card">
     <div class="cards1" style="margin-left: 50px;">
         <div class="image">
@@ -505,7 +577,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+        <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name'] ?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -542,7 +614,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+            <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name'] ?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -578,7 +650,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+            <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name'] ?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -614,7 +686,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+            <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name'] ?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -650,7 +722,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+            <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name'] ?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -686,7 +758,7 @@ display: block;
             <button>Breakfast</button>
         </div>
         <div class="title">
-            <h5 style="margin-left: 10px;">Recipe Name</h5>
+            <h5 style="margin-left: 10px;"><?php echo $d['drecipe_name']?></h5>
             <div class="dropdown">
                 <img src="images/vec_more.png" height="15px" style="margin-right: 15px; margin-top: 8px; cursor:pointer" onclick="showDropdown(event)">
        
@@ -724,8 +796,7 @@ display: block;
 </div>    
 
 <script>
-       
-
+  
 
        function showDropdown(event) {
            var dropdown = event.currentTarget.parentNode.querySelector(".dropdown-content");
