@@ -345,6 +345,7 @@ a {
 .noti-description {
     display: flex;
     flex-direction: column;
+  
     
 }
 
@@ -394,7 +395,7 @@ a {
             <img id="notifications-pop" src="images/vec_notification.png" style="height: 20px; width: 20px;">
 
             <div class="noti-box">
-                <div class="top"><span>Notifications</span><span id="noti-close">x</span></div>
+                <div class="top" style="cursor:pointer;"><span>Notifications</span><span id="noti-close">x</span></div>
                 <div class="notifications">
                     <!-- noti -->
                     <div class="notification">
