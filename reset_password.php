@@ -1,5 +1,4 @@
-<?php include('config.php'); 
-error_reporting(0);?>
+<?php include('config.php'); ?>
 <?php session_start(); ?>
 
 <!------------------resend password---------------->
@@ -15,7 +14,7 @@ error_reporting(0);?>
       if(isset($_POST['resend_otp']))
          {
     $otp = rand(100000,999999);
-    $email = $_SESSION['mail'];
+   $email = $_SESSION['mail'];
     //echo $otp;
     
     $mail = new PHPMailer();
@@ -32,7 +31,7 @@ error_reporting(0);?>
     //Receipents
     
     $mail->setFrom('<email>','<app password>');
-    $mail->addAddress($email);     //Add a recipient
+     $mail->addAddress($email);     //Add a recipient
     
       //Attachments
     // $mail->addAttachment('/file');         //Add attachments

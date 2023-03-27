@@ -176,15 +176,15 @@ if(isset($_POST['create_reminder'])){
         $water_interval = $_POST['water_interval'];
         $water_amount = $_POST['water_amount'];
         foreach ($client_array as $c_id) {
-            $query = "SELECT reminder_id FROM `reminders` WHERE water_amount = '{$water_amount}' AND water_interval = '{$water_interval}' AND client_id = {$c_id} AND dietitianuserID= '{$dietitianuserID}';";
+            $query = "SELECT reminder_id FROM `reminders` WHERE water_amount = '{$water_amount}' AND water_interval = '{$water_interval}' AND dietitianuserID= '{$dietitianuserID}';";
             $result = $conn->query($query) or die('Query Failed');
             if($result->num_rows > 0){
                 continue;
             }
-            $query = "UPDATE `reminders` SET water_interval = '{$water_interval}' , water_amount = '{$water_amount}' WHERE client_id = {$c_id} AND dietitianuserID = '{$dietitianuserID}';";
+            $query = "UPDATE `reminders` SET water_interval = '{$water_interval}' , water_amount = '{$water_amount}' WHERE  dietitianuserID = '{$dietitianuserID}';";
             $result = $conn->query($query) or die("Query Failed");
             if ($conn->affected_rows == 0) {
-                $query = "INSERT INTO `reminders`(`dietitianuserID`, `client_id`, `water_interval`, `water_amount`) VALUES ('{$dietitianuserID}',{$c_id},'{$water_interval}','{$water_amount}')";
+                $query = "INSERT INTO `reminders`(`dietitianuserID`, `water_interval`, `water_amount`) VALUES ('{$dietitianuserID}','{$water_interval}','{$water_amount}')";
                 $result = $conn->query($query) or die("Query Failed");
             }
         }
@@ -196,9 +196,11 @@ if(isset($_POST['create_reminder'])){
             die("Connection failed :" . $conn->connect_error);
         }
         $bf = $_POST['bf_time'];
+        echo $bf;
         $lunch = $_POST['lunch_time'];
         $snacks = $_POST['snacks_time'];
         $dinner = $_POST['dinner_time'];
+       
         foreach ($client_array as $c_id){
             $query = "SELECT reminder_id FROM `reminders` WHERE breakfast_time = '{$bf}' AND lunch_time = '{$lunch}' AND snacks_time = '{$snacks}' AND `dinner_time` AND client_id = {$c_id} AND dietitianuserID= '{$dietitianuserID}';";
             $result = $conn->query($query) or die('Query Failed');
@@ -206,7 +208,7 @@ if(isset($_POST['create_reminder'])){
                 continue;
             }
             $query = "UPDATE `reminders` SET `breakfast_time`='{$bf}',`lunch_time`='{$lunch}',`snacks_time`='{$snacks}',`dinner_time`='{$dinner}' WHERE client_id = {$c_id} AND dietitianuserID = '{$dietitianuserID}';";
-            echo ($query);
+            //echo ($query);
             echo ('<br>');
             $result = $conn->query($query) or die("Query Failed");
             if($conn->affected_rows == 0){
@@ -220,15 +222,16 @@ if(isset($_POST['create_reminder'])){
         $sleep_time = $_POST['sleep_time'];
         $wake_time = $_POST['wake_time'];
         foreach ($client_array as $c_id){
-            $query = "SELECT reminder_id FROM `reminders` WHERE sleep_time = '{$sleep_time}' AND wake_time = '{$wake_time}' AND client_id = {$c_id} AND dietitianuserID= '{$dietitianuserID}';";
+            $query = "SELECT reminder_id FROM `reminders` WHERE sleep_time = '{$sleep_time}' AND wake_time = '{$wake_time}' AND  dietitianuserID= '{$dietitianuserID}';";
             $result = $conn->query($query) or die('Query Failed');
             if($result->num_rows > 0){
                 continue;
             }
-            $query = "UPDATE `reminders` SET sleep_time = '{$sleep_time}' , wake_time = '{$wake_time}' WHERE client_id = {$c_id} AND dietitianuserID = '{$dietitianuserID}';";
+            $query = "UPDATE `reminders` SET sleep_time = '{$sleep_time}' , wake_time = '{$wake_time}' WHERE  dietitianuserID = '{$dietitianuserID}';";
+            //echo $query;
             $result = $conn->query($query) or die("Query Failed");
             if($conn->affected_rows == 0){
-                $query = "INSERT INTO `reminders`(`dietitianuserID`, `client_id`, `sleep_time`, `wake_time`) VALUES ('{$dietitianuserID}',{$c_id},'{$sleep_time}','{$wake_time}')";
+                $query = "INSERT INTO `reminders`(`dietitianuserID`, `sleep_time`, `wake_time`) VALUES ('{$dietitianuserID}','{$sleep_time}','{$wake_time}')";
                 $result = $conn->query($query) or die("Query Failed");
             }
         }
@@ -250,7 +253,7 @@ if(mysqli_num_rows($result)>0){
     }
 }
 function getClientName($ID,$conn,$dietitianuserID){
-    $query = "SELECT name FROM `addclient` WHERE client_id = {$ID} AND dietitianuserID = '{$dietitianuserID}'";
+    $query = "SELECT name FROM `addclient` WHERE dietitianuserID = '{$dietitianuserID}'";
     $name = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($name)) {
         return ($row['name']);
@@ -1071,6 +1074,23 @@ border-radius: 13.3333px;
         <div class="border" style="border-bottom: 2px solid #EFEFEF;margin-top:3.5rem;margin-left:10%;margin-right:10%"></div>
         <!-- top cards -->
         <script>
+             const allwrapper = document.getElementsByClassName('client_wrapper');
+        function showSelectClient(id){
+            for(let i =0 ; i<allwrapper.length;i++){
+                allwrapper[i].style.right = '-350px';
+                allwrapper[i].style.display = 'none';
+            }
+            // console.log(id);
+            document.getElementById(id).style.right = '90px';
+            document.getElementById(id).style.display = 'flex';
+        }
+        function hideSelectClient(){
+            for(let i =0 ; i<allwrapper.length;i++){
+                allwrapper[i].style.display = 'none';
+                allwrapper[i].style.right = '-350px';
+            }
+            location.reload();
+        }
             function showSetDialog(divid,cardid){
                 const showDialog = document.getElementById(divid);
                 const allcards = document.getElementsByClassName('set-card');
@@ -1636,8 +1656,8 @@ $i++;
         </div>
     </div>
     <!-- bottom end -->
-    <script>
-        const allwrapper = document.getElementsByClassName('client_wrapper');
+   <!-- <script>
+     const allwrapper = document.getElementsByClassName('client_wrapper');
         function showSelectClient(id){
             for(let i =0 ; i<allwrapper.length;i++){
                 allwrapper[i].style.right = '-350px';
@@ -1654,7 +1674,7 @@ $i++;
             }
             location.reload();
         }
-    </script>
+   </script> -->
 
 
 <!-- main end -->
