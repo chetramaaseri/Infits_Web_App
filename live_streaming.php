@@ -47,6 +47,8 @@ include('navbar.php');
 
         .livecall_leftside {
             margin: 2rem;
+            width: 560px;
+height: 400px;
 
         }
 
@@ -275,43 +277,139 @@ include('navbar.php');
 
 
         #stream__container {
-            justify-self: center;
-            width: calc(100% - 40.7rem);
-            position: fixed;
-            left: 15.7rem;
-            top: clac(100vh - 72px);
-            overflow-y: auto;
-            height: 100%;
-        }
+  justify-self: center;
+  width: 80vw; /* default width */
+  max-width: calc(100% - 40.7rem); /* maximum width */
+  position: fixed;
+  left: 15.7rem;
+  top: calc(100vh - 72px);
+  overflow-y: auto;
+  height: 100%;
+}
 
-        #stream__box {
-            background-color: #3f434a;
-            height: 60vh;
-            display: none;
-        }
 
-        #stream__box .video__container {
-            border: 2px solid #000;
-            border-radius: 0;
-            height: 100% !important;
-            width: 100% !important;
+#stream__box{
+  background-color: #3f434a;
+  height: 60vh;
+  display: none;
+}
 
-            background-size: 300px;
-        }
+#stream__box .video__container{
+  border: 2px solid #000;
+  border-radius: 0;
+  height: 100%!important;
+  /* width:100%!important; */
 
-        #stream__box video {
-            border-radius: 0;
-        }
+  background-size: 300px;
+}
 
-        #streams__container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2em;
-            justify-content: center;
-            align-items: center;
-            margin-top: 25px;
-            margin-bottom: 225px;
-        }
+#stream__box video{
+  border-radius: 0;
+}
+
+#streams__container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.video__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:2px solid #b366f9;
+  border-radius: 5%;
+  cursor: pointer;
+  overflow: hidden;
+  height: 440px;
+width: 700px;
+
+  background-image: url("/images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75px;
+}
+
+.video-player{
+  height: 100%;
+  width: 100%;
+}
+
+.video-player video{
+  border-radius: 5%;
+}
+#stream__box {
+  position: relative;
+}
+
+.stream__focus {
+  width: 100%;
+  height: 100%;
+}
+
+.stream__focus iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.stream__actions {
+  /* position: fixed;
+  bottom: 1rem; */
+  border-radius: 8px;
+  /* background-color: #1a1a1a60; */
+  padding: 1rem;
+  /* left: 50%;
+  display: none; */
+  gap: 1rem;
+  /* transform: translateX(-50%); */
+}
+
+.stream__actions a,
+.stream__actions button {
+  cursor: pointer;
+  background-color: #262625;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.stream__actions a svg,
+.stream__actions button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #ede0e0;
+}
+
+.stream__actions a.active,
+.stream__actions button.active,
+.stream__actions a:hover,
+.stream__actions button:hover {
+  background-color: #845695;
+}
+
+#join-btn{
+  background-color: #845695;
+  font-size: 18px;
+  padding: 11px 51px;
+  border: none;
+  color:#fff;
+
+  /* position: fixed;
+  bottom: 1rem; */
+  border-radius: 8px;
+  /* left:50%;
+  transform: translateX(-50%); */
+  cursor: pointer;
+}
     </style>
 </head>
 
@@ -323,7 +421,7 @@ include('navbar.php');
 
 
                 <div id="stream__box"></div>
-
+                
                 <div id="streams__container"></div>
 
                 <div class="stream__actions">
