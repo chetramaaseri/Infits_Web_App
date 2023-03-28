@@ -880,7 +880,7 @@ $j = count($pastActivityData);
             <div class="tsd-left-b table-activity">
                 <div class="heading">
                     <p>Past Activity</p>
-                    <a href="past_activities_calorie.php?id=<?php echo ($clientId) ?>"><span>View All</span></a>
+                    <a onclick="redirectTo('<?php echo($_POST['id']) ?>', 'past_activities_calorie.php' )"><span>View All</span></a>
                 </div>
                 <div class="heading-border"></div>
                 <div class="activity-container">
@@ -1397,28 +1397,28 @@ new Chart(weeklyChart, {
 });
 
 function redirectTo(id, topage) {
-    //alert(topage);
+//alert(topage);
 
-    // createElement Create a new form element
-    const form = document.createElement('form');
+// createElement Create a new form element
+const form = document.createElement('form');
 
-    // Define form attributes
-    form.method = 'POST';
-    form.action = topage;
+// Define form attributes
+form.method = 'POST';
+form.action = topage;
 
-    // input element for the ID value
-    const idInput = document.createElement('input');
-    idInput.type = 'hidden';
-    idInput.name = 'id';
-    idInput.value = id;
+// input element for the ID value
+const idInput = document.createElement('input');
+idInput.type = 'hidden';
+idInput.name = 'id';
+idInput.value = id;
 
-    // Append the input element to the form
-    form.appendChild(idInput);
+// Append the input element to the form
+form.appendChild(idInput);
 
-    // Submiting the form to redirect to the update_plan.php
-    document.body.appendChild(form);
-    form.submit();
-    }
+// Submiting the form to redirect to the update_plan.php
+document.body.appendChild(form);
+form.submit();
+}
 </script>
 </body>
 </html>

@@ -3,8 +3,8 @@ if(isset($_SESSION['name'])){
     header('location: login.php');
 }
 // Client Id
-if(isset($_GET['id']) AND $_GET['id'] != ""){
-    $clientId = $_GET['id'];
+if(isset($_POST['id']) AND $_POST['id'] != ""){
+    $clientId = $_POST['id'];
 }else{
     header("Location: index.php");
 }

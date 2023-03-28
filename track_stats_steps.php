@@ -1026,7 +1026,7 @@ $j = count($pastActivityData);
             <div class="tsd-left-b table-activity">
                 <div class="heading">
                     <p>Past Activity</p>
-                    <a href="past_activities_steps.php?id=<?php echo ($clientId) ?>"><span>View All</span></a>
+                    <a onclick="redirectTo('<?php echo($_POST['id']) ?>', 'past_activities_steps.php')"><span>View All</span></a>
                 </div>
                 <div class="heading-border"></div>
                 <div class="activity-container">
