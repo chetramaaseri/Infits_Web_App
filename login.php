@@ -628,8 +628,6 @@ border-radius: 15px;
                 <div class="header_sigin">
                     <img src="images/bg_patch_small.svg" >
                     <span style="font-size: 100px;font-weight:400">Sign In</span>
-                    
-
                 </div>
                 <span class="mt-5"><img src="images/Line70.png"><span style="color: #4F1963;font-size: 25px;font-weight: 400;margin-left:0.8rem">Sign In With</span></span>
                 <div class="gf_btns">
@@ -639,11 +637,14 @@ border-radius: 15px;
                         <img style="width: 30px; height: 30px;" src="images/google.svg" alt="">
                         <span class="ps-2">Google</span>
                     </a>       
-                    <a class="facebook">
-                        <img style="width: 30px; height: 30px;"src="images/facebook.svg" alt="">
-                        <span class="ps-2">Facebook</span>
-                    </a> 
-                
+
+                    <form method="post" action="#">
+                    <button type="submit" name="login" value="Facebook" class="facebook">
+                    <img style="width: 30px; height: 30px;" src="images/facebook.svg" alt="">
+                    <span class="ps-2">Facebook</span>
+                    </button>
+                    </form>
+    <!-- Make sure that you are viewing the page on a web server or localhost. If you are viewing the page locally, the button may not show up because Facebook requires a valid URL to work. -->
                          
                   
                 </div>
@@ -692,6 +693,7 @@ border-radius: 15px;
             </div>
            
         </div>
+        <!---------------------------footer section---------------------------------->
     <hr  id="hr" style="border: 1px solid #F3F3FF;width: 1204px;">
     </div>
     <div class="row" id="parent-lg" style="margin-top:2rem">
@@ -753,7 +755,7 @@ border-radius: 15px;
     </div>
 <!--------------------------------------mobile-view---------------------------------------------------->
 <div class="row  d-lg-none d-md-none d-xl-none" id="parent" style="margin-top:2rem" > 
-    <!-- component-1 -->
+    <!------------------------component-1---------------------------->
       <div class="col-sm-8" style="margin-bottom:12rem;">
          <div class="row">
              <div class="col-sm-6">
@@ -791,7 +793,7 @@ border-radius: 15px;
          </div>
 
      </div>
-  <!-- component-2 -->
+  <!---------------------------component-2------------------------------>
      <div class="col-sm-4" id="btml">
          <div class="bottom_logo">
              <img src="images/infits_logo.svg" alt="">
@@ -812,7 +814,7 @@ border-radius: 15px;
      </div>
  </div>
 </div>
-
+ <!-------------------code to view and hide the password---------------------------->
 <script>
     let eyeicon = document.getElementById("eyeicon");
     let password = document.getElementById("password");
@@ -826,6 +828,7 @@ border-radius: 15px;
             eyeicon.src = "./images/eye.png";
         }
     }
+
 </script>
 </body>
 </html>
