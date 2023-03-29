@@ -541,14 +541,14 @@ body {
                      <!-- Main Form -->
                         <div class="ip_box">
                             <img src="images/Security Shield Green.png" >
-                            <input class="input_bar" id="password" type="text" name=""
+                            <input class="input_bar" id="password" type="password" name=""
                                 placeholder="Enter new password">
                                 <img style="cursor: pointer; width: 22px; height: 19px;"src="images/eye.png" id="eyeicon" alt="eye">
                         </div>
                       
                         <div class="ip_box">
                             <img src="images/Security Shield Green.png" >
-                            <input class="input_bar" id="cpassword" type="text" name=""
+                            <input class="input_bar" id="cpassword" type="password" name=""
                                 placeholder="Confirm new password">
                                 <img style="cursor: pointer; width: 22px; height: 19px;"src="images/eye.png" id="ceyeicon" alt="eye">
                         </div>
