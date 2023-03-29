@@ -298,7 +298,7 @@ height: 400px;
   border: 2px solid #000;
   border-radius: 0;
   height: 100%!important;
-  width:100%!important;
+  /* width:100%!important; */
 
   background-size: 300px;
 }
@@ -420,7 +420,7 @@ width: 700px;
             <div style="margin-top:1rem">
 
 
-                <!-- <div id="stream__box"></div> -->
+                <div id="stream__box"></div>
                 
                 <div id="streams__container"></div>
 
