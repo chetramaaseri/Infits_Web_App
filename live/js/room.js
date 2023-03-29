@@ -8,37 +8,37 @@ const chatContainer = document.getElementById('messages__container');
 const chatButton = document.getElementById('chat__button');
 
 let activeMemberContainer = false;
-try {
-    memberButton.addEventListener('click', () => {
-        if (activeMemberContainer) {
-            memberContainer.style.display = 'none';
-        } else {
-            memberContainer.style.display = 'block';
-        }
+// try {
+//     memberButton.addEventListener('click', () => {
+//         if (activeMemberContainer) {
+//             memberContainer.style.display = 'none';
+//         } else {
+//             memberContainer.style.display = 'block';
+//         }
 
-        activeMemberContainer = !activeMemberContainer;
-    });
-} catch (error) {
-    console.log(error);
-    console.log('No member button found');
-}
+//         activeMemberContainer = !activeMemberContainer;
+//     });
+// } catch (error) {
+//     console.log(error);
+//     console.log('No member button found');
+// }
 
 
 let activeChatContainer = false;
-try {
-    chatButton.addEventListener('click', () => {
-        if (activeChatContainer) {
-            chatContainer.style.display = 'none';
-        } else {
-            chatContainer.style.display = 'block';
-        }
+// try {
+//     chatButton.addEventListener('click', () => {
+//         if (activeChatContainer) {
+//             chatContainer.style.display = 'none';
+//         } else {
+//             chatContainer.style.display = 'block';
+//         }
 
-        activeChatContainer = !activeChatContainer;
-    });
-} catch (error) {
-    console.log(error);
-    console.log('No chat button found');
-}
+//         activeChatContainer = !activeChatContainer;
+//     });
+// } catch (error) {
+//     console.log(error);
+//     console.log('No chat button found');
+// }
 
 
 let displayFrame = document.getElementById('stream__box')
@@ -58,8 +58,8 @@ let expandVideoFrame = (e) => {
 
     for (let i = 0; videoFrames.length > i; i++) {
         if (videoFrames[i].id != userIdInDisplayFrame) {
-            videoFrames[i].style.height = '100px'
-            videoFrames[i].style.width = '100px'
+            videoFrames[i].style.height = '200px'
+            videoFrames[i].style.width = '200px'
         }
     }
 
@@ -70,17 +70,17 @@ for (let i = 0; videoFrames.length > i; i++) {
 }
 
 
-let hideDisplayFrame = () => {
-    userIdInDisplayFrame = null
-    displayFrame.style.display = null
+// let hideDisplayFrame = () => {
+//     userIdInDisplayFrame = null
+//     displayFrame.style.display = null
 
-    let child = displayFrame.children[0]
-    document.getElementById('streams__container').appendChild(child)
+//     let child = displayFrame.children[0]
+//     document.getElementById('streams__container').appendChild(child)
 
-    for (let i = 0; videoFrames.length > i; i++) {
-        videoFrames[i].style.height = '300px'
-        videoFrames[i].style.width = '300px'
-    }
-}
+//     for (let i = 0; videoFrames.length > i; i++) {
+//         videoFrames[i].style.height = '300px'
+//         videoFrames[i].style.width = '300px'
+//     }
+// }
 
-displayFrame.addEventListener('click', hideDisplayFrame)
+// displayFrame.addEventListener('click', hideDisplayFrame)
