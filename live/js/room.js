@@ -42,7 +42,7 @@ try {
 
 
 let displayFrame = document.getElementById('stream__box')
-let videoFrames = document.getElementsByClassName('video__container')
+//let videoFrames = document.getElementsByClassName('video__container')
 let userIdInDisplayFrame = null;
 
 let expandVideoFrame = (e) => {
@@ -83,4 +83,4 @@ for (let i = 0; videoFrames.length > i; i++) {
 //   }
 // }
 
-displayFrame.addEventListener('click', hideDisplayFrame)
+//displayFrame.addEventListener('click', hideDisplayFrame)
