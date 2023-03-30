@@ -36,6 +36,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
 body {
         font-family: 'NATS', sans-serif;
         
@@ -85,8 +87,8 @@ html {
     background-color: #EFF8FF !important;
     color: #7A78FD !important;
     border: 1px solid #7A78FD !important;
-    border-radius: 6px;
-    padding-top: 20px !important;
+    border-radius: 8px;
+    padding-top: 10px !important;
 }
 
 
@@ -484,6 +486,52 @@ a:hover {
                     </div>
                 </div>
                 <style>
+                        /* Media query for screens smaller than 768px */
+                @media screen and (max-width: 767px) {    /* Done for the moment but was later told some one else was doing it */
+                    /* styles for small screens */
+                    #content {
+                        font-size: 20px;
+                        padding-left: 10px;
+                    }
+                    .fixed {
+                        width: 100%;
+                    }
+                    .flex-item {
+                        display: none;
+                    }
+                }
+
+                    /* Media query for screens between 768px and 992px */
+                @media screen and (min-width: 768px) and (max-width: 991px) {
+                    /* styles for medium screens */
+                    #content {
+                        font-size: 25px;
+                        padding-left: 15px;
+                    }
+                    .fixed {
+                        width: 70%;
+                    }
+                    .flex-item {
+                        display: block;
+                        width: 30%;
+                    }
+                }
+
+                    /* Media query for screens larger than 992px */
+                @media screen and (min-width: 992px) {
+                    /* styles for large screens */
+                    #content {
+                        font-size: 35px;
+                        padding-left: 20px;
+                    }
+                    .fixed {
+                        width: 80%;
+                    }
+                    .flex-item {
+                        display: block;
+                        width: 20%;
+                    }
+                }
                 .schedule-card {
                     background: #EFF8FF;
                     border-radius: 21px;
@@ -533,19 +581,20 @@ $(document).ready(function() {
     display_events();
 }); //end document.ready block
 function display_events() {
-    var events = new Array();
+    let events=[];
     $.ajax({
         url: 'display_event.php',
         dataType: 'json',
         success: function(response) {
             var result = response.data;
             $.each(result, function(i, item) {
-                events.push({
+                let newEvent = {
                     event_id: result[i].eventID,
                     title: result[i].eventname,
-                    start: result[i].start_date,
-                    end: result[i].end_date,
-                });
+                    start: moment(result[i].start_date).format("YYYY-MM-DDTHH:mm:ss"),
+                    end: moment(result[i].end_date).format("YYYY-MM-DDTHH:mm:ss"),
+                };
+                events.push(newEvent);
             })
             var calendar = $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
