@@ -293,6 +293,9 @@ height: 400px;
   background-color: #3f434a;
   height: 40vh;
   display: block;
+  background-image: url("./images/ronald_small.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #stream__box .video__container{
@@ -302,6 +305,7 @@ height: 400px;
   width:100%!important;
 
   background-size: 300px;
+  border-radius: 15px;
 }
 
 #stream__box video{
@@ -347,6 +351,7 @@ width: 700px;
 }
 #stream__box {
   position: relative;
+  border-radius: 15px;
 }
 
 .stream__focus {
