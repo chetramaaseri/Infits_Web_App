@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Check if user is already logged in
+if(isset($_SESSION['dietitianuserID'])){
+  header('Location: index.php');
+  exit;
+}
+
 // initializing variables
 $name = "";
 $email = "";
