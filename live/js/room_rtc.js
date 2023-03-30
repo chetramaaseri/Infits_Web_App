@@ -31,7 +31,7 @@ let remoteUsers = {}
 let localScreenTracks;
 let sharingScreen = false;
 
-let joinRoomInit = async() => {
+let joinRoomInit = async () => {
     rtmClient = await AgoraRTM.createInstance(APP_ID)
     await rtmClient.login({ uid, token })
 
@@ -54,7 +54,7 @@ let joinRoomInit = async() => {
     client.on('user-left', handleUserLeft)
 }
 
-let joinStream = async() => {
+let joinStream = async () => {
     document.getElementById('join-btn').style.display = 'none'
     document.getElementsByClassName('stream__actions')[0].style.display = 'flex'
 
@@ -77,7 +77,7 @@ let joinStream = async() => {
     await client.publish([localTracks[0], localTracks[1]])
 }
 
-let switchToCamera = async() => {
+let switchToCamera = async () => {
     let player = `<div class="video__container" id="user-container-${uid}">
                     <div class="video-player" id="user-${uid}"></div>
                  </div>`
@@ -93,7 +93,7 @@ let switchToCamera = async() => {
     await client.publish([localTracks[1]])
 }
 
-let handleUserPublished = async(user, mediaType) => {
+let handleUserPublished = async (user, mediaType) => {
     remoteUsers[user.uid] = user
 
     await client.subscribe(user, mediaType)
@@ -125,7 +125,7 @@ let handleUserPublished = async(user, mediaType) => {
 
 }
 
-let handleUserLeft = async(user) => {
+let handleUserLeft = async (user) => {
     delete remoteUsers[user.uid]
     let item = document.getElementById(`user-container-${user.uid}`)
     if (item) {
@@ -144,7 +144,7 @@ let handleUserLeft = async(user) => {
     }
 }
 
-let toggleMic = async(e) => {
+let toggleMic = async (e) => {
     let button = e.currentTarget
 
     if (localTracks[0].muted) {
@@ -156,7 +156,7 @@ let toggleMic = async(e) => {
     }
 }
 
-let toggleCamera = async(e) => {
+let toggleCamera = async (e) => {
     let button = e.currentTarget
 
     if (localTracks[1].muted) {
@@ -168,7 +168,7 @@ let toggleCamera = async(e) => {
     }
 }
 
-let toggleScreen = async(e) => {
+let toggleScreen = async (e) => {
     let screenButton = e.currentTarget
     let cameraButton = document.getElementById('camera-btn')
 
@@ -216,7 +216,7 @@ let toggleScreen = async(e) => {
     }
 }
 
-let leaveStream = async(e) => {
+let leaveStream = async (e) => {
     e.preventDefault()
 
     document.getElementById('join-btn').style.display = 'block'

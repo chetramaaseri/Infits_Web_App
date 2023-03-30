@@ -47,7 +47,7 @@ include('navbar.php');
 
         .livecall_leftside {
             margin: 2rem;
-            width: 560px;
+            width: 625px;
 height: 400px;
 
         }
@@ -285,6 +285,7 @@ height: 400px;
   top: calc(100vh - 72px);
   overflow-y: auto;
   height: 100%;
+  
 }
 
 
@@ -315,6 +316,8 @@ height: 400px;
   align-items: center;
   margin-top: 25px;
   margin-bottom: 20px;
+  width: 625px;
+height: 432px;
 }
 
 .video__container{
@@ -366,6 +369,7 @@ width: 700px;
   display: none; */
   gap: 1rem;
   /* transform: translateX(-50%); */
+  display: flex;
 }
 
 .stream__actions a,
@@ -409,6 +413,7 @@ width: 700px;
   /* left:50%;
   transform: translateX(-50%); */
   cursor: pointer;
+  margin-left: 16px;
 }
     </style>
 </head>
@@ -417,7 +422,7 @@ width: 700px;
     <div class="live_call">
         <div class="livecall_leftside">
             <div style="display:flex;gap:1rem"><img src="images/liveprofile.png" style="width: 40.91px;height: 40.91px;border-radius:50%"> <span style="font-size:30px"><?php echo $_SESSION["name"]; ?></span></div>
-            <div style="margin-top:1rem">
+            <div style="height: 449px; margin-top:1rem">
 
 
                 <div id="stream__box"></div>
