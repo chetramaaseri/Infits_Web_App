@@ -70,7 +70,7 @@ let joinStream = async () => {
                     <div class="video-player" id="user-${uid}"></div>
                  </div>`
 
-    document.getElementById('streams__container').insertAdjacentHTML('beforeend', player)
+    document.getElementById('stream__box').insertAdjacentHTML('beforeend', player)
     document.getElementById(`user-container-${uid}`).addEventListener('click', expandVideoFrame)
 
     localTracks[1].play(`user-${uid}`)

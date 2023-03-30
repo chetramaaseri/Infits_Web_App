@@ -291,15 +291,15 @@ height: 400px;
 
 #stream__box{
   background-color: #3f434a;
-  height: 60vh;
-  display: none;
+  height: 40vh;
+  display: block;
 }
 
 #stream__box .video__container{
   border: 2px solid #000;
   border-radius: 0;
   height: 100%!important;
-  /* width:100%!important; */
+  width:100%!important;
 
   background-size: 300px;
 }
@@ -400,6 +400,7 @@ width: 700px;
   background-color: #845695;
 }
 
+
 #join-btn{
   background-color: #845695;
   font-size: 18px;
@@ -414,6 +415,11 @@ width: 700px;
   transform: translateX(-50%); */
   cursor: pointer;
   margin-left: 16px;
+  margin-top: 20px;
+}
+#_messages{
+    padding-left: 12px;
+    padding-top: 8px;
 }
     </style>
 </head>
@@ -427,7 +433,7 @@ width: 700px;
 
                 <div id="stream__box"></div>
                 
-                <div id="streams__container"></div>
+                <!-- <div id="streams__container"></div> -->
 
                 <div class="stream__actions">
                     <button id="camera-btn" class="active">
