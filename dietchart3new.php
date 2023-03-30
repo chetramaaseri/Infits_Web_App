@@ -34,21 +34,28 @@
        height: 90%;
        font-family: 'Poppins';
        font-style: normal;
-       padding: 10px;
-       margin-top: 2rem;
+       padding: 5px;
+       /* margin-top: rem; */
        position: relative;
+      
 
      }
      .main{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        /* flex-wrap: wrap; */
+        margin-right: 3rem;
+        /* padding-left: 5rem;
+        padding-right: 5rem; */
+        /* width: 100%;
+        height: 30%; */
      }
      .top{
         position: relative;
         display:flex;
         justify-content: space-around;
-        margin-left: 20px; 
+        margin-left: 4rem; 
         /* float: left;
         width: 50%; }
         */
@@ -77,9 +84,9 @@
      .top-right{
           display: flex;
          justify-content: space-between;
-         align-items: center;
-         margin-right: 20px; 
-          float: right;
+        align-items: center;
+        /* margin-right: 5rem;  */
+        float: right;
          width: 50%; }
        
      
@@ -111,16 +118,18 @@
      .top-right img{
         width: 30px;
         height: 20px;
-        margin-right: 5px;
-        margin-left: 0px;
+        /* margin-right: 4px; */
+        margin-left: 1rem;
+        
      }
     
     .down
     {
         position: absolute;
         margin-left: 20px;
-        top: 60px;
-        left = 0px;
+        margin-top: 6rem;
+        margin-left: 4.5rem;
+        
         font-family: 'NATS';
         font-style: normal;
         font-weight: 400;
@@ -159,11 +168,13 @@
       position: relative;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-left: 5%;
-      margin-right: 10%;
+      justify-content: space-evenly;
+      
+      margin-left: 1.5rem;
+      /* margin-right: ; *
       /* margin-top: 5rem; */
+      /* margin-top: 9rem;
+      gap:1rem; */
       
       
     }
@@ -180,10 +191,10 @@
       border-radius:10px;
     }
     .button-container{
-        position: absolute;
+        position: relative;
         box-sizing: border-box;
         display: flex;
-        margin-top: 0px;
+        
         width:95%;
         height:10%;
         color: #9C74F5 ;
@@ -194,8 +205,8 @@
         font-style: normal;
         margin-left: 7rem;
         margin-right: 10px;
-        top: 17rem;
-        
+        /* margin-top: rem;
+         */
        
     }
     
@@ -319,7 +330,7 @@
     width: 176px;
     height: 61px;
     top: 714px;
-    margin-left: 10%;
+    margin-left: 3rem;
 
     
     display: flex;
@@ -335,16 +346,19 @@
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
-    line-height: 53px;
-    margin-left: 40px;
+    /* line-height: 53px; */
+    /* margin-left: 40px; */
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 .up-right{
     background: #9C74F5;
     border-radius: 10px;
-    margin-left:50%;
+    margin-left:50rem;
+    margin-right: 10rem;
     width: 250px;
     height: 62px;
-    margin-right: 9%;
+    /* margin-right: 9%; */
     
     
     display: flex;
@@ -360,99 +374,139 @@
        font-style: normal;
        font-weight: 400;
        font-size: 30px;
-       line-height: 63px;
+       
        display: flex;
        align-items: center;
        color: #F8F8F8;
-       margin-left: 45px;
+       /* margin-left: 45px;/ */
+       padding-left: 5rem;
+       padding-right: 5rem;
 }
- /* @media screen and (min-width: 300px) and (max-width: 600px) {
-    .top{
-        flex-direction: column ;
-        justify-content:space-between;   
-        margin: auto; 
-        width: auto;
-        gap: 4rem;
-       
 
-    }  
-    .top img{
-        display: block;
-        justify-content:auto;
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 9999; 
+    width: 45rem;
+    /* height: 20rem; */
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: 300px !important;
+    border: 1px solid  #e4e1e1;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  
+  .hover-text:hover .tooltip-text {
+    visibility: visible;
+  }
+  #tooltipright {
+    top: -3rem;
+    right: 123%;
+  }
+  
+  .hover-text {
+    position: relative;
+    display: inline-block;
+    /* margin: 40px; */
+    /* margin-left: 40px; */
+    font-family: Avenir;
+    text-align: center;
+   
+  }
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    .tooltip-text {
+      width: auto;
+      margin:auto;
+      font-size: 14px !important;
+      
+      /* padding: 2rem; */
     }
 
-      .top h3{
-        display: flex;
-        flex-direction: column;
-        justify-content: auto;
-    }
+ }
 
- } */
- @media screen and (min-width: 300px) and (max-width: 600px) {
+ @media screen and (min-width: 300px) and (max-width: 800px) {
     .content{
         overflow: hidden;
     }
  }
- @media screen and (min-width: 300px) and (max-width: 600px) {
+ @media screen and (min-width: 300px) and (max-width: 800px) {
     .box{
         /* flex-wrap: wrap; */
         margin: auto;
-        width: 30rem;
+        width: 100%;
 
 
     }
  }
- @media screen and (min-width: 300px) and (max-width: 600px) {
+ @media screen and (min-width: 300px)  and (max-width: 800px) {
     .button-container{
-        flex-wrap: wrap;
-        flex-direction: column;
-        grid-template-columns: auto auto auto auto;
-        margin: auto;
-        top: 16.5%;
-        margin-left: 0%;
+        
+        flex-direction: row;
+        /* grid-template-columns: auto auto auto auto; */
+        /* margin: auto; */
+        /* top: 15rem; */
+        margin-left: 2rem;
         overflow: scroll;
        
         
     }
  }
+ /* @media screen and (min-width: 480px) and (max-width: 600px) {
+   .button-container{
+      flex-wrap: wrap;
+        flex-direction: column;
+        
+        margin: auto;
+        top: 13rem;
+        margin-left: 3rem;
+        overflow: scroll;
 
- @media screen and (max-width: 720px) {
+   }
+ } */
+
+ @media screen and (min-width: 300px) and (max-width: 800px)  {
       .main{
-        /* new thing added */
+        
         display: flex;
-        flex-direction: row;
-       justify-content: space-around;
-       align-items: center;
+        
+        justify-content: space-around;
+        align-items: center;
        
         
       }
      
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 800px) {
   .top{
-    margin-left: auto;
+    margin-left: 2rem;
 
   }
   .top p{
     font-size: 20px;
-    text-align: end;
+    
     margin-top:1rem;
 
   }
   .top img{
     margin-left: 1rem;
-    width: 20px;
-    margin-top: 1rem;
+    width: 15px;
+    height: 15px;
+    margin-top: 1.5rem;
   }
 }
 
       
  
- @media screen and (min-width: 300px) and (max-width: 600px) {
+ @media screen and (min-width: 300px) and (max-width: 800px) {
     .top-right .btn {
        
-        margin-left:40px;
+        margin: auto;
         width: 100%;
+        top: 1rem;
 
 
     }
@@ -460,7 +514,6 @@
         /* width:30px;
         height: 20px; */
         margin-left: 1rem;
-
     }
  }
 
@@ -477,7 +530,7 @@
     font-size: 25px;
  }
 } */
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 720px) {
   .down{
     /* display: flex;
     flex-wrap: wrap;
@@ -494,8 +547,23 @@
 
 
 }
+@media screen and (min-width: 300px) and (max-width: 720px){
+  .tooltip-text {
+    padding: 0px opx;
+    height: 10rem;
+    width:20rem;
 
-@media screen and (min-width: 300px) and (max-width: 600px) {
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 720px){
+  .day-band {
+    margin-left: 2rem;
+    top: 3rem;
+    
+}
+}
+
+@media screen and (min-width: 300px) and (max-width: 720px) {
       .demo{
         display: flex;
         flex-direction: column;
@@ -507,19 +575,23 @@
 
       
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 800px) {
     .up-right{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin: auto;
-        margin-top: 5%;
-        margin-right: auto;
+        margin: 1rem;
+        /* margin-top: 5%;
+        margin-right: auto; */
+    }
+    .up{
+      margin: 1rem;
+
     }
 
 }
-@media screen and (min-width: 300px) and (max-width: 600px){
+@media screen and (min-width: 300px) and (max-width: 800px){
    .save{
      padding-right: 4rem;
    }
@@ -540,7 +612,7 @@
    
     </style>
    <body>
-    <div class="content">
+   <div class="content">
     <div class="main">
     <div class="top">
         <p> New Diet Chart</p>
@@ -548,14 +620,28 @@
      </div>
      <div class="top-right">
         <button class="btn" text="submit"> <span>Connect to plan</span> </button>
-           <img src="Vector (2).png">
+          
+           <div class="hover-text"style="margin-top:1.3rem" ><span class="material-symbols-outlined" style="color:#9C74F5"> <img id="myimg" src="Vector (2).png"></span>
+            <span class="tooltip-text" id="tooltipright">Choose a plan to connect it with the specific diet chart!</span> 
+            </div>
+           
     </div>
      </div>
+
      <br/>
-   <div class="down">Ronald Richard</div>
+     <div class="down">Ronald Richard</div>
+     
+    
+      
+   <!-- </div>
+
+    
+    </div>
+    <br/> -->
+  
    <!-- <div class="main">
     <div class="top-left">
-        <div class="top">
+        <divclass="top">
         <h4> New Diet Chart </h3>
         <img src="Vector (1).png">
         </div>
