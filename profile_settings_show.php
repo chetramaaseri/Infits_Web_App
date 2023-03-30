@@ -1,7 +1,8 @@
 <?php 
  include "navbar.php";
-    $currentUser = $_SESSION['name'];
-   $query = "select * from `dietitian` where `dietitianuserID` = '$currentUser' ";
+    $name = $_SESSION['name'];
+    // $currentUser = substr($name, 0, -4);
+    $query = "select * from `dietitian` where `dietitianuserID` = '$name' ";
     $result = mysqli_query($conn, $query); // Use curly braces to access array members inside strings
     if($result->num_rows > 0){ 
       while($row = $result->fetch_assoc()){
@@ -22,15 +23,12 @@
         $instagram = $row['instagram'];
         $profilePhoto = $row['profilePhoto'];
 
-        //if (is_null($row['profilePhoto']) or $row['profilePhoto']=' ') {
-         //$path = "./upload/pp.jpg";
-          
-      
-      //} else { 
-
-        //   $ext= explode('|',$row['profilePhoto']);
-        //   $path = $ext[1] . "/" .$ext[0];
-      //}
+        if (is_null($row['profilePhoto']) or $row['profilePhoto']=' ') {
+            $path = "./upload/pp.jpg";
+        } else { 
+            $ext= explode('|',$row['profilePhoto']);
+            $path = $ext[1]. "/" .$ext[0];
+        }
       }
     }
 
@@ -109,6 +107,9 @@ body {
 
     /* Shared */
     .addBtn {
+        text-decoration: none;
+        align-content: center;
+        justify-content: center;
         width: 342px;
         height: 48px;
         background: #0177FD;
@@ -123,7 +124,8 @@ body {
 
     .center-flex {
         display: flex;
-        margin-left:20.3rem;
+        /* margin-left:13.5rem; */
+        padding-left: 2.5rem;
     }
 
     .signup {
@@ -149,11 +151,18 @@ body {
         justify-content: top;
         flex-direction: column;
     }
-
+    .flex-left{
+        flex-shrink: 3;
+    }
+    .flex-right{
+        flex-shrink: 3;
+        display: flex;
+        align-items: center;
+    }
     .flex-main {
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        flex-direction:row;
+        justify-content: space-between;
         flex-wrap: wrap;
         align-content: flex-start;
         position:relative;
@@ -162,7 +171,13 @@ body {
     .align-middle {
         margin-left: 5%;
     }
-
+    .rating{
+        align-self: center;
+        font-family: 'NATS';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25.4545px;
+    }
     .reset a {
         color: RoyalBlue;
     }
@@ -178,14 +193,14 @@ body {
   
     .sharebutton{
         width: 342px;
-    height: 48px;
-    background: #FFFFFF;
-    border: 2px solid #0177FD;
-    border-radius: 10px;
-    padding-top:0.5rem;
+        height: 48px;
+        background: #FFFFFF;
+        border: 2px solid #0177FD;
+        border-radius: 10px;
+        padding-top:0.5rem;
         font-size: 20px;
-        underline:none;
-        margin-left:5.5rem;
+        text-decoration: none;
+        margin-left:3rem;
     }
     .sharebutton:hover{
       background-color:white;
@@ -248,56 +263,100 @@ body {
 .leftinput{
     width:342px;
 }
+    /***************media query for mobile *******************/
     @media screen and (max-width: 720px) {
+        .input-sec{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
         .popup{
             margin:30%;
             margin-top:50%;
             width:40%;
         }
         .heading{
-            margin-left:2rem !important;
+            /* margin-left:2rem !important; */
         }
         .leftinput{
             width:auto !important;
         }
         .flex-left{
-            margin-left:2rem;
+            /* margin-left:2rem; */
         }
         .flex-middle{
-            margin-left:2rem;
+            /* margin-left:2rem; */
         }
         .flex-main_wrapper{
-            display:flex;
-            flex-direction:column;
+        width: 100%;
+            /* display:flex;
+            flex-direction:column; */
         }
         .flex-main{
             display:flex;
             flex-direction:column;
         }
         .user{
-            margin-left:6rem !important;
+            /* margin-left:6rem !important; */
         }
         .star{
-            margin-left:7.5rem !important;
+            /* margin-left:7.5rem !important; */
         }
         .center-flex {
         display: flex;
         flex-direction:column;
+        align-items: center;
         gap:1rem;
-        margin-left:2.3rem;
+        margin-left:0;
+        width: 100%;
     }
     .addBtn{
-        width:auto !important;
+        width:200px !important;
         margin-right:2rem;
     }
     .sharebutton{
-        width:auto !important;
+        width:200px !important;
         margin-left:0;
         margin-right:2rem;
     }
     }
-
-   
+    /***************media query for tablet devices *******************/
+    @media only screen and (min-width:720px) and (max-width:1180px) {
+    .center-flex{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        
+    }
+    .flex-right{
+        width: 100% !important;
+    }
+    .addBtn{
+        width: 200px !important;
+    }
+    .sharebutton{
+        width: 200px !important;
+    }
+    .flex-left input{
+        width: 150px !important;
+        /* margin-left: 5rem; */
+    }
+    .flex-middle input{
+        width: 150px !important;
+    }
+    .leftinput{
+        width: 150px !important;  
+    }
+    }
+    /***************media query for large devices *******************/
+   @media screen and (min-width:1280px) {
+    .center-flex{  
+        display: flex;
+        align-content: center;
+        justify-content: center;  
+    }
+   }
     </style>
 
 </head>
@@ -307,17 +366,18 @@ body {
 
     <div id="content">
 
-        <br>
-        <h4 class="heading" style="margin-left:21rem; font-size:40px"> Profile Settings</h4>
-
+        <!-- <br> -->
+        
         <!--<div class="add-client-area">-->
-        <form method="post" action="" enctype="multipart/form-data">
-
-            <br>
-
-            <div class="flex-main">
-
-                <div style="display:flex; gap:5.5rem" class="flex-main_wrapper">
+            <form method="post" action="" enctype="multipart/form-data">
+                
+                <!-- <br> -->
+                
+                <div class="flex-main" style="">
+                    
+                <div style="display:flex; flex-direction: column; gap:3rem;" class="flex-main_wrapper col-lg-9 mt-5 col-md-12 ">
+                 <h4 class="heading ps-5" style=" font-size:40px;"> Profile Settings</h4>
+                <div class="input-sec d-flex flex-lg-row align-center justify-content-center" style=" gap: 3rem;"> 
                 <div class="flex-left" style="font-size:18px;display:flex;flex-direction:column;justify-content:center">
                     User ID <br> <input  class="leftinput" name="dietitianuserID" value="<?php echo $dietitianuserID; ?>" disabled style="color: #AEAEAE;" />
                     <br>
@@ -393,13 +453,14 @@ body {
 
                 </div>
                 </div>
+                </div>
 
-                <div class="flex-right" >
+                <div class="flex-right mt-5" style="" >
 
-                    <img  class="user"src=<?php echo $path;?> style="height: 100px; width: 100px; border-radius: 30%;margin-left:1rem" />
-                    <div class="star" style="margin-left:2.7rem;margin-bottom:2rem;background:none">
-                        <img src="images/star.png"style="background:none"ui >
-                        <span>4.8</span>
+                    <img class = "user" src="<?php echo $path;?>"  style="height: 154px; width: 154px; border-radius:25px" alt="profilePhoto" />
+                    <div class="star" style="display: flex; gap:7px; margin-bottom:2rem;background:none;">
+                        <img src="images/star.png"style="background:none; width: 28px; height: 28px;">
+                         <p style="rating">4.8</p>
                     </div>
 
                     <button class='socials'><img src="images/WhatsApp.svg" style="height: 33px; "> &nbsp; <a
@@ -425,18 +486,20 @@ body {
 
             </div>
 
-            <div class="center-flex"> <br> <br>
-                <a id="addBtn" href="profile_settings_edit.php">
+            <div class="center-flex col-lg-10 col-sm-12 offset-lg-2 col-md-9 offset-md-3 col-xl-7 offset-xl-2"> <br> <br>
+                <a id="addBtn"  href="profile_settings_edit.php">
                     <div class="addBtn">
-                        <center>Edit Profile Details</center>
+                        <center >Edit Profile Details</center>
                     </div>
                 </a>
 
-                <a id="sharebutton" href="#popup1" >
+                <a id="sharebutton" style="text-decoration: none;" href="#popup1" >
                     <div class="sharebutton">
                         <center >Share Profile</center>
                     </div>
                 </a>
+                <!-- <button id="addBtn" href="profile_settings_edit.php" type="button" class=" addBtn btn btn-primary btn-lg">Edit Profile Details</button>
+                <button id="sharebutton" href="#popup1" type="button" class="btn btn-outline-primary btn-lg"> Share Profile</button> -->
                 <!--link not working to move to next page -->
             </div>
             <br>
