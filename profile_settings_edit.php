@@ -1,7 +1,9 @@
 <?php 
  include "navbar.php";
-  $currentUser = $_SESSION['name'];
-   $query = "select * from `dietitian` where `dietitianuserID` = '$currentUser' ";
+ error_reporting(0);
+    $name = $_SESSION['name'];
+    // $currentUser = substr($name, 0, -4);
+    $query = "select * from `dietitian` where `dietitianuserID` = '$name' ";
     $result = mysqli_query($conn, $query); // Use curly braces to access array members inside strings
     if($result->num_rows > 0){ 
       while($row = $result->fetch_assoc()){
@@ -31,12 +33,13 @@
 //profile updation save button 
 if(isset($_POST['update']) || isset($_FILES['my_image'])) {
   // receive all input values from the form
-  $qualification = mysqli_real_escape_string($db, $_POST['qualification']);
-  $location = mysqli_real_escape_string($db, $_POST['location']);
-  $gender = mysqli_real_escape_string($db, $_POST['gender']);
-  $experience = mysqli_real_escape_string($db, $_POST['experience']);
-  $ref_code = mysqli_real_escape_string($db, $_POST['ref_code']);
-  $age = mysqli_real_escape_string($db, $_POST['age']);
+  $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
+  $location = mysqli_real_escape_string($conn, $_POST['location']);
+  $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
+  $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+  $experience = mysqli_real_escape_string($conn, $_POST['experience']);
+  $ref_code = mysqli_real_escape_string($conn, $_POST['ref_code']);
+  $age = mysqli_real_escape_string($conn, $_POST['age']);
 
 
   $img_name= $_FILES['my_image']['name'];
@@ -66,15 +69,16 @@ if(isset($_POST['update']) || isset($_FILES['my_image'])) {
                 $imageandpath="$new_name|$img_upload_path";
 
 
-  //updating to db
+  //updating to conn$conn
   $query = "UPDATE dietitian SET qualification = '$qualification',
               location = '$location',
               gender = '$gender',
+              mobile = '$mobile',
               experience = '$experience',
               age = '$age',
               profilePhoto = '$imageandpath'
               where `dietitianuserID` = '$currentUser'";
-    mysqli_query($db, $query);
+    mysqli_query($conn, $query);
 
   	$_SESSION['success'] = "Information Updated";
     header('location: profile_settings_show.php');
@@ -166,6 +170,11 @@ body {
     .center-flex {
         display: flex;
         margin-left:20.3rem;
+    }
+    .center-flex button{
+        background-color: transparent;
+        border:none;
+        color: #FFFFFF;
     }
 
     .signup {
@@ -356,18 +365,28 @@ body {
         }
         .flex-left{
             margin-left:2rem;
+            width:90%
         }
         .flex-middle{
             margin-left:2rem;
+            width:90%;
         }
         .flex-main_wrapper{
             display:flex;
             flex-direction:column;
             gap:0 !important;
+            width:90%;
+        }
+        .flex-main_wrapper input{
+            width:auto !important;
         }
         .flex-main{
             display:flex;
             flex-direction:column;
+            width:100%;
+        }
+        .flex-main input{
+            width:100%;
         }
         .user{
             margin-left:6rem !important;
@@ -390,14 +409,17 @@ body {
         margin-left:0;
         margin-right:2rem;
     }
-    .image1{
+    /* .image1{
         margin-left:10rem !important;
-    }
+    } */
     .chooseimage{
         margin-left:6rem !important;
     }
     .text{
         margin-left:6rem !important;
+    }
+    .profiles{
+        margin:auto;
     }
     }
 
@@ -417,9 +439,9 @@ body {
             <div class="flex-main">
 
                 <div style="display:flex; gap:3rem;margin-left:2rem;" class="flex-main_wrapper">
-                <div class="flex-left" style="font-size:18px">
+                <div class="flex-left"  style="font-size:20px;font-weight:400px;">
                     User ID <br> <input type="text" name="dietitianuserID" value="<?php echo $dietitianuserID;  ?>"
-                        disabled required style="width: 342px;color: #AEAEAE;" />
+                        disabled required style="width:342px;color: #AEAEAE;height:48px;" />
                     <br>
 
                     Name <br> <input type="text" name="Name" value="<?php echo $name; ?>" disabled required style="color: #AEAEAE;" />
@@ -444,11 +466,11 @@ body {
                     <?php } ?>
                     <br>
 
-                    Password: <br> <input type="password" name="password" value="<?php echo $password; ?>" disabled
+                    Password <br> <input type="password" name="password" value="<?php echo $password; ?>" disabled 
                         required style="color: #AEAEAE;"/>
-                    <a href="reset-pw.php" class='reset' style="display:flex;justify-content:space-between;padding-left:3rem;padding-right:3rem">
-                        <p style=" color: blue; font-size: 12px;">Change Password</p>
-                        <p style=" color: blue; font-size: 12px">Forgot Password</p>
+                    <a href="reset_password.php" class='reset' style="display:flex;justify-content:space-between;text-decoration:none;width:80%;">
+                        <p style=" color: #0177FD; font-size: 14px; font-weight:400px;">Change Password</p>
+                        <p style=" color: #0177FD; font-size: 14px;font-weight:40px;">Forgot Password</p>
                     </a>
                     <br>
 
@@ -457,13 +479,13 @@ body {
 
                 <br><br>
 
-                <div class="flex-middle" style="font-size:18px;font-weight:400">
+                <div class="flex-middle"  style="font-size:20px;font-weight:400px;">
 
                     Location <br>
                     <?php if (is_null($location) or $location=='') { ?>
                     <input type="text" name="location" required style="width: 342px;" class="leftinput" style="color: #AEAEAE;">
                     <?php } else { ?>
-                    <input type="text" name="location" value="<?php echo $location; ?>" required style="width: 342px;" class="leftinput" style="color: #AEAEAE;">
+                    <input type="text" name="location" value="<?php echo $location; ?>" required style="width:342px;" class="leftinput" style="color: #AEAEAE;">
                     <?php } ?>
                     <br>
 
@@ -475,7 +497,7 @@ body {
                     <?php } ?>
                     <br>
 
-                    Gender: <br>
+                    Gender <br>
                     <?php if (is_null($gender) or $gender=='') { ?>
                     <select name="gender" id="gender" required class="leftinput">
                         <option value="male">Male</option>
@@ -508,21 +530,26 @@ body {
 
                 </div>
                     <div class="flex-right">
-                    <img class="image1" src=<?php echo $path;?> style="height: 100px; width: 100px; border-radius: 30%;margin-left:4rem" alt="" /> <br>
-                    <span class="text"'>Profile Picture:</span>
-                    <input class="chooseimage"type="file" name="my_image" style="width: 250px;" value="" required />
-                    <br>
+                        <div class="profiles" style="display:flex;flex-direction:column;position:relative; width:fit-content;">
+                   <center> <img class="image1" src=<?php echo $path;?> style="height: 115px; width: 115px; border-radius: 30%;z-index:-1;margin-left:4rem;" alt=""   /></center>
+                    <button class="edit" id="edit" onclick="clickMe()" style="border:2px solid white; background:#0177FD; border-radius:50%; width:32px;height:32px;position:absolute;right:20px;bottom:10px;"><img src="images/pen.png" style=""></button>
+                    </div>
 
+                    <!-- <div class="dialog" style="display:none">
+                    <span class="text">Profile Picture:</span> -->
+                    <input class="chooseimage"  id= "chooseimage"type="file" name="my_image" style="width: 250px; display:none;" value="" requied/>
+                    <br>
+                    <!-- </div> -->
                     <!--   socials  -->
-                    <button class='socials'><img src="images/WhatsApp.svg" style="height: 33px;"> &nbsp;
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/WhatsApp.svg" style="height: 33px; "> &nbsp;
                         WhatsApp</button><br>
-                    <button class='socials'><img src="images/Twitter.svg" style="height: 33px;"> &nbsp;
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Twitter.svg" style="height: 33px;"> &nbsp;
                         Twitter</button><br>
-                    <button class='socials'><img src="images/LinkedIn.svg" style="height: 33px;"> &nbsp;
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/LinkedIn.svg" style="height: 33px;"> &nbsp;
                         LinkedIn</button><br>
-                    <button class='socials'><img src="images/Instagram.svg" style="height: 33px;"> &nbsp;
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Instagram.svg" style="height: 33px;"> &nbsp;
                         Instagram</button><br>
-                    <button class='socials'><img src="images/Facebook.svg" style="height: 33px;"> &nbsp;
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Facebook.svg" style="height: 33px;"> &nbsp;
                         Facebook</button><br>
 
                     <!-- Trigger/Open The Modal -->
@@ -556,66 +583,74 @@ body {
                     </div>
                     
                     <?php
-//profile updation save button 
-if(isset($_POST['save_socials']) ) {
-  // receive all input values from the form
-  $socials = mysqli_real_escape_string($db, $_POST['socials']);
-  $link = mysqli_real_escape_string($db, $_POST['link']);
+                        //profile updation save button 
+                        if(isset($_POST['save_socials']) ) {
+                        // receive all input values from the form
+                        $socials = mysqli_real_escape_string($conn, $_POST['socials']);
+                        $link = mysqli_real_escape_string($conn, $_POST['link']);
 
-  if ($socials == 'whatsapp'){
-  $query = "UPDATE dietitian SET whatsapp = '$link' where `dietitianuserID` = '$currentUser'";
-    mysqli_query($db, $query);
-  }
+                        if ($socials == 'whatsapp'){
+                        $query = "UPDATE dietitian SET whatsapp = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                        }
 
-  if ($socials == 'twitter'){
-    $query = "UPDATE dietitian SET twitter = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-  }
+                        if ($socials == 'twitter'){
+                            $query = "UPDATE dietitian SET twitter = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                        }
 
-  if ($socials == 'linkedin'){
-    $query = "UPDATE dietitian SET linkedin = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
+                        if ($socials == 'linkedin'){
+                            $query = "UPDATE dietitian SET linkedin = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
 
-  if ($socials == 'facebook'){
-    $query = "UPDATE dietitian SET facebook = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
+                        if ($socials == 'facebook'){
+                            $query = "UPDATE dietitian SET facebook = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
 
-  if ($socials == 'instagram'){
-    $query = "UPDATE dietitian SET instagram = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
-}
-?>
+                        if ($socials == 'instagram'){
+                            $query = "UPDATE dietitian SET instagram = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
+                        }
+                    ?>
 
                     <script>
                     // Get the modal
-                    var modal = document.getElementById("myModal");
+                        var modal = document.getElementById("myModal");
 
-                    // Get the button that opens the modal
-                    var btn = document.getElementById("myBtn");
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn");
 
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
 
-                    // When the user clicks the button, open the modal 
-                    btn.onclick = function() {
-                        event.preventDefault(); //keeps page from refreshing
-                        modal.style.display = "block";
-                    }
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                            event.preventDefault(); //keeps page from refreshing
+                            modal.style.display = "block";
+                        }
 
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function() {
-                        modal.style.display = "none";
-                    }
-
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                        if (event.target == modal) {
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
                             modal.style.display = "none";
                         }
-                    }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+
+                        var edit1 = document.getElementById("edit");
+                        var chooseimage= document.getElementById("chooseimage");
+                        function clickMe(){
+                            chooseimage.click();
+                        }
+                        
+           
                     </script>
 
                 </div>
@@ -628,11 +663,10 @@ if(isset($_POST['save_socials']) ) {
             </div>
 
             <div class="center-flex"> <br> <br>
-                <a id="addBtn" href="profile_settings_edit.php">
                     <div class="addBtn">
-                        <center>Confirm Changes</center>
+                        <center><button>Confirm Changes</button></center>
                     </div>
-                </a>
+
 
                 <a id="sharebutton" href="#popup1"  >
                     <div class="sharebutton">
