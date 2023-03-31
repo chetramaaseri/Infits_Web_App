@@ -48,7 +48,7 @@ include('navbar.php');
         .livecall_leftside {
             margin: 2rem;
             width: 625px;
-height: 400px;
+            height: 400px;
 
         }
 
@@ -57,6 +57,7 @@ height: 400px;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            padding-left: 13px;
 
         }
 
