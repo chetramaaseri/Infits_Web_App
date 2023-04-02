@@ -1,4 +1,19 @@
 <?php
+
+include 'navbar.php';
+
+if(isset($_SESSION['dietitianuserID'])){
+    $conn = new mysqli("localhost", "root", "", "infits");
+    if($conn->connect_error){
+        die("Connection failed :" . $conn->connect_error);
+    }
+    $tasks_id = $_SESSION['dietitianuserID'];
+    $sql="SELECT count(*) FROM dietition_tasks WHERE `dietitianuserID`='$tasks_id' ";
+    $result = $conn->query($sql);
+    if(empty($result->fetch_assoc())){
+        header('Location:tasklist.php');
+    }
+}
 if(isset($_POST['add_calender'])){
     $conn = new mysqli("localhost", "root", "", "infits");
     if($conn->connect_error){
@@ -37,7 +52,7 @@ if(isset($_POST['delete_task'])){
     exit();
 }
 
-include('navbar.php');
+
 $today = new DateTime();
 $dietition = 'John_wayne';
 if(isset($_POST['create-submit'])){
