@@ -21,6 +21,7 @@ include('config.php');
     <title>Infits</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
 </head>
 
 <style>
@@ -278,6 +279,7 @@ a {
     font-style: normal;
     font-weight: 400;
     position: absolute;
+    z-index: 999;
     top: 60px;
     right: 40px;
     width: 400px;
@@ -326,6 +328,9 @@ a {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 340px;
+}
+.noti-close{
+    cursor:pointer;
 }
 .notifications::-webkit-scrollbar{
     display: none;
@@ -392,9 +397,9 @@ a {
             <img id="notifications-pop" src="images/vec_notification.png" style="height: 20px; width: 20px;">
 
             <div class="noti-box">
-                <div class="top"><span>Notifications</span><span id="noti-close" >x</span></div>
+                <div class="top"><span>Notifications</span><span id="noti-close" ><i style="cursor: pointer;" class="fa-solid fa-xmark"></i></span></div>
                 <?php
-                //include ('noti_test.php');
+               // include ('noti_test.php');
                 ?>
             </div>
             
