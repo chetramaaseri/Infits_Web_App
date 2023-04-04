@@ -63,7 +63,7 @@
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #BBBBBB;
-  opacity: 1; /* Firefox */
+    opacity: 1; /* Firefox */
 }
 
 body {
@@ -110,8 +110,8 @@ body {
         text-decoration: none;
         align-content: center;
         justify-content: center;
-        width: 342px;
-        height: 48px;
+        width: 21.375rem;
+        height: 3rem;
         background: #0177FD;
         border-radius: 10px;
         color:white;
@@ -126,6 +126,7 @@ body {
         display: flex;
         /* margin-left:13.5rem; */
         padding-left: 2.5rem;
+        
     }
 
     .signup {
@@ -152,7 +153,7 @@ body {
         flex-direction: column;
     }
     .flex-left{
-        flex-shrink: 3;
+        /* flex-shrink: 3; */
     }
     .flex-right{
         flex-shrink: 3;
@@ -192,8 +193,8 @@ body {
 
   
     .sharebutton{
-        width: 342px;
-        height: 48px;
+        width: 21.375rem;
+        height: 3rem;
         background: #FFFFFF;
         border: 2px solid #0177FD;
         border-radius: 10px;
@@ -297,12 +298,7 @@ body {
             display:flex;
             flex-direction:column;
         }
-        .user{
-            /* margin-left:6rem !important; */
-        }
-        .star{
-            /* margin-left:7.5rem !important; */
-        }
+        
         .center-flex {
         display: flex;
         flex-direction:column;
@@ -312,17 +308,22 @@ body {
         width: 100%;
     }
     .addBtn{
-        width:200px !important;
+        width:15.625rem!important;
         margin-right:2rem;
     }
     .sharebutton{
-        width:200px !important;
+        width:15.625rem!important;
         margin-left:0;
         margin-right:2rem;
     }
     }
     /***************media query for tablet devices *******************/
     @media only screen and (min-width:720px) and (max-width:1180px) {
+   .popup{
+            margin:30%;
+            margin-top:50%;
+            width:40%;
+    }
     .center-flex{
         display: flex;
         align-content: center;
@@ -333,10 +334,10 @@ body {
         width: 100% !important;
     }
     .addBtn{
-        width: 200px !important;
+        width: 15.625rem !important;
     }
     .sharebutton{
-        width: 200px !important;
+        width: 15.625rem !important;
     }
     .flex-left input{
         width: 150px !important;
@@ -351,6 +352,11 @@ body {
     }
     /***************media query for large devices *******************/
    @media screen and (min-width:1280px) {
+    .popup{
+            margin:30%;
+            margin-top:50%;
+            width:40%;
+        }
     .center-flex{  
         display: flex;
         align-content: center;
@@ -373,7 +379,7 @@ body {
                 
                 <!-- <br> -->
                 
-                <div class="flex-main" style="">
+                <div class="flex-main">
                     
                 <div style="display:flex; flex-direction: column; gap:3rem;" class="flex-main_wrapper col-lg-9 mt-5 col-md-12 ">
                  <h4 class="heading ps-5" style=" font-size:40px;"> Profile Settings</h4>
@@ -455,7 +461,7 @@ body {
                 </div>
                 </div>
 
-                <div class="flex-right mt-5" style="" >
+                <div class="flex-right mt-5" >
 
                     <img class = "user" src="<?php echo $path;?>"  style="height: 154px; width: 154px; border-radius:25px" alt="profilePhoto" />
                     <div class="star" style="display: flex; gap:7px; margin-bottom:2rem;background:none;">
@@ -498,9 +504,6 @@ body {
                         <center >Share Profile</center>
                     </div>
                 </a>
-                <!-- <button id="addBtn" href="profile_settings_edit.php" type="button" class=" addBtn btn btn-primary btn-lg">Edit Profile Details</button>
-                <button id="sharebutton" href="#popup1" type="button" class="btn btn-outline-primary btn-lg"> Share Profile</button> -->
-                <!--link not working to move to next page -->
             </div>
             <br>
         </form>
