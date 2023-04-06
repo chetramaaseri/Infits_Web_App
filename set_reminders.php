@@ -365,7 +365,7 @@ function getClientName($ID,$conn,$dietitianuserID){
         transition: 0.5s ease-in-out;
     }
     .set-card2 {
-      position:absolute;
+        position:absolute;
         z-index: 9;
         width: 450px;
         display:flex;
@@ -375,7 +375,7 @@ function getClientName($ID,$conn,$dietitianuserID){
         border-radius: 20px;
         padding: 25px;
         transition: 0.5s ease-in-out;
-        
+        /* right: 4rem; */
     }
       .set-card3 {
       position:absolute;
@@ -594,7 +594,8 @@ box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
     .tooltip-text {
     visibility: hidden;
     position: absolute;
-    z-index: 1;
+    z-index:999;
+    background:white;
     width: 22rem;
     color: black;
     font-size: 14px;
@@ -793,6 +794,37 @@ border-radius: 13.3333px;
    
   
   }
+  /***************media query for tablet devices *******************/
+@media only screen and (min-width:720px) and (max-width:1244px) {
+    .header{
+        display:flex;
+        overflow-x:scroll;
+        width:auto;
+        gap:2rem;
+    }
+    .past-reminder {
+    width:80%;
+    height: auto;
+} 
+.set-card{
+        left: 15rem;
+        top: 307.5px;
+        position: absolute;
+        width:auto;
+    }
+    .set-card2{
+        left: 15rem;
+        top: 307.5px;
+        position: absolute;
+        width:auto;
+    }
+    .set-card3{
+        left: 15rem;
+        top: 307.5px;
+        position: absolute;
+        width:auto;
+    }
+}
 
 
 </style>

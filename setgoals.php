@@ -305,6 +305,7 @@ body{
     padding-left: 2rem;
 }
 .tooltip-text {
+    background-color: white;
     visibility: hidden;
     position: absolute;
     z-index: 1;
@@ -315,6 +316,7 @@ body{
     box-shadow: 0 4px 4px rgba(0,0,0,0.12);
     border-radius: 10px;
     padding: 0.4rem;
+    font-family: 'NATS', sans-serif;
   }
   
   .hover-text:hover .tooltip-text {
@@ -745,6 +747,13 @@ margin-top: 2.5rem;
       
 
   }
+  /***************media query for tablet devices *******************/
+@media only screen and (min-width:720px) and (max-width:1244px) {
+ .container1_wrapper1{
+    display: flex;
+    flex-wrap: wrap;
+ }   
+}
   
 </style>
 </head>

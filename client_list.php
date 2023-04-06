@@ -10,8 +10,7 @@ include('navbar.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <style>
     @font-face {
@@ -32,7 +31,7 @@ body{
 }
 
 .clients {
-    margin-left: 20rem;
+    margin-left: 17rem;
     font-weight: 400;
     margin-top: 1.5rem;
    
@@ -44,8 +43,10 @@ body{
 }
 
 .clients_operations {
+    /* border: 1px solid red; */
     display: flex;
-    gap: 3rem;
+    align-content: center;
+    gap: 2rem;
 }
 
 #btn1 {
@@ -57,7 +58,11 @@ body{
 }
 
 .add_set_client {
-    width: auto;
+    cursor: pointer;
+    gap: 0.3rem;
+    width: 10rem;
+    /* width:25%; */
+    height: 45px;
     margin-top: 1rem;
     color: #9C74F5;
     background-color: white;
@@ -66,13 +71,34 @@ body{
     font-size: 20px;
     border: none;
     display: flex;
-    padding-top: 0.5rem;
+    justify-content:center;
+    /* padding-top: 0.5rem;
     padding-right: 1rem;
-    padding-left:0.5rem;
+    padding-left:0.5rem; */
+}
+.add_set_client-btn-3 {
+    cursor: pointer;
+    width: 13rem;
+    gap: 0.3rem;
+    /* width:25%; */
+    height: 45px;
+    margin-top: 1rem;
+    color: #9C74F5;
+    background-color: white;
+    box-shadow: 0.7px 0.7px 2.5px 1.5px rgb(231, 208, 253);
+    border-radius: 0.6rem;
+    font-size: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    /* padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-left:0.5rem; */
 }
 
 #btn2 {
     width: auto;
+    height: 45px;
     background-color: #FD2B2B;
     border: none;
     color: white;
@@ -94,19 +120,20 @@ body{
     font-weight:400;
     border: none;
     display: flex;
+    justify-content: center;
+    align-content: center;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
 }
 
 #btn3 {
-    width: auto;
     background-color: white;
     border: none;
     color: #ACACAC;
     margin-left:0.5rem;
 }
 
-.seach_clients_text {
+.seach_clients_text{
     border: none;
 }
 
@@ -169,35 +196,40 @@ img {
     width: auto;
 }
 #add_set_client{
-    margin-left:5rem !important;
+    margin-left:3rem !important;
 }
-
-
-
+input:checked{
+  border: #BBBBBB;  
+}
 @media screen and (max-width: 720px) {
+    .search_client{
+        margin-right: 1rem !important;  
+    }
+    .delete_client{
+        margin-right: 1rem !important;
+    }
     .clients {
-        margin-left: 2rem;
+        margin-left: 1rem;
     }
 
     .clients_container {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        
     }
 
     .add_set_client {
-        font-size: 0.8rem;
+        font-size: 1rem;
+        width: 7rem;
+    }
+    .add_set_client-btn-3 {
+        font-size: 1rem;
+        width: 8rem;
     }
     #add_set_client{
     margin-left:0% !important;
 }
-
-    
-
-    .add_set {
-        margin-top: 0.3rem;
-    }
-
     .client_wrapper1 {
         display: flex;
         flex-direction: column;
@@ -220,7 +252,8 @@ img {
 
     .clients_operations {
         display: flex;
-        gap: 0.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .clients_container3 {
@@ -257,34 +290,75 @@ img {
     
 
 }
+/***************media query for tablet devices *******************/
+@media only screen and (min-width:720px) and (max-width:1244px) {
+.delete_client{
+        margin-right: 1rem !important;
+ } 
+ .add_set_client-btn-3 {
+        /* font-size: 0.8rem; */
+        width: 10rem;
+    }   
+    #add_set_client {
+    margin-left: 0px !important;
+}
+.add_set_client {
+        /* font-size: 0.8rem; */
+        line-height: 15px;
+        width:10rem !important;
+    }
+ #btn1{
+    padding: 0px !important;
+ }  
+.search_client{
+    margin-right: 3rem;
+}
+#btn3{
+    margin-left: 0px;
+}
+.clients_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.clients_operations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
 </style>
 
 <body>
     <div class="clients">
         <p style="font-size:40px; font-weight:500">Clients</p>
-        <div class="clients_container">
-            <div class="search_client" style="justify-content:center;align-items:center">
-                <div><button id="btn3"><span class="material-symbols-outlined">search</span></button> </div>
-                <div style="margin-left:1rem;margin-right:4rem"> <input type="text" name="search_client" placeholder="Seach Clients"
-                        class="seach_clients_text" style="width:60%"></div>
+        <div class="clients_container ">
+            <div class="search_client" style="justify-content: center; align-content: center;">
+                <div><button id="btn3"><span class="material-symbols-outlined pt-1">search</span></button></div>
+                <div style="margin-left:1rem;margin-right:4rem"> <input type="text" name="search_client" placeholder="Search Clients"
+                        class="seach_clients_text text-muted" style="width:130%"></div>
             </div>
 
 
-            <div class="clients_operations">
-                <div class="add_set_client" id="add_set_client" >
+            <div class="clients_operations d-flex align-content-center">
+                <!-- <div class="add_set_client" id="add_set_client" >
                     <div><button id="btn1" ><span class="material-symbols-outlined">add</span></button> </div>
                     <div class="add_set"> <span>Add Clients</span></div>
-                </div>
-                <div onclick="open_link('setgoals.php')" class="add_set_client">
-                    <div><button id="btn1"><span class="material-symbols-outlined">settings</span></button> </div>
-                    <div class="add_set"> <span>Set Goals</span></div>
-                </div>
+                </div> -->
+                <a class="add_set_client  add_set d-flex align-items-center" id="add_set_client" >
+                    <span  id="btn1" class="material-symbols-outlined me-1 d-flex align-items-center">add</span>
+                    Add Clients
+                </a>
+                <a onclick="open_link('setgoals.php')" class="add_set_client  add_set d-flex align-items-center" >
+                   <span id="btn1" class="material-symbols-outlined me-1 d-flex align-items-center">settings</span>
+                    Set Goals
+                </a>
 
-                <div onclick="open_link('set_reminders.php')" class="add_set_client">
-                    <div><button id="btn1"><span class="material-symbols-outlined">notification_add</span></button>
-                    </div>
-                    <div class="add_set"> <span>Set Reminders</span></div>
-                </div>
+                <a onclick="open_link('set_reminders.php')" class="add_set_client-btn-3  add_set d-flex align-items-center">
+                    <span id="btn1" class="material-symbols-outlined me-1">notification_add</span>
+                    
+                     Set Reminders
+                </a>
                 <div class="delete_client">
                     <button id="btn2"><span class="material-symbols-outlined">delete</span></button>
 
