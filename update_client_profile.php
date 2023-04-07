@@ -1,48 +1,4 @@
-<?php include 'navbar.php'; 
-
-$client_id = $_GET['client_id'];
-
-$sql = "SELECT * from `addclient` where client_id='$client_id'";
-$result = mysqli_query($conn,$sql);
-        while($row = mysqli_fetch_array($result)){
-                    $plan_id = $row["plan_id"] ;
-                    $sql1 = "SELECT * FROM create_plan WHERE `plan_id`= $plan_id";
-                    $sql2 = "SELECT * FROM client WHERE client_id = $client_id";
-                    $result1 = mysqli_query($conn, $sql1);
-                    $result2 = mysqli_query($conn, $sql2);
-                    $row1 = mysqli_fetch_assoc($result1);
-                    $row2 = mysqli_fetch_assoc($result2);
-                    $date1 = strtotime($row1["start_date"]);
-                    $date2 = strtotime($row1["end_date"]);
-                    $months = 0;
-                        
-                while (($date1 = strtotime('+1 MONTH', $date1)) <= $date2)
-                            $months++;
-            // echo;
-            
-        if(isset($_POST['update'])){
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $height = mysqli_real_escape_string($conn, $_POST['height']);
-            $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-            $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-            $age = mysqli_real_escape_string($conn, $_POST['age']);
-            $about = mysqli_real_escape_string($conn, $_POST['about']);
-
-
-            $sql3 = "UPDATE addclient SET email = '$email',
-              gender = '$gender',
-              phone = '$phone',
-              height = '$height',
-              age = '$age',
-              about = '$about'
-              where `client_id` = '$client_id'";
-             mysqli_query($conn, $sql3);
-
-            $_SESSION['success'] = "Information Updated";
-            header("Location: client_profile.php?client_id=$client_id");
-              }
-
-?>
+<?php include 'navbar.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -97,39 +53,56 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 .input-tag {
     background: #FFFFFF;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 7px;
     color: #C4C4C4;
 }
 
 
 .container {
-    width: 100% !important;
+    width: 65% !important;
 }
 
 .row {
-    width: 87% ;
-    margin-top: 10px ;
-    margin-left:2rem;
+    width: 100% !important;
+    margin-top: 10px !important;   
+}
+
+.editBtn2{
+    background: #6883FB;
+    color:white  !important;
+}
+
+.editBtn1{
+    background-color: white;
+    color: #7282FB;
 }
 
 .editBtn {
     border: 1px solid #7282FB;
     border-radius: 10px;
     padding: 10px;
-    background-color: white;
-    color: #7282FB;
 
 }
 
 .editBtn a:hover {
     outline: none !important;
+}
+
+.Cancel{
+    position:relative;
+     bottom: 50px;
+
+};
+    
+.save{
+    position: relative;
 }
 
 input {
@@ -142,34 +115,24 @@ input {
         width:auto;
     }
     h4{
-        margin-bottom:2rem !important;
+        margin-left:0 !important;
     }
-    .ronald{
-        width:90px !important;
-        height:90px !important;
-    }
+    
     .editBtn{
-        width: 197px !important;
-        height: 52px !important;
+        width: 90px !important;
+height: 52px !important;
     }
+    .Cancel{
+    position:relative;
+     bottom: 0px;
+
+};
+
     .name{
         margin-top:0 !important;
     }
-    /* .container {
-        width: 100% !important;
-    } */
 }
 
-@media screen and (max-width: 520px){
-    .row {
-        display: block;
-        width: 100%;
-    }
-   
-    .cta-select  {
-        margin-top: 10px;
-    }
-}
 </style>
 
 <body>
@@ -179,88 +142,108 @@ input {
         <div id="content">
 
             <div class="add-client-area">
-                <form method="post" action="">
+                <form method="post" action="update_client_profile.php">
                     <br>
-                    <h4 style="font-size: 30px;margin-left:2rem">Client Profile</h4>
+                    <?php
+
+$client_id = $_GET['client_id'];
+// echo $client_id ;
+$sql = "SELECT * from `addclient` where client_id='$client_id'";
+$result = mysqli_query($conn,$sql);
+        while($row = mysqli_fetch_array($result)){
+            $plan_id = $row["plan_id"] ;
+
+                        $sql1 = "SELECT * FROM create_plan WHERE `plan_id`= $plan_id";
+                        $sql2 = "SELECT * FROM client WHERE client_id= $client_id";
+                        $result1 = mysqli_query($conn, $sql1);
+                        $result2 = mysqli_query($conn, $sql2);
+                        $row1 = mysqli_fetch_assoc($result1);
+                        $row2 = mysqli_fetch_assoc($result2);
+                        $date1 = strtotime($row1["start_date"]);
+                        $date2 = strtotime($row1["end_date"]);
+                        $months = 0;
+                        
+                        while (($date1 = strtotime('+1 MONTH', $date1)) <= $date2)
+                            $months++;
+            // echo;
+        ?>
+
+                    <h4 style="font-size: 30px;margin-left:2rem">Edit Client Profile</h4>
+
+                    <div class="d-flex justify-content-end Cancel align-items-end">
+
+                        <button type="submit" class="editBtn editBtn1" name="edit_client" style="width:15%; margin-right:28px;"><a href="update_client_profile.php?client_id">Cancel</a></button>
+
+                        <button type="submit" class="editBtn editBtn2" name="edit_client" style="width:15%; margin-right:28px;" ><a href="client_profile.php?client_id" style="color: white;
+" >save</a></button>
+                        </div>
+
                     <div class="container">
-                        <div class="d-flex justify-content-center align-items-center; margin-top:10px" style="gap:20px">
+                        <div class=" d-flex justify-content-center align-items-center; margin-top:10px" style="gap:20px">
                             <div class="" style="display:inline-block;"><img
                             class="ronald" style="height:150px;weight:150px;border-radius:50%;"  src="images/ronalduser.png"
                                     alt=""></div>
-                            <div style="font-size: 30px;margin-top:50px"class="name" style="display:inline-block"><?php echo $row['name'] ?></div>
                         </div>
                         <div class="row">
+
+                        <div class="col">
+                                <div class="row">name</div>
+                                <input type="text" class="row input-tag" value="<?php echo $row['name'] ?>">
+                            </div>
+                       </div>
+                        <div class="row">
+
+                    
                             <div class="col">
                                 <div class="row">Email</div>
-                                <input type="text" name = "email" class="row input-tag" value="<?php echo $row['email'] ?>">
+                                <input type="text" class="row input-tag" value="<?php echo $row['email'] ?>">
                             </div>
                             <div class="col">
                                 <div class="row">Phone No.</div>
-                                <input type="text" name = "phone" class="row input-tag" value="<?php echo $row['phone'] ?>">
+                                <input type="text" class="row input-tag" value="<?php echo $row['phone'] ?>">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="row">Gender</div>
-                                <input type="text" name = "gender" class="row input-tag" value="<?php echo $row['gender'] ?>">
+                        <div class="col">
+                                <div class="row">Age</div>
+                                <input type="text" class="row input-tag" value="<?php echo $row['age'] ?>">
                             </div>
                             <div class="col">
                                 <div class="row">Height</div>
-                                <input type="text" name = "height" class="row input-tag" value="<?php echo $row['height'] ?>">
+                                <input type="text" class="row input-tag" value="<?php echo $row['height'] ?>">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="row">Age</div>
-                                <input type="text" name = "age" class="row input-tag" value="<?php echo $row['age'] ?>">
-                            </div>
-                            <div class="col">
-                                <div class="row">About</div>
-                                <input type="text" name = "about" class="row input-tag" value="<?php echo $row['about'] ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
+                        <div class="col">
                                 <div class="row">Weight</div>
                                 <input type="text" class="row input-tag" value="<?php echo $row['weight'] ?>">
                             </div>
                             <div class="col">
-                                <div class="row">Duration</div>
-                                <input  type="text" class="row input-tag" value="<?php echo $months ." "."Months" ?>"> 
+                                <div class="row">About</div>
+                                <input type="text" class="row input-tag" value="<?php echo $row['about'] ?>">
                             </div>
                         </div>
+                       
                         <div class="row">
+                    
+                            <div class="col">
+                                <div class="row">Location</div>
+                                <input type="text" class="row input-tag" value="<?php  echo $row2['location'];?>">
+                            </div>
+        
                             <div class="col">
                                 <div class="row">Plan</div>
                                 <div class="row">
-                                    <div class="input-tag"
-                                        style="display:inline-block;width:50% !important; margin-right:10%;">
-                                        <?php echo $row1['name'] ?></div>
-                                        
-                                    <a href="select_client_plan.php?client_id=<?php echo $client_id?>" class="" style="display:inline-block;width:40% !important;background: #FFFFFF;text-align:center;padding-top:5px;
-border: 1px solid #6883FB;
-border-radius: 8px;">Select</a>
+                                   
+                                    <a href="select_client_plan.php?client_id=<?php echo $client_id?>" class="" style="display:inline-block;width:90px; !important;background: #FFFFFF;text-align:center;    padding: 8px;padding-top:5px;
+                                    border: 1px solid #6883FB;
+                                    border-radius: 8px;">Select</a>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="row">Location</div>
-                                <input type="text" class="row input-tag" value="<?php echo $row2['location']; ?>">
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center align-items-center">
-
-                            
-
-                            <button class="editBtn" name="update" style="width:20%;margin-top:20px;text-align:center">Confirm Edit</button>
-
-
-                        </div>
-
-                    </div>
+                              
                     <?php
-      }?>
-                </form>
-            </div>
+                   }?>
+              </form>
+     </div>
 </body>
 
 </html>
