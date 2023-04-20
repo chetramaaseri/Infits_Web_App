@@ -1,20 +1,12 @@
 <?php
-<<<<<<< HEAD
-=======
 if(isset($_SESSION['name'])){
     header('location: login.php');
 }
->>>>>>> Linking_branch
 // Client Id
 if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
-<<<<<<< HEAD
-     header("Location: track_stats_water.php");
-    // $clientId= 'Azarudeen';
-=======
     header("Location: index.php");
->>>>>>> Linking_branch
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
@@ -44,11 +36,7 @@ if(isset($_POST['dates'])){
     $Custom_Day1 = new DateTime(substr($_POST['dates'][0],4,11));
     $Custom_Day2 = new DateTime(substr($_POST['dates'][1],4,11));
         while($Custom_Day2 >= $Custom_Day1){
-<<<<<<< HEAD
-            $query="SELECT * FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
             $query="SELECT * FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                     `dateandtime` >= '".$Custom_Day1->format('Y-m-d')." 00:00:00'
                     AND `dateandtime` <= '".$Custom_Day1->format('Y-m-d')." 23:59:59';";
             $CustomData = fetchPastActivity($clientId,$query);
@@ -382,11 +370,7 @@ color: #000000;
             </div>
             <div class="col-sm-4 ph-right">
                 <!-- metric_button -->
-<<<<<<< HEAD
-                <a href="__track_stats_water.php?id=<?php echo($clientId) ?>">
-=======
                 <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
->>>>>>> Linking_branch
                 <div class="client-card client-card-calorie " style="color:#7DACF5; border: 1px solid #7DACF5;">
                     <img src="images/water_selected.svg" alt="">
                     <p>Water</p>
@@ -415,11 +399,7 @@ color: #000000;
                                         while($yearly_last_month >= $yearly_month){
                                             $yearly_Month_1 = $yearly_month->format('Y-m')."-"."01";
                                             $yearly_Month_2 =  $yearly_month->format('Y-m')."-". $yearly_month->format('t');
-<<<<<<< HEAD
-                                            $query="SELECT * FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
                                             $query="SELECT * FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                                                     `dateandtime` >= '".$yearly_Month_1." 00:00:00'
                                                     AND `dateandtime` <= '".$yearly_Month_2." 23:59:59';";
                                             $yearly_Data = fetchPastActivity($clientId,$query);
@@ -479,11 +459,7 @@ color: #000000;
                                         while($yearly_last_month >= $yearly_month){
                                             $yearly_Month_1 = $yearly_month->format('Y-m')."-"."01";
                                             $yearly_Month_2 =  $yearly_month->format('Y-m')."-". $yearly_month->format('t');
-<<<<<<< HEAD
-                                            $query="SELECT * FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
                                             $query="SELECT * FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                                                     `dateandtime` >= '".$yearly_Month_1." 00:00:00'
                                                     AND `dateandtime` <= '".$yearly_Month_2." 23:59:59';";
                                             $yearly_Data = fetchPastActivity($clientId,$query);
@@ -541,11 +517,7 @@ color: #000000;
                                         }
                                         
                                         while($monthly_LastDay >= $monthly_Month){
-<<<<<<< HEAD
-                                            $query="SELECT * FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
                                             $query="SELECT * FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                                                     `dateandtime` >= '".$monthly_Month->format('Y-m-d')." 00:00:00'
                                                     AND `dateandtime` <= '".$monthly_Month->format('Y-m-d')." 23:59:59';";
                                             $monthly_Data = fetchPastActivity($clientId,$query);
@@ -603,11 +575,7 @@ color: #000000;
                                         }
                                         
                                         while($weekly_Day <= $weekly_lastDay){
-<<<<<<< HEAD
-                                            $query="SELECT * FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
                                             $query="SELECT * FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                                                     `dateandtime` >= '".$weekly_Day->format('Y-m-d')." 00:00:00'
                                                     AND `dateandtime` <= '".$weekly_Day->format('Y-m-d')." 23:59:59';";
                                             $weekly_Data = fetchPastActivity($clientId,$query);

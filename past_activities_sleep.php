@@ -1,20 +1,12 @@
 <?php
-<<<<<<< HEAD
-=======
 if(isset($_SESSION['name'])){
     header('location: login.php');
 }
->>>>>>> Linking_branch
 // Client Id
 if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
-<<<<<<< HEAD
-    // header("Location: __track_stats_water.php");
-    $clientId= 'Azarudeen';
-=======
     header("Location: index.php");
->>>>>>> Linking_branch
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
@@ -71,11 +63,7 @@ if(isset($_POST['dates'])){
                         <div class="left">
                             <img src="images/moon_outline.svg" alt="">
                             <div class="meal-title">
-<<<<<<< HEAD
-                                <p>  Sleep </p>
-=======
                                 <p>Walking</p>
->>>>>>> Linking_branch
                                 <span>'.$I_date->format('h:i A').'</span>
                             </div>
                         </div>
@@ -301,11 +289,7 @@ border-radius: 10px;
     font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
-<<<<<<< HEAD
-font-size: 17px;
-=======
 font-size: 16px;
->>>>>>> Linking_branch
 /* line-height: 36px; */
 /* identical to box height */
 
@@ -386,11 +370,7 @@ color: #000000;
             </div>
             <div class="col-sm-4 ph-right">
                 <!-- metric_button -->
-<<<<<<< HEAD
-                <a href="__track_stats_water.php?id=<?php echo($clientId) ?>">
-=======
                 <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
->>>>>>> Linking_branch
                 <div class="client-card client-card-sleep " style="color:#E266A9; border: 1px solid #E266A9;">
                 <img src="images/moon.svg" alt="">
                             <p style="color: #FFFFFF;">Sleep</p>
@@ -447,11 +427,7 @@ color: #000000;
                                                         <div class="left">
                                                             <img src="images/moon_outline.svg" alt="">
                                                             <div class="meal-title">
-<<<<<<< HEAD
-                                                                <p>heartrate</p>
-=======
                                                                 <p>Sleep</p>
->>>>>>> Linking_branch
                                                                 <span><?php echo($I_date->format('h:i A d M')) ?></span>
                                                             </div>
                                                         </div>

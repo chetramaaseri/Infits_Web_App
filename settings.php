@@ -1,25 +1,10 @@
 <?php
-<<<<<<< HEAD
-session_start();
-// $conn = new mysqli("localhost", "root", "", "infits");
-
-// if($conn->connect_error){
-//     die("Connection failed :" . $conn->connect_error);
-// }
-//$query="SELECT name FROM dietitian WHERE deititianuserId = 'John_wayne'";
-//$result = $conn->query($query) or die("Query Failed");
-//$_SESSION["clientName"] = "$query";
-//$conn->close();
-$_SESSION["clientName"] = "John Wayne";
-$name =  explode(" ", $_SESSION["clientName"] );
-=======
 include "navbar.php";
 $id = $_SESSION["dietitianuserID"];
 $sql = "SELECT * FROM dietitian Where dietitianuserID ='$id' ";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
 $name =  explode(" ", $row['dietitianuserID'] );
->>>>>>> Linking_branch
 ?>
 <!DOCTYPE HTML>
 <html lang="en" dir="ltr">
@@ -343,10 +328,6 @@ height: auto;
     <div class="webview">
     <div class="container">
         <div class="text-center">
-<<<<<<< HEAD
-            <img src="./images/settingDp.svg" class="rounded" alt="...">
-            <h3 class="display-6 right-float"><br /> <?php echo ($name[0]) ?><br /> <?php echo($name[1])?></h3>
-=======
             <img src="./images/settingDp.svg" style="width:15%"class="rounded" alt="...">
 
             <!-- while linking use this  -->
@@ -354,7 +335,6 @@ height: auto;
 
             <h3 class="display-6 right-float" style = "margin-left: 25px;font-weight:400"><br /><?php echo ($name[0]) ?> </h3>
 
->>>>>>> Linking_branch
         </div>
     </div>
 
@@ -370,68 +350,34 @@ height: auto;
 </a>
  <a href="#">
             <li>
-<<<<<<< HEAD
-                <div class="box img-2">
-                    <a href="referral_code.php">
-                        <div class="info">
-                            <p>Referral Code</p>
-                        </div>
-                    </a>
-=======
                 <div class="box img-2"> 
                     <img src="icons/settings/icon1.svg" alt="">       
                     <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">Referral Code</p>
                   
->>>>>>> Linking_branch
                 </div>
             </li>
               </a>
                <a href="about_us.php">
             <li>
-<<<<<<< HEAD
-                <div class="box img-3">
-                    <a href="about_us.php">
-                        <div class="info">
-                            <p>About Us</p>
-                        </div>
-                    </a>
-=======
                 <div class="box img-3"> 
                     <img src="icons/settings/icon2.svg" alt="">  
                      <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">About Us</p>
->>>>>>> Linking_branch
                 </div>
             </li>
              </a>
              <a href="myachievements.php">
             <li>
                 <div class="box img-4">
-<<<<<<< HEAD
-                    <a href="achivement.php">
-                        <div class="info">
-                            <p>My Achievements</p>
-                        </div>
-                    </a>
-=======
                     <img src="icons/settings/icon4.svg" alt="">
                         <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">My Achievements</p>
->>>>>>> Linking_branch
                 </div>
             </li>
              </a>
                <a href="refer_friend.php">
             <li>
                 <div class="box img-5">
-<<<<<<< HEAD
-                    <a href="refer.php">
-                        <div class="info">
-                            <p>Refer To Friends</p>
-                        </div>
-                    </a>
-=======
                     <img src="icons/settings/icon1.svg" alt="">
                             <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">Refer To Friends</p>
->>>>>>> Linking_branch
                 </div>
             </li>
               </a>

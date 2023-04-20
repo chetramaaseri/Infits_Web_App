@@ -1,12 +1,5 @@
 <?php
 // Client Id
-<<<<<<< HEAD
-if(isset($_GET['id']) AND $_GET['id'] != ""){
-    $clientId = $_GET['id'];
-}else{
-    // header("Location: __track_stats_water.php");
-    $clientId= 'Azarudeen';
-=======
 if(isset($_SESSION['name'])){
     header('location: login.php');
 }
@@ -15,7 +8,6 @@ if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
     header("Location: index.php");
->>>>>>> Linking_branch
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
@@ -72,11 +64,7 @@ if(isset($_POST['dates'])){
                         <div class="left">
                             <img src="images/running_heart_rate.svg" alt="">
                             <div class="meal-title">
-<<<<<<< HEAD
-                                <p> Walking</p>
-=======
                                 <p>Walking</p>
->>>>>>> Linking_branch
                                 <span>'.$I_date->format('h:i A').'</span>
                             </div>
                         </div>
@@ -216,51 +204,6 @@ border-bottom-left-radius: 1em!important;
    flex-wrap:wrap;
 }
 .client-card {
-<<<<<<< HEAD
-        width: 70px;
-        height: auto;
-        margin: 10px;
-        text-align: center;
-        font-size: 20px;
-        border-radius: 14px;
-        padding: 5px;
-}
-
-.client-card p {
-    font-size: 15px;
-}
-
-.client-card i {
-    font-size: 15px;
-}
-.client-card-heart{
-    background: linear-gradient(208.27deg, rgba(255, 108, 108, 0.792) 43.71%, rgba(255, 92, 0, 0.416) 95.3%);
-
-    border: 1px solid #E3738D;
-    border-radius: 10px;
-    margin: 10px 0 0 0;
-    width: 97px;
-    height: 114px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-.client-card-heart p{
-    margin-bottom: 0;
-    font-family: 'NATS';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 120%;
-    /* or 23px */
-
-    text-align: center;
-
-    color: #FFFFFF;
-}
-=======
 width: 100px;
 height: 120px;
 background: rgba(255, 255, 255, 0.8);
@@ -306,7 +249,6 @@ font-size: 22px;
 margin: 0;
 }
 
->>>>>>> Linking_branch
 /* -------------------Calorie Tab Content------------------- */
 .activity-container{
     /* margin: 3%; */
@@ -351,11 +293,7 @@ color: #000000;
     font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
-<<<<<<< HEAD
-font-size: 17px;
-=======
 font-size: 16px;
->>>>>>> Linking_branch
 /* line-height: 36px; */
 /* identical to box height */
 
@@ -436,18 +374,11 @@ color: #000000;
             </div>
             <div class="col-sm-4 ph-right">
                 <!-- metric_button -->
-<<<<<<< HEAD
-                <a href="track_stats_steps.php?id=<?php echo($clientId) ?>">
-=======
                 <!-- <a href="track_stats_steps.php?id=">
->>>>>>> Linking_branch
                 <div class="client-card client-card-heart " style="color:#E266A9; border: 1px solid #E266A9;">
                 <i class="fa-solid fa-shoe-prints" style="color:#FFFFFF; rotate: -90deg;"></i>
                             <p style="color: #FFFFFF;">Step</p>
                 </div>
-<<<<<<< HEAD
-                </a>
-=======
                 </a> -->
                 <div class="client-card client-card-steps" style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
                     <a href="track_stats_steps.php?id=<?php echo($clientId) ?>">
@@ -455,7 +386,6 @@ color: #000000;
                         <p style="color: #FFFFFF;">Steps</p>
                     </a>
                 </div>
->>>>>>> Linking_branch
             </div>
         </div>
                 
@@ -507,11 +437,7 @@ color: #000000;
                                                         <div class="left">
                                                             <img src="images/running_heart_rate.svg" alt="">
                                                             <div class="meal-title">
-<<<<<<< HEAD
-                                                                <p>heartrate</p>
-=======
                                                                 <p>Walking</p>
->>>>>>> Linking_branch
                                                                 <span><?php echo($I_date->format('h:i A d M')) ?></span>
                                                             </div>
                                                         </div>

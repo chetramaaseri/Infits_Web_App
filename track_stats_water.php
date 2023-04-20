@@ -1,43 +1,24 @@
 
 <?php
 // Client Id
-<<<<<<< HEAD
-$clientId = 'Azarudeen';
-
-=======
 if(isset($_GET['id'])){
     $clientId = $_GET['id'];
 }else{
     header('location: index.php');
 }
->>>>>>> Linking_branch
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
 $today = new DateTime();
 // Goal Insertion
 if(isset($_POST['savegoal'])){
     $client = $_POST['clientid'];
-<<<<<<< HEAD
-=======
     $dietition = $_POST['dietition'];
->>>>>>> Linking_branch
     $goal =$_POST['setgoal'];
     $conn = new mysqli("localhost", "root", "", "infits");
 
     if($conn->connect_error){
         die("Connection failed :" . $conn->connect_error);
     }
-<<<<<<< HEAD
-    
-    $query="INSERT INTO goals (forWhat, goal, clientID) VALUES ('water' , $goal, '$client' )";
-    $result = $conn->query($query) or die("Query Failed");
-    
-    if($result){
-        unset($_POST["savegoal"]);
-        unset($_POST["setgoal"]);
-        header(("Location:track_stats_water.php"));
-        // exit();
-=======
     $isSame =false;
     $query = "SELECT `water` FROM `goals` WHERE `client_id` = {$client} AND `dietition_id` = '{$dietition}'";
     $result = $conn->query($query) or die('Query Failed');
@@ -63,7 +44,6 @@ if(isset($_POST['savegoal'])){
             header(("Location:track_stats_water.php?id={$clientId}"));
             // exit();
         }
->>>>>>> Linking_branch
     }
 }
 // funtion to fetch
@@ -76,42 +56,20 @@ function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
     }
     // For Sum of All Data Till Today
     if($isCustom==1){
-<<<<<<< HEAD
-        $query="SELECT SUM(drinkConsumed) FROM watertrackerdt WHERE clientID= '$clientId' AND 
-                `dateandtime` <= '{$to_date} 23:59:59';";
-    // for sum of Data between two dates
-    }else if($isCustom==2){
-        $query = "SELECT SUM(drinkConsumed) FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
         $query="SELECT SUM(drinkConsumed) FROM watertracker WHERE clientID= '$clientId' AND 
                 `dateandtime` <= '{$to_date} 23:59:59';";
     // for sum of Data between two dates
     }else if($isCustom==2){
         $query = "SELECT SUM(drinkConsumed) FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
                 `dateandtime` >= '{$from_date} 00:00:00'
                 AND `dateandtime` <= '{$to_date} 23:59:59';";;
     // for average of data end to end (monthly)
     }else if($isCustom==3){
-<<<<<<< HEAD
-        $query="SELECT avg(drinkConsumed) FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
         $query="SELECT avg(drinkConsumed) FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
             `dateandtime` >= '{$from_date} 00:00:00'
             AND `dateandtime` < '{$to_date} 00:00:00';";
     // for get latest goal from goals table
     }else if($isCustom==4){
-<<<<<<< HEAD
-        $query="SELECT goal FROM goals WHERE forWhat = 'water' ORDER BY time DESC LIMIT 1";
-    // for getting past actvities 
-    }else if($isCustom==5){
-        $query = "SELECT * FROM `watertrackerdt` WHERE clientID = '$clientId' AND `dateandtime` >= '{$from_date} 00:00:00'
-        AND `dateandtime` < '{$to_date} 23:59:59' ORDER BY dateandtime DESC;" ;
-    // for average of data of one full day
-    }else{
-    $query="SELECT avg(drinkConsumed) FROM watertrackerdt WHERE clientID= '$clientId' AND 
-=======
         $query="SELECT water FROM goals WHERE client_id = {$clientId}";
     // for getting past actvities 
     }else if($isCustom==5){
@@ -120,7 +78,6 @@ function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
     // for average of data of one full day
     }else{
     $query="SELECT avg(drinkConsumed) FROM watertracker WHERE clientID= '$clientId' AND 
->>>>>>> Linking_branch
             `dateandtime` >= '{$from_date} 00:00:00'
             AND `dateandtime` <= '{$to_date} 23:59:59';";
     }
@@ -140,13 +97,8 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
         'date' => array(),
         'range' => "",
     );
-<<<<<<< HEAD
-    $CustomDay_1 = new DateTime($_POST['from_date']);
-    $CustomDay_2 = new DateTime($_POST['to_date']);
-=======
     $CustomDay_1 = new DateTime(substr($_POST['from_date'],4,11));
     $CustomDay_2 = new DateTime(substr($_POST['to_date'],4,11));
->>>>>>> Linking_branch
     $CustomData['range'] =  $CustomDay_1->format('d M Y') ." - ". $CustomDay_2->format('d M Y') ;
     
     while ($CustomDay_2 >= $CustomDay_1) {
@@ -163,11 +115,8 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
     exit();
 }
 ?>
-<<<<<<< HEAD
-=======
 <?php include('navbar.php');
 $dietition = $_SESSION['name']; ?>
->>>>>>> Linking_branch
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -197,11 +146,7 @@ tst-left-t{
     padding-left: 3%;
 }
 .heading{
-<<<<<<< HEAD
-    width: 145px;
-=======
     /* width: 145px; */
->>>>>>> Linking_branch
     height: 68px;
 
 }
@@ -239,42 +184,27 @@ margin-bottom: 15px;
 .client-card a{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    gap: 10px;
-=======
     gap: 23px;
     height: 65%;
     margin-top: 15px;
->>>>>>> Linking_branch
 }
 .client-card-calorie{
 background: linear-gradient(37.35deg, #E2809B 0%, #EBD3C8 100%);
 }
 .client-card i{
-<<<<<<< HEAD
-    scale: 1.5;
-=======
     scale: 2;
->>>>>>> Linking_branch
 }
 .client-card a img {
     height: 30px;
     width: auto;
-<<<<<<< HEAD
-=======
     margin-bottom: -15px;
->>>>>>> Linking_branch
 }
 .client-card p{
 font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
 line-height: 1;
-<<<<<<< HEAD
-font-size: 19px;
-=======
 font-size: 22px;
->>>>>>> Linking_branch
     margin: 0;
 }
 
@@ -291,11 +221,7 @@ background-color: #f1f1f1;
 border: 1px solid #F8F5F5;
 max-width: 365px;
 width: 100%;
-<<<<<<< HEAD
-height: 27px;
-=======
 height: 31px;
->>>>>>> Linking_branch
 border-top-left-radius: 1em;
 border-bottom-left-radius: 1em;
 border-top-right-radius: 1em;
@@ -307,11 +233,7 @@ background: #FFFFFF;
 border: 1px solid #FCFBFB;
 border-radius: 0px;
 width: 24%;
-<<<<<<< HEAD
-height: 24px;
-=======
 /* height: 24px; */
->>>>>>> Linking_branch
 float: left;
 border: none;
 outline: none;
@@ -383,35 +305,6 @@ border-bottom-right-radius: 1em;
     width: 100%;
     height: 100%;
 }
-<<<<<<< HEAD
-.i-button {
-    position: absolute;
-    top: -4%;
-    right: -12%;
-    cursor: pointer;
-}
-.i-pop {
-    background: #ffffff;
-    font-family: 'NATS';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 27px;
-    position: absolute;
-    /* right: -62%; */
-    /* top: 10%; */
-    right: -12%;
-    top: 12%;
-    box-shadow: 0px 1.74334px 13.0751px rgb(0 0 0 / 25%);
-    border: 1px solid #EFEFEF;
-    padding: 10px 15px;
-    width: 500px;
-    text-align: center;
-    border-radius: 15px;
-    display: none;
-    transition: 2s ease-in-out;
-}
-=======
 .i-button-box {
     position: absolute;
     top: 1%;
@@ -448,7 +341,6 @@ border-bottom-right-radius: 1em;
     display: none;
     transition: 2s ease-in-out;
 }
->>>>>>> Linking_branch
 
 /* Goal Dialog */
 .tst-right {
@@ -559,11 +451,7 @@ text-align: center;
     max-height: 57.45px; */
     height: 57.45px;
     /* width: 25%; */
-<<<<<<< HEAD
-    width: 134px;
-=======
     width: 150px;
->>>>>>> Linking_branch
     /* height: 100%; */
     background: #FFFFFF;
     border: 1px solid #F1F1F1;
@@ -586,22 +474,14 @@ text-align: center;
 font-size: 18px;
 line-height: 0;
 color: #5D5D5D;
-<<<<<<< HEAD
-margin-left: 5px;
-=======
 margin-left: 10px;
->>>>>>> Linking_branch
 }
 .stat-data .value{
 font-size: 25px;
 line-height: 0;
 text-align: center;
 color: #000000;
-<<<<<<< HEAD
-margin-left: 5px;
-=======
 margin-left: 20px;
->>>>>>> Linking_branch
 }
 .stat-data .unit{
 font-size: 17px;
@@ -729,11 +609,7 @@ margin-left: 5px;
 .total-consumed {
     position: absolute;
     top: 20px;
-<<<<<<< HEAD
-    right: -110px;
-=======
     right: -135px;
->>>>>>> Linking_branch
 }
 .total-consumed span,
 .total-remaining span{
@@ -750,13 +626,8 @@ margin-left: 5px;
 }
 .total-remaining{
     position: absolute;
-<<<<<<< HEAD
-    bottom: -20px;
-    right: -110px;
-=======
     bottom: -10px;
     right: -135px;
->>>>>>> Linking_branch
 }
 .progress-circle{
     width: 214px;
@@ -836,25 +707,6 @@ margin-left: 5px;
 
             <div class="tst-left-t">
                 <div class="heading">
-<<<<<<< HEAD
-                    <p>Clients Stats</p>
-                </div>
-                <div class="card-container">
-                <div class="client-card" style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
-                        <a href="track_stats_steps.php">
-                            <i class="fa-solid fa-shoe-prints" style="color:#FF6C6CCA; rotate: -90deg;"></i>
-                            <p style="color: #FF6C6CCA;">Step</p>
-                        </a>
-                        </div>
-                        <div class="client-card" style="color:#E266A9; border: 1px solid #E266A9;">
-                        <a href="track_stats_heart.php">
-                            <i style="color:#E266A9;" class="fa-solid fa-heart-pulse"></i>
-                            <p style="color:#E266A9;">Heart Rate</p>
-                            </a>
-                        </div>
-                        <div class="client-card client-card-water" style="color:#52A4FF; border: 1px solid #52A4FF;">
-                        <a href="track_stats_water.php">
-=======
                     <p style="margin-top: -15px;">Clients Stats</p>
                 </div>
                 <div class="card-container">
@@ -872,21 +724,11 @@ margin-left: 5px;
                         </div>
                         <div class="client-card client-card-water" style="color:#52A4FF; border: 1px solid #52A4FF;">
                         <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
->>>>>>> Linking_branch
                         <img src="images/water_selected.svg" alt="">
                             <p style="color:#FFFFFF;">Water</p>
                             </a>
                         </div>
                         <div class="client-card" style="color:#7D5DE6; border: 1px solid #7D5DE6;">
-<<<<<<< HEAD
-                        <a href="track_stats_weight.php">
-                            <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i>
-                            <p style="color:#7D5DE6;">Weight Track</p>
-                            </a>
-                        </div>
-                        <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
-                        <a href="track_stats_sleep.php">
-=======
                         <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                             <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i>
                             <p style="color:#7D5DE6;">Weight<br>Track</p>
@@ -894,33 +736,11 @@ margin-left: 5px;
                         </div>
                         <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
                         <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
->>>>>>> Linking_branch
                             <i style="color:#54AFAC;" class="fa-solid fa-moon"></i>
                             <p style="color:#54AFAC;">Sleep</p>
                             </a>
                         </div>
                         <div class="client-card" style="color:#E3738D; border: 1px solid #E3738D;">
-<<<<<<< HEAD
-                        <a href="track_stats_calorie.php">
-                        <i class="fa-solid fa-stopwatch-20" style="color:#E3738D" ></i>
-                            <p style="color:#E3738D;">Calorie Track</p>
-                            </a>
-                        </div>
-                </div>
-            </div>
-
-            <div class="tst-left-b">
-                <div class="tab">
-                
-                    <button class="tablinks graph_button_left" onclick="openCity(event, 'London')">Custom Dates</button>
-                    <input id="daterange"  type="date-range">
-                    <i id="daterange-btn" class="drop fa-solid fa-caret-down"></i>
-                   
-                    <button class="tablinks" onclick="openCity(event, 'Year')">Year</button>
-                    <button class="tablinks" onclick="openCity(event, 'Month')">Month</button>
-                    <button class="tablinks graph_button_right" onclick="openCity(event, 'Week')">Week</button>
-                </div>
-=======
                         <a href="track_stats_calorie.php?id=<?php echo($clientId) ?>">
                         <i class="fa-solid fa-stopwatch-20" style="color:#E3738D" ></i>
                             <p style="color:#E3738D;">Calorie<br>Track</p>
@@ -940,62 +760,45 @@ margin-left: 5px;
                     <button class="tablinks" onclick="openCity(event, 'Month')">Month</button>
                     <button class="tablinks graph_button_right" onclick="openCity(event, 'Week')">Week</button>
                 </div>
->>>>>>> Linking_branch
                 <div class="graph">
                     <!-- Tab content -->
                     <div id="London" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChart"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="london_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Year" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartYearly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="year_pop" class="i-pop"></div>
                     </div>
 
                     <div id="Month" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartMonthly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="month_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Week" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartWeekly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="week_pop" class="i-pop"></div>
                     </div>
                 
@@ -1030,21 +833,14 @@ margin-left: 5px;
         </div>
         <div class="col-lg-4 tst-right">
             <div class="set-goal">
-<<<<<<< HEAD
-                <div class="Water Intake Goal">
-=======
                 <div class="heading Water Intake Goal">
->>>>>>> Linking_branch
                     <p>Water Intake Goal</p>
                     <span>Daily water Consumption</span>
                     <span id="g-set-success"></span>
                 </div>
                 <img src="images/man_drinking_water.svg" alt="">
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-<<<<<<< HEAD
-=======
                     <input hidden name="dietition" value="<?php echo($dietition) ?>">
->>>>>>> Linking_branch
                     <input name="setgoal" required min="1" type="number" id="set-goal" placeholder="00000 Liters">
                     <input name="clientid"  type="hidden" value="<?php echo($clientId) ?>">
                     <button type="submit" name="savegoal" id="save-goal">Set</button>
@@ -1141,19 +937,11 @@ if(empty($calorieConsumed)){
 }else{
     $calorieConsumed = $calorieConsumed[0]['SUM(drinkConsumed)'];
 }
-<<<<<<< HEAD
-if(empty($progressBarData)){
-    $currentGoal =  0;
-    $progressPercent = 0;
-}else{
-    $currentGoal =  $progressBarData[0]['goal'];
-=======
 if(empty($progressBarData) OR $progressBarData[0]['water'] == 0){
     $currentGoal =  0;
     $progressPercent = 0;
 }else{
     $currentGoal =  $progressBarData[0]['water'];
->>>>>>> Linking_branch
     $progressPercent = round(($calorieConsumed / $currentGoal) * 100,2);
 }
 $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
@@ -1161,20 +949,12 @@ $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
         <div class="col-lg-5 tsd-right">
             <div class="heading">
                 <p>Daily Progress</p>
-<<<<<<< HEAD
-                <a href="past_activities_calorie.php"><span>View Activity</span></a>
-=======
                 <a href="past_activities_water.php?id=<?php echo ($clientId) ?>"><span>View Activity</span></a>
->>>>>>> Linking_branch
             </div>
             <div class="progress-bar-container">
                 <div class="total-consumed">
                     <span><?php echo ($calorieRemaining) ?> Liters</span>
-<<<<<<< HEAD
-                    <p>Remaining</p>
-=======
                     <p style="text-align: end;">Remaining</p>
->>>>>>> Linking_branch
                 </div>
                 <div id="progress-percent" class="progress-circle">
                     <div class="progress-circle-fill">
@@ -1183,11 +963,7 @@ $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
                 </div>
                 <div class="total-remaining">
                     <span><?php echo((int) $calorieConsumed) ?> Liters</span>
-<<<<<<< HEAD
-                    <p>Consumed</p>
-=======
                     <p style="text-align: end;">Consumed</p>
->>>>>>> Linking_branch
                 </div>
             </div>
         </div>
@@ -1290,11 +1066,7 @@ if(<?php echo($month_pop) ?>){
 }
 
 if(<?php echo($week_pop) ?>){
-<<<<<<< HEAD
-    week_pop.innerText = "As it is fresh year, we are showing you the previous week's data until the latest data is synced for the week!";
-=======
     week_pop.innerText = "As it is fresh week, we are showing you the previous week's data until the latest data is synced for the week!";
->>>>>>> Linking_branch
 }else{
     week_pop.innerText = "We are showing you the ongoing week's data and it keeps updating realtime!";
 }
@@ -1315,11 +1087,7 @@ function CustomChart_Data(from_date,to_date){
     window.customChart.destroy();
     $.ajax({
         type: "POST",
-<<<<<<< HEAD
-        url: "track_stats_calorie.php",
-=======
         url: "track_stats_water.php?id=<?php echo($clientId) ?>",
->>>>>>> Linking_branch
         data: {from_date: from_date, to_date: to_date},
         success: function(result) {
         london_pop.innerHTML = "We are showing you the data in range <br>"+ result['range'] +" !";
@@ -1403,13 +1171,7 @@ const fp = flatpickr("input[type = date-range]", {
     mode: "range",
     onClose:[
         function(selectedDates){
-<<<<<<< HEAD
-            const Date_1 = new Date(selectedDates[0]);
-            const Date_2 = new Date(selectedDates[1]);
-            CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
-=======
             CustomChart_Data(selectedDates[0],selectedDates[1]);
->>>>>>> Linking_branch
         }
     ]
 });
@@ -1562,11 +1324,7 @@ new Chart(monthlyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-<<<<<<< HEAD
-                stepSize:500,
-=======
                 // stepSize:500,
->>>>>>> Linking_branch
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,
@@ -1630,11 +1388,7 @@ new Chart(weeklyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-<<<<<<< HEAD
-                stepSize:500,
-=======
                 // stepSize:500,
->>>>>>> Linking_branch
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,

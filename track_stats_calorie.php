@@ -87,87 +87,6 @@ if(isset($_POST['savegoal'])){
     if($conn->connect_error){
         die("Connection failed :" . $conn->connect_error);
     }
-<<<<<<< HEAD
-    
-    $query="INSERT INTO goals (forWhat, goal, clientID) VALUES ('calorie' , $goal, '$client' )";
-    $result = $conn->query($query) or die("Query Failed");
-    
-    if($result){
-        unset($_POST["savegoal"]);
-        unset($_POST["setgoal"]);
-        header(("Location: track_stats_calorie.php"));
-        // exit();
-    }
-}
-// funtion to fetch
-// This can be more Simple by String Concatination
-function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
-    // Connect to Database
-    $conn = new mysqli("localhost", "root", "", "infits");
-    if($conn->connect_error){
-        die("Connection failed :" . $conn->connect_error);
-    }
-    // For Sum of All Data Till Today
-    if($isCustom==1){
-        $query="SELECT SUM(caloriesconsumed) FROM calorietracker WHERE clientID= '$clientId' AND 
-                `time` <= '{$to_date} 23:59:59';";
-    // for sum of Data between two dates
-    }else if($isCustom==2){
-        $query = "SELECT SUM(caloriesconsumed) FROM calorietracker WHERE clientID= '$clientId' AND 
-                `time` >= '{$from_date} 00:00:00'
-                AND `time` <= '{$to_date} 23:59:59';";;
-    // for average of data end to end (monthly)
-    }else if($isCustom==3){
-        $query="SELECT avg(caloriesconsumed) FROM calorietracker WHERE clientID= '$clientId' AND 
-            `time` >= '{$from_date} 00:00:00'
-            AND `time` < '{$to_date} 00:00:00';";
-    // for get latest goal from goals table
-    }else if($isCustom==4){
-        $query="SELECT goal FROM goals WHERE forWhat = 'calorie' ORDER BY time DESC LIMIT 1";
-    // for getting past actvities 
-    }else if($isCustom==5){
-        $query = "SELECT * FROM `calorietracker` WHERE clientID = '$clientId' AND `time` >= '{$from_date} 00:00:00'
-        AND `time` < '{$to_date} 23:59:59' ORDER BY time DESC;" ;
-    // for average of data of one full day
-    }else{
-    $query="SELECT avg(caloriesconsumed) FROM calorietracker WHERE clientID= '$clientId' AND 
-            `time` >= '{$from_date} 00:00:00'
-            AND `time` <= '{$to_date} 23:59:59';";
-    }
-    // echo($query);
-    // echo ('<br>');
-    $result = $conn->query($query) or die("Query Failed");
-    $data = array();
-    while($row = $result->fetch_assoc()){
-        $data[] =  $row;
-    }
-    $conn->close();
-    return ($data);
-}
-if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
-    $CustomData = array(
-        'value' => array(),
-        'date' => array(),
-        'range' => "",
-    );
-    $CustomDay_1 = new DateTime($_POST['from_date']);
-    $CustomDay_2 = new DateTime($_POST['to_date']);
-    $CustomData['range'] =  $CustomDay_1->format('d M Y') ." - ". $CustomDay_2->format('d M Y') ;
-    
-    while ($CustomDay_2 >= $CustomDay_1) {
-        $CustomDataValue = (int) fetchDataSql($clientId,$CustomDay_1->format('Y-m-d'), $CustomDay_1->format('Y-m-d'),2)[0]['SUM(caloriesconsumed)'];
-    
-        array_push($CustomData['value'], $CustomDataValue);
-        array_push($CustomData['date'], $CustomDay_1->format('d'));
-        $CustomDay_1->modify("+1 day");
-    } 
-    $CustomData = json_encode($CustomData);
-    // return $CustomData;
-    header('Content-Type: application/json');
-    echo ($CustomData);
-    exit();
-}
-=======
     $isSame =false;
     $query = "SELECT `calorie` FROM `goals` WHERE `client_id` = {$client} AND `dietition_id` = '{$dietition}'";
     $result = $conn->query($query) or die('Query Failed');
@@ -195,7 +114,6 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
     }
 }
 ob_end_flush();
->>>>>>> Linking_branch
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -312,11 +230,7 @@ background: #FFFFFF;
 border: 1px solid #FCFBFB;
 border-radius: 0px;
 width: 24%;
-<<<<<<< HEAD
-height: 24px;
-=======
 /* height: 24px; */
->>>>>>> Linking_branch
 float: left;
 border: none;
 outline: none;
@@ -388,13 +302,6 @@ border-bottom-right-radius: 1em;
     width: 100%;
     height: 100%;
 }
-<<<<<<< HEAD
-.i-button {
-    position: absolute;
-    top: -4%;
-    right: -12%;
-    cursor: pointer;
-=======
 .i-button-box {
     position: absolute;
     top: 1%;
@@ -409,7 +316,6 @@ border-bottom-right-radius: 1em;
     font-weight: 400;
     font-size: 19px;
     color: #9C74F5;
->>>>>>> Linking_branch
 }
 .i-pop {
     background: #ffffff;
@@ -838,56 +744,40 @@ margin-left: 5px;
                     <div id="London" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChart"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="london_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Year" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartYearly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="year_pop" class="i-pop"></div>
                     </div>
 
                     <div id="Month" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartMonthly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="month_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Week" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartWeekly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="week_pop" class="i-pop"></div>
                     </div>
                 
@@ -1154,11 +1044,7 @@ if(<?php echo($month_pop) ?>){
 }
 
 if(<?php echo($week_pop) ?>){
-<<<<<<< HEAD
-    week_pop.innerText = "As it is fresh year, we are showing you the previous week's data until the latest data is synced for the week!";
-=======
     week_pop.innerText = "As it is fresh week, we are showing you the previous week's data until the latest data is synced for the week!";
->>>>>>> Linking_branch
 }else{
     week_pop.innerText = "We are showing you the ongoing week's data and it keeps updating realtime!";
 }
@@ -1179,13 +1065,8 @@ function CustomChart_Data(from_date,to_date){
     window.customChart.destroy();
     $.ajax({
         type: "POST",
-<<<<<<< HEAD
-        url: "track_stats_calorie.php",
-        data: {from_date: from_date, to_date: to_date},
-=======
         url: "track_stats_calorie.php?id=<?php echo ($clientId) ?>",
         data: {client: <?php echo($clientId) ?> ,from_date: from_date, to_date: to_date},
->>>>>>> Linking_branch
         success: function(result) {
         london_pop.innerHTML = "We are showing you the data in range <br>"+ result['range'] +" !";
         window.customChart = new Chart(defaultChart, {
@@ -1270,12 +1151,8 @@ const fp = flatpickr("input[type = date-range]", {
         function(selectedDates){
             const Date_1 = new Date(selectedDates[0]);
             const Date_2 = new Date(selectedDates[1]);
-<<<<<<< HEAD
-            CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
-=======
             // CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
             CustomChart_Data(selectedDates[0],selectedDates[1]);
->>>>>>> Linking_branch
         }
     ]
 });

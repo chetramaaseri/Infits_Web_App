@@ -1,20 +1,12 @@
 <?php
-<<<<<<< HEAD
-=======
 if(isset($_SESSION['name'])){
     header('location: login.php');
 }
->>>>>>> Linking_branch
 // Client Id
 if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
-<<<<<<< HEAD
-    // header("Location: __track_stats_water.php");
-    $clientId= 'Azarudeen';
-=======
     header("Location: index.php");
->>>>>>> Linking_branch
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");
@@ -41,13 +33,8 @@ if(isset($_POST['dates'])){
      $list = '
      <div class="row">
         <div class="col">';
-<<<<<<< HEAD
-    $Custom_Day1 = new DateTime(substr($_POST['dates'][0],4,11));
-    $Custom_Day2 = new DateTime(substr($_POST['dates'][1],4,11));
-=======
         $Custom_Day1 = new DateTime(substr($_POST['dates'][0],4,11));
         $Custom_Day2 = new DateTime(substr($_POST['dates'][1],4,11));
->>>>>>> Linking_branch
         while($Custom_Day2 >= $Custom_Day1){
             $query="SELECT * FROM heartrate WHERE clientID= '$clientId' AND 
                     `dateandtime` >= '".$Custom_Day1->format('Y-m-d')." 00:00:00'
@@ -74,26 +61,15 @@ if(isset($_POST['dates'])){
                 
                 $list .='<div class="meal-box">
                         <div class="left">
-<<<<<<< HEAD
-                            <img src="images/running_heart_rate.svg" alt="">
-                            <div class="meal-title">
-                                <p> heart rate</p>
-=======
                             <img src="images/cycling_heart_rate.svg" alt="">
                             <div class="meal-title">
                                 <p>Max ' .$CustomData[$i]['maximum'] . '</p>
->>>>>>> Linking_branch
                                 <span>'.$I_date->format('h:i A').'</span>
                             </div>
                         </div>
                         <div class="right">
-<<<<<<< HEAD
-                            <img src="images/heart_past.svg" alt="">
-                            <p class="kcal">'.$CustomData[$i]['average'].' bpm</p>
-=======
                             <img src="images/heartrate_selected_small.svg" alt="">
                             <p class="kcal">'.$CustomData[$i]['average'].' BPM</p>
->>>>>>> Linking_branch
                         </div>
                     </div>';
                 $i++; }
@@ -296,14 +272,8 @@ color: #000000;
     width: 311px;
     height: 67px;
     padding: 20px;
-<<<<<<< HEAD
-
-    background: linear-gradient(180deg, rgba(255, 232, 242, 0.2) 0%, rgba(201, 134, 207, 0.2) 100%);
-        border-radius: 10px;
-=======
     background: linear-gradient(180deg, rgba(255, 232, 242, 0.2) 0%, rgba(201, 134, 207, 0.2) 100%);
     border-radius: 10px;
->>>>>>> Linking_branch
 }
 .meal-box p{
     margin-bottom: 0;
@@ -399,17 +369,10 @@ color: #000000;
             </div>
             <div class="col-sm-4 ph-right">
                 <!-- metric_button -->
-<<<<<<< HEAD
-                <a href="__track_stats_water.php?id=<?php echo($clientId) ?>">
-                <div class="client-card client-card-heart " style="color:#E266A9; border: 1px solid #E266A9;">
-                    <img src="images/heart.svg" alt="">
-                    <p>Heart Rate</p>
-=======
                 <a href="track_stats_heart.php?id=<?php echo($clientId) ?>">
                 <div class="client-card client-card-heart " style="color:#E3738D; border: 1px solid #E3738D;">
                     <img src="images/heartrate_selected.svg" alt="">
                     <p>Heart<br>Rate</p>
->>>>>>> Linking_branch
                 </div>
                 </a>
             </div>
@@ -459,89 +422,17 @@ color: #000000;
                                                 while($i<$count){ 
                                                     $I_date = new DateTime($yearly_Data[$i]['dateandtime']);
                                                 ?>
-<<<<<<< HEAD
                                                     <div class="meal-box">
                                                         <div class="left">
                                                             <img src="images/running_heart_rate.svg" alt="">
                                                             <div class="meal-title">
-                                                                <p>heartrate</p>
-                                                                <span><?php echo($I_date->format('h:i A d M')) ?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="right">
-                                                            <img src="images/heart_past.svg" alt="">
-                                                            <p class="kcal"><?php echo($yearly_Data[$i]['average']) ?> bpm</p>
-                                                        </div>
-                                                    </div>
-                                                <?php $i++; } ?>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Yearly Data -->
-                                <div id="Year" class="tab-content">
-                                    <div class="row">
-                                        <div class="col">
-                                        <?php
-                                        $yearly_month = new DateTime();
-                                        $yearly_last_month = new DateTime();
-                                        $yearly_month->setDate($yearly_month->format('Y'),01,01);
-                                        if($today->format('m') == '01'){
-                                            $yearly_month->setDate($yearly_month->format('Y')-1,01,01);
-                                            $yearly_last_month->setDate($yearly_last_month->format('Y')-1,12,31);
-                                        }
-                                        
-                                        while($yearly_last_month >= $yearly_month){
-                                            $yearly_Month_1 = $yearly_month->format('Y-m')."-"."01";
-                                            $yearly_Month_2 =  $yearly_month->format('Y-m')."-". $yearly_month->format('t');
-                                            $query="SELECT * FROM heartrate WHERE clientID= '$clientId' AND 
-                                                    `dateandtime` >= '".$yearly_Month_1." 00:00:00'
-                                                    AND `dateandtime` <= '".$yearly_Month_2." 23:59:59';";
-                                            $yearly_Data = fetchPastActivity($clientId,$query);
-                                            
-                                            $count = count($yearly_Data);
-                                            $i = 0;
-                                        ?>
-                                            <div class="activity-container">
-                                                <p class="date"><?php echo ($yearly_month->format('M Y')); ?></p>
-                                                <?php 
-                                                $yearly_month->modify("+1 Month");
-                                                if(empty($yearly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
-                                                ?>
-                                                <div class="flex-box">
-                                                <?php  
-                                                while($i<$count){ 
-                                                    $I_date = new DateTime($yearly_Data[$i]['dateandtime']);
-                                                ?>
-=======
->>>>>>> Linking_branch
-                                                    <div class="meal-box">
-                                                        <div class="left">
-                                                            <img src="images/running_heart_rate.svg" alt="">
-                                                            <div class="meal-title">
-<<<<<<< HEAD
-                                                                <p>heart rate</p>
-=======
                                                                 <p>Max <?php echo($yearly_Data[$i]['maximum']) ?></p>
->>>>>>> Linking_branch
                                                                 <span><?php echo($I_date->format('h:i A d M')) ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="right">
-<<<<<<< HEAD
-                                                            <img src="images/heart_past.svg" alt="">
-                                                            <p class="kcal"><?php echo($yearly_Data[$i]['average']) ?> bpm</p>
-=======
                                                             <img src="images/heartrate_selected_small.svg" alt="">
                                                             <p class="kcal"><?php echo($yearly_Data[$i]['average']) ?> BPM</p>
->>>>>>> Linking_branch
                                                         </div>
                                                     </div>
                                                 <?php $i++; } ?>
@@ -551,35 +442,6 @@ color: #000000;
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <!-- Monthly Data -->
-                                <div id="Month" class="tab-content">
-                                    <div class="row">
-                                        <div class="col">
-                                        <?php
-                                        $monthly_Month = new DateTime();
-                                        $monthly_LastDay = new DateTime();
-                                        $monthly_Month->modify("first day of this month");
-                                        if($today->format('d') == '01'){
-                                            $monthly_Month->modify("first day of previous month");
-                                            $monthly_LastDay->modify("last day of previous month");
-                                        }
-                                        
-                                        while($monthly_LastDay >= $monthly_Month){
-                                            $query="SELECT * FROM heartrate WHERE clientID= '$clientId' AND 
-                                                    `dateandtime` >= '".$monthly_Month->format('Y-m-d')." 00:00:00'
-                                                    AND `dateandtime` <= '".$monthly_Month->format('Y-m-d')." 23:59:59';";
-                                            $monthly_Data = fetchPastActivity($clientId,$query);
-                                            
-                                            $count = count($monthly_Data);
-                                            $i = 0;
-                                        ?>
-                                            <div class="activity-container">
-                                                <p class="date"><?php echo ($monthly_Month->format('d M Y')); ?></p>
-                                                <?php 
-                                                $monthly_Month->modify("+1 day");
-                                                if(empty($monthly_Data)){
-=======
                                 <!-- Yearly Data -->
                                 <div id="Year" class="tab-content">
                                     <div class="row">
@@ -609,7 +471,6 @@ color: #000000;
                                                 <?php 
                                                 $yearly_month->modify("+1 Month");
                                                 if(empty($yearly_Data)){
->>>>>>> Linking_branch
                                                     echo ("<p> NO DATA FOUND </p>");
                                                     echo ('</div>');
                                                     // echo('<br>');
@@ -619,21 +480,6 @@ color: #000000;
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
-<<<<<<< HEAD
-                                                    $I_date = new DateTime($monthly_Data[$i]['dateandtime']);
-                                                ?>
-                                                    <div class="meal-box">
-                                                        <div class="left">
-                                                            <img src="images/running_heart_rate.svg" alt="">
-                                                            <div class="meal-title">
-                                                                <p>heart rate</p>
-                                                                <span><?php echo($I_date->format('h:i A')) ?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="right">
-                                                            <img src="images/heart_past.svg" alt="">
-                                                            <p class="kcal"><?php echo($monthly_Data[$i]['average']) ?> bpm</p>
-=======
                                                     $I_date = new DateTime($yearly_Data[$i]['dateandtime']);
                                                 ?>
                                                     <div class="meal-box">
@@ -647,7 +493,6 @@ color: #000000;
                                                         <div class="right">
                                                             <img src="images/heartrate_selected_small.svg" alt="">
                                                             <p class="kcal"><?php echo($yearly_Data[$i]['average']) ?> BPM</p>
->>>>>>> Linking_branch
                                                         </div>
                                                     </div>
                                                 <?php $i++; } ?>
@@ -657,35 +502,6 @@ color: #000000;
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <!-- Weekly Data -->
-                                <div id="Week" class="tab-content">
-                                    <div class="row">
-                                        <div class="col">
-                                        <?php
-                                        $weekly_Day = new DateTime();
-                                        $weekly_Day->modify('previous monday');
-                                        $weekly_lastDay =new DateTime();
-                                        
-                                        if($today->format('l')== "Monday"){
-                                            $weekly_lastDay->modify('previous sunday');
-                                        }
-                                        
-                                        while($weekly_Day <= $weekly_lastDay){
-                                            $query="SELECT * FROM heartrate WHERE clientID= '$clientId' AND 
-                                                    `dateandtime` >= '".$weekly_Day->format('Y-m-d')." 00:00:00'
-                                                    AND `dateandtime` <= '".$weekly_Day->format('Y-m-d')." 23:59:59';";
-                                            $weekly_Data = fetchPastActivity($clientId,$query);
-                                            
-                                            $count = count($weekly_Data);
-                                            $i = 0;
-                                        ?>
-                                            <div class="activity-container">
-                                                <p class="date"><?php echo ($weekly_Day->format('d M Y')); ?></p>
-                                                <?php 
-                                                $weekly_Day->modify("+1 day");
-                                                if(empty($weekly_Data)){
-=======
                                 <!-- Monthly Data -->
                                 <div id="Month" class="tab-content">
                                     <div class="row">
@@ -713,7 +529,6 @@ color: #000000;
                                                 <?php 
                                                 $monthly_Month->modify("+1 day");
                                                 if(empty($monthly_Data)){
->>>>>>> Linking_branch
                                                     echo ("<p> NO DATA FOUND </p>");
                                                     echo ('</div>');
                                                     // echo('<br>');
@@ -723,15 +538,6 @@ color: #000000;
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
-<<<<<<< HEAD
-                                                    $I_date = new DateTime($weekly_Data[$i]['dateandtime']);
-                                                ?>
-                                                    <div class="meal-box">
-                                                        <div class="left">
-                                                            <img src="images/running_heart_rate.svg" alt="">
-                                                            <div class="meal-title">
-                                                                <p>heart rate</p>
-=======
                                                     $I_date = new DateTime($monthly_Data[$i]['dateandtime']);
                                                 ?>
                                                     <div class="meal-box">
@@ -739,18 +545,10 @@ color: #000000;
                                                             <img src="images/cycling_heart_rate.svg" alt="">
                                                             <div class="meal-title">
                                                                 <p>Max <?php echo($monthly_Data[$i]['maximum']) ?></p>
->>>>>>> Linking_branch
                                                                 <span><?php echo($I_date->format('h:i A')) ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="right">
-<<<<<<< HEAD
-                                                            <img src="images/heart_past.svg" alt="">
-                                                            <p class="kcal"><?php echo($weekly_Data[$i]['average']) ?> bpm</p>
-                                                        </div>
-                                                    </div>
-                                                <?php $i++; } ?>
-=======
                                                             <img src="images/heartrate_selected_small.svg" alt="">
                                                             <p class="kcal"><?php echo($monthly_Data[$i]['average']) ?> BPM</p>
                                                         </div>
@@ -814,7 +612,6 @@ color: #000000;
                                                         </div>
                                                     </div>
                                                 <?php $i++; } ?>
->>>>>>> Linking_branch
                                                 </div>
                                             </div>
                                         <?php } ?>

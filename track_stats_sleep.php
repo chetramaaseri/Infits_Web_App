@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-
-<?php
-// Client Id
-$clientId = 'Azarudeen';
-
-// Configure Dates
-date_default_timezone_set("Asia/Calcutta");
-$today = new DateTime();
-// Goal Insertion
-if(isset($_POST['savegoal'])){
-    $client = $_POST['clientid'];
-    $goal =$_POST['setgoal'];
-    $conn = new mysqli("localhost", "root", "", "infits");
-
-    if($conn->connect_error){
-        die("Connection failed :" . $conn->connect_error);
-    }
-    
-    $query="INSERT INTO goals (forWhat, goal, clientID) VALUES ('sleep' , $goal, '$client' )";
-    $result = $conn->query($query) or die("Query Failed");
-    
-    if($result){
-        unset($_POST["savegoal"]);
-        unset($_POST["setgoal"]);
-        header(("Location:track_stats_sleep.php"));
-        // exit();
-=======
 <?php
 // Client Id
 if(isset($_GET['id'])){
@@ -71,7 +43,6 @@ if(isset($_POST['savegoal'])){
             header(("Location:track_stats_sleep.php?id={$clientId}"));
             // exit();
         }
->>>>>>> Linking_branch
     }
 }
 // funtion to fetch
@@ -98,11 +69,7 @@ function fetchDataSql($clientId,$from_date, $to_date, $isCustom=0){
             AND `sleeptime` < '{$to_date} 00:00:00';";
     // for get latest goal from goals table
     }else if($isCustom==4){
-<<<<<<< HEAD
-        $query="SELECT goal FROM goals WHERE forWhat = 'sleep' ORDER BY time DESC LIMIT 1";
-=======
         $query="SELECT sleep FROM goals WHERE client_id = {$clientId}";
->>>>>>> Linking_branch
     // for getting past actvities 
     }else if($isCustom==5){
         $query = "SELECT * FROM `sleeptracker` WHERE clientID = '$clientId' AND `sleeptime` >= '{$from_date} 00:00:00'
@@ -134,13 +101,8 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
         'date' => array(),
         'range' => "",
     );
-<<<<<<< HEAD
-    $CustomDay_1 = new DateTime($_POST['from_date']);
-    $CustomDay_2 = new DateTime($_POST['to_date']);
-=======
     $CustomDay_1 = new DateTime(substr($_POST['from_date'],4,11));
     $CustomDay_2 = new DateTime(substr($_POST['to_date'],4,11));
->>>>>>> Linking_branch
     $CustomData['range'] =  $CustomDay_1->format('d M Y') ." - ". $CustomDay_2->format('d M Y') ;
     
     while ($CustomDay_2 >= $CustomDay_1) {
@@ -156,11 +118,8 @@ if(isset($_POST['from_date']) AND isset($_POST['to_date'])){
     echo ($CustomData);
     exit();
 }
-<<<<<<< HEAD
-=======
 include('navbar.php');
 $dietition = $_SESSION['name'];
->>>>>>> Linking_branch
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,11 +150,7 @@ tst-left-t{
     padding-left: 3%;
 }
 .heading{
-<<<<<<< HEAD
-    width: 145px;
-=======
     /* width: 145px; */
->>>>>>> Linking_branch
     height: 68px;
 
 }
@@ -233,42 +188,27 @@ margin-bottom: 15px;
 .client-card a{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    gap: 10px;
-=======
     gap: 23px;
     height: 65%;
     margin-top: 15px;
->>>>>>> Linking_branch
 }
 .client-card-calorie{
 background: linear-gradient(37.35deg, #E2809B 0%, #EBD3C8 100%);
 }
 .client-card i{
-<<<<<<< HEAD
-    scale: 1.5;
-=======
     scale: 2;
->>>>>>> Linking_branch
 }
 .client-card a img {
     height: 30px;
     width: auto;
-<<<<<<< HEAD
-=======
     margin-bottom: -15px;
->>>>>>> Linking_branch
 }
 .client-card p{
 font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
 line-height: 1;
-<<<<<<< HEAD
-font-size: 19px;
-=======
 font-size: 22px;
->>>>>>> Linking_branch
     margin: 0;
 }
 
@@ -285,11 +225,7 @@ background-color: #f1f1f1;
 border: 1px solid #F8F5F5;
 max-width: 365px;
 width: 100%;
-<<<<<<< HEAD
-height: 27px;
-=======
 height: 31px;
->>>>>>> Linking_branch
 border-top-left-radius: 1em;left
 border-bottom-left-radius: 1em;
 border-top-right-radius: 1em;
@@ -301,11 +237,7 @@ background: #FFFFFF;
 border: 1px solid #FCFBFB;
 border-radius: 0px;
 width: 24%;
-<<<<<<< HEAD
-height: 24px;
-=======
 /* height: 24px; */
->>>>>>> Linking_branch
 float: left;
 border: none;
 outline: none;
@@ -374,60 +306,6 @@ border-bottom-right-radius: 1em;
     height: 100%;
 }
 .tab_content canvas{
-<<<<<<< HEAD
-    width: 100%;
-    height: 100%;
-}
-.i-button {
-    position: absolute;
-    top: -4%;
-    right: -12%;
-    cursor: pointer;
-}
-.i-pop {
-    background: #ffffff;
-    font-family: 'NATS';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 27px;
-    position: absolute;
-    /* right: -62%; */
-    /* top: 10%; */
-    right: -12%;
-    top: 12%;
-    box-shadow: 0px 1.74334px 13.0751px rgb(0 0 0 / 25%);
-    border: 1px solid #EFEFEF;
-    padding: 10px 15px;
-    width: 500px;
-    text-align: center;
-    border-radius: 15px;
-    display: none;
-    transition: 2s ease-in-out;
-}
-
-/* Goal Dialog */
-.tst-right {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 25px 0;
-}
-.set-goal {
-    width: 100%;
-    height: 100%;
-    max-width: 380px;
-    max-height: 450px;
-    /* background: #FFFFFF; */
-    border: 1px solid #EFEFEF;
-    background: url('./images/goal-bg.svg');
-    background-repeat: no-repeat;
-    background-position: inherit;
-    box-shadow: 0px 1.74334px 13.0751px rgba(0, 0, 0, 0.25);
-    border-radius: 13.0751px;
-    position: relative;
-    padding: 10px;
-=======
     width: 100%;
     height: 100%;
 }
@@ -436,43 +314,9 @@ border-bottom-right-radius: 1em;
     top: 1%;
     right: -17%;
     cursor: pointer;
->>>>>>> Linking_branch
     display: flex;
     gap: 20px;
     flex-direction: column;
-<<<<<<< HEAD
-    /* justify-content: center; */
-    align-items: center;
-}
-.set-goal .heading{
-    position: relative;
-    padding-left: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-}
-#g-set-success {
-    position: absolute;
-    top: 40px;
-    right: 15px;
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-.set-goal img{
-width: 211px;
-height: 166px;
-}
-.set-goal span {
-    font-family: 'NATS';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 40px;
-    color: #633FDD;
-    margin-top: -10px;
-}
-=======
 }
 .i-button-box span{
     font-family: 'NATS';
@@ -558,7 +402,6 @@ height: 166px;
     color: #633FDD;
     margin-top: -10px;
 }
->>>>>>> Linking_branch
 .set-goal form{
     display: flex;
     flex-direction: column;
@@ -574,11 +417,7 @@ border-radius: 10px;
 padding: 8px 25px;
 }
 .set-goal input::placeholder{
-<<<<<<< HEAD
-font-family: 'Nunito';
-=======
 font-family: 'NATS';
->>>>>>> Linking_branch
 font-style: normal;
 font-weight: 700;
 font-size: 18px;
@@ -596,11 +435,7 @@ text-align: center;
     border-radius: 10px;
     color: #ffffff;
     font-size: 19px;
-<<<<<<< HEAD
-    font-family: 'Nunito';
-=======
     font-family: 'NATS';
->>>>>>> Linking_branch
     font-style: normal;
     font-weight: 700;
 }
@@ -621,11 +456,7 @@ text-align: center;
     max-height: 57.45px; */
     height: 57.45px;
     /* width: 25%; */
-<<<<<<< HEAD
-    width: 134px;
-=======
     width: 150px;
->>>>>>> Linking_branch
     /* height: 100%; */
     background: #FFFFFF;
     border: 1px solid #F1F1F1;
@@ -648,22 +479,14 @@ text-align: center;
 font-size: 18px;
 line-height: 0;
 color: #5D5D5D;
-<<<<<<< HEAD
-margin-left: 5px;
-=======
 margin-left: 10px;
->>>>>>> Linking_branch
 }
 .stat-data .value{
 font-size: 25px;
 line-height: 0;
 text-align: center;
 color: #000000;
-<<<<<<< HEAD
-margin-left: 5px;
-=======
 margin-left: 20px;
->>>>>>> Linking_branch
 }
 .stat-data .unit{
 font-size: 17px;
@@ -767,13 +590,8 @@ color: #9C74F5;
 .tsd-right{
         display: flex;
         flex-direction: column;
-<<<<<<< HEAD
-        /* justify-content: center; */
-        align-items: center;
-=======
         justify-content: center;
         align-items: flex-end;
->>>>>>> Linking_branch
     }
     .tsd-right .heading {
         width: 100%;
@@ -1224,25 +1042,6 @@ content: counter(percentage) '';
 
             <div class="tst-left-t">
                 <div class="heading">
-<<<<<<< HEAD
-                    <p>Clients Stats</p>
-                </div>
-                <div class="card-container">
-                <div class="client-card " style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
-                        <a href="track_stats_steps.php">
-                            <i class="fa-solid fa-shoe-prints" style="color:#FF6C6CCA; rotate: -90deg;"></i>
-                            <p style="color: #FF6C6CCA;">Step</p>
-                        </a>
-                        </div>
-                        <div class="client-card" style="color:#E266A9; border: 1px solid #E266A9;">
-                        <a href="track_stats_heart.php">
-                            <i style="color:#E266A9;" class="fa-solid fa-heart-pulse"></i>
-                            <p style="color:#E266A9;">Heart Rate</p>
-                            </a>
-                        </div>
-                        <div class="client-card" style="color:#52A4FF; border: 1px solid #52A4FF;">
-                        <a href="track_stats_water.php">
-=======
                     <p style="margin-top: -15px;">Clients Stats</p>
                 </div>
                 <div class="card-container">
@@ -1260,7 +1059,6 @@ content: counter(percentage) '';
                         </div>
                         <div class="client-card" style="color:#52A4FF; border: 1px solid #52A4FF;">
                         <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
->>>>>>> Linking_branch
                         <i style="color:#52A4FF;" class="fa-solid fa-droplet"></i>
                         <p style="color:#52A4FF;">Water</p>
                             </a>
@@ -1268,11 +1066,7 @@ content: counter(percentage) '';
                         <div class="client-card" style="color:#7D5DE6; border: 1px solid #7D5DE6;">
                         <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                             <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i>
-<<<<<<< HEAD
-                            <p style="color:#7D5DE6;">Weight Track</p>
-=======
                             <p style="color:#7D5DE6;">Weight<br>Track</p>
->>>>>>> Linking_branch
                             </a>
                         </div>
                         <div class="client-card client-card-sleep" style="color:#54AFAC; border: 1px solid #54AFAC;">
@@ -1282,15 +1076,9 @@ content: counter(percentage) '';
                             </a>
                         </div>
                         <div class="client-card" style="color:#E3738D; border: 1px solid #E3738D;">
-<<<<<<< HEAD
-                        <a href="track_stats_calorie.php">
-                        <i class="fa-solid fa-stopwatch-20" style="color:#E3738D" ></i>
-                            <p style="color:#E3738D;">Calorie Track</p>
-=======
                         <a href="track_stats_calorie.php?id=<?php echo($clientId) ?>">
                         <i class="fa-solid fa-stopwatch-20" style="color:#E3738D" ></i>
                             <p style="color:#E3738D;">Calorie<br>Track</p>
->>>>>>> Linking_branch
                             </a>
                         </div>
                 </div>
@@ -1312,56 +1100,40 @@ content: counter(percentage) '';
                     <div id="London" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChart"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="london_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Year" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartYearly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="year_pop" class="i-pop"></div>
                     </div>
 
                     <div id="Month" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartMonthly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="month_pop" class="i-pop"></div>
                     </div>
                     
                     <div id="Week" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartWeekly"></canvas>
-<<<<<<< HEAD
-                    <img class="i-button" src="./images/i-button.svg" alt="">
-=======
                     <div class="i-button-box">
                         <img class="i-button" src="./images/i-button.svg" alt="">
                         <span>info</span>
                     </div>
->>>>>>> Linking_branch
                     <div id="week_pop" class="i-pop"></div>
                     </div>
                 
@@ -1396,21 +1168,14 @@ content: counter(percentage) '';
         </div>
         <div class="col-lg-4 tst-right">
             <div class="set-goal">
-<<<<<<< HEAD
-                <div class="Water Intake Goal">
-=======
                 <div class="heading Water Intake Goal">
->>>>>>> Linking_branch
                     <p>Sleep Goal </p>
                     <span>Daily Sleep Hours</span>
                     <span id="g-set-success"></span>
                 </div>
                 <img src="images/sleep_table.svg" alt="">
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-<<<<<<< HEAD
-=======
                     <input hidden name="dietition" value="<?php echo($dietition) ?>">
->>>>>>> Linking_branch
                     <input name="setgoal" required min="1" type="number" id="set-goal" placeholder="00000 Hours">
                     <input name="clientid"  type="hidden" value="<?php echo($clientId) ?>">
                     <button type="submit" name="savegoal" id="save-goal">Set</button>
@@ -1514,15 +1279,6 @@ if(empty($sleepConsumed)){
 }else{
     $sleepConsumedl = $sleepConsumedl[0]['SUM(minsSlept)'];
 }
-<<<<<<< HEAD
-if(empty($progressBarData)){
-    $currentGoal =  0;
-    $progressPercent = 0;
-}else{
-    $currentGoal =  $progressBarData[0]['goal'];
-    $progressPercent = round(($sleepConsumed / $currentGoal) * 100,2);
-    $progressPercenta = round(((24-$sleepConsumed) / 24) * 100,2);
-=======
 if(empty($progressBarData) OR $progressBarData[0]['sleep'] == 0){
     $currentGoal =  0;
     $progressPercent = 0;
@@ -1535,18 +1291,13 @@ if(empty($progressBarData) OR $progressBarData[0]['sleep'] == 0){
         $progressPercent = 0;
         $progressPercenta = 0;
     }
->>>>>>> Linking_branch
 }
 $sleepRemaining = (int) $currentGoal - (int) $sleepConsumed;
 ?>     
         <div class="col-lg-5 tsd-right">
             <div class="heading">
                 <p>Daily Progress</p>
-<<<<<<< HEAD
-                <a href="past_activities_sleep.php"><span>View Activity</span></a>
-=======
                 <a href="past_activities_sleep.php?id=<?php echo($clientId) ?>"><span>View Activity</span></a>
->>>>>>> Linking_branch
             </div>
             <div class="pbc">
                 <div class="progress-bar-container">
@@ -1678,11 +1429,7 @@ if(<?php echo($month_pop) ?>){
 }
 
 if(<?php echo($week_pop) ?>){
-<<<<<<< HEAD
-    week_pop.innerText = "As it is fresh year, we are showing you the previous week's data until the latest data is synced for the week!";
-=======
     week_pop.innerText = "As it is fresh week, we are showing you the previous week's data until the latest data is synced for the week!";
->>>>>>> Linking_branch
 }else{
     week_pop.innerText = "We are showing you the ongoing week's data and it keeps updating realtime!";
 }
@@ -1703,11 +1450,7 @@ function CustomChart_Data(from_date,to_date){
     window.customChart.destroy();
     $.ajax({
         type: "POST",
-<<<<<<< HEAD
-        url: "track_stats_sleep.php",
-=======
         url: "track_stats_sleep.php?id=<?php echo($clientId) ?>",
->>>>>>> Linking_branch
         data: {from_date: from_date, to_date: to_date},
         success: function(result) {
         london_pop.innerHTML = "We are showing you the data in range <br>"+ result['range'] +" !";
@@ -1791,13 +1534,7 @@ const fp = flatpickr("input[type = date-range]", {
     mode: "range",
     onClose:[
         function(selectedDates){
-<<<<<<< HEAD
-            const Date_1 = new Date(selectedDates[0]);
-            const Date_2 = new Date(selectedDates[1]);
-            CustomChart_Data(Date_1.toISOString().slice(0,10),Date_2.toISOString().slice(0,10));
-=======
             CustomChart_Data(selectedDates[0],selectedDates[1]);
->>>>>>> Linking_branch
         }
     ]
 });
@@ -1950,11 +1687,7 @@ new Chart(monthlyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-<<<<<<< HEAD
-                stepSize:500,
-=======
                 // stepSize:500,
->>>>>>> Linking_branch
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,
@@ -2018,11 +1751,7 @@ new Chart(weeklyChart, {
             ticks:{
                 // min:2500,
                 // max:3000,
-<<<<<<< HEAD
-                stepSize:500,
-=======
                 // stepSize:500,
->>>>>>> Linking_branch
                 fontFamily: 'NATS',
                 fontStyle: 'bold',
                 fontSize:12,
