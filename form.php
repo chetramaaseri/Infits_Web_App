@@ -24,7 +24,7 @@
   <body>
 		
 		
-    <?php include 'event_calendar.php';?>
+    <?php include 'navbar.php';?>
         <!-- Page Content  -->
     
 		  

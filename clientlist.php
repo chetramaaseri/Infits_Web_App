@@ -1,77 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>Sidebar 03</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: 'NATS', sans-serif !important;
+    }
+    .dashboard{
+    margin-top: 1rem;
+    margin-left: 17rem;
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		
-        <link rel="stylesheet" href="css/clientlist.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <title>Sidebar menu With Sub-menus | Using HTML, CSS & JQuery</title>
-	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	  <link rel="stylesheet" type="text/css" href="./styles/event_calendar.css">
-	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2">
-  </head>
-  <body>
-		
-	<?php include 'event_calendar.php';?>
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-		
-		 
-          <div id="row-buttons">
-                <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-                Personal Info
-                <img src="images/User.png">
-                Name,Plan,Etc
-            </button>
-            <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-                Diet Chart
-                <img src="images/Clipboard-big.png">
-                Plan Diet
-            </button>
-            <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-                Personal Info
-                <img src="images/User.png">
-                Name,Plan,Etc
-            </button>
+   }
+
+   .container3{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+   }
+   .request{
+    font-size:24px;
+   }
+   #request{
+    background: #7282FB;
+    border-radius: 10px;
+    color:white;
+    border:none;
+    width:211px;
+    margin-top:1.5rem;
+    width:200px;
+}
+.clients_container2 {
+    margin-top: 2rem;
+    font-size:25px;
+}
+.button-top{
+    border:none;
+    background:white;
+    border-bottom : 4px solid #4B9AFB;
+}
+@media screen and (max-width: 720px) { 
+    .dashboard_comtainer1{
+        display: flex;
+        gap:4rem;
+    }
+    .dashboard{
+        margin-left: 2rem;
+    } 
+    .lilac1{
+        position:absolute;
+        top:40vh;
+        right:5vw;
+        z-index:-2;
+    }
+    .lilac2{
+        position:absolute;
+        z-index:-2;
+        left:0;
+        bottom:0;
+    }
+    .container3{
+        flex-wrap:wrap;
+        margin:auto;
+    }
+
+}
+    </style>
+</head>
+<body>
+    <?php include 'navbar.php'?>
+
+    <div class="dashboard">
+        <div class="dashboard_comtainer1">
+            <p style="font-size: 48px;font-weight:500;margin-bottom: 0;">Client List</p>       
         </div>
-         
-        <div id="row-buttons" >
-            <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-            Personal Info
-            <img src="images/User.png">
-            Name,Plan,Etc
-        </button>
-        <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-            Personal Info
-            <img src="images/User.png">
-            Name,Plan,Etc
-        </button>
-        <button id="food-type-button" type="button" class="btn btn-outline-secondary">
-            Personal Info
-            <img src="images/User.png">
-            Name,Plan,Etc
-        </button>
+        <div class="clients_container2">
+            <form action="" method="post">
+                <button class="button-top" name="active-btn">Active</button>
+                <button class="button-top" name="pending-btn" style="margin-left:2rem">Pending</button>
+            </form>
+        </div>
+        <br><br>
+        <div class="lilac1">   
+                <img src="images/lilac user icon (2).png" style="position: absolute;width:30vw;height:40vh;top:10%; right:7%;" class="image1"> 
+            </div>
+        <div class="container3">   
+
+            <div style="font-size:35px;font-weight:500;margin-top:30px;" class="clients_title">No clients added yet!</div>
+                <div class="request">
+                    <a href="#"><button id="request">Send Request</button></a>
+                </div>               
+        </div>       
+        <div class="lilac2">
+            <img src="images/lilac user icon (4).png" style="width:25vw;height:40vh;position:absolute;left:20vw;bottom:3vh" > 
+        </div>
     </div>
-		  
-          <div id="motivation">
-            <h2>
-                Never Give Up, Great things take time <br>
-
-            </h2>
-            
-          </div>
-         
-		</div>
-		
-
-  
-  </body>
+</body>
 </html>

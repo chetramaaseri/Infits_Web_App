@@ -1,9 +1,19 @@
 <?php
+<<<<<<< HEAD
+=======
+if(isset($_SESSION['name'])){
+    header('location: login.php');
+}
+>>>>>>> Linking_branch
 // Client Id
 if(isset($_GET['id']) AND $_GET['id'] != ""){
     $clientId = $_GET['id'];
 }else{
+<<<<<<< HEAD
     header("Location: track_stats_heart.php");
+=======
+    header("Location: index.php");
+>>>>>>> Linking_branch
 }
 // Configure Dates
 date_default_timezone_set("Asia/Calcutta");

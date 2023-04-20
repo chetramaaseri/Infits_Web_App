@@ -1,303 +1,400 @@
+<?php
+include "navbar.php";
+$var = $_SESSION['receipe_id'];
+$dir_id = $_SESSION['dirtid'] ;  
+
+ ?>
+
+
+<!DOCTYPE html>
 <html>
-<title>Directions</title>
+<title>INFITS</title>
+
 <head>
-  <style>
-	 	.upload-photo{
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
-    position: absolute;
-width: 265px;
-height: 200px;
-left: 610px;
-top: 100px;
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-background: #D9D9D9;
-opacity: 0.74;
-border-radius: 12px;
-}
- .link-container{
+    <link rel="stylesheet" href="./css/directions.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
- 	box-sizing: border-box;
-
-position: absolute;
-width: 60px;
-height: 52px;
-left: 620px;
-top: 460px;
-background: whitesmoke;
-border-radius: 19px;
-border-color:rgba(121, 99, 251, 1);
-box-shadow:rgba(121, 99, 251, 1) ;
-
-text-align: center;
- }
- #lbl{
- 	position: absolute;
-width: 25px;
-height: 79px;
-margin-left:30% ;
-
-font-family: 'NATS';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 100%;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-display: flex;
 
-background: linear-gradient(180deg, #7963FB 0%, #BD59EB 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
-cursor: pointer;
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+    </script>
 
 
- }
-
- .buttons{
-    box-sizing: border-box;
-
-position: absolute;
-width: 459px;
-height: 50px;
-left: 556px;
-top: 380px;
-
-background: #E7E7E7;
-border: 1px solid #E7E7E7;
-border-radius: 44px;
-text-align: center;
-
-}
-.link-add{
-	height: 89px;
-	width:  181px;
-	top:  460px;
-	left:  584px;
-}
-#p-add
-{
-
-}
-.para{
-	position: absolute;
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+    </script>
 
 
-left: 40px;
-top: 24px;
-/* identical to box height, or 33px */
-display: flex;
-flex-direction: row;
-justify-content:space-between;
-color: #929292;
-margin:10px;
-float:right;
+    <style>
+    #content {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+        font-family: 'Poppins';
+        font-style: normal;
+        //padding: 2px;
+        margin: 0px;
+    }
 
-}
-.add-direction{
-	          display: none;
-	          box-sizing: border-box;
-                 position: fixed;
-                width: 409px;
-                height: 212px;
-                background: #FFFFFF;
+    /*   tabs      */
+    /* Style the tab */
+    .tab {
+        display: flex;
+        justify-content: space-around;
+        background-color: #FAFAFA;
+        border-radius: 10px;
+        margin-top: 2px;
+    }
 
-                border: 1px solid #E4E4E4;
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.09);
-                border-radius:18px;
-             transform: translate(-50%,-50%);
+    /* Style the buttons inside the tab */
+    .tab a {
+        background-color: inherit;
+        border-radius: 10px;
+        float: left;
+        border: none;
+        padding: 10px 40px;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 17px;
+        margin: 5px;
+    }
 
-}
+    /* Change background color of buttons on hover */
+    .tab a:hover {
+        background-color: #ddd;
+    }
 
+    /* Create an active/current tablink class */
+    .tab a.activee {
+        background-color: #D257E6;
+        color: white;
+    }
 
-}
-.div-header{
-                display: flex;
-                justify-content: space-between;
-                height: 15px;
-                text-align: justify;
-             
-                
-                                
-
-}
-.div-header .title{
-	font-family: 'NATS';
-	 font-style: normal;
-	 font-size: 24px;
-	 font-weight: 400;
-	 color: black;
-	 padding-left: 5px;
-}
-
-.box{
-	padding-left: 20px;
-       justify-content: space-between;
-
-
-	align-items: center;
-}
-.input-text{
-
-box-sizing: border-box;
-
-position: absolute;
-width: 310px;
-height: 33px;
-left:  30px;
-background: #FFFFF;
-border: 1px solid #D5D5D5;
-border-radius: 9px;
+    /* Style the tab content */
+    .tabcontent {
+        //padding: 6px 20px;
+        border: none;
+        border-top: none;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        margin-left: 90px;
 
 
-}
-.link-add{
-margin-top: 25;
-	 padding-left: 25px;
 
+    }
 
-}
-.up-btn{
-	position: absolute;
-	height:48px;
-	width:100px;
-	backrground:white;
-	color:#9A5EF5;
-	border-radius:15px;
-}
+    .flex-box1 {
+        display: flex;
+        flex-direction: row;
 
-	 </style>
+        margin-left: 20%
+    }
 
-	 <!------js code to open upload file on image click----->
-	  <!------code for upload image---->
-	  <script>
-          $(function(){
+    .flex-box2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
-          
-          $('#up-symbol').on('click',function(){
-            $('#video-upload').trigger('click');
-          });
-        });
+    }
 
-          </script>
+    .flex-box3 {
+        display: flex;
+        flex-direction: row;
 
- 
+        margin-left: 30px;
+    }
 
+    #url {
+        border: none;
+        display: inline-block;
+        background: #FFFFFF;
+        color: #A45DF2;
+        cursor: pointer;
+        text-align: center;
+        height: 40px;
+        width: 100px;
+        margin-left: 50px;
+    }
 
-	</head>
-	<body>
+    #open-ingd {
+        height: 55px;
+        width: 55px;
+        border-color: #7963FB;
+        border-radius: 15px;
+    }
+
+    < !------direction poopup----->.direction-add {
+        height: 344px;
+        width: 420px;
+        border-radius: 15px;
+        border-style: 15px solid #BF59EA;
+        color: black;
+
+        z-index: 1;
+
+    }
+
+    .btn-done {
+        height: 44px;
+        width: 100px;
+        background-color: #A85CF1;
+        color: white;
+        border-radius: 15px;
+
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+
+        height: 50px;
+
+    }
+
+    .url-popup {
+        height: 280px;
+        width: 476px;
+        border-radius: 15px;
+        color: black;
+        border-style: 5px solid black;
+        z-index: 1;
+        top: 50px;
+        left: 300px;
+        box-sizing: border-box;
+    }
+
+    .header-url {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 20px;
+
+    }
+
+    .cont-url {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10px;
+    }
+
+    .url-in {
+        width: 421px;
+        height: 57px;
+        border-radius: 15px;
+    }
+
+    .url-upld {
+        width: 157px;
+        height: 54px;
+        border-radius: 15px;
+        background-color: #A85CF1;
+        color: white;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <!--------php for add in drections table---->
+    <?php  
+      if(isset($_POST['done']))
+      {
+         $var = $_SESSION['dirtid'] ;
+		 $var_dir = $_POST['dirct'] ;
+         $sql ="insert into `add_direction` (`dir_id`,`direction`) values('$var', '$var_dir')";
+         if($conn -> query($sql) == true)
+         {
+           echo '<div class="alert alert-primary" role="alert" style="text-align:center;">
+		   Directions Added;
+		 </div>';
+
+         }
+         else{
+          echo '<div class="alert alert-primary" role="alert" style="text-align:center;">
+		      Directions Not Added;
+		</div>';
+         }
+      }
+
+       ?>
+
+    <!------php for url------------>
+    <?php  
+	    if(isset($_POST['url-upld']))
+		 {
+			$url= $_POST['url-input'];
+		  $sql ="update `dietian_recipies` set `link` = '$url' where `recipe_id` = '$var'"; 
+		  if($conn -> query($sql) == true)
+		  {
+			echo '<div class="alert alert-primary" role="alert" style="text-align:center;">
+			URL Added;
+		   </div>';
+           }
+		   else{
+			echo '<div class="alert alert-primary" role="alert" style="text-align:center;">
+			Directions Added;
+		  </div>';
+		   }
+		 }
+		 if (isset($_POST['save'])){
+  $query11 = "SELECT * FROM `add_direction` WHERE dir_id='$dir_id'";
+  $result11= mysqli_query($conn,$query11);   
+  if(mysqli_num_rows($result11) > 0){
+    $value = $_SESSION['receipe_id'];
+    unset($_SESSION["receipe_id"]);
+    unset($_SESSION["dirtid'"]);
+    unset($_SESSION["id"]);
+	echo '<meta http-equiv="refresh" content="1; URL=view_recipe.php?recipe_id='.$value.'/>';
+    
 	
-	  	 <!------Side Nav----->
-	  	 <?php include("event_calendar.php");?>
-	  	 
-	  	 <form id="form1" action="" method="post" enctype ="multipart/form/data">
-	  	 <div class="container" id ="cnt">
-	  	
-        
-     </div>
-
-
-         <div class="buttons" style="text-align: center;">
-            <ul class="button-class" style="display:flex; list-style:none";>
-<li> <div class="p-2" style="width: 135px;height:32px; margin-top: 5%;"><a href ="receipe_details_view.php" style="text-decoration: none; color: black; font-size:15;font-weight:400% ">Recipies details</a></div></li>
-  <li><div class="p-2" style="width:100px; height:32px; margin-left: 50px;">
-  	<a href="Ingredients.php" style="text-decoration: none; color: black; font-size:15;font-weight:400%  ">Ingredients</a></div></li>
- <li> <div class="p-2" style="width:78px; height:32px; margin-left: 50px; background-color: white;
-  margin-top: 5%; border-radius: 22px; text-align:center;margin-top: 5%;" >
- 	<a href="#" style="text-decoration: none; color: black; font-size:15; font-weight:400% ;">Directions</a></div></li>
-</ul>
-</div>
-<form action=" " method="post" enctype="multipart/form-data">
-           <div class="link-add">    
-          <div class="link-container">
-          	<label id="lbl" name="lbl_symbol">+</label>
-          		<div>
-          			<div class="para">
-          	<p id ="p-add" > Add Directions</p>
-
-
+  }else{
+	echo '<div class="alert alert-primary" role="alert" style="text-align:center;">
+Ingredients not Added;
+</div>';
+  }
+		}
+		 ?>
+    <div id="content">
+        <!------------------------------------------------DASHBOARD--------------------------------------------------------->
+        <br>
+        <div>
+            <h3 style="font-size: 20px; color: #202224; font-weight: 400; margin: 5px;float:left">Add
+                Directions
+            </h3>
+            <form action="#" method="post">
+                <button id="save" name="save" style="height:46px; width:151px; background:#D257E6; color:white;float:right;
+         text-align:center; border:none;border-radius:15px;" type="submit">Save </button>
+            </form>
+        </div>
+        <br>
+        <form action="" method="post" enctype="multipart/form-data">
+            <center>
+                <?php
     
-                <!------image upload----->
-             <div class="up-link" style="display:flex; flex-direction:row; position:absolute;  height: 58px; width:160px;> 
-		
-			 <img src=".\images\upload.svg" id="up-symbol"  style="height:15px; width:15px;">  
-				<input type="file" name="video-upload" style="display:none;">
-			<button id="upload" name="upload" class="up-btn" style="left:450px;"> upload video</button> 
-</div> 
+     
+     $sql ="select * from `dietian_recipies` where `recipe_id` = '$var'";
+     $result = $conn -> query($sql);
+     if($result -> num_rows>0)
+     {
+       while($row = $result ->fetch_assoc()){ 
+  
+         if($row['image']==NULL)
+         {
+            //////////////////
+         }
+         else
+        {
+       $ext= explode('|',$row['image']);
+        $path = $ext[1];
+        }
+        ?>
 
+                <div class="img-display" style="height:150px; width:220px; border-radius:50%;">
+                    <img src="<?php echo $path;?>" alt="" title="<?php $ext[0];}}?>"
+                        style="height:100%; width:100%; object-fit:cover;" />
+                </div>
 
-               <!----------upload url-------->
-           <div class="up-url" style="display:flex; flex-direction:row;position:absolute;  height: 58px; width:160px;>
-		  
+                <br>
+            </center>
 
-		   <img src=".\images\url.svg" id="url-symbol" style="height:15px; width:15px;">
-		   <input type="file" name="url-upload" style="display:none;">
-			<button id="url" name="url" class="up-btn" style="margin-left:190px;"> upload url </button>
-           </div>
-
-
-
-
-            <!-------popup for add directions--->
-
-            <div class="add-direction" id="add-dir" name="add-dir">
-            	<div class="div-header">
-            		<div class="title"> Add-Directions</div>
-            		<button class="close-button" id="cls-btn" style="background: none; border:none; cursor:pointer;outline: none; font-weight:bold; padding-left: 15px;">
-            		 &times;</button>
-            	</div>
-            	<div class="div-body">
-            		
-    
-        <div class="box">
-        <input type= "text" id="text1" class="input-text" name = "text1" value="Directions"><br>
-        
-       
-       <div  class="link-add"> <a href ="#" id="aid" name="aid">Add more Directions</a></div>
-
-       
-        
-       <button  id ="done"  name = "done" style="font-size:15; background:linear-gradient(267.44deg, rgba(204, 87, 231, 0.66) 0.01%, rgba(116, 99, 252, 0.66) 85.22%); color: white; height: 31px; width: 162px; border-radius:10px;left:124px;border-color:none;margin-top: -10%;" onclick="m_display();">  Done </button>
-           
+            <div class="tab">
+                <a href="create_recipe.php" style="text-decoration:none;">Recipe</a>
+                <a href="Add-ingredients.php" style="text-decoration:none;">Ingredients</a>
+                <a href="directions.php" style="text-decoration:none;background-color:#D257E6;color:white">Directions</a>
             </div>
-</form>
-             <!------code for popup directions------->
-            <script>
-            	var count=0;
-            	//button for open
-            	var btn = document.getElementById("lbl");
-            	//button for close
-            	var close_btn =document.getElementById("cls-btn");
-            	var modal = document.getElementById("add-dir");
-            	//link to add
-            	var btn_add = document.getElementById("aid");
-         
-                      var btn_done =document.getElementById("done");
-            	 btn.onclick =function(){
-            		modal.style.display = "block";
-
-            	}
-            	close_btn.onclick = function(){
-            		modal.style.display ="none";
-            	       event.preventDefault();
-            		
-            	}
-            	
-
-            	function m_display() 
-
-            	       {
-            	       	//event.preventDefault();
-                        modal.style.display ="block";
-
-                        }
 
 
-            </script>
+
+            <!----------Direction tab------->
+            <div id="directions" class="tabcontent" style="display:flex;color:black; flex-direction:row;">
+
+                <div class="box-pop"
+                    style="display:flex; justify-content:space-between; flex-direction:column; width:400px;">
+
+                    <div id="dirModal" class="direction-add" style="height:230px; width:350px;background: #FFFFFF;
+box-shadow: 0px 1.7px 5px rgba(0, 0, 0, 0.25);
+border-radius: 10px;display:inline-block;">
+
+                        <div class="header">
+                            <h4> Add Direction </h4>
+                        </div>
+                        <input type="text" name="dirct" placeholder="Type directions here....."
+                            style="border-radius:5px; height:45px; width:300px; margin-left:15px;"> <br> <br>
+
+                        <button class="btn-done" name="done" style="text-align:center;margin-left:80px; width:auto">+Add
+                            more directions </button>
 
 
-       
+                    </div>
+                    <!---------------------url popup------------->
+                    <div class="url-popup" id="add-url" style="height:200px; width:350px;margin-top:20px; z-index:1;background: #FFFFFF;
+box-shadow: 0px 1.7px 5px rgba(0, 0, 0, 0.25);
+border-radius: 10px;display:inline-block;">
+                        <div class="header-url"
+                            style="display:flex; flex-direction:row; justify-content:space-between;text-align:center;">
+                            <h3 style="margin-left:90px; margin-top:10px;"> ADD URL </h3>
+                        </div>
+                        <div class="cont-url">
+                            <input type="text" name="url-input" id="url-in" placeholder="Type url here....." style="height:40px; 
+		width:280px;border-radius:10px;margin-top:15px; margin-left:5px;"><br>
+                            <button type="submit" name="url-upld" id="url-upld" style="color:white; background-color:#A85CF1;height:40px;
+		width:130px;text-align:center;border-radius:15px;margin-left:90px;">Upload </button>
+                        </div>
+                    </div> <br>
 
-	</body>
-	</html>
+
+
+                    <!----------------DIRECTIONS POPUP-------------->
+
+                </div>
+
+
+
+
+                <div style="height:420px;float:right;left:460px;">
+                    <ul style="max-height:420px;">
+
+                        <?php
+						$dir_id = $_SESSION['dirtid'] ;
+            
+              $query1 = "SELECT * FROM `add_direction` WHERE `dir_id`='$dir_id'";
+              $result1= mysqli_query($conn,$query1);
+              
+              while($row=mysqli_fetch_assoc($result1)){
+
+                ?>
+                        <li>
+                            <div style="margin-left:10px;display:inline;"><?php echo $row['direction']; ?></div>
+                        </li>
+
+                        <?php } ?>
+                    </ul>
+
+                </div>
+
+
+        </form>
+    </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,14 +1,10 @@
 <?php 
- // profile settings
-
- session_status() === PHP_SESSION_ACTIVE ?: session_start();
-
- $db = mysqli_connect('localhost', 'root', '', 'infits');
-
-
-    $currentUser = $_SESSION['name'];
-   $query = "select * from `dietitian` where `dietitianuserID` = '$currentUser' ";
-    $result = mysqli_query($db, $query); // Use curly braces to access array members inside strings
+ include "navbar.php";
+ error_reporting(0);
+    $name = $_SESSION['name'];
+    $currentUser = substr($name, 0, -4);
+    $query = "select * from `dietitian` where `dietitianuserID` = '$currentUser' ";
+    $result = mysqli_query($conn, $query); // Use curly braces to access array members inside strings
     if($result->num_rows > 0){ 
       while($row = $result->fetch_assoc()){
         $dietitianuserID = $row['dietitianuserID'];
@@ -37,12 +33,13 @@
 //profile updation save button 
 if(isset($_POST['update']) || isset($_FILES['my_image'])) {
   // receive all input values from the form
-  $qualification = mysqli_real_escape_string($db, $_POST['qualification']);
-  $location = mysqli_real_escape_string($db, $_POST['location']);
-  $gender = mysqli_real_escape_string($db, $_POST['gender']);
-  $experience = mysqli_real_escape_string($db, $_POST['experience']);
-  $ref_code = mysqli_real_escape_string($db, $_POST['ref_code']);
-  $age = mysqli_real_escape_string($db, $_POST['age']);
+  $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
+  $location = mysqli_real_escape_string($conn, $_POST['location']);
+  $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
+  $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+  $experience = mysqli_real_escape_string($conn, $_POST['experience']);
+  $ref_code = mysqli_real_escape_string($conn, $_POST['ref_code']);
+  $age = mysqli_real_escape_string($conn, $_POST['age']);
 
 
   $img_name= $_FILES['my_image']['name'];
@@ -72,17 +69,19 @@ if(isset($_POST['update']) || isset($_FILES['my_image'])) {
                 $imageandpath="$new_name|$img_upload_path";
 
 
-  //updating to db
+  //updating to conn$conn
   $query = "UPDATE dietitian SET qualification = '$qualification',
               location = '$location',
               gender = '$gender',
+              mobile = '$mobile',
               experience = '$experience',
               age = '$age',
               profilePhoto = '$imageandpath'
               where `dietitianuserID` = '$currentUser'";
-    mysqli_query($db, $query);
+    mysqli_query($conn, $query);
 
   	$_SESSION['success'] = "Information Updated";
+    header('location: profile_settings_show.php');
               }
             }
           }
@@ -98,70 +97,90 @@ if(isset($_POST['update']) || isset($_FILES['my_image'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Infits | Add Client</title>
-  <meta charset="UTF-8">
+    <title>Infits | Add Client</title>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<style>
+    <style>
+   @font-face {
+    font-family: 'NATS';
+    src:url('font/NATS.ttf.woff') format('woff'),
+        url('font/NATS.ttf.svg#NATS') format('svg'),
+        url('font/NATS.ttf.eot'),
+        url('font/NATS.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #BBBBBB;
+  opacity: 1; /* Firefox */
+}
 
-  body{
-    font-family: 'Poppins' !important;
-  }
 
-  input/*, input[type=file]*/{
-    background: #EFF8FFD9;
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    min-width: 250px;
-    padding: 8px 16px;
-    gap: 8px;
-  }
-  select{
-    background: #EFF8FFD9;
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    min-width: 250px;
-    padding: 8px 16px;
-    gap: 8px;
-  }
+body {
+    font-family: 'NATS', sans-serif;
+    font-weight:400;
+    padding-bottom:2rem;
+}
 
-  input[type=sign-up]{
-    border: 1px solid #EBEBEB;
-    color: #7282FB;
-    align-items: center;
-    padding: 10px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin: 4px 2px;
-    width: auto;
-  }
-  /* Shared */
-  .addBtn {
-      background-color: RoyalBlue;
-      border: none;
-      color: white;
-      padding: 10px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      margin: 5px;
-      width: 60%;
-  }
-  .center-flex{
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      }
+    input,
+    input[type=file] {
+        background: #FFFFFF;
+        box-shadow: 0px 0.7px 5px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+        min-width: 250px;
+        padding: 8px 16px;
+        gap: 8px;
+    }
 
-  .signup{
+    select {
+        /* background: #EFF8FFD9; */
+        box-shadow: 0px 0.7px 5px rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        min-width: 250px;
+        padding: 0px 16px;
+        gap: 8px;
+        height:48px;
+       justify-content:flex-start;
+    }
+
+    input[type=sign-up] {
+        border: 1px solid #EBEBEB;
+        color: #7282FB;
+        align-items: center;
+        padding: 10px 22px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 4px 2px;
+        width: auto;
+    }
+
+   
+
+    .center-flex {
+        display: flex;
+        margin-left:20.3rem;
+    }
+    .center-flex button{
+        background-color: transparent;
+        border:none;
+        color: #FFFFFF;
+    }
+
+    .signup {
         border: 1px solid #EBEBEB;
         padding: 10px;
         border-radius: 5px;
@@ -172,379 +191,517 @@ if(isset($_POST['update']) || isset($_FILES['my_image'])) {
         color: black;
     }
 
-  .float-right{
-    float: right;
-  }
+    .float-right {
+        float: right;
+    }
 
-  .flex-left, .flex-right, .flex-middle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+    .flex-left,
+    .flex-right,
+    .flex-middle {
+        display: flex;
+        align-items: left;
+        justify-content: top;
+        flex-direction: column;
+    }
 
-  .flex-main{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
+    .flex-main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
 
-  .align-middle{
-    margin-left: 15%;
-  }
+    .align-middle {
+        margin-left: 5%;
+    }
 
-  .reset a{
-    color: RoyalBlue;
-  }
-  .socials{
-    border:none;
-    background: white;
-  }
+    .reset a {
+        color: RoyalBlue;
+    }
 
-  /*avatar
+    .socials {
+        border: none;
+        background: none;
+    }
+
   
-.avatar-upload {
-    position: relative;
-    max-width: 205px;
-    margin: 50px auto;
-    .avatar-edit {
-        position: absolute;
-        right: 12px;
-        z-index: 1;
-        top: 10px;
-        input {
-            display: none;
-            + label {
-                display: inline-block;
-                width: 34px;
-                height: 34px;
-                margin-bottom: 0;
-                border-radius: 100%;
-                background: #FFFFFF;
-                border: 1px solid transparent;
-                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-                cursor: pointer;
-                font-weight: normal;
-                transition: all .2s ease-in-out;
-                &:hover {
-                    background: #f1f1f1;
-                    border-color: #d6d6d6;
-                }
-                &:after {
-                    content: "\f040";
-                    font-family: 'FontAwesome';
-                    color: #757575;
-                    position: absolute;
-                    top: 10px;
-                    left: 0;
-                    right: 0;
-                    text-align: center;
-                    margin: auto;
-                }
-            }
-        }
+    .sharebutton{
+        width: 342px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 2px solid #0177FD;
+    border-radius: 10px;
+    padding-top:0.5rem;
+        font-size: 20px;
+        underline:none;
+        margin-left:5.5rem;
     }
-    .avatar-preview {
-        width: 192px;
-        height: 192px;
-        position: relative;
-        border-radius: 100%;
-        border: 6px solid #F8F8F8;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-        > div {
-            width: 100%;
-            height: 100%;
-            border-radius: 100%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+    .sharebutton:hover{
+      background-color:whit;
+      background:white;
     }
-}*/
+
+   
 
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
+    .overlay {
+  position: fixed;
   top: 0;
-  width: 50%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
+.popup {
+    
+  margin: 290px ;
+  margin-left:550px;
   padding: 20px;
-  border: 1px solid #888;
-  width: 40% !important;
+  background: #fff;
+  border-radius: 5px;
+  width: 25%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  box-shadow: 0px 0px 34.0377px rgba(0, 0, 0, 0.25);
 }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
   font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
   text-decoration: none;
-  cursor: pointer;
+  color: #333;
+  background:none;
+  border:none;
 }
-</style>
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+  /* Shared */
+  .addBtn {
+        width: 342px;
+        height: 48px;
+        background: #0177FD;
+        border-radius: 10px;
+        color:white;
+        padding-top:0.5rem;
+        font-size: 20px;
+    }
+    .addBtn:hover{
+        background-color:none;
+    }
+    .modal{
+                            position: fixed;
+                            width:100%;
+                            height:100%;
+                            background: rgba(0, 0, 0, 0.6);
+                            transition: opacity 500ms;
+                            align-items:center;
+  
+                        }
+                        .modal-content{
+                            width:400px;
+                            height:250px;
+                            padding:20px;
+                            border-radius:20px;
+                            margin: 200px ;
+                            margin-left:550px;
+                            overflow:hidden;
+                            
+                        }
+                         /* Shared */
+                        .addBtn1 {
+                            border:none;
+                            background: #8C68F8;
+                            border-radius: 10px;
+                            color:white;
+                            padding:0.5rem;
+                            padding-left:2.5rem;
+                            padding-right:2rem;
+                            font-size: 20px;
+                        }
+                        .addBtn1:hover{
+                            background-color:none;
+                        }
+                        .discard{
+                            border: 2px solid #8C68F8; 
+                            background: white;
+                            border-radius: 10px;
+                            padding:0.5rem;
+                            padding-left:2.5rem;
+                            padding-right:2.5rem;
+                            font-size: 20px;
+                        }
+
+    @media screen and (max-width: 720px) {
+        .popup{
+            margin:30%;
+            margin-top:50%;
+            width:40%;
+        }
+        .heading{
+            margin-left:2rem !important;
+        }
+        .leftinput{
+            width:auto !important;
+        }
+        .flex-left{
+            margin-left:2rem;
+            width:90%
+        }
+        .flex-middle{
+            margin-left:2rem;
+            width:90%;
+        }
+        .flex-main_wrapper{
+            display:flex;
+            flex-direction:column;
+            gap:0 !important;
+            width:90%;
+        }
+        .flex-main_wrapper input{
+            width:auto !important;
+        }
+        .flex-main{
+            display:flex;
+            flex-direction:column;
+            width:100%;
+        }
+        .flex-main input{
+            width:100%;
+        }
+        .user{
+            margin-left:6rem !important;
+        }
+        .star{
+            margin-left:7.5rem !important;
+        }
+        .center-flex {
+        display: flex;
+        flex-direction:column;
+        gap:1rem;
+        margin-left:2.3rem;
+    }
+    .addBtn{
+        width:auto;
+        margin-right:2rem;
+    }
+    .sharebutton{
+        width:auto;
+        margin-left:0;
+        margin-right:2rem;
+    }
+    /* .image1{
+        margin-left:10rem !important;
+    } */
+    .chooseimage{
+        margin-left:6rem !important;
+    }
+    .text{
+        margin-left:6rem !important;
+    }
+    .profiles{
+        margin:auto;
+    }
+    }
+    @media screen and (max-width: 1000px){
+        .center-flex{
+            display:flex;
+            margin-top:20px;
+
+    </style>
 
 </head>
 
 <body>
-    <?php include 'event_calendar.php'; ?>
-
-
-  <div id="content">	 
-
-  <!--<div class="add-client-area">-->
-  <form method="post" action="profile_settings_edit.php" enctype="multipart/form-data">
-  	
-    <br>
-
-    <div class="flex-main">
-
-        <div class="flex-left">
-        User ID <br> <input type="text" name="dietitianuserID" value="<?php echo $dietitianuserID; ?>" disabled required />
+  <div id="content">
         <br>
+        <h4 class="heading" style="margin-left:20rem; font-size:40px"> Profile Settings</h4>
 
-        Name <br> <input type="text" name="Name" value="<?php echo $name; ?>" disabled required />
-        <br>
+        <form method="post" action="" enctype="multipart/form-data">
 
-        Email <br>  <input type="email" name="email" value="<?php echo $email; ?>" disabled required />
-        <br>
+            <br>
 
-        Mobile Number <br> <input type="text" name="mobile" value="<?php echo $mobile; ?>" required />
-        <br>
+            <div class="flex-main">
 
-        Qualification <br>
-        <?php if (is_null($qualification) or $qualification=='') { ?>
-        <select name="qualification" id="qualification" required>
-          <option value="bachelors">Bachelors</option>
-          <option value="masters">Masters</option>
-          <option value="highschool">High School</option>
-          <option value="phd">PhD</option>
-        </select>
-        <?php } else { ?>
-          <input type="text" name="qualification" value="<?php echo $qualification; ?>" required>
-        <?php } ?>
-        <br>
+                <div style="display:flex; gap:3rem;margin-left:2rem;" class="flex-main_wrapper">
+                <div class="flex-left"  style="font-size:20px;font-weight:400px;">
+                    User ID <br> <input type="text" name="dietitianuserID" value="<?php echo $dietitianuserID;  ?>"
+                        required style="width:342px;color: #AEAEAE;height:48px;" />
+                    <br>
 
-        Location <br> 
-        <?php if (is_null($location) or $location=='') { ?>
-          <input type="text" name="location" required>
-          <?php } else { ?>
-          <input type="text" name="location" value="<?php echo $location; ?>" required>
-          <?php } ?>
-        <br>
+                    Name <br> <input type="text" name="Name" value="<?php echo $name; ?>"  required style="color: #AEAEAE;" />
+                    <br>
 
-        </div>
+                    Email <br> <input type="email" name="email" value="<?php echo $email; ?>" required style="color: #AEAEAE;"/>
+                    <br>
 
-<br><br>
+                    Mobile Number <br> <input type="text" name="mobile" value="<?php echo $mobile; ?>" required style="color: #AEAEAE;"/>
+                    <br>
 
-        <div class="flex-middle">
-<!--
-        Profile Picture: 
+                    Qualification <br>
+                    <?php if (is_null($qualification) or $qualification=='') { ?>
+                    <select name="qualification" id="qualification" required>
+                        <option value="bachelors">Bachelors</option>
+                        <option value="masters">Masters</option>
+                        <option value="highschool">High School</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                    <?php } else { ?>
+                    <input type="text" name="qualification" value="<?php echo $qualification; ?>" required style="color: #AEAEAE;">
+                    <?php } ?>
+                    <br>
 
-		    <input type="file" name="my_image" style="width: 250px;" value="" required/>-->
-        <br>
+                    Password <br> <input type="password" name="password" value="<?php echo $password; ?>" 
+                        required style="color: #AEAEAE;"/>
+                    <a href="reset_password.php" class='reset' style="display:flex;justify-content:space-between;text-decoration:none;width:80%;">
+                        <p style=" color: #0177FD; font-size: 14px; font-weight:400px;">Change Password</p>
+                        <p style=" color: #0177FD; font-size: 14px;font-weight:40px;">Forgot Password</p>
+                    </a>
+                    <br>
 
-        Password: <br> <input type="password" name="password" value="<?php echo $password; ?>" disabled required />
-        <a href="reset-pw.php" class='reset'><p style="align: right; color: blue; font-size: 12px;">Reset Password?</p></a>
-        <br>
 
-        Gender: <br> 
-        <?php if (is_null($gender) or $gender=='') { ?>
-        <select name="gender" id="gender" required>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-          <option value="choosenot">Choose not to say</option>
-        </select>
-        <?php } else { ?>
-          <input type="text" name="gender" value="<?php echo $gender; ?>" disabled required>
-        <?php } ?>
-        <br>
+                </div>
 
-        Experience <br>
-        <?php if (is_null($experience) or $experience=='') { ?>
-          <input type="text" name="experience" required>
-          <?php } else { ?>
-            <input type="text" name="experience" value="<?php echo $experience; ?>" >
-          <?php } ?>
-        <br>
+                <br><br>
 
-        Referral Code <br><input type="text" name="ref_code">
-        <br>
+                <div class="flex-middle"  style="font-size:20px;font-weight:400px;">
 
-        Age <br>
-        <?php if (is_null($age) or $age=='') { ?>
-          <input type="text" name="age" required>
-          <?php } else { ?>
-            <input type="text" name="age" value="<?php echo $age; ?>" required>
-          <?php } ?>
-        <br>
+                    Location <br>
+                    <?php if (is_null($location) or $location=='') { ?>
+                    <input type="text" name="location" required style="width: 342px;height:48px;" class="leftinput" style="color: #AEAEAE;">
+                    <?php } else { ?>
+                    <input type="text" name="location" required value="<?php echo $location; ?>" required style="width:342px;" class="leftinput" style="color: #AEAEAE;">
+                    <?php } ?>
+                    <br>
 
-</div>
+                    Age <br>
+                    <?php if (is_null($age) or $age=='') { ?>
+                    <input type="text" name="age" required class="leftinput" style="color: #AEAEAE;">
+                    <?php } else { ?>
+                    <input type="text" name="age" required value="<?php echo $age; ?>" required class="leftinput" style="color: #AEAEAE;">
+                    <?php } ?>
+                    <br>
 
-<div class="flex-right">
-<img src=<?php echo $path;?> style="height: 100px; width: 100px; border-radius: 30%;" alt="" />  <br>
+                    Gender <br>
+                    <?php if (is_null($gender) or $gender=='') { ?>
+                    <select name="gender" id="gender" required class="leftinput">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="choosenot">Choose not to say</option>
+                    </select>
+                    <?php } else { ?>
+                    <input type="text" name="gender" value="<?php echo $gender; ?>"  required class="leftinput" style="color: #AEAEAE;">
+                    <?php } ?>
+                    <br>
 
-<!--  avatar  
+                    Experience <br>
+                    <?php if (is_null($experience) or $experience=='') { ?>
+                    <input type="text" name="experience" required class="leftinput" style="color: #AEAEAE;">
+                    <?php } else { ?>
+                    <input type="text" name="experience" required value="<?php echo $experience; ?>" class="leftinput" style="color: #AEAEAE;">
+                    <?php } ?>
+                    <br>
 
-<div class="avatar-upload">
-        <div class="avatar-edit">
-            <input type='file' id="imageUpload" display="none;" accept=".png, .jpg, .jpeg" />
-            <label for="imageUpload"></label>
-        </div>
-        <div class="avatar-preview">
-            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                    
+                    Referral Code <br><input required type="text" name="ref_code" class="leftinput">
+                    <br>
+
+                    Achievements and Certificates <br><input required type="text" name="ref_code" class="leftinput">
+                    <br>
+
+
+                </div>
+
+                </div>
+                    <div class="flex-right">
+                        <div class="profiles" style="display:flex;flex-direction:column;position:relative; width:fit-content;">
+                   <center> <img class="image1" src=<?php echo $path;?> style="height: 115px; width: 115px; border-radius: 30%;z-index:-1;margin-left:4rem;" alt=""   /></center>
+                    <button class="edit" id="edit" onclick="clickMe()" style="border:2px solid white; background:#0177FD; border-radius:50%; width:32px;height:32px;position:absolute;right:20px;bottom:10px;"><img src="images/edit.svg" style=""></button>
+                    </div>
+
+                    <!-- <div class="dialog" style="display:none">
+                    <span class="text">Profile Picture:</span> -->
+                    <input class="chooseimage"  id= "chooseimage"type="file" name="my_image" style="width: 250px; display:none;" value="" requied/>
+                    <br>
+                    <!-- </div> -->
+                    <!--   socials  -->
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/WhatsApp.svg" style="height: 33px; "> &nbsp;
+                        WhatsApp</button><br>
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Twitter.svg" style="height: 33px;"> &nbsp;
+                        Twitter</button><br>
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/LinkedIn.svg" style="height: 33px;"> &nbsp;
+                        LinkedIn</button><br>
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Instagram.svg" style="height: 33px;"> &nbsp;
+                        Instagram</button><br>
+                    <button class='socials' style="font-size:20px;font-weight:400px;"><img src="images/Facebook.svg" style="height: 33px;"> &nbsp;
+                        Facebook</button><br>
+
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn" style="border:none; background:none;"><img src="images/edit.svg"></button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!--Modal content-->
+                        <div class="modal-content" >
+                            <span class="close">&times;</span>
+
+                            <form method="post" action=" " enctype="multipart/form-data">
+                                <select name="socials" id="socials" placeholder="Platform" style="background-color:white;box-shadow: 0px 1.76208px 5.28625px rgba(0, 0, 0, 0.25);border-radius: 8.81041px;margin-right:1rem; color: #BBBBBB;">
+                                    <option value="whatsapp">WhatsApp</option>
+                                    <option value="twitter">Twitter</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="instagram">Instagram</option>
+                                </select>
+                                <br>
+                                <input type="text" placeholder="Copy Link Here" name="link">
+                                <br>
+                                <div style="display:flex;justify-content:space-evenly">
+                                    <button type="submit" class="addBtn1" name="save_socials">Save Changes</button>
+                                    <button class="discard">Discard</button>
+                                    
+                                    </div>
+                        </div>
+
+                    </div>
+                    
+                    <?php
+                        //profile updation save button 
+                        if(isset($_POST['save_socials']) ) {
+                        // receive all input values from the form
+                        $socials = mysqli_real_escape_string($conn, $_POST['socials']);
+                        $link = mysqli_real_escape_string($conn, $_POST['link']);
+
+                        if ($socials == 'whatsapp'){
+                        $query = "UPDATE dietitian SET whatsapp = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                        }
+
+                        if ($socials == 'twitter'){
+                            $query = "UPDATE dietitian SET twitter = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                        }
+
+                        if ($socials == 'linkedin'){
+                            $query = "UPDATE dietitian SET linkedin = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
+
+                        if ($socials == 'facebook'){
+                            $query = "UPDATE dietitian SET facebook = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
+
+                        if ($socials == 'instagram'){
+                            $query = "UPDATE dietitian SET instagram = '$link' where `dietitianuserID` = '$currentUser'";
+                            mysqli_query($conn, $query);
+                            }
+                        }
+                    ?>
+
+                    <script>
+                    // Get the modal
+                        var modal = document.getElementById("myModal");
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                            event.preventDefault(); //keeps page from refreshing
+                            modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+
+                        var edit1 = document.getElementById("edit");
+                        var chooseimage= document.getElementById("chooseimage");
+                        function clickMe(){
+                            chooseimage.click();
+                        }
+                        
+           
+                    </script>
+
+                </div>
+
+
+
+                <!---------------------------SUBMIT BUTTON ----------------------------------->
+
+                <br><br>
             </div>
-        </div>
+
+            <div class="center-flex"> <br> <br>
+                    <div class="addBtn">
+                        <center><button>Confirm Changes</button></center>
+                    </div>
+
+
+                <a id="sharebutton" href="#popup1"  >
+                    <div class="sharebutton">
+                        <center >Share Profile</center>
+                    </div>
+                </a>
+                <!--link not working to move to next page-->
+            </div>
+        </form>
     </div>
 
-    <script>
-      function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#imageUpload").change(function() {
-    readURL(this);
-});
-
-</script>-->
-
-<!--   socials  -->
-<button class='socials'><img src="images/WhatsApp.svg" style="height: 33px;"> &nbsp; WhatsApp</button><br>
-<button class='socials'><img src="images/Twitter.svg" style="height: 33px;"> &nbsp; Twitter</button><br>
-<button class='socials'><img src="images/LinkedIn.svg" style="height: 33px;"> &nbsp; LinkedIn</button><br>
-<button class='socials'><img src="images/Instagram.svg" style="height: 33px;"> &nbsp; Instagram</button><br>
-<button class='socials'><img src="images/Facebook.svg" style="height: 33px;"> &nbsp; Facebook</button><br>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" style="border:none; background:none;"><img src="images/edit.svg"></button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-
-    <form method="post" action=" " enctype="multipart/form-data">
-    <select name="socials" id="socials" placeholder="Platform">
-          <option value="whatsapp">WhatsApp</option>
-          <option value="twitter">Twitter</option>
-          <option value="facebook">Facebook</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="instagram">Instagram</option>
-      </select>
-      <br>
-     <input type="text" placeholder="Copy Link Here" name="link">
-     <br>
-     <div class="center-flex align-middle"><button type="submit" class="addBtn" name="save_socials">Save</button></div>
-  </div>
-
-</div>
-<?php
-//profile updation save button 
-if(isset($_POST['save_socials']) ) {
-  // receive all input values from the form
-  $socials = mysqli_real_escape_string($db, $_POST['socials']);
-  $link = mysqli_real_escape_string($db, $_POST['link']);
-
-  if ($socials == 'whatsapp'){
-  $query = "UPDATE dietitian SET whatsapp = '$link' where `dietitianuserID` = '$currentUser'";
-    mysqli_query($db, $query);
-  }
-
-  if ($socials == 'twitter'){
-    $query = "UPDATE dietitian SET twitter = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-  }
-
-  if ($socials == 'linkedin'){
-    $query = "UPDATE dietitian SET linkedin = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
-
-  if ($socials == 'facebook'){
-    $query = "UPDATE dietitian SET facebook = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
-
-  if ($socials == 'instagram'){
-    $query = "UPDATE dietitian SET instagram = '$link' where `dietitianuserID` = '$currentUser'";
-      mysqli_query($db, $query);
-    }
-}
-?>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  event.preventDefault(); //keeps page from refreshing
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-</script>
-
-</div>
 
 
 
-<!---------------------------SUBMIT BUTTON ----------------------------------->
-  		
-      <br><br>
-      </div>
-
-      <div class="center-flex align-middle"><button type="submit" class="addBtn" name="update">Save Changes</button></div>
-      <br>
-  </form>
-  </div>
+    <!-------------------------------------POPUPS-------------------------------------------------->
+    <div id="popup1" class="overlay">
+	<div class="popup">
+		<h5 style="margin-left:1.5rem">Share Via <img src="images/shareeee.png" style="margin-left:0.5rem;width:4%"></h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content" style="display:flex;gap:1rem;margin-left:1rem">
+			<img src="images/WhatsApp.png" >
+            <img src="images/Twitter.png" >
+            <img src="images/Facebook.png" >
+            <img src="images/LinkedIn_Circled.png" >
+            <img src="images/Instagram.png" >
+		</div>
+	</div>
+   
 </body>
+
 </html>

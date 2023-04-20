@@ -42,24 +42,33 @@
     flex-direction: column;
     justify-content: center;
     }
+    .main {
+ 
+  float: left;
+  margin-left:25%;
+  width: 50%;
+  padding: 0 40px;
+}
         
     </style>
   </head>
 
   <body>
   <div id="page">
-    <?php include 'event_calendar.php'; ?>
+    <?php include 'navbar.php'; ?>
 
     <div id="content">
       <!------------------------------------------------DASHBOARD--------------------------------------------------------->
         <h1 style="font-size: 32px; color: #202224; font-weight: 600;">Help</h1>
 
       <!-----------------------------------------------EVENTS--------------------------------------------------------->
+      <center>
+      <div class="main">
       <div class="center-flex">
       <img src="images/help.png" height="300px">
     </div>  
 
-    <a href="faq.html" style="text-decoration: none;">
+    <a href="FAQ.php" style="text-decoration: none;">
     <div class="help-box">
       <div class="help-content">
       <img src="images/faq.png" style="margin-right:20px ;margin-left:20px ; height: 100px;">
@@ -85,8 +94,10 @@
       </div>
     </div>
   </a>
-
+  </center>
     </div>
 
+
+</div>
 </body>
 </html>
