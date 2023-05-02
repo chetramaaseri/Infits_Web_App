@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 $conn = new mysqli("localhost", "root", "", "infits");
 
@@ -7,7 +5,6 @@ if ($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
 }
 ?>
->>>>>>> Linking_branch
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,19 +14,13 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infits | Health Details</title>
 
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/health_details.css">
-=======
    
     
->>>>>>> Linking_branch
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<<<<<<< HEAD
-=======
         <style>
         * {
     margin: 0;
@@ -491,13 +482,10 @@ if ($conn->connect_error) {
         
     }
         </style>
->>>>>>> Linking_branch
 </head>
 
 <body>
     <?php include 'navbar.php' ?>
-<<<<<<< HEAD
-=======
     <div class="cont">
     <div id="addDocumentPopup">
 
@@ -516,7 +504,6 @@ if ($conn->connect_error) {
 
 </div> 
 
->>>>>>> Linking_branch
 
     <div class="content">
         <!-- <div id="addDocumentPopup">
@@ -538,28 +525,6 @@ if ($conn->connect_error) {
 
         </div> -->
 
-<<<<<<< HEAD
-        <div id="addDocumentPopup">
-
-            <h2>Add Document</h2>
-
-            <button id="fileUpload"><span><svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-                        <path
-                            d="M1.0625 11.3333H5.3125V17H11.6875V11.3333H15.9375L8.5 3.77778L1.0625 11.3333ZM17 1.88889L0 1.88889V0L17 0V1.88889Z"
-                            fill="#9A5EF5" />
-                    </svg></span> Upload File</button>
-
-            <div class="option-box">
-                <button id="cancel">Cancel</button>
-                <button id="save">Save</button>
-            </div>
-
-        </div>
-
-        <div class="heading-box">
-            <h1>Health Details Form and Documents</h1>
-            <button data-btn="edit">Edit</button>
-=======
         
      
                     
@@ -568,7 +533,6 @@ if ($conn->connect_error) {
         <div class="heading-box">
             <h1>Health Details Form and Documents</h1>
             <button data-btn="edit" id="edit_btn">Edit</button>
->>>>>>> Linking_branch
         </div>
 
         <div class="health-form-container">
@@ -580,27 +544,6 @@ if ($conn->connect_error) {
 
             <div id="form-details">
 
-<<<<<<< HEAD
-                <div class="details">
-                    <p id="question">What is your Name ?</p>
-                    <p id="answer">Ronald Richard</p>
-                </div>
-
-                <div class="details">
-                    <p id="question">What is your Name ?</p>
-                    <p id="answer">Ronald Richard</p>
-                </div>
-
-                <div class="details">
-                    <p id="question">What is your Name ?</p>
-                    <p id="answer">Ronald Richard</p>
-                </div>
-
-                <div class="details">
-                    <p id="question">What is your Name ?</p>
-                    <p id="answer">Ronald Richard</p>
-                </div>
-=======
             <?php
             $QueAns = "SELECT `question`, `answers` FROM `clientcon`";
             $result = $conn->query($QueAns);
@@ -618,7 +561,6 @@ if ($conn->connect_error) {
                   }
             }
             ?>
->>>>>>> Linking_branch
 
             </div>
 
@@ -641,11 +583,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class="options">
                             <img src="icons/download.svg" alt="Download" title="Download">
-<<<<<<< HEAD
-                            <img src="icons/share.svg" alt="Share" title="Share" class="shareBtn">
-=======
                             <button id="popup_btn" style="background-color:white;border:none"><img src="icons/share.svg" alt="Share" title="Share" class="shareBtn"></button>
->>>>>>> Linking_branch
                             <img src="icons/delete.svg" alt="Delete" title="Delete">
                         </div>
                     </div>
@@ -653,14 +591,9 @@ if ($conn->connect_error) {
                 }
 
                 ?>
-<<<<<<< HEAD
-                <div class="share-popup" id="sharePopup">
-                    <p>Share via <img src="icons/share2.svg" alt="Share" title="Share"></p>
-=======
                 <div id="myModal" class="modal">
                 <div class="share-popup " >
                     <p><span>Share via <img src="icons/share2.svg" alt="Share" title="Share"></span> <span class="close" style="font-size:30px;cursor:pointer">&times;</span></p>
->>>>>>> Linking_branch
                     <div class="share-icon-container">
                         <div class="share-icon"><img src="icons/whatsapp.svg" alt="whatsapp"></div>
                         <div class="share-icon"><img src="icons/twitter.svg" alt="twitter"></div>
@@ -669,16 +602,11 @@ if ($conn->connect_error) {
                         <div class="share-icon"><img src="icons/instagram.svg" alt="instagram"></div>
                     </div>
                 </div>
-<<<<<<< HEAD
-=======
                 </div>
->>>>>>> Linking_branch
             </div>
 
         </div>
     </div>
-<<<<<<< HEAD
-=======
     </div>
     <script>
                     // Get the modal
@@ -708,24 +636,17 @@ if ($conn->connect_error) {
                         }
                     }
                     </script>
->>>>>>> Linking_branch
 
     <script>
         const formDetails = document.querySelector("#form-details");
         const formDocuments = document.querySelector("#form-documents");
         const borderBottom = document.querySelector(".border-bottom");
-<<<<<<< HEAD
-=======
         const editbtn = document.querySelector("#edit_btn");
->>>>>>> Linking_branch
         const btn = document.querySelector("[data-btn");
         let popup = document.querySelector("#addDocumentPopup");
         let shareBtn = document.querySelectorAll(".shareBtn");
         let sharePopup = document.querySelector("#sharePopup");
 
-<<<<<<< HEAD
-        formDocuments.style.display = "none";
-=======
         // formDocuments.style.display = "none";
         <?php
         $url = "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
@@ -748,7 +669,6 @@ if ($conn->connect_error) {
         <?php
         }
         ?>
->>>>>>> Linking_branch
 
         function formContent(content) {
             if (content === 1) {
@@ -763,13 +683,10 @@ if ($conn->connect_error) {
                 //For showing The btn According to Content
                 btn.innerHTML = "Edit";
                 btn.setAttribute("data-btn", "edit");
-<<<<<<< HEAD
-=======
                 btn.addEventListener("click", () => {
             document.location.href = 'health_detail_form_create.php';
         });
                 
->>>>>>> Linking_branch
             } else if (content === 2) {
                 //For Border-Bottom Animation
                 borderBottom.classList.add("right");
@@ -812,16 +729,6 @@ if ($conn->connect_error) {
         //         });
         //     }
         // });
-<<<<<<< HEAD
-        console.log(sharePopup);
-        console.log(shareBtn);
-        for (const index of shareBtn) {
-            index.addEventListener("click", () => {
-                sharePopup.classList.add("show");
-                console.log("Clicked");
-            });
-        }
-=======
         // console.log(sharePopup);
         // console.log(shareBtn);
         // for (const index of shareBtn) {
@@ -830,7 +737,6 @@ if ($conn->connect_error) {
         //         console.log("Clicked");
         //     });
         // }
->>>>>>> Linking_branch
     </script>
 
 </body>
