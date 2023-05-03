@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-=======
 <?php
+error_reporting(0);
 $conn = new mysqli("localhost", "root", "", "infits");
 
 if ($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
 }
 ?>
->>>>>>> Linking_branch
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +19,6 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<<<<<<< HEAD
-        <link rel="stylesheet" href="css/forms_and_documents.css">
-    </head>
-=======
    <style>
     * {
     margin: 0;
@@ -358,7 +352,6 @@ top: 70%;
 }
    </style>
 </head>
->>>>>>> Linking_branch
 
 <body>
     <?php include 'navbar.php' ?>
@@ -374,11 +367,7 @@ top: 70%;
         <div class="created-form-container">
             <div class="heading-box">
                 <h2>My Forms</h2>
-<<<<<<< HEAD
-                <button><a href="#">View all</a></button>
-=======
                 <button><a href="health_viewall_forms.php">View all</a></button>
->>>>>>> Linking_branch
             </div>
             <div class="form-card-container">
 
@@ -433,84 +422,6 @@ top: 70%;
         <div class="created-client-form-container">
             <div class="heading-box">
                 <h2>Client forms and documents</h2>
-<<<<<<< HEAD
-                <button><a href="#">View all</a></button>
-            </div>
-            <div class="client-card-container">
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="client-cards">
-                    <img class="vector" src="icons/client-card-vector.svg">
-                    <div class="card-content">
-                        <img src="images/client.png" alt="Profile" id="clientProfile">
-                        <p>Ronald Richard</p>
-                        <div class="btn-box">
-                            <button>Form</button>
-                            <button>Documents</button>
-                        </div>
-                    </div>
-                </div>
-
-=======
                 <button><a href="health_viewall_forms&documents.php">View all</a></button>
             </div>
             <div class="client-card-container">
@@ -537,15 +448,10 @@ top: 70%;
                           }
                     }
                 ?>
->>>>>>> Linking_branch
             </div>
         </div>
     </div>
 
-<<<<<<< HEAD
-    <script>
-        const optionBtn = document.querySelector(".options");
-=======
     <div class="button">
         <a style="background-color:none"href="health_detail_form_create.php"><button class="create_btn">+</button></a>
         
@@ -556,14 +462,11 @@ top: 70%;
         const optionBtn = document.querySelector(".options");
         const clientForm = document.querySelector("#clientForm");
         const clientDocument = document.querySelector("#clientDocument");
->>>>>>> Linking_branch
         // const optionPopup = document.querySelector(".option-popup");
 
         function showPopup(e) {
             e.parentNode.children[3].classList.toggle("show");
         };
-<<<<<<< HEAD
-=======
 
         clientForm.addEventListener("click", () => {
             document.location.href = 'health_detail_form.php?form=show';
@@ -571,7 +474,6 @@ top: 70%;
         clientDocument.addEventListener("click", () => {
             document.location.href = 'health_detail_form.php?documents=show';
         });
->>>>>>> Linking_branch
     </script>
 </body>
 

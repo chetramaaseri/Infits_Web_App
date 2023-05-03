@@ -23,6 +23,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "NATS" !important;
+
 }
 
 .content {
@@ -42,11 +43,14 @@
 .content .heading-box h1 {
   font-size: 2.3rem;
   font-weight: 400;
-  margin-top:-30px;
+  margin-top:10px;
   margin-left: -20px;
 }
 .form-title{
-  margin-top: -30px;
+  margin-top: 5px;
+  width: 60%;
+  padding: 0px 20px;
+  margin-left: 2px;
 }
 .form-title input{
   height:34px;
@@ -63,7 +67,7 @@ line-height: 111.34%;
 .content .heading-box button#save {
   background-color: #6883fb;
   color: #ffffff;
-  width: 120px;
+  width: 140px;
   font-size: 1.5rem;
   padding: 5px 20px;
   border: none;
@@ -72,6 +76,26 @@ line-height: 111.34%;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+.form-container{
+  width:100%;
+}
+.form-question-container{
+  border: none;
+  width:80%;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+ }
+.form-values-box{
+  display: flex;  
+  padding: 10px 30px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width:82%;
+  margin-left:-11.6rem;
 }
 .content .flex-container {
   position: relative;
@@ -87,8 +111,8 @@ line-height: 111.34%;
   flex-direction: column;
   align-items: flex-start;
 }
-.content .flex-container .form-container .form-title {
-  width: 100%;
+.flex-container .form-container .form-title {
+  width: 75%;
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -114,15 +138,13 @@ line-height: 111.34%;
   overflow-y: scroll;
   max-height: 380px;
 }
-.content .flex-container .form-container .form-question-container .form-values-box {
+.content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-}
-.content .flex-container .form-container .form-question-container .form-values-box .form-value {
+  }
+.content .flex-container .form-container .form-question-container .form-value {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -141,7 +163,7 @@ line-height: 111.34%;
      -moz-user-select: none;
           user-select: none;
 }
-.content .flex-container .form-container .form-question-container .form-values-box .options {
+.content .flex-container .form-container .form-values-box .options {
   width: 70px;
   display: flex;
   align-items: center;
@@ -158,6 +180,9 @@ line-height: 111.34%;
 }
 .content .flex-container .form-container .form-question-container .form-values-box .options .option:last-child svg {
   fill: #FF2929;
+}
+#addQuestion{
+  margin-left: 10px;
 }
 .content .flex-container .form-container button#addQuestion {
   border: 2px solid #6883fb;
@@ -429,12 +454,19 @@ line-height: 111.34%;
   background-color: #4d6cf7;
   color: #ffffff;
 }
+.share-box{
+  margin-right: 25px;
+  margin-bottom: 20px;
+  height:497px;
+  margin-top:5px;
+  
+}
 .content .flex-container .share-box {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 600px;
-  width: 30%;
+  /* height: 600px; */
+  width: 40%;
   max-width: 400px;
   min-width: 350px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
@@ -444,6 +476,7 @@ line-height: 111.34%;
 .content .flex-container .share-box h3 {
   font-size: 1.8rem;
 }
+/*   */
 .content .flex-container .share-box .search-box {
   display: flex;
   align-items: center;

@@ -151,23 +151,30 @@ body{
     }
     .day{
       color: black;
-      padding: 10px;
+      /* padding: 10px; */
       border:none;
       background: none;
-    
+      margin-right:-100px;
+      margin-left:-100px;
+    height:39px;
     }
    
     .day.active {
       color:white;
       background: linear-gradient(180deg, #9C74F5 0%, rgba(104, 125, 238, 0.52) 100%);
       width:60px;
-      border-radius:15px;
+      height:60px;
+      border-radius:13px;
+      padding:5px 0px !important;
     }
     .day:hover{
       color:white;
       background: linear-gradient(180deg, #9C74F5 0%, rgba(104, 125, 238, 0.52) 100%);
-      width:60px;
-      border-radius:15px;
+      width:68px;
+      
+      height:39px;
+      border-radius:13px;
+      /* padding:5px 0px !important; */
     }
 .button-container{
   display: inline-block;
@@ -190,7 +197,14 @@ body{
   background-color:#fff;
   color:#9C74F5;
 }
-
+.btn1:focus{
+  background-color: #9C74F5;
+  color:#fff;
+}
+.btn:active{
+  background-color: #9C74F5;
+  color:#fff;
+}
 .btn1:hover,.active{
   background-color: #9C74F5;
   color:#fff;
@@ -521,6 +535,12 @@ body{
 }
 
 @media screen and (min-width: 0px) and (max-width: 420px) {
+  .day{
+    margin-right:0px;
+      margin-left:0px;
+    padding:10px;
+  }
+  
   .content{
        overflow: hidden;
        display: flex;
@@ -708,7 +728,7 @@ body{
         <div class="box" id="box">
         
         <div class="left">
-        <h3> After Break </h3> </div>
+        <h3> After break </h3> </div>
         <div class="tabs">
             <button class="btn11">+</button>
             <button class="btn11">+</button>

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $conn = new mysqli("localhost", "root", "", "infits");
 
 if ($conn->connect_error) {
@@ -44,7 +45,7 @@ if ($conn->connect_error) {
     margin-bottom: 40px;
 }
 
-.content .heading-box h1 {
+.content  {
     font-size: 2.5rem;
 }
 
@@ -457,15 +458,49 @@ if ($conn->connect_error) {
         .content .health-form-container .title-options-container{
             width:100px;
         }
-
+        .content{
+            overflow: auto;
+        }
+        .heading-box {
+            margin-top: 70px;
+            margin-left:60px;
+        }
+        .title-options-container{
+            margin-left: 320px;
+            margin-right: 250px;
+        }
+        .heading-box h1{
+            margin-top: 30px;
+            width:auto;
+        }
+        #edit_btn{
+            margin-top: 60px;
+            margin-right:10px;
+            width:300px;
+        }
     }
     @media screen and (max-width: 720px){
-       
+        
+        .heading-box {
+            margin-top: -70px;
+            margin-left:60px;
+            margin-right: 20px;
+        }
         .content .health-form-container .title-options-container{
             width:350px;
         }
         .content .health-form-container .title-options-container .border-bottom{
             width:100px;
+        }
+       .title-options-container{
+            margin-left: 320px;
+            margin-right: 270px;
+        }
+        #healthDocument {
+            font-size: 25px;
+        }
+        #healthFormDetails{
+            font-size: 25px;
         }
         .content .health-form-container .title-options-container .border-bottom.right {
     transform: translate(220px, 20px);
@@ -480,6 +515,30 @@ if ($conn->connect_error) {
     
 }
         
+    }
+    @media screen and (min-width:720px) and (max-width: 780px){
+        .content{
+            overflow:hidden ;
+        }
+        .title-options-container{
+            margin-right:230px;
+            margin-left:300px;
+        }
+        #healthDocument {
+            font-size: 25px;          
+            margin-right: 100px;
+        }
+        #healthFormDetails{ 
+            font-size: 25px;
+            margin-left: 40px;
+        }
+        .border-bottom.left{
+            margin-left: 10px;
+            
+        }
+        .border-bottom.right{
+            margin-left:-100px;
+        }
     }
         </style>
 </head>
@@ -646,22 +705,22 @@ if ($conn->connect_error) {
         let popup = document.querySelector("#addDocumentPopup");
         let shareBtn = document.querySelectorAll(".shareBtn");
         let sharePopup = document.querySelector("#sharePopup");
-
         // formDocuments.style.display = "none";
         <?php
-        $url = "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+        // $url = "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 
-        $escaped_url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+        // $escaped_url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
 
-        $url_components = parse_url($url);
-        parse_str($url_components['query'], $params);
-
-        if ($params['form'] === 'show') {
+        // $url_components = parse_url($url);
+        // parse_str($url_components['query'], $params);
+        
+        if (isset($_GET['form'])) {
             ?>
             formDocuments.style.display = "none";
         <?php
-        } elseif ($params['documents'] === 'show') {
+        } elseif (isset($_GET['documents'])) {
             ?>
+            console.log('doc');
             formDetails.style.display = "none";
             borderBottom.classList.add("right");
             borderBottom.classList.remove("left");

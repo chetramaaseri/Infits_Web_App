@@ -188,14 +188,13 @@ function fetchInformation($client_id){
         margin:0;
     }
 .dashboard{
-    margin-top: 1rem;
-    margin-left: 17rem;
-    margin-right:0;
-    
+  margin-top:2rem;
+  margin-left: 17rem;
+ 
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* margin-bottom: 1rem;  */
+    
 }
 .dashboard_comtainer1{
     display: flex;
@@ -205,7 +204,7 @@ function fetchInformation($client_id){
 .container2_rightside {
 	display: flex;
 	gap: 1rem;
-	margin-right: 25px;
+	margin-right: 4rem;
 	margin-top: 10px;
 }
 .btn-add {
@@ -351,7 +350,7 @@ function fetchInformation($client_id){
     justify-content: space-between;
     gap: 1rem;
     border: none;
-    margin-right: 2rem;
+    margin-right: 3.9rem;
     font-size: 20px;
 }
 .dashboard_container3 {
@@ -385,7 +384,8 @@ function fetchInformation($client_id){
 }
 .symbols{
     display: flex;
-    gap:0.2rem;
+    gap:0.5rem;
+    margin-right: 5px;
 }
 .symbols.col-2 img {
 	scale: 0.8;
@@ -402,6 +402,8 @@ function fetchInformation($client_id){
     margin-top: 1rem;
     justify-content: space-between;
     width: 95%;
+    margin-left: -4px;
+
 }
 .values{
     margin-top: 2rem;
@@ -439,7 +441,7 @@ function fetchInformation($client_id){
     padding: 0.5rem;
     padding-left: 4rem;
     padding-right: 4rem;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 0.6rem;
 }
 #btn6:hover{
@@ -454,7 +456,7 @@ function fetchInformation($client_id){
     padding: 0.5rem;
     padding-left: 4rem;
     padding-right: 4rem;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 0.6rem;
 }
 #btn7:hover{
@@ -546,7 +548,9 @@ function fetchInformation($client_id){
     background-color: #7282FB;
     color:white;
 }
-
+h3{
+    font-size: 1.5rem;
+}
 @media screen and (max-width: 920px) {
     .dashboard_container4{
         display: none;
@@ -560,8 +564,10 @@ function fetchInformation($client_id){
     padding: 1rem;
     width: 280px;
     height: auto;
-    margin-left: 3rem;
-    margin-right: 2rem;
+    /* margin-left: 3rem;
+    margin-right: 2rem; */
+    margin-left: 1rem;
+    margin-right: 2rem
 }
     .dashboard_container3{
         display: flex;
@@ -577,7 +583,7 @@ function fetchInformation($client_id){
     }
     .tasklist{
         display: flex;
-        gap: 8rem;
+        gap: 18rem;
     }
     
     #btn6{
@@ -636,7 +642,10 @@ function fetchInformation($client_id){
         gap: 1rem;
         margin-left: 3rem;
     }
-
+    .tasklist {
+    display: flex;
+    gap: 4rem;
+}
 
 }
 @media screen and (max-width: 720px){
@@ -655,6 +664,7 @@ function fetchInformation($client_id){
 
     .details{
         margin-left: 2rem;
+        gap:4rem;
     }
    
 } 
@@ -666,12 +676,16 @@ function fetchInformation($client_id){
     align-items: center;
 }
 
+#btn7 {
+    padding-right: 0rem;
+}
+
 
 } 
 @media screen and (max-width: 720px){
 
 .down{
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 .down2{
     padding-left: 4rem;
@@ -702,6 +716,9 @@ function fetchInformation($client_id){
         margin-left: 2rem;
 
     }
+    #btn1{
+    margin-right: -50px;
+    }
 }
 
 
@@ -713,8 +730,8 @@ function fetchInformation($client_id){
 
         <div class="dashboard_comtainer1">
             <div class="container1_leftside">
-                <p style="font-size: 40px;font-weight:400;margin-bottom: 0;">Dashboard</p>
-                <p style="font-weight:400;font-size:25px">Upcoming Events</p>
+                <p style="font-size: 40px;color:black;margin-bottom: 0;">Dashboard</p>
+                <p style="color:black;font-size:1.5rem">Upcoming Events</p>
                 
             </div>
             <div class="container2_rightside" >
@@ -775,7 +792,7 @@ if(!empty($up_event)){
 </div>
 
         <div class="dashboard_container3">
-            <div style="font-size:35px; font-weight:400"> Client Progress</div>
+            <div style="font-size:1.7rem; color:black;;margin-left: 2.5px;"> Client Progress</div>
             <div class="details">
                 <a href="client_progress.php"><button id="details">View All</button></a>
                 <a href="client_detailed_progress.php"><button id="details">View Detailed Progress</button></a>
@@ -851,7 +868,8 @@ if(!empty($data)){
 
         <div class="mob_wrapper1" >
             <span class="up"><a href="" style=" color:black;font-weight:500; border:none; margin-top:1rem;background-color:white; margin-left:1rem"><span><img src="images/ronald.jpg" style="width:2rem;border-radius:1rem"> <?php echo($data[$i]['name']) ?></span></a></span>
-            <div class="row1" style="display:flex ; gap:2rem;justify-content:center ">
+            <div class="row1" style="display:flex ; gap: 2.5rem;
+    margin-left: 25px; justify-content:center ">
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#F6A682"><img src="images/Frame.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Steps</span></div></div>
@@ -860,11 +878,11 @@ if(!empty($data)){
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#EF80B2"><img src="images/Frame-1.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Heart Rate</span></div></div>
-                        <span class="symbols2" style="font-size:0.9rem;color:#454545"><?php echo($infom['heart']['progress']) ?> bpm</span>
+                        <span class="symbols2" style="font-size:0.9rem;color:#454545; margin-left: 31px;"><?php echo($infom['heart']['progress']) ?> bpm</span>
                     </div>
             </div>
 
-            <div class="row2" style="display:flex ; gap:2rem;justify-content:center">
+            <div class="row2" style="display:flex ; gap:2.4rem;justify-content:center">
                     <div class="steps">
                         <div class="symbols">
                         <div style="color:#8FAFF3"><img src="images/Frame-2.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Water</span></div></div>
@@ -878,12 +896,12 @@ if(!empty($data)){
             </div>
 
             <div class="row3" style="display:flex ; gap:2rem;justify-content:center">
-                    <div class="steps">
+                    <div class="steps"style="margin-left: 20px">
                         <div class="symbols">
                         <div style="color:#788F96"><img src="images/Frame-4.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Weight</span></div></div>
                         <span class="symbols5" style="font-size:0.9rem;color:#454545"><?php echo($infom['weight']['progress'] . '/' . $infom['weight']['goal']) ?> kg</span>
                     </div>
-                    <div class="steps">
+                    <div class="steps" >
                         <div class="symbols">
                         <div style="color:#E388A0"><img src="images/Frame-5.png" style="width:1.8rem"></div><div style="margin-top:0.2rem; font-weight:500"><span>Calories</span></div></div>
                         <span class="symbols6" style="font-size:0.9rem;color:#454545"><?php echo($infom['calorie']['progress'] . '/' . $infom['calorie']['goal']) ?> kcal</span>
@@ -904,12 +922,12 @@ if(!empty($data)){
         <div class="dashboard_container5">
             <div class="container5_wrapper1">
                 <div class="tasklist">
-                    <p style="font-size:1.3rem ; font-weight:600">My Task List</p>
+                    <p style="font-size:1.7rem; color:black;  margin-top: -5px;margin-left: 2.5px;">My Task List</p>
                     <span class="down"><a href="task_list.php" style="background-color:white; color:#717171; border:none" >View All</a></span> 
                 </div>
                 <div class="list_tasklist">
-                    <button id="btn6" class="task-btn" onclick="openTask('btn6','today_tasks')"><strong>Today</strong></button>
-                    <button id="btn7" class="btn6 task-btn" onclick="openTask('btn7','upcoming_tasks')">Upcoming</button>
+                    <button id="btn6" style="font-size: 20px;"  class="task-btn" onclick="openTask('btn6','today_tasks')">Today</button>
+                    <button id="btn7" style="font-size: 20px;" class="btn6 task-btn" onclick="openTask('btn7','upcoming_tasks')">Upcoming</button>
                     <div id="today_tasks">
 <?php 
 $query = "SELECT * FROM `dietition_tasks` WHERE dietitianuserID = '{$dietitian_id}' AND date = '{$today->format('Y-m-d')}' ORDER BY date,start_time LIMIT 3";
@@ -1044,7 +1062,7 @@ if (mysqli_num_rows($result) > 0) {
 
 <div class="container5_wrapper2">
                 <div class="tasklist">
-                    <p style="font-size:1.3rem ; font-weight:600">Messages</p>
+                    <p style="font-size:1.7rem; font-weight:500; color:black; margin-top: -5px">Messages</p>
 
                     <span class="down2"><a href="chat_home.php" style=" color:#717171 ; border:none">View All</a></span>
                 </div>

@@ -2,11 +2,11 @@
   // session_start();
   error_reporting(0);
   include("navbar.php");
-  if(isset($_GET['client_id'])){
-    $clientId = $_GET['client_id'];
-  }else{
-    header('Location: client_list.php');
-  }
+  // if(isset($_GET['client_id'])){
+  //   $clientId = $_GET['client_id'];
+  // }else{
+  //   header('Location: client_list.php');
+  // }
   ?>
 
   <!DOCTYPE html>
@@ -79,9 +79,9 @@
   
   .recipe-add-btn{
   display: flex;
-    margin-left:78rem;
+    margin-left:78.9rem;
     bottom:20px;
-    margin-top:-3.5rem;
+    margin-top:-4rem;
     width: 250px;
     height: 80px;
     background: #FFFFFF;
@@ -210,10 +210,13 @@ margin-left:-30px;
   }
 
   @media screen and (min-width: 0px) and (max-width: 600px) {
+    .main-content{
+      overflow: auto;
+    }
 .sliding-cal {
   width:auto;
   margin-left:1px;
-  margin-right:-55px;
+  margin-right:10px;
   margin-top: -20px;
 }
   }
@@ -248,10 +251,12 @@ margin-left:-30px;
   }
   
   @media screen and (min-width: 0px) and (max-width: 720px) {
-  
+  .main-content{
+    margin-top: -20px !important;
+  }
 .left{
-    margin-top:-140px;
-    margin-left: 80px;
+    margin-top:-10px ;
+    margin-left: 50px;
  }.content p{
       margin-left: 20px;
       margin-top: 0.5rem;
@@ -271,18 +276,18 @@ margin-left:-30px;
   </head>
   <body>
 
-  <div class="main-content">
+  <div class="main-content" style="margin-top:1.5rem">
       <div> 
-        <div class="left"> 
-          <h1 style="font-size:35px">Diet Chart</h1> 
-          <p>Ronald Richard</p>
+        <div class="left" style="font-weight:600"> 
+          <h1 style="font-size:35px;margin-left:1rem">Diet Chart</h1> 
+          <p style="margin-left:1rem">Ronald Richard</p>
         </div> 
       </div> 
       <div class="sliding-cal col-sm-12">
         <div id="slider-content"> </div>
       </div>
       <div class="content">
-          <img src="./images/diet_default.png">
+          <img src="./images/dietchart_default.svg">
           <p>You haven't created<br> any chart yet!<br><br>
           Create one now!</p>
       </div>

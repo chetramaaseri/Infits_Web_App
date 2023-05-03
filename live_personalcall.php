@@ -86,7 +86,7 @@ body {
     .bottom_buttons{
         display:flex;
         justify-content:space-between;
-        
+        width: 88%;
     }
     .leave{
        margin-right:20%;
