@@ -97,6 +97,9 @@ line-height: 111.34%;
   width:82%;
   margin-left:-11.6rem;
 }
+.form-values-box .options{
+  margin-left: 380px;
+}
 .content .flex-container {
   position: relative;
   display: flex;
