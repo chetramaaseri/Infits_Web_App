@@ -24,6 +24,11 @@ if ($conn->connect_error) {
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'NATS' !important;
+    overflow: hidden;
+ }
 .content {
     display: flex;
     align-items: center;
@@ -48,7 +53,7 @@ if ($conn->connect_error) {
 
 .content .heading-box .search-box {
     /* height: 30px; */
-    width: 320px;
+    width: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,9 +91,10 @@ if ($conn->connect_error) {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 60px;
 
 }
+
 
 .content .created-client-form-container .client-card-container .client-cards {
     /* border: 1px solid red; */
@@ -161,18 +167,37 @@ if ($conn->connect_error) {
 }
 .create_btn{
     position: absolute;
-width: 85px;
-height: 85px;
-left: 88%;
-top: 90%;
+width:75px;
+height: 75px;
+left: 90%;
+top: 80%;
 border:none;
 border-radius:50%;
-font-size:40px;
+font-style:normal;
+font-weight:100;
+font-size:50px;
 color:white;
 background: #9C74F5;
 box-shadow: 0px 0px 68px rgba(0, 0, 0, 0.3);
 padding-bottom:0.5rem;
 }
+.sub-heading{
+    font-style: normal;
+font-weight: 400;
+font-size: 30px;
+margin-left: -5px;
+margin-top: -30px;
+    }
+.sub-con{
+    padding:10px;
+  height: 610px; 
+  margin-left: -20px;
+  margin-right: -20px;/* Adjust the height as needed */
+  overflow: auto;
+}
+
+img.vector{
+    border-bottom-right-radius:15px;
 }
 @media screen and (max-width: 720px){
     .create_btn{
@@ -197,7 +222,8 @@ top: 70%;
         </div>
 
         <div class="created-client-form-container">
-            
+        <p class="sub-heading">All Forms</p>
+        <div class="sub-con">  
             <div class="client-card-container">
                 
                 <?php
@@ -224,6 +250,7 @@ top: 70%;
                 ?>
             </div>
         </div>
+                </div>
 
       
             

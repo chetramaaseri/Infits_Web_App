@@ -19,7 +19,21 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
-        .content {
+        @font-face {
+    font-family: 'NATS';
+    src:url('font/NATS.ttf.woff') format('woff'),
+        url('font/NATS.ttf.svg#NATS') format('svg'),
+        url('font/NATS.ttf.eot'),
+        url('font/NATS.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'NATS' !important;
+    overflow: hidden;
+ }
+  .content {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -43,7 +57,7 @@ if ($conn->connect_error) {
 
 .content .heading-box .search-box {
     /* height: 30px; */
-    width: 320px;
+    width: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,15 +80,23 @@ if ($conn->connect_error) {
 .content .heading-box .search-box input:focus {
     outline: none;
 }
+.sub-heading{
+    font-style: normal;
+font-weight: 400;
+font-size: 30px;
+margin-left: 5px;
+    }
 .create_btn{
     position: absolute;
-width: 85px;
-height: 85px;
-left: 88%;
+width:75px;
+height: 75px;
+left: 90%;
 top: 80%;
 border:none;
 border-radius:50%;
-font-size:40px;
+font-style:normal;
+font-weight:10;
+font-size:50px;
 color:white;
 background: #9C74F5;
 box-shadow: 0px 0px 68px rgba(0, 0, 0, 0.3);
@@ -94,12 +116,15 @@ padding-bottom:0.5rem;
     gap: 30px;
 
 }
-
+.form-cards{
+    margin-right: 30px;
+    
+}
 .content .created-form-container .form-card-container .form-cards {
     position: relative;
     height: 100px;
-    max-width: 450px;
-    width: 45%;
+    max-width: 500px;
+    width: 80%;
     min-width: 350px;
     display: flex;
     justify-content: space-between;
@@ -122,7 +147,9 @@ padding-bottom:0.5rem;
     user-select: none;
     pointer-events: none;
 }
-
+img.vector{
+    border-bottom-right-radius:15px;
+}
 .content .created-form-container .form-card-container .form-cards .form-content {
     /* border: 1px solid red; */
     /* background-color: #d3d1d1; */
@@ -136,7 +163,7 @@ padding-bottom:0.5rem;
 .content .created-form-container .form-card-container .form-cards .form-content h4 {
     /* border: 1px solid red; */
     /* height: 30px; */
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -178,9 +205,28 @@ padding-bottom:0.5rem;
     display: none;
 }
 
+.option-popup{
+    margin-left: 60px;
+}
+.option-popup button{
+    width: 100px;
+}
+.form-content{
+    margin-left: 20px;
+}
+.options{
+    margin-right: 20px;
+}
+.sub-con{
+    padding:10px;
+  height: 495px; 
+  margin-left: -10px;
+  margin-right: -20px;/* Adjust the height as needed */
+  overflow: auto;
+}
 .content .created-form-container .form-card-container .form-cards .option-popup.show {
     background-color: #FFFFFF;
-    width: 250px;
+    width: 230px;
     height: 70px;
     position: absolute;
     top: 50%;
@@ -233,74 +279,44 @@ top: 70%;
             </div>
         </div> 
         
-        
         <div class="created-form-container">
-           
-            <div class="form-card-container">
+           <p class="sub-heading">All Forms</p>
+           <div class="sub-con">  
+      
+           <div class="form-card-container">
 
+                <?php
+                    for ($i = 0; $i < 10; $i++) {
+                ?>
                 <div class="form-cards">
                     <img class="vector" src="icons/form-card-vector.svg">
                     <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                    <h4>Form 1 (Default)</h4>
+                    <p><span>20</span> Question</p>
                 </div>
-
-
-                <div class="form-cards">
-                    <img class="vector" src="icons/form-card-vector.svg">
-                    <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                <div class="options" onclick="showPopup(this)">
+                    <img src="icons/3dots.svg" alt="options" title="options">
                 </div>
-
-                <div class="form-cards">
-                    <img class="vector" src="icons/form-card-vector.svg">
-                    <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                <div class="option-popup">
+                    <button>Delete</button>
+                    <button>Edit</button>
                 </div>
-
             </div>
+            <?php
+                }
+            ?>
         </div>
-        <script>
-            const optionBtn = document.querySelector(".options");
+            </div>
+    </div>
+    <script>
+        const optionBtn = document.querySelector(".options");
             function showPopup(e) {
             e.parentNode.children[3].classList.toggle("show");
         };
-        </script>
-<div class="button">
-        <a style="background-color:none"href="health_detail_form_create.php"><button class="create_btn">+</button></a>
-        
-        
+    </script>
+    <div class="button">
+        <a style="background-color:none" href="health_detail_form_create.php"><button class="create_btn">+</button></a>
     </div>
-
-    </div>
-    
-
-    
+</div>
 </body>
 </html>

@@ -26,6 +26,9 @@ if ($conn->connect_error) {
     box-sizing: border-box;
 }
 
+body{
+    overflow: hidden;
+}
 .content {
     display: flex;
     align-items: center;
@@ -51,7 +54,7 @@ if ($conn->connect_error) {
 
 .content .heading-box .search-box {
     /* height: 30px; */
-    width: 320px;
+    width: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,17 +133,32 @@ if ($conn->connect_error) {
 .content .created-form-container .form-card-container,
 .content .created-client-form-container .client-card-container {
     /* border: 1px solid red; */
-    width: 100%;
+    width: 110%;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
 
 }
+.form-cards{
+    margin-right: 30px;
+ }
+.option-popup{
+    margin-left: 55px;
+}
+.option-popup button{
+    width: 100px;
+}
+.form-content{
+    margin-left: 20px;
+}
+.options{
+    margin-right: 20px;
+}
 
 .content .created-form-container .form-card-container .form-cards {
     position: relative;
     height: 100px;
-    max-width: 450px;
+    max-width: 500px;
     width: 45%;
     min-width: 350px;
     display: flex;
@@ -178,7 +196,7 @@ if ($conn->connect_error) {
 .content .created-form-container .form-card-container .form-cards .form-content h4 {
     /* border: 1px solid red; */
     /* height: 30px; */
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -283,7 +301,6 @@ if ($conn->connect_error) {
     align-items: center;
     justify-content: space-evenly;
 }
-
 .content .created-client-form-container .client-card-container .client-cards img.vector {
     /* border: 1px solid red; */
     position: absolute;
@@ -304,6 +321,7 @@ if ($conn->connect_error) {
     font-size: 1.5rem;
     font-weight: 500;
     z-index: 1;
+    
 }
 
 .content .created-client-form-container .client-card-container .client-cards .card-content .btn-box {
@@ -313,6 +331,8 @@ if ($conn->connect_error) {
     align-items: center;
     justify-content: space-evenly;
     z-index: 1;
+    
+    
 }
 
 .content .created-client-form-container .client-card-container .client-cards .card-content .btn-box button {
@@ -324,21 +344,37 @@ if ($conn->connect_error) {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
+    
     -o-border-radius: 5px;
 }
 .create_btn{
     position: absolute;
-width: 85px;
-height: 85px;
-left: 88%;
-top: 120%;
+width: 70px;
+height: 70px;
+left: 90%;
+top: 82%;
 border:none;
 border-radius:50%;
+font-style:normal;
+font-weight:100;
 font-size:40px;
 color:white;
 background: #9C74F5;
 box-shadow: 0px 0px 68px rgba(0, 0, 0, 0.3);
 padding-bottom:0.5rem;
+}
+.sub-content {
+    padding:10px;
+  height: 550px; 
+  margin-left: 50px;
+  margin-right: 45px;/* Adjust the height as needed */
+  overflow: auto;
+}
+ .heading-box button{
+    margin-right: -50px;
+ }
+ img.vector{
+    border-bottom-right-radius:15px;
 }
 
 @media screen and (max-width: 720px){
@@ -364,6 +400,8 @@ top: 70%;
                 <input type="search" name="form" id="form" placeholder="Search forms or clients">
             </div>
         </div>
+
+    <div class="sub-content">
         <div class="created-form-container">
             <div class="heading-box">
                 <h2>My Forms</h2>
@@ -371,51 +409,26 @@ top: 70%;
             </div>
             <div class="form-card-container">
 
+            <?php
+                    for ($i = 0; $i < 3; $i++) {
+                ?>
                 <div class="form-cards">
                     <img class="vector" src="icons/form-card-vector.svg">
                     <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                    <h4>Form 1 (Default)</h4>
+                    <p><span>20</span> Question</p>
                 </div>
-
-
-                <div class="form-cards">
-                    <img class="vector" src="icons/form-card-vector.svg">
-                    <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                <div class="options" onclick="showPopup(this)">
+                    <img src="icons/3dots.svg" alt="options" title="options">
                 </div>
-
-                <div class="form-cards">
-                    <img class="vector" src="icons/form-card-vector.svg">
-                    <div class="form-content">
-                        <h4>Form 1(Default)</h4>
-                        <p><span>20</span> Question</p>
-                    </div>
-                    <div class="options" onclick="showPopup(this)">
-                        <img src="icons/3dots.svg" alt="options" title="options">
-                    </div>
-                    <div class="option-popup">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
+                <div class="option-popup">
+                    <button>Delete</button>
+                    <button>Edit</button>
                 </div>
+            </div>
+            <?php
+                }
+            ?>
 
             </div>
         </div>
@@ -451,7 +464,7 @@ top: 70%;
             </div>
         </div>
     </div>
-
+                </div>
     <div class="button">
         <a style="background-color:none"href="health_detail_form_create.php"><button class="create_btn">+</button></a>
         
