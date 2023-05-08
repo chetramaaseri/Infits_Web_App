@@ -297,7 +297,7 @@ line-height: 45px;
         </div>
       </div>
         
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Group 10407.svg" style="margin-right:10px;margin-bottom:23px;">
                 <p class="gl"style="color:white;">Goal</p>
@@ -324,7 +324,7 @@ line-height: 45px;
           <p style="font-family: 'NATS';font-style: normal;font-weight: 400;font-size: 23.85px;line-height: 50px;color:#ffffff;right: 39.33%;top: 54.54%;bottom: 24.99%;position:absolute;">bpm</p>
         </div>
       </div>
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Vector (1).svg" style="margin-right:10px;margin-bottom:23px;">
                 
@@ -355,7 +355,7 @@ line-height: 45px;
         </div>
       </div>
         
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Vector (2).svg" style="margin-right:10px;margin-bottom:23px;">
                 <p class="gl"style="color:white;">Goal</p>
@@ -384,7 +384,7 @@ line-height: 45px;
           <p style="font-family: 'NATS';font-style: normal;font-weight: 400;font-size: 23.85px;line-height: 50px;color:#ffffff;left: 10.33%;right: 39.33%;top: 54.54%;bottom: 24.99%;position:absolute;">kg</p>
         </div>
       </div>
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Vector (3).svg" style="margin-right:10px;margin-bottom:23px;">
                 <p class="gl"style="color:white;">Goal</p>
@@ -412,7 +412,7 @@ line-height: 45px;
         </div>
       </div>
         
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Vector (4).svg" style="margin-right:10px;margin-bottom:23px;">
                 <p class="gl"style="color:white;">Goal</p>
@@ -443,7 +443,7 @@ line-height: 45px;
 
         </div>
         
-        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 20px 20px">
+        <div class="goal" style="display:flex;flex-direction:rows;justify-content:space-between; margin:0px 20px 0px 20px">
           <div style="display:flex;">
                 <img src="img/Vector (5).svg" style="margin-right:10px;margin-bottom:23px;">
                 <p class="gl"style="color:white;">Goal</p>

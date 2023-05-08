@@ -192,8 +192,24 @@ margin-top: -30px;
     padding:10px;
   height: 610px; 
   margin-left: -20px;
-  margin-right: -20px;/* Adjust the height as needed */
-  overflow: auto;
+  margin-right: -40px;
+  overflow: scroll;
+}
+.sub-con::-webkit-scrollbar{
+    width:10px; 
+}
+.sub-con::-webkit-scrollar-thumb{
+  background: #888;
+}
+.sub-con::-webkit-scrollbar-track {
+  background: #F3F3F3; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.sub-con::-webkit-scrollbar-thumb:hover {
+  background:  #E3E3E3;
+  border-radius: 20px; 
 }
 
 img.vector{

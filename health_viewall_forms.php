@@ -55,7 +55,7 @@ body{
     font-weight: 400;
 }
 
-.content .heading-box .search-box {
+.content .heading-box .search-box1 {
     /* height: 30px; */
     width: 380px;
     display: flex;
@@ -69,7 +69,7 @@ body{
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-.content .heading-box .search-box input {
+.content .heading-box .search-box1 input {
     width: 100%;
     font-size: 1.2rem;
     padding: 5px 10px;
@@ -77,7 +77,7 @@ body{
     border: none;
 }
 
-.content .heading-box .search-box input:focus {
+.content .heading-box .search-box1 input:focus {
     outline: none;
 }
 .sub-heading{
@@ -221,8 +221,24 @@ img.vector{
     padding:10px;
   height: 495px; 
   margin-left: -10px;
-  margin-right: -20px;/* Adjust the height as needed */
-  overflow: auto;
+  margin-right: -40px;/* Adjust the height as needed */
+overflow-y: scroll; 
+}
+.sub-con::-webkit-scrollbar{
+    width:10px; 
+}
+.sub-con::-webkit-scrollar-thumb{
+  background: #888;
+}
+.sub-con::-webkit-scrollbar-track {
+  background: #F3F3F3; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.sub-con::-webkit-scrollbar-thumb:hover {
+  background:  #E3E3E3;
+  border-radius: 20px; 
 }
 .content .created-form-container .form-card-container .form-cards .option-popup.show {
     background-color: #FFFFFF;
@@ -256,24 +272,39 @@ img.vector{
     background-color: #9C74F5;
 }
 @media screen and (max-width: 720px){
-    .create_btn{
-        left: 78%;
-top: 70%;
-
-
-    }
-
+  .heading-box{
+    margin-top:-55px;
+    margin-left:20px;
+  }
 }
-
-
-        </style>
+@media screen and (max-width:550px) {
+    .create_btn{
+        margin-left:-50px;
+    }
+    .sub-con{
+        margin-right: -20px;
+    }
+}
+@media screen and (max-width: 950px){
+    .heading-box h1{
+        width:300px;
+    }
+    .create_btn{
+        left:85%;
+    }
+    .option-popup{
+        width: 30px;
+        margin-top:40px;
+    }
+}
+</style>
 </head>
 <body>
     <div class="content">
 
     <div class="heading-box">
             <h1>My Forms</h1>
-            <div class="search-box">
+            <div class="search-box1">
                 <img src="icons/search.svg" alt="#">
                 <input type="search" name="form" id="form" placeholder="Search clients">
             </div>

@@ -67,7 +67,7 @@ line-height: 111.34%;
 .content .heading-box button#save {
   background-color: #6883fb;
   color: #ffffff;
-  width: 140px;
+  width: 160px;
   font-size: 1.5rem;
   padding: 5px 20px;
   border: none;
@@ -120,7 +120,7 @@ line-height: 111.34%;
   align-items: center;
   padding: 10px 20px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
+  border-radius: 13px;
 }
 .content .flex-container .form-container{
   width: 100%;
@@ -480,7 +480,7 @@ line-height: 111.34%;
   font-size: 1.8rem;
 }
 /*   */
-.content .flex-container .share-box .search-box {
+.content .flex-container .share-box {
   display: flex;
   align-items: center;
   font-size: 1.6rem;
@@ -489,17 +489,26 @@ line-height: 111.34%;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
 }
-.content .flex-container .share-box .search-box img {
+.search-box1{
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 5px 15px;
+  margin-top: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+.content .flex-container .share-box .search-box1 img {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   margin-right: 10px;
 }
-.content .flex-container .share-box .search-box input#search {
+.content .flex-container .share-box .search-box1 input#search {
   border: none;
   padding: 5px 5px;
 }
-.content .flex-container .share-box .search-box input#search:focus {
+.content .flex-container .share-box .search-box1 input#search:focus {
   outline: none;
 }
 .content .flex-container .share-box #selectedUser-box {
@@ -684,7 +693,7 @@ line-height: 111.34%;
             <div class="share-box">
                 <h3>Assign form to the clients</h3>
 
-                <div class="search-box">
+                <div class="search-box1">
                     <img src="icons/search.svg">
                     <input type="search" name="search" id="search" placeholder="Search clients">
                 </div>

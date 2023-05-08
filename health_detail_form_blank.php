@@ -68,7 +68,7 @@ body{
   
 @media screen and (min-width: 720px) and (max-width:1500px) {
 .main-content{
-  overflow: none;
+  overflow: hidden;
 }
 .recipe-add-btn{
 margin-top:  60px;

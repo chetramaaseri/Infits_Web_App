@@ -368,7 +368,23 @@ padding-bottom:0.5rem;
   height: 550px; 
   margin-left: 50px;
   margin-right: 45px;/* Adjust the height as needed */
-  overflow: auto;
+  overflow: scroll;
+}
+.sub-content::-webkit-scrollbar{
+    width:10px; 
+}
+.sub-content::-webkit-scrollar-thumb{
+  background: #888;
+}
+.sub-content::-webkit-scrollbar-track {
+  background: #F3F3F3; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.sub-content::-webkit-scrollbar-thumb:hover {
+  background:  #E3E3E3;
+  border-radius: 20px; 
 }
  .heading-box button{
     margin-right: -50px;
@@ -376,15 +392,31 @@ padding-bottom:0.5rem;
  img.vector{
     border-bottom-right-radius:15px;
 }
-
 @media screen and (max-width: 720px){
+  .heading-box{
+    margin-top:-55px;
+    margin-left:20px;
+  }
+}
+@media screen and (max-width:550px) {
     .create_btn{
-        left: 78%;
-top: 70%;
-
-
+        margin-left:-50px;
     }
-
+    .sub-con{
+        margin-right: -20px;
+    }
+}
+@media screen and (max-width: 950px){
+    .heading-box h1{
+        width:300px;
+    }
+    .create_btn{
+        left:85%;
+    }
+    .option-popup{
+        width: 30px;
+        margin-top:40px;
+    }
 }
    </style>
 </head>

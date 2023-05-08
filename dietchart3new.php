@@ -155,7 +155,8 @@ body{
         position: relative;
         display:flex;
         justify-content: space-around;
-        margin-left: 4rem; 
+        margin-left: 3.5rem; 
+        margin-top:1.5rem;
         /* float: left;
         width: 50%; }
         */
@@ -200,10 +201,10 @@ body{
         width: 200px !important;
         margin-left: 38rem;
         color: white;
-       font-family: 'Poppins';
+       font-family: 'NATS';
        text-align: center;
        text-decoration: none;   
-       font-size: 17px;
+       font-size: 20px;
        font-weight:400;
        background: #9C74F5;
      }
@@ -225,7 +226,7 @@ border-radius: 10px;
         position: absolute;
         margin-left: 20px;
         margin-top: 6rem;
-        margin-left: 4rem;
+        margin-left: 3.7rem;
         
         font-family: 'NATS';
         font-style: normal;
@@ -264,11 +265,16 @@ border-radius: 10px;
     .day{
       color: black;
       /* padding: 10px; */
-      border:none;
+    border:none;
       background: none;
       margin-right:-100px;
       margin-left:-100px;
     height:39px;
+    font-family:"NATS";
+   
+font-style: normal;
+font-weight: 400;
+font-size: 26.4156px;
     }
    
     .day:active {
@@ -296,19 +302,19 @@ border-radius: 10px;
 }
 .btn1{
   margin-left: 70px;
-  margin-bottom:10px;
-  padding:10px;
-  width: 202.19px;
+  /* padding:10px; */
+  width: 203.19px;
   height: 48px;  
-  font-family: 'Poppins';
-  font-size: normal;
-  font-weight: 400;
-  font-size: 20px;
-  text-align: center;
+  font-family: 'NATS';
+  font-style: normal;
+font-weight: 500;
+font-size: 25.3714px;
   border: 1px solid #9C74F5;
   border-radius: 10px;
   background-color:#fff;
   color:#9C74F5;
+  
+  text-align:center;
 }
 
 .btn1:focus{
@@ -324,7 +330,10 @@ border-radius: 10px;
   color:#fff;
 } 
 .fw-bold {
-  font-size:13px;
+  font-size:15px;
+  font-style:normal;
+  font-weight:400;
+  font-family:"NATS";
 }
   .box {
     border: 1px solid white;
@@ -332,6 +341,7 @@ border-radius: 10px;
     height: 180px;
     margin-left: 30px;
     margin-bottom: 30px;
+    margin-top:25px;
     top: 200px;
     padding: 10px;
     display: flex;
@@ -357,18 +367,18 @@ border-radius: 10px;
 
   .box h3 {
     text-align: left;
-    font-size: 24px;
-    margin-bottom: 10px;
-    left: 100px;
-    /* top: 40rem; */
-    margin-left: 10px;
-    margin-top: 1px;
+  font-size: 24px;
+  margin-bottom: 10px;
+  width: 148px;
+  height: 40px;
+  margin-left: 28px;
+  margin-top: 1px;
 
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26.4156px;
-    line-height: 40px;
+  font-family: 'NATS';
+  font-style: normal;
+  font-weight: 550;
+  font-size: 30.4156px;
+  line-height: 40px;
   }
 
   .box h2 {
@@ -554,8 +564,8 @@ border-radius: 10px;
         margin-right:5rem;      
      }
      .down{
-      margin-top: 35px;
-      margin-left: 39px;
+      margin-top: 42px;
+      margin-left: 37px;
     }
     .button-container{
       display: flex;
@@ -665,8 +675,8 @@ border-radius: 10px;
         margin-right:20px;
       }
       .down{
-      margin-top:13px;
-      margin-left: 25px;
+      margin-top:20px;
+      margin-left: 23px;
     }
     .button-container{
       display: flex;
@@ -707,7 +717,11 @@ border-radius: 10px;
     .top{
     margin-top:-60px;
    }
-   
+   .content{
+    height:90%;
+    width:90%;
+    
+   }
    .demo{
     flex-direction:column;
    }
@@ -753,10 +767,11 @@ border-radius: 10px;
       }
       .down{
       margin-top:13px;
-      margin-left: 42px;
+      margin-left: 37px;
     }
     .day-band{  
-      margin-left:-3rem;
+      margin-left:1rem;
+      gap:8rem;
       }
       
     .button-container{
@@ -790,6 +805,20 @@ border-radius: 10px;
 }
     
   }
+  @media screen and (min-width: 420px) and (max-width: 564px) {
+.main{
+  flex-wrap:wrap !important;
+}
+.top-right .btn{
+  margin-top:42px;
+  margin-left:50px;
+  padding:0px 35px;
+}
+.top-right img{
+  margin-top:39px;
+  margin-left:30px;
+}
+}
   @media screen and (min-width: 0px) and (max-width: 420px) {
   .day{
     margin-right:0px;
@@ -808,11 +837,11 @@ border-radius: 10px;
     margin-top:20px !important;
    }
   .content{
-       overflow: hidden;
+       /* overflow: hidden; */
        display: flex;
        flex-direction: column;
        height: 90%;
-       width: 100%;
+       width: 90%;
        left: 30px;
        font-family: 'Poppins';
        font-style: normal;
@@ -856,9 +885,9 @@ border-radius: 10px;
         height: 25px;
         margin-right:20px;
       }
-    .down{
+      .down{
       margin-top: 13px;
-      left:42px;
+      left:41px;
       margin-left: auto;
     }
     .day-band{  
@@ -884,10 +913,10 @@ border-radius: 10px;
       font-size: 17px;      
     }    
 .box{
-    width: 390px;
+    width:auto;
     height:auto;
     margin-left: -5px;
-    margin-right: 80px;
+  
     top: 200px;
     overflow:scroll;
    }
@@ -918,8 +947,9 @@ border-radius: 10px;
 <?php $client_id = 2 ?>
     <div class="main">
     <div class="top" style="flex-wrap:no-wrap !important;">
-        <p > New Diet Chart</p>
-        <img src="images/Vector (1) (1).png">
+    <p ><input required type="text" placeholder="New Diet Chart" class="plan_name" name="plan_name" style="border:none; width:fit-content;color:#202224;outline:none;width:285px;height:46px;font-family:'NATS';'"
+                        value="New Diet Chart"></p>
+        <img src="images/Vector (1) (1).png" style="color:#7282FB;cursor:pointer;">
      </div>
      <div class="top-right">
         <button class="btn" text="submit">Healthy Diet </button>
@@ -972,7 +1002,7 @@ border-radius: 10px;
                   <img src="images/7306600-removebg-preview 2.png"
                     style="width: 20.73px;height: 24px;">
                   <h5
-                    style="text-align : right ; font-size:15px ; font-weight: 400; width:191px; margin-right:50px;">
+                    style="text-align : right ; font-size:20px ; font-weight: 400; width:191px; margin-right:50px; font-family:'NATS';">
                     200 Kcal </h5>
                 </div>
 
@@ -996,7 +1026,7 @@ border-radius: 10px;
                   <img src="images/7306600-removebg-preview 2.png"
                     style="width: 20.73px,height: 24px,left: 804px,top: 220px;">
                   <h5
-                    style="text-align : right ;  font-size: 15px ; font-weight: 400;margin-right:25px; ">
+                    style="text-align : right ;  font-size: 20px ; font-weight: 400;margin-right:25px;font-family:'NATS' ">
                     200 Kcal </h5>
                 </div>
               </div>
@@ -1020,7 +1050,7 @@ border-radius: 10px;
                   <img src="images/7306600-removebg-preview 2.png"
                     style="width: 20.73px,height: 24px,left: 804px,top: 220px;">
                   <h5
-                    style="text-align : right , margin-right:0% , margin-left:100% , font-size: 5px , font-weight: 200; ">
+                    style="text-align : right , margin-right:0% , margin-left:100% , font-size: 5px , font-weight: 200; font-family:'NATS';">
                     200kcal </h5>
                 </div>
               </div>

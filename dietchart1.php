@@ -38,7 +38,7 @@
 }
 body{
     font-family: 'NATS', sans-serif !important;
-     
+     overflow-x:hidden;
 }
      .content{
        overflow: hidden;
@@ -67,7 +67,8 @@ body{
         position: relative;
         display:flex;
         justify-content: space-around;
-        margin-left: 4rem; 
+        margin-left: 3.5rem; 
+        margin-top:1.5rem;
         /* float: left;
         width: 50%; }
         */
@@ -112,10 +113,12 @@ body{
         width: 200px;
         margin-left: 38rem;
         color: #9C74F5;
-       font-family: 'Poppins';
+       font-family: 'NATS';
+       font-style:normal;
        text-align: center;
-       text-decoration: none;   
-       font-size: 15px;
+       text-decoration: none;  
+       font-weight:400; 
+       font-size: 20px;
        
      }
      .top-right img{
@@ -129,8 +132,8 @@ body{
     {
         position: absolute;
         margin-left: 20px;
-        margin-top: 4.3rem;
-        margin-left: 4rem;
+        margin-top: 5rem;
+        margin-left: 3.7rem;
         
         font-family: 'NATS';
         font-style: normal;
@@ -157,15 +160,21 @@ body{
       margin-right:-100px;
       margin-left:-100px;
     height:39px;
+    font-family:"NATS";
+   
+font-style: normal;
+font-weight: 400;
+font-size: 26.4156px;
+
     }
    
     .day.active {
       color:white;
       background: linear-gradient(180deg, #9C74F5 0%, rgba(104, 125, 238, 0.52) 100%);
-      width:60px;
-      height:60px;
+      width:68px;
+      height:39px;
       border-radius:13px;
-      padding:5px 0px !important;
+     
     }
     .day:hover{
       color:white;
@@ -174,7 +183,7 @@ body{
       
       height:39px;
       border-radius:13px;
-      /* padding:5px 0px !important; */
+      
     }
 .button-container{
   display: inline-block;
@@ -184,18 +193,19 @@ body{
 }
 .btn1{
   margin-left: 70px;
-  padding:10px;
+  /* padding:10px; */
   width: 203.19px;
   height: 48px;  
-  font-family: 'Poppins';
-  font-size: normal;
-  font-weight: 400;
-  font-size: 20px;
-  text-align: center;
+  font-family: 'NATS';
+  font-style: normal;
+font-weight: 500;
+font-size: 25.3714px;
   border: 1px solid #9C74F5;
   border-radius: 10px;
   background-color:#fff;
   color:#9C74F5;
+  
+  text-align:center;
 }
 .btn1:focus{
   background-color: #9C74F5;
@@ -256,10 +266,10 @@ body{
   margin-left: 28px;
   margin-top: 1px;
 
-  font-family: 'Poppins';
+  font-family: 'NATS';
   font-style: normal;
-  font-weight: 500;
-  font-size: 26.4156px;
+  font-weight: 550;
+  font-size: 30.4156px;
   line-height: 40px;
 }
 .demo .up-right{
@@ -311,8 +321,8 @@ body{
         margin-right:5rem;      
      }
     .down{
-      margin-top: 35px;
-      margin-left: 39px;
+      margin-top: 42px;
+      margin-left: 37px;
     }
     .button-container{
       display: flex;
@@ -330,12 +340,16 @@ body{
     }    
 .box{
     width: auto;
-    height: auto;
+    height:200px;
     margin-left: 35px;
     margin-right: 80px;
     top: 200px;
+    overflow:scroll;
    }
-
+   .box::-webkit-scrollbar{
+    /* width:100px; */
+    overflow:scroll;
+   }
 .tabs{
   margin-top:-20px;
   padding-left:20px;
@@ -369,6 +383,14 @@ body{
         height: 25px;
         margin-left: 1rem;      
      }
+     .box{
+      width:470px;
+      overflow:scroll;
+     }
+     .box::-webkit-scrollbar{
+    /* width:100px; */
+    overflow:scroll;
+   }
 }
  
 @media screen and (min-width: 721px) and (max-width: 750px) {
@@ -410,8 +432,8 @@ body{
         margin-right:20px;
       }
       .down{
-      margin-top:13px;
-      margin-left: 25px;
+      margin-top:20px;
+      margin-left: 23px;
     }
     .button-container{
       display: flex;
@@ -429,11 +451,19 @@ body{
     }    
     .box{
     width: 385px;
-    height: 270px;
+    height: 200px;
     margin-left: 20px;
     margin-right: 80px;
     top: 200px;
+    overflow:scroll;
    }
+   .box::-webkit-scrollbar{
+    /* width:100px; */
+    overflow:scroll;
+   }
+   .demo .up-right {
+    margin-left: 35px;
+}
 
    .btn11{
   width:140px;
@@ -450,15 +480,16 @@ body{
        display: flex;
        flex-direction: column;
        height: 90%;
-       width: 100%;
+       width: 90%;
        left: 30px;
        font-family: 'Poppins';
        font-style: normal;
        padding: 5px;
        /* margin-top: rem; */
        position: relative;
-      margin-top:-20px;
+      margin-top:22px;
      } 
+     
   .top{
     margin-top:-60px;
    }
@@ -486,7 +517,7 @@ body{
         border-radius: 10px;
         height: 50px;
         margin-top:-2px;
-        margin-left: 7rem;
+        margin-left: 1rem;
       
     }
     .top-right img{
@@ -496,34 +527,43 @@ body{
       }
       .down{
       margin-top:13px;
-      margin-left: 42px;
+      margin-left: 37px;
     }
     
     .day-band{  
       margin-left:-3rem;
+      gap:3rem;
       }
       
     .button-container{
       display: flex;
       flex-direction: row;
-      overflow-x: auto;
+      overflow-x: scroll;
       margin-left: 5px;
-    
+      width:auto;
+    /* margin-right:20px; */
+    }
+    .button-container::-webkit-scrollbar{
+      overflow:scroll;
     }
     .btn1{
       margin-left: 5px;
       padding:10px;
       width: 150px;
       height: 48px;  
-      margin-left: 10px;
-      font-size: 17px;      
+      font-size: 17px;    
+
     }    
     .box{
-    width: 650px;
+    width: auto;
     height: 170px;
-    margin-left: 20px;
-    margin-right: 80px;
     top: 200px;
+    overflow:scroll;
+    margin:auto;
+   }
+   .box::-webkit-scrollbar{
+    /* width:100px; */
+    overflow:scroll;
    }
    .btn11{
   width:110px;
@@ -531,7 +571,25 @@ body{
   margin-top:4rem;
   margin-right:14px;
 }
+.demo .up-right {
+    margin-left: 35px;
+}
 
+}
+
+@media screen and (min-width: 420px) and (max-width: 564px) {
+.main{
+  flex-wrap:wrap !important;
+}
+.top-right .btn{
+  margin-top:42px;
+  margin-left:50px;
+  padding:0px 35px;
+}
+.top-right img{
+  margin-top:39px;
+  margin-left:30px;
+}
 }
 
 @media screen and (min-width: 0px) and (max-width: 420px) {
@@ -540,13 +598,15 @@ body{
       margin-left:0px;
     padding:10px;
   }
-  
+  .demo .up-right {
+    margin-left: 35px;
+}
   .content{
        overflow: hidden;
        display: flex;
        flex-direction: column;
        height: 90%;
-       width: 100%;
+       width: 90%;
        left: 30px;
        font-family: 'Poppins';
        font-style: normal;
@@ -576,6 +636,7 @@ body{
          align-items: center;
          margin-top:100px;
          width: 50%; 
+         margin-right:66px;
       }
       .top-right .btn{
         position: relative;
@@ -592,17 +653,19 @@ body{
       }
     .down{
       margin-top: 13px;
-      left:42px;
+      left:41px;
       margin-left: auto;
     }
     .day-band{  
       display: flex;
       flex-direction: row;
-      overflow-x: auto;
+      overflow-x:auto;
       margin-top: -10px;
       margin-left:auto;
       width:auto;
+      margin-right:20px;
       }
+     
     .button-container{
       display: flex;
       flex-direction: row;
@@ -619,10 +682,14 @@ body{
     }    
 .box{
     width: 350px;
-    height: 270px;
-    margin-left: -5px;
-    margin-right: 80px;
+    height: 200px;
+    margin:auto;
     top: 200px;
+    overflow:scroll;
+   }
+   .box::-webkit-scrollbar{
+    /* width:100px; */
+    overflow:scroll;
    }
 
 .tabs{
@@ -645,8 +712,9 @@ body{
     <div class="content">
     <div class="main">
     <div class="top">
-        <p> New Diet Chart</p>
-        <img src="images/Vector (1) (1).png">
+    <p ><input required type="text" placeholder="New Diet Chart" class="plan_name" name="plan_name" style="border:none; width:fit-content;color:#202224;outline:none;width:285px;height:46px;font-family:'NATS';'"
+                        value="New Diet Chart"></p>
+        <img src="images/Vector (1) (1).png" style="color:#7282FB;cursor:pointer;">
      </div>
      <div class="top-right">
         <button class="btn" text="submit">Connect to plan </button>
