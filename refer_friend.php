@@ -11,16 +11,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <style>
+                body {
+                   overflow: hidden;
+                   }
+                 #content .flex-container .friend-list-box ul {
+                    position: fixed;
+                   }
+
         #copy-input {
-           width: 200px;
+           width: 215px;
            padding: 10px;
         }
 
         #content h1 {
             margin-left:15.5rem;
             margin-top: 10px;
-            font-size: 2rem;
-        }
+            font-size: 2rem;        }
+        
 
         #content .flex-container {
             /* border: 1px solid red; */
@@ -44,11 +51,14 @@
         }
 
         #content .flex-container .refer-code-container img {
-            /* width: 100%; */
-            width: 320px;
-            height: 309px;
+            /* width: 320px;
+            height: 309px; */
+            width: 274px;
+            height: 255px
 
         }
+
+
 
         #content .flex-container .refer-code-container .refer-code-box {
             display: flex;
@@ -99,7 +109,7 @@
         }
 
         #content .flex-container .friend-list-box .heading-box {
-            width: 100%;
+            width: 87%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,7 +119,9 @@
 
         #content .flex-container .friend-list-box .heading-box h3 {
             font-size: 1.4rem;
+            margin-left: 30px;
         }
+
 
         #content .flex-container .friend-list-box{
             /* border: 1px solid red; */
@@ -198,10 +210,18 @@
         #content .flex-container .friend-list-box ul li .status span.accepted {
             color: #45e945;
         }
+
+        /* body {
+  overflow: hidden;
+}
+#content .flex-container .friend-list-box ul {
+  position: fixed;
+} */
         @media only screen and (max-width:768px) {
             #content h1{
                 margin-left:1.5rem;
             }
+            
         }
     </style>
 
@@ -209,7 +229,9 @@
 
 <body>
 
-    <?php include 'navbar.php' ?>
+    <?php
+    error_reporting(0);
+    include 'navbar.php' ?>
 
     <div id="content">
         <h1 style="margin-top:2rem">Refer to a friend</h1>
@@ -228,7 +250,7 @@
             <div class="friend-list-box">
                 <div class="heading-box">
                     <h3>Invite a friend</h3>
-                    <img src="icons/search.svg" alt="Search" style="border-radius:100%;border:1px solid black;padding:8px;cursor:pointer; color:#051532;">
+                    <img src="images/searchh.svg" alt="Search" style="border-radius:100%;border:1px solid black;padding:8px;cursor:pointer; color:#051532;">
                 </div>
                 <ul>
 

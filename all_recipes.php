@@ -54,7 +54,7 @@ include 'css/all_recipes.css';
      <div class="search" style="margin-right:2.2rem;display:flex;gap:1.5rem">
             <div class="searchbox">
                 <button style="background-color:white;border:none;" id="seabtn" name="seabtn"><img src="images/vec_search.png" alt=""></button>
-                <input type="search" name="input" placeholder="Search here" style="border:none;font-size:1.3rem;margin-left:1rem;width:60%;height:45px;margin-top:-5px">
+                <input type="search" name="input" placeholder="Search" style="border:none;font-size:20px;margin-left:1rem;width:60%;height:45px;margin-top:-5px;font-weight:400;">
 
             </div>
         </div>
@@ -137,20 +137,20 @@ include 'css/all_recipes.css';
             $counter++;
 
         ?>
-            <div class="card d-flex" style="padding:15px; width:350px; height:230px;border-radius:16px;margin-right:-5px;">
+            <div class="card d-flex" style="padding:15px; width:315px; height:204px;border-radius:16px;margin:35px 40px; ">
                 <div class="card-upper d-flex justify-content-between">
                     <p id="bu" class="card-upper-text"> Medium </p>
                     <p id="bu" class="card-upper-text"><i class="fa-solid fa-clock"></i> 20:00 </p>
                 </div>
                 <div class="img-dis" style="width:100%;margin-top:-35px;text-align:center;">
-                    <img src="./images/alooparatha-eg.png" style="height:80%; width:65%; margin-left:-20px; object-fit:cover;" />
+                    <img src="./images/alooparatha-eg.png" style="height:115px; width:170px; margin-left:-20px; object-fit:cover;margin-top:-9px;" />
                 </div>
                 <div class="d-flex justify-content-between">
                     <p class="card-food"><?php echo $d['drecipe_name'] ?></p>
                     <div class="header">
                         <div class="dropdown ">
                             <div id="myDropdownIcon" class="dropbtn" onclick="showDropdown(event)">
-                                <img class="" src="./icons/vertical-three-dots.svg" alt="">
+                                <img class="" src="./icons/vertical-three-dots.svg" alt="" style="margin-top:20px;">
                             </div>
 
                             <div id="myDropdownContent" class="dropdown-content dropdown-card ">
@@ -174,9 +174,12 @@ include 'css/all_recipes.css';
         <?php } ?>
     </div>
 
-        <div class="recipe-add-btn" style="padding-right:40px; cursor:pointer;" >
+        <!-- <div class="recipe-add-btn" style="padding-right:40px; cursor:pointer;" >
             <h3 style="margin-left:15px; margin-top:28px; font-size:25px;color: #4B9AFB;">Create Recipe</h3>
             <img src="./images/receipe_create.png" alt="" style="width:40px; height:40px; margin-top:20px; margin-right:-10px; margin-left:15px;">
+        </div> -->
+        <div class="recipe-add-btn" style="padding-right:100px">
+        <img src="./images/recipe_add.png" alt="">
         </div>
 </body>
 

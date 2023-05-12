@@ -271,12 +271,7 @@ overflow-y: scroll;
 .content .created-form-container .form-card-container .form-cards .option-popup button:last-child {
     background-color: #9C74F5;
 }
-@media screen and (max-width: 720px){
-  .heading-box{
-    margin-top:-55px;
-    margin-left:20px;
-  }
-}
+
 @media screen and (max-width:550px) {
     .create_btn{
         margin-left:-50px;
@@ -284,6 +279,20 @@ overflow-y: scroll;
     .sub-con{
         margin-right: -20px;
     }
+    .search-box1{
+        margin-top: 120px;
+        margin-left: -200px;
+        margin-right: 30px;
+    }
+    .heading-box h1{
+        margin-left: 20px;
+    }
+    .sub-heading{
+        margin-top: 50px;
+    }
+    .create_btn{
+        top:86%;
+   }
 }
 @media screen and (max-width: 950px){
     .heading-box h1{
@@ -296,6 +305,12 @@ overflow-y: scroll;
         width: 30px;
         margin-top:40px;
     }
+}
+@media screen and (max-width: 720px){
+  .heading-box{
+    margin-top:-55px;
+    margin-left:20px;
+  }
 }
 </style>
 </head>

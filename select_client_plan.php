@@ -19,6 +19,96 @@ include "navbar.php";
 
     <style>
     @import url('https://fonts.googleapis.com/earlyaccess/nats.css');
+    html::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    html::-webkit-scrollbar-track {
+        background-color: rgb(190,200,290);
+    }
+    html::-webkit-scrollbar-thumb {
+        background: #7282FB;
+        border-radius: 5rem;
+    }
+    /* Media query for screens smaller than 576px */
+@media (min-width: 300px) and (max-width: 575.98px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+  .col-6 {
+    margin-left: 10% !important;
+    max-width: 100%;
+    flex: 100%;
+  }
+}
+
+/* Media query for screens between 576px and 767.98px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Media query for screens between 768px and 991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Media query for screens between 992px and 1199.98px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 601px){
+    .row{
+        max-width: 640px !important;
+    }
+    /* .card{
+        width: 90% !important;
+    } */
+}
+@media (min-width: 300px) and (max-width: 450px){
+    .card{
+        width:90% !important;
+    }
+}
+@media (min-width: 450.01px) and (max-width: 601px){
+    .card{
+        width:110% !important;
+    }
+}
+@media (min-width:200px) and (max-width:380.99px){
+    .card{
+    width: 90% !important;
+    }
+}
+/* Media query for screens larger than 1200px */
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+}
+
+    /* @media (min-width:20px) {
+        html::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    html::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    html::-webkit-scrollbar-thumb {
+        background: #9C74F5;
+        border-radius: 5rem;
+    }
+    } */
 
     body {
         font-family: 'NATS', sans-serif !important;
@@ -43,17 +133,16 @@ include "navbar.php";
     }
 
     .cards {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
         display: grid;
         gap: 4rem;
-        
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     }
 
-    .card-upper {
-        /* width: 100%; */
-    }
+    /* .card-upper {
+        width: 100%;
+    } */
 
     .card-upper-image {
         /* background-color: pink; */
@@ -182,41 +271,72 @@ include "navbar.php";
         letter-spacing:1.5px;
         
     } 
-   
-    @media screen and (max-width: 470px){
+    /* @media (min-width: 336px) and (max-width: 720px) {
+        .container, .container-sm {
+            max-width: 100%;
+            align-self: center !important;
+            display: flow-root !important;
+        }
+        body {
+        width: 80% !important;
+        }
+        .card{
+            width: 90% !important;;
+        }
+        .cards {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: repeat(auto-fit, minmax(80%, 1fr));
+    }
+    .row{
+        margin-left: 20%;
+    }
+    .search-form::before{
+        width: 90%;
+        margin:auto;
+        content: "\A";
+        white-space: pre;
+    }
+    } */
+    /* @media screen and (max-width: 470px){
         .search-form{
            margin-right:20px
         }
         .card{
             width: 90% !important;;
         }
-    }
-    @media screen and (max-width: 600px){
+    } */
+    /* @media screen and (max-width: 600px){
         .search-form{
             margin-top:30px;
             margin-bottom:10px;
             
         }
         .card{
-            width:95%;
+            width:90%;
+        }
+        body{
+            margin-left: 10%;
         }
 
-    }
-    @media screen and (max-width: 720px) {
+    } */
+    /* @media screen and (max-width: 720px) {
         .search-form {
             width: 300px !important;
         }
         .card-body{
         margin-top:-60px;
     }
-    }
+    } */
     .card-body{
         flex-direction:column;
     }
     .col-6{
         max-width:100%;
         flex:50 50 50%;
-        margin:auto;
+        margin-left:10%;
     }
     </style>
     <script>
@@ -232,8 +352,8 @@ include "navbar.php";
     <div class="row" style="padding:1rem 0rem 1rem 1rem;">
         <div class="col-6 " style="font-weight:bold;font-size:40px;letter-spacing:2px;">All Diet Plans</div>
         <div class="col-6" style="text-align:right">
-            <div class="card-body" style="">
-                <form method="POST" class="search-form form-inline" style="width:400px;background: #FFFFFF;box-shadow: 0.6px 0.6px 2px 1px #ccc;
+            <div class="card-body" >
+                <form method="POST" class="search-form form-inline" style="max-width:400px;background: #FFFFFF;box-shadow: 0.6px 0.6px 2px 1px #ccc;
     border-radius: 0.6rem;position:relative;">
                     <input type="text" placeholder="Search Plan" class="search-box form-control w-75" id="search"
                         name="search" style="color: #667080;font-weight:600!important;font-size:20px;margin-left:30px;letter-spacing:1.5px;">
@@ -243,15 +363,11 @@ include "navbar.php";
                     </div>
                 </form>
             </div>
-            <div class="card-body">
-                <div class="list-group list-group-item-action" id="content">
-                </div>
-            </div>
 
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="align-self:centre;">
         <div class="col-md-12">
             <div class="container">
                 <div class="cards">
@@ -337,7 +453,7 @@ if(isset($_POST['search-btn']))
 }
 else{                       
  $sql = "SELECT * FROM create_plan";
- $client_id = $_GET['client_id'];
+//  $client_id = $_GET['client_id'];
  if($result = mysqli_query($conn, $sql)){
      if(mysqli_num_rows($result) > 0){
              while($row = mysqli_fetch_array($result)){

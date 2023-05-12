@@ -376,7 +376,7 @@ border-bottom-right-radius: 1em;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 25px 0;
+    margin: 55px 0 25px;
 }
 .set-goal {
     width: 100%;
@@ -636,6 +636,7 @@ margin-left: 5px;
         justify-content: flex-end;
         gap: 30%;
         padding-right: 5%;
+        margin-top: 55px;
     }
     .tsd-right .heading p{
         font-size: 22px;
@@ -841,12 +842,17 @@ line-height: 55px;
     line-height: 30px;
     font-weight: 400;
 }
+
+
+.client-card-steps{
+    background: linear-gradient(208.27deg, rgba(255, 108, 108, 0.792) 43.71%, rgba(255, 92, 0, 0.416) 95.3%);
+}
 /* -------------------- */
 
 /* media */
 @media (max-width:420px) {
     .tst-left-b {
-    padding: 20px;
+    padding: 10px !important;
     }
     .tsd-left-t {
     padding-left: 0;
@@ -862,6 +868,17 @@ line-height: 55px;
     }
     .card-container {
         justify-content: space-between;
+        padding-left: 0;
+    }
+    .tab {
+        margin-left: 2px;
+    }
+    .tablinks {
+        font-size: 10px;
+    }
+    .drop {
+        left: 65px;
+        margin-left: 0px;
     }
 }
 
@@ -879,22 +896,18 @@ line-height: 55px;
     .i-button-box {
         display: none;
     }
-    .tst-left-b {
+    /* .tst-left-b {
         padding-right: 42px;
-    }
+    } */
     .graph {
         max-width: 100%;
     }
     .heading-border {
         max-width: 100%;
     }
-    .tab {
+    /* .tab {
         margin-left: 10px;
-    }
-}
-
-.client-card-steps{
-    background: linear-gradient(208.27deg, rgba(255, 108, 108, 0.792) 43.71%, rgba(255, 92, 0, 0.416) 95.3%);
+    } */
 }
 </style>
 <body>
@@ -929,14 +942,14 @@ line-height: 55px;
                     <p style="color:#52A4FF;">Water</p>
                     </div>
                     </a>
-                    <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
+                    <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
                     <div class="client-card" style="color:#7D5DE6; border: 1px solid #7D5DE6;">
                         <!-- <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i> -->
                         <img src="images/sleep.svg" alt="">
                         <p style="color:#7D5DE6;">Sleep</p>
                     </div>
                     </a>
-                    <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
+                    <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                     <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
                         <!-- <i style="color:#54AFAC;" class="fa-solid fa-moon"></i> -->
                         <img src="images/weight.svg" alt="">
@@ -1000,7 +1013,10 @@ line-height: 55px;
                     <div id="Week" class="tab_content">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
                     <canvas id="myChartWeekly"></canvas>
-                    
+                    <!-- <div class="i-button-box">
+                        <img class="i-button" src="./images/i-button.svg" alt="">
+                        <span>info</span>
+                    </div> -->
                     <div id="week_pop" class="i-pop"></div>
                     </div>
                 

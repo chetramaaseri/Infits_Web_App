@@ -52,7 +52,7 @@ body{
     font-weight: 400;
 }
 
-.content .heading-box .search-box {
+.content .heading-box .search-box1 {
     /* height: 30px; */
     width: 380px;
     display: flex;
@@ -70,7 +70,7 @@ body{
 /* .content .search-box img{
     border: 1px solid red;
 } */
-.content .heading-box .search-box input {
+.content .heading-box .search-box1 input {
     width: 100%;
     font-size: 1.2rem;
     padding: 5px 10px;
@@ -78,7 +78,7 @@ body{
     border: none;
 }
 
-.content .heading-box .search-box input:focus {
+.content .heading-box .search-box1 input:focus {
     outline: none;
 }
 
@@ -335,16 +335,16 @@ body{
     
 }
 
-.content .created-client-form-container .client-card-container .client-cards .card-content .btn-box button {
+.content .created-client-form-container .client-card-container .client-cards .card-content .btn-box a {
     border: none;
     background-color: #4B9AFB;
     color: #ffffff;
     padding: 5px 15px;
+    text-decoration: none;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
-    
     -o-border-radius: 5px;
 }
 .create_btn{
@@ -368,7 +368,8 @@ padding-bottom:0.5rem;
   height: 550px; 
   margin-left: 50px;
   margin-right: 45px;/* Adjust the height as needed */
-  overflow: scroll;
+  overflow-y: scroll;
+
 }
 .sub-content::-webkit-scrollbar{
     width:10px; 
@@ -392,32 +393,65 @@ padding-bottom:0.5rem;
  img.vector{
     border-bottom-right-radius:15px;
 }
-@media screen and (max-width: 720px){
-  .heading-box{
-    margin-top:-55px;
-    margin-left:20px;
-  }
-}
-@media screen and (max-width:550px) {
-    .create_btn{
-        margin-left:-50px;
-    }
-    .sub-con{
-        margin-right: -20px;
-    }
-}
-@media screen and (max-width: 950px){
+@media screen and (max-width: 1200px){
     .heading-box h1{
-        width:300px;
+        width:430px;
+        margin-right: 20px;
     }
     .create_btn{
-        left:85%;
+        left:84%;
+        right: auto;
     }
     .option-popup{
         width: 30px;
         margin-top:40px;
     }
 }
+@media screen and (max-width: 720px){
+  .heading-box{
+    margin-top:-40px;
+    margin-left:20px;
+  }
+  .sub-content .heading-box{
+    margin-top:1px;
+  }
+}
+ @media screen and (max-width:450px){
+    .sub-content{
+        width: 300px;
+        margin-right: 30px;
+    }
+    
+    .heading-box h1{
+        margin-left: 20px;
+        width: 500px;
+        margin-top:40px;
+    }    
+        .create_btn{
+        margin-left:-30px;
+        z-index: 2;
+    }
+} 
+@media screen and (max-width:550px) {
+     .content{
+        overflow: hidden;
+     }
+    .sub-content{
+        margin-top: 70px;
+        margin-right: 80px;
+    margin-left: 70px;
+    }
+  
+    .search-box1{
+        margin-top: 170px;
+        margin-left: -300px;
+        margin-right: 30px;
+    }
+    .create_btn{
+        top:86%;
+   }
+}
+ 
    </style>
 </head>
 
@@ -427,7 +461,7 @@ padding-bottom:0.5rem;
     <div class="content">
         <div class="heading-box">
             <h1>Forms and Documents</h1>
-            <div class="search-box">
+            <div class="search-box1">
                 <img src="icons/search.svg" alt="#">
                 <input type="search" name="form" id="form" placeholder="Search forms or clients">
             </div>
@@ -484,8 +518,8 @@ padding-bottom:0.5rem;
                                 <img src="images/client.png" alt="Profile" id="clientProfile">
                                 <p> <?php echo $row["ClientName"]; ?> </p>
                                 <div class="btn-box">
-                                    <button id="clientForm">Form</button>
-                                    <button id="clientDocument">Documents</button>
+                                    <a href="health_detail_form.php?form=show" id="clientForm">Form</a>
+                                    <a href="health_detail_form.php?document=show" id="clientDocument">Documents</a>
                                 </div>
                             </div>
                         </div>

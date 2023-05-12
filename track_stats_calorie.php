@@ -139,9 +139,9 @@ ob_end_flush();
     display: flex;
     flex-direction: column;
 }
-tst-left-t{
+/* tst-left-t{
     padding-left: 3%;
-}
+} */
 .heading{
     /* width: 145px; */
     height: 68px;
@@ -151,32 +151,38 @@ tst-left-t{
     font-family: 'NATS';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 68px;
     /* letter-spacing: -0.114286px; */
     color: #000000;
     margin: 0;
+    padding-left: 12px;
 }
 .card-container{
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-between; */
     gap: 5%;
-    padding-left: 1%;
+    padding-left: 33.6px;
 }
 .client-card {
-width: 100px;
-height: 120px;
+width: 82px;
+height: 96px;
 background: rgba(255, 255, 255, 0.8);
 box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+/* justify-content: center; */
 text-align: center;
-gap: 15px;
+/* gap: 15px; */
+gap: 8px;
 margin-bottom: 15px;
+}
+
+.client-card img {
+    margin-top: 11px;
 }
 .client-card a{
     display: flex;
@@ -201,15 +207,22 @@ font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
 line-height: 1;
-font-size: 22px;
+font-size: 19px;
     margin: 0;
+width: 100%;
+line-height: 16.15px;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 /* tst-left b */
 .tst-left-b {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    /* padding: 20px; */
+    padding-left: 56px;
     gap: 20px;
 }
 /* Style the buttons that are used to open the tab content */
@@ -224,6 +237,7 @@ border-bottom-left-radius: 1em;
 border-top-right-radius: 1em;
 border-bottom-right-radius: 1em;
 position: relative;
+margin-left: 41px;
 }
 .tablinks {
 background: #FFFFFF;
@@ -241,7 +255,6 @@ font-style: normal;
 font-weight: 400;
 font-size: 13px;
 line-height: 27px;
-
 color: #4D4D4D;
 }
 /* border for side buttons */
@@ -249,6 +262,9 @@ color: #4D4D4D;
     border-top-left-radius: 1em;
 border-bottom-left-radius: 1em;
 width: 28%;
+}
+.graph-container {
+    display: flex;
 }
 .drop{
     position: absolute;
@@ -282,8 +298,8 @@ border-bottom-right-radius: 1em;
   color: white !important;
 }
 .graph {
-    max-width: 487px;
-    max-height: 240px;
+    max-width: 520px;
+    /* max-height: 240px; */
     width: 100%;
     height: 100%;
     background: #FFFFFF;
@@ -391,8 +407,9 @@ height: 166px;
     font-weight: 400;
     font-size: 23px;
     line-height: 40px;
-    color: #DF7296;
+    color: #E48FA7;
     margin-top: -10px;
+    padding-left: 12px;
 }
 .set-goal form{
     display: flex;
@@ -409,7 +426,7 @@ border-radius: 10px;
 padding: 8px 25px;
 }
 .set-goal input::placeholder{
-font-family: 'Nunito';
+font-family: 'NATS';
 font-style: normal;
 font-weight: 700;
 font-size: 18px;
@@ -420,9 +437,9 @@ text-align: center;
 #save-goal {
     margin-top: 20px;
     border: none;
-    width: 124px;
-    height: 45px;
-    background: linear-gradient(263.28deg, #E69BAF 0%, #E69EB0 0.01%, #E07498 93.31%);
+    width: 108px;
+    height: 40px;
+    background:  linear-gradient(263.28deg, #E69BAF 0%, #E69EB0 0.01%, #E07498 93.31%);
     box-shadow: 0px 3.48718px 3.48718px rgba(0, 0, 0, 0.28);
     border-radius: 10px;
     color: #ffffff;
@@ -439,14 +456,15 @@ text-align: center;
     width: 100%;
     display: flex;
     flex-wrap:wrap;
-    justify-content: center;
+    /* justify-content: space-between; */
     align-items: center;
     padding :0 10px;
+    gap: 40px;
 }
 .stat-btn{
     /* max-width: 134px;
     max-height: 57.45px; */
-    height: 57.45px;
+    height: 59px;
     /* width: 25%; */
     width: 150px;
     /* height: 100%; */
@@ -462,23 +480,39 @@ text-align: center;
 }
 .stat-data{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     font-family: 'NATS';
     font-style: normal;
     font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.stat-data div {
+    width: 100%;
 }
 .stat-data .title{
-font-size: 18px;
+    width: 100%;
+font-size: 19px;
 line-height: 0;
 color: #5D5D5D;
-margin-left: 10px;
+/* margin-left: 10px; */
+font-weight: 400;
+/* line-height: 40.15px; */
+margin-left: 12px;
 }
 .stat-data .value{
 font-size: 25px;
 line-height: 0;
 text-align: center;
 color: #000000;
-margin-left: 20px;
+/* margin-left: 20px; */
+}
+.stat-data div:nth-child(2) {
+    text-align: right;
+    margin-right: 20px;
+    font-size: 17px;
 }
 .stat-data .unit{
 font-size: 17px;
@@ -576,13 +610,13 @@ margin-left: 5px;
 .tsd-right{
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
-        align-items: center;
+        justify-content: center;
+        /* align-items: flex-end; */
     }
     .tsd-right .heading {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-evenly;
         gap: 30%;
         padding-right: 5%;
     }
@@ -591,10 +625,16 @@ margin-left: 5px;
         line-height: 46px;
         color: #000000;
     }
-    .tsd-right .heading span{
+    /* .tsd-right .heading span{
         font-size: 16px;
         line-height: 46px;
-        color: #E27998;
+        color: #C986CF;
+    } */
+    .tsd-right .heading span{
+        font-size: 16px;
+        line-height: 33.81px;
+        color: #C986CF;
+        font-weight: 400;
     }
 .progress-bar-container{
     font-family: 'NATS';
@@ -602,15 +642,26 @@ margin-left: 5px;
     font-weight: 400;
     color: #000000;
     position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .total-consumed {
-    position: absolute;
-    top: 20px;
-    right: -110px;
+    /* position: absolute; */
+    /* top: 20px; */
+    /* right: -110px; */
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+.total-remaining {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
 }
 .total-consumed span,
 .total-remaining span{
-    font-size: 25px;
+    font-size: 23px;
     line-height: 0;
     letter-spacing: 0.03em;
     color: #000000;
@@ -620,11 +671,12 @@ margin-left: 5px;
     font-size: 22px;
     line-height: 50px;
     letter-spacing: 0.03em;
+    margin: 0;
 }
 .total-remaining{
-    position: absolute;
+    /* position: absolute; */
     bottom: 0px;
-    left: -110px;
+    /* left: -110px; */
 }
 .progress-circle{
     width: 214px;
@@ -659,10 +711,87 @@ margin-left: 5px;
 }
 /* -------------------- */
 
+.res-circle {
+    width: 175px;
+    border-radius: 50%;
+    line-height: 0;
+    position: relative;
+    border: 10px solid rgba(249, 224, 231, 1);
+}
+
+.res-circle::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.circle-text {
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    text-align: center;
+}
+.inner-circle-text {
+    display: flex;
+    flex-direction: column;
+}
+.circle-text p {
+    /* color: orangered; */
+    font-size: 48px;
+    padding-bottom: 15px;
+}
+
+/* media */
+@media (max-width:1250px) {
+    .i-button-box {
+        display: none;
+    }
+    .heart_beat_box {
+        width: 100%;
+    }
+    .tst-left-b {
+        padding-left: 0;
+    }
+}
+@media(max-width:1190px) {
+    .tsd-right {
+        padding: 0;
+    }
+    .tsd-right .heading {
+        padding: 0;
+        justify-content: space-around;
+    }
+    .tsd-left-b .heading{
+        max-width: 100%;
+    }
+    .i-button-box {
+        display: none;
+    }
+    .tst-left-b {
+        /* padding-right: 42px; */
+        padding-left: 2px;
+    }
+    .graph {
+        max-width: 100%;
+    }
+    .heading-border {
+        max-width: 100%;
+    }
+    .tab {
+        margin-left: 10px;
+    }
+    .p-container {
+        justify-content: space-around;
+    }
+    .heading p {
+        padding-left: 12px;
+    }
+}
+
 /* media */
 @media (max-width:420px) {
     .tst-left-b {
-    padding: 20px;
+    padding: 10px !important;
     }
     .tsd-left-t {
     padding-left: 0;
@@ -675,6 +804,33 @@ margin-left: 5px;
     }
     .progress-bar-container {
     scale: 0.8;
+    flex-direction: column;
+    }
+    .card-container {
+        justify-content: space-between;
+        padding-left: 0;
+    }
+    .tab {
+        margin-left: 2px;
+    }
+    .tablinks {
+        font-size: 10px;
+    }
+    .drop {
+        left: 65px;
+        margin-left: 0px;
+    }
+    .total-consumed span,
+    .total-remaining span{
+        font-size: 18px;
+        line-height: 0;
+        letter-spacing: 0.03em;
+        color: #000000;
+    }
+    .total-consumed p,
+    .total-remaining p {
+        /* font-size: 14px; */
+        letter-spacing: 0.03em;
     }
 }
 </style>
@@ -686,47 +842,53 @@ margin-left: 5px;
 
             <div class="tst-left-t">
                 <div class="heading">
-                    <p style="margin-top: -15px;">Clients Stats</p>
+                    <p style="margin-top: -15px; padding-left: 35px;">Clients Stats</p>
                 </div>
                 <div class="card-container">
-                <div class="client-card" style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
                         <a href="track_stats_steps.php?id=<?php echo($clientId) ?>">
-                            <i class="fa-solid fa-shoe-prints" style="color:#FF6C6CCA; rotate: -90deg;"></i>
-                            <p style="color: #FF6C6CCA;">Steps</p>
+                    <div class="client-card client-card-steps" style="color:#FF6C6CCA ;border: 1px solid #FF6C6CCA;">
+                        <!-- <i class="fa-solid fa-shoe-prints" style="color:#FFFFFF; rotate: -90deg;"></i> -->
+                        <img src="images/steps.svg" alt="">
+                        <p>Steps</p>
+                    </div>
                         </a>
-                        </div>
+                    <a href="track_stats_heart.php?id=<?php echo($clientId) ?>">
                         <div class="client-card" style="color:#E266A9; border: 1px solid #E266A9;">
-                        <a href="track_stats_heart.php?id=<?php echo($clientId) ?>">
-                            <i style="color:#E266A9;" class="fa-solid fa-heart-pulse"></i>
-                            <p style="color:#E266A9;">Heart<br>Rate</p>
-                            </a>
+                        <!-- <i style="color:#E266A9;" class="fa-solid fa-heart-pulse"></i> -->
+                        <img src="images/heart_rate.png" alt=""">
+                        <p>Heart<br>Rate</p>
                         </div>
+                    </a>
+                    <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
                         <div class="client-card" style="color:#52A4FF; border: 1px solid #52A4FF;">
-                        <a href="track_stats_water.php?id=<?php echo($clientId) ?>">
-                            <i style="color:#52A4FF;" class="fa-solid fa-droplet"></i>
+                    <!-- <i style="color:#52A4FF;" class="fa-solid fa-droplet"></i> -->
+                    <img src="images/water.svg" alt="image_broken">
                             <p style="color:#52A4FF;">Water</p>
+                    </div>
                             </a>
-                        </div>
+                    <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
                         <div class="client-card" style="color:#7D5DE6; border: 1px solid #7D5DE6;">
-                        <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
-                            <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i>
-                            <p style="color:#7D5DE6;">Weight<br>Track</p>
-                            </a>
+                        <!-- <i style="color:#7D5DE6;" class="fa-solid fa-weight-hanging"></i> -->
+                        <img src="images/sleep.svg" alt="">
+                        <p style="color:#7D5DE6;">Sleep</p>
                         </div>
+                    </a>
+                    <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                         <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
-                        <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
-                            <i style="color:#54AFAC;" class="fa-solid fa-moon"></i>
-                            <p style="color:#54AFAC;">Sleep</p>
+                        <!-- <i style="color:#54AFAC;" class="fa-solid fa-moon"></i> -->
+                        <img src="images/weight.svg" alt="">
+                        <p style="color:#54AFAC;">Weight Track</p>
+                    </div>
                             </a>
+                    <a href="track_stats_calorie.php?id=<?php echo($clientId) ?>">
+                    <div class="client-card" style="color:#E3738D; border: 1px solid #E3738D; background: linear-gradient(37.35deg, #E2809B 0%, #EBD3C8 100%);">
+                    <!-- <i class="fa-solid fa-stopwatch-20" style="color:#E3738D" ></i> -->
+                    <img src="images/track.svg" alt=""  style="filter: brightness(0) invert();">
+                        <p style="color:#fff;">Calorie Track</p>
                         </div>
-                        <div class="client-card client-card-calorie" style="color:#E3738D; border: 1px solid #E3738D;">
-                        <a style="margin-top: 5px;" href="track_stats_calorie.php?id=<?php echo($clientId) ?>">
-                            <img src="images/calorie_selected.svg" alt="">
-                            <p style="color:#FFFFFF;">Calorie<br>Track</p>
                             </a>
                         </div>
                 </div>
-            </div>
 
             <div class="tst-left-b">
                 <div class="tab">
@@ -813,7 +975,7 @@ margin-left: 5px;
         <div class="col-lg-4 tst-right">
             <div class="set-goal">
                 <div class="heading">
-                    <p>Set Goals</p>
+                    <p>Calorie Goal</p>
                     <span>Daily Calorie Count</span>
                     <span id="g-set-success"></span>
                 </div>
@@ -843,32 +1005,32 @@ $pastMonth->modify('-1 month');
 $monthAvg = fetchDataSql($clientId,$pastMonth->format('Y-m-d'), $today->format('Y-m-d'))[0]['avg(caloriesconsumed)'];
 ?>
     <div class="row ts-down">
-        <div class="col-lg-7 tsd-left">
+    <div class="col-xl-8 col-lg-7 tsd-left">
             <div class="tsd-left-t">
                 <div class="stats-btn-container">
                     
                     <div class="stat-btn">
                         <div class="stat-data">
-                            <span class="title">Daily Count</span>
-                            <span id="daily-count" class="value"><?php echo(ceil($todayData)) ?></span><span class="unit">Kcal</span>
+                            <div><span class="title">Daily Count</span></div>
+                            <div><span id="daily-count" class="value"><?php echo(ceil($todayData)) ?></span><span class="unit">Kcal</span></div>
                         </div>
                     </div>
                     <div class="stat-btn">
                         <div class="stat-data">
-                            <span class="title">Weekly Avg</span>
-                            <span id="weekly-avg" class="value"><?php echo(ceil($weekAvg)) ?></span><span class="unit">Kcal</span>
+                            <div><span class="title">Weekly Avg</span></div>
+                            <div><span id="weekly-avg" class="value"><?php echo(ceil($weekAvg)) ?></span><span class="unit">Kcal</span></div>
                         </div>
                     </div>
                     <div class="stat-btn">
                         <div class="stat-data">
-                            <span class="title">Monthly Avg</span>
-                            <span id="monthly-avg" class="value"><?php echo(ceil($monthAvg)) ?></span><span class="unit">Kcal</span>
+                            <div><span class="title">Monthly Avg</span></div>
+                            <div><span id="monthly-avg" class="value"><?php echo(ceil($monthAvg)) ?></span><span class="unit">Kcal</span></div>
                         </div>
                     </div>
                     <div class="stat-btn">
                         <div class="stat-data">
-                            <span class="title">Total</span>
-                            <span id="total" class="value"><?php echo(ceil($allDataSum)) ?></span><span class="unit">Kcal</span>
+                            <div><span class="title">Total</span></div>
+                            <div><span id="total" class="value"><?php echo(ceil($allDataSum)) ?></span><span class="unit">Kcal</span></div>
                         </div>
                     </div>
                 </div>
@@ -881,12 +1043,12 @@ $j = count($pastActivityData);
             <div class="tsd-left-b table-activity">
                 <div class="heading">
                     <p>Past Activity</p>
-                    <a href="past_activities_calorie.php?id=<?php echo ($clientId) ?>"><span>View All</span></a>
+                    <a href="past_activities_steps.php?id=<?php echo ($clientId) ?>"><span>View All</span></a>
                 </div>
                 <div class="heading-border"></div>
                 <div class="activity-container">
 <?php while($k<$j){
-    $date = new DateTime($pastActivityData[$k]['time']);
+    $date = new DateTime($pastActivityData[$k]['dateandtime']);
 ?>
                     <div class="activity-box">
                         <div class="activity-date">
@@ -895,8 +1057,8 @@ $j = count($pastActivityData);
                         </div>
                         <div class="activity-border"></div>
                         <div class="activity-data">
-                            <span class="up"><?php echo (ucwords($pastActivityData[$k]['meal'])) ?></span>
-                            <span class="down"><?php echo ($pastActivityData[$k]['caloriesconsumed']) ?> Kcal</span>
+                            <span class="up">Walking</span>
+                            <span class="down"><?php echo ($pastActivityData[$k]['steps']) ?> Steps</span>
                         </div>
                         <div class="activity-time">
                             <span><?php echo ($date->format('h:i A')) ?></span>
@@ -924,7 +1086,7 @@ if(empty($progressBarData) OR $progressBarData[0]['calorie'] == 0 ){
 }
 $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
 ?>     
-        <div class="col-lg-5 tsd-right">
+        <div class="col-xl-4 col-lg-5 tsd-right">
             <div class="heading">
                 <p>Daily Progress</p>
                 <a href="past_activities_calorie.php?id=<?php echo ($clientId) ?>"><span>View Activity</span></a>
@@ -934,9 +1096,14 @@ $calorieRemaining = (int) $currentGoal - (int) $calorieConsumed;
                     <span><?php echo ( (int) $calorieConsumed) ?> Kcal</span>
                     <p>Consumed</p>
                 </div>
-                <div id="progress-percent" class="progress-circle">
+                <!-- <div id="progress-percent" class="progress-circle">
                     <div class="progress-circle-fill">
                         <div class="progress-circle-value"><span id="progress-percent"><?php echo($progressPercent) ?>%</span><span>Kcal gained</span></div>
+                    </div>
+                </div> -->
+                <div class="res-circle">
+                    <div class="circle-text">
+                        <div class="inner-circle-text"><p id=""><?php echo($progressPercent) ?>%</p><span>Kcal gained</span></div>
                     </div>
                 </div>
                 <div class="total-remaining">
