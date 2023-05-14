@@ -59,8 +59,8 @@
   color: #CBCBCB;
   }
   .content img{    
-  width: 320px;
-  height: 220px;
+  width: 300px;
+  height: 200px;
   margin-left: 28%;
   margin-top: 35px;
   }
@@ -68,20 +68,21 @@
   font-family: 'NATS';
   font-style: normal;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 34px;
   line-height: 90%;
   text-align: center;
   color: #000000;
-   margin-right:110px;
+  /* margin-left: %; */
+   margin-right:9%;
   margin-top: -10px;
 
   }
   
   .recipe-add-btn{
   display: flex;
-    margin-left:78.9rem;
+    margin-left:78rem;
     bottom:20px;
-    margin-top:-4rem;
+    margin-top:-3.5rem;
     width: 250px;
     height: 80px;
     background: #FFFFFF;
@@ -166,7 +167,7 @@
     scrollbar-width: none;
   }
   
-
+/* 
   @media screen and (min-width: 720px) and (max-width:830px) {
 
     .content p{
@@ -210,13 +211,10 @@ margin-left:-30px;
   }
 
   @media screen and (min-width: 0px) and (max-width: 600px) {
-    .main-content{
-      overflow: auto;
-    }
 .sliding-cal {
   width:auto;
   margin-left:1px;
-  margin-right:10px;
+  margin-right:-55px;
   margin-top: -20px;
 }
   }
@@ -251,12 +249,10 @@ margin-left:-30px;
   }
   
   @media screen and (min-width: 0px) and (max-width: 720px) {
-  .main-content{
-    margin-top: -20px !important;
-  }
+  
 .left{
-    margin-top:-10px ;
-    margin-left: 50px;
+    margin-top:-140px;
+    margin-left: 80px;
  }.content p{
       margin-left: 20px;
       margin-top: 0.5rem;
@@ -270,7 +266,21 @@ margin-left:-30px;
    margin-bottom:20px;
   }
   } 
-
+ */
+ @media screen and (max-width:1300px) {
+.main-content{
+  overflow: hidden;
+}
+.sliding-cal{
+  margin-left: 1px;
+  width: auto;
+}
+.recipe-add-btn{
+  margin-right: 30px;
+  float: right;
+  margin-bottom: 10px;
+}  
+ }
 
   </style>
   </head>

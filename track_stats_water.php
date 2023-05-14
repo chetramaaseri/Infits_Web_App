@@ -651,14 +651,14 @@ margin-left: 5px;
 } */
 .total-consumed span,
 .total-remaining span{
-    font-size: 25px;
+    font-size: 22px;
     line-height: 0;
     letter-spacing: 0.03em;
     color: #000000;
 }
 .total-consumed p,
 .total-remaining p {
-    font-size: 22px;
+    font-size: 19px;
     line-height: 50px;
     letter-spacing: 0.03em;
 }
@@ -820,6 +820,13 @@ margin-left: 5px;
         letter-spacing: 0.03em;
 }
 }
+
+@media  screen and (min-width:992px) and (max-width:1024px) {
+    .heading p{
+        line-height: 30px !important;
+    }
+}
+
 </style>
 <body>
 <div class="content">

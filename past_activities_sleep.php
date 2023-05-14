@@ -103,6 +103,9 @@ if(isset($_POST['dates'])){
 </head>
 <?php include 'navbar.php' ?>
 <style>
+ * {
+        font-family: 'NATS';    
+    }
     .heading p {
     font-family: 'NATS';
     font-style: normal;
@@ -110,12 +113,12 @@ if(isset($_POST['dates'])){
     font-size: 44px;
     line-height: 70px;
 }
-.tab {
+/* .tab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   position: relative;
-}
+} */
 #daterange {
     border: none;
     background: transparent;
@@ -131,28 +134,52 @@ if(isset($_POST['dates'])){
     top: 5px;
     left: 92px;
 }
+.graph_button_right{
+    border-top-right-radius: 1em;
+border-bottom-right-radius: 1em;
+}
 .tab_button_side{
    border-radius: 12px;
 }
 /* Style the buttons that are used to open the tab content */
 .tab {
-  overflow: hidden;
-  /* border: 1px solid #ccc;
-  background-color: #f1f1f1; */
+background-color: #f1f1f1;
   border: 1px solid #F8F5F5;
-  width: 365px;
-height: 27px;
-border-top-left-radius: 1em!important;
-border-bottom-left-radius: 1em!important;
-border-top-right-radius: 1em!important;
-  border-bottom-right-radius: 1em!important;
+max-width: 410px;
+width: 100%;
+height: 31px;
+border-top-left-radius: 1em;
+border-bottom-left-radius: 1em;
+border-top-right-radius: 1em;
+border-bottom-right-radius: 1em;
+position: relative;
+/* margin-left: 41px; */
+}
+.tablinks {
+background: #FFFFFF;
+border: 1px solid #FCFBFB;
+border-radius: 0px;
+width: 24%;
+/* height: 24px; */
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+transition: 0.3s;
+font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 27px;
+color: #4D4D4D;
 }
 .tab button {
     background: #FFFFFF;
     border: 1px solid #FCFBFB;
     border-radius: 0px;
-    width: 85.35px;
-height: 24px;
+    width: 100px;
+/*height: 24px;*/
+height: 100%;
   float: left;
   border: none;
   outline: none;
@@ -179,10 +206,10 @@ border-bottom-left-radius: 1em!important;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color:#6844E2;
+  background-color:rgba(125, 93, 230, 1);
 }
 .tab button.active {
-  background-color:#6844E2;
+  background-color:rgba(125, 93, 230, 1);
   color: white !important;
 }
 
@@ -203,13 +230,18 @@ border-bottom-left-radius: 1em!important;
    flex-wrap:wrap;
 }
 .client-card {
-        width: 70px;
-        height: auto;
-        margin: 10px;
+width: 93px;
+height: 110px;
+background: rgba(255, 255, 255, 0.8);
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
         text-align: center;
-        font-size: 20px;
-        border-radius: 14px;
-        padding: 5px;
+gap: 15px;
+margin-bottom: 15px;
 }
 
 .client-card p {
@@ -248,7 +280,13 @@ border: 1px solid #7D5DE6;
 /* -------------------Calorie Tab Content------------------- */
 .activity-container{
     /* margin: 3%; */
-    padding: 3%;
+    /* padding: 3%; */
+    padding: 54px;
+    padding-top: 28px;
+    padding-bottom: 0;
+}
+.activity-container > div {
+    display: flex;
 }
 .activity-container p{
     font-family: 'NATS';
@@ -273,7 +311,7 @@ color: #000000;
     height: 67px;
     padding: 20px;
 
-    background: linear-gradient(180deg, rgba(217, 208, 247, 0.2) 0%, rgba(104, 68, 226, 0.2) 100%);
+    background: linear-gradient(180deg, rgba(255, 232, 242, 0.2) 0%, rgba(201, 134, 207, 0.2) 100%);
 border-radius: 10px;
 }
 .meal-box p{
@@ -289,7 +327,7 @@ border-radius: 10px;
     font-family: 'NATS';
 font-style: normal;
 font-weight: 400;
-font-size: 16px;
+font-size: 17px;
 /* line-height: 36px; */
 /* identical to box height */
 
@@ -301,14 +339,74 @@ color: #000000;
     font-size: 20px;
     line-height: 42px;
 }
+
+
+.activity-content {
+    display: flex;
+    justify-content: space-between;
+/*    padding: 0 33px;*/
+    padding: 0 25px;
+    width: 19.43em;
+    height: 80px;
+    background: linear-gradient(180deg, rgba(255, 232, 242, 0.2) 0%, rgba(201, 134, 207, 0.2) 100%);
+    border-radius: 10px;
+    font-weight: 400;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.activity-left, .activity-right {
+    display: flex;
+    align-items: center;
+}
+
+.activity-left img {
+    width: 21px;
+    height: 25px;
+}
+.activity-right img {
+    width: 20px;
+    height: 19px;
+    filter: brightness(rgba(255, 139, 139, 1));
+}
+
+.activity-details {
+    margin-left: 20px;
+}
+
+.activity-details h3 {
+    font-size: 25px;
+/*    line-height: 52px;*/
+    margin-bottom: 0;
+
+}
+
+.activity-details span {
+    display: block;
+    font-size: 17px !important;
+    line-height: 35px;
+    padding: 0;
+    width: 100%;
+}
+.activity-right p {
+    height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 9px;
+    font-size: 20px;
+    line-height: 42px;
+}
 /* -----------------------Resposnive New----------------------- */
 .ph-left{
-    padding-left: 3%;
+    /* padding-left: 3%; */
+    padding-left: 51px;
 }
 .ph-right {
     display: flex;
     justify-content: flex-end;
-    padding-right: 5%;
+    padding-right: 52px;
+    padding-top: 30px;
 }
 @media (max-width:576px){
     .tab{
@@ -317,33 +415,76 @@ color: #000000;
         flex-wrap:wrap;
     }
     .tab button {
+    background: #FFFFFF;
+    border: 1px solid #FCFBFB;
+    border-radius: 0px;
     width: 25%;
+/*height: 24px;*/
+height: 100%;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* padding: 14px 16px; */
+  transition: 0.3s;
+  font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 27px;
+
+color: #4D4D4D;
+}
+#daterange-btn{
+    position: absolute;
+    top: 5px;
+    left: 75px;
 }
     .graph_button_left{
         width:25% !important;
     }
     /* anothr */
     .past-header{
-        position:relative;
+        /* position:relative; */
     }
     .ph-right{
-        position:absolute;
-        top: -45px;
+        /* position:absolute;
+        top: -45px; */
         right: 5px;
         scale: 0.9;
         padding: 0;
     }
+    .ph-left {
+        padding-left: 12px;
+    }
+    .activity-container {
+        /* padding: 0px; */
+        padding: 3%;
+    }
+    .activity-container p {
+        text-align: center;
+    }
+    .activity-content {
+        /* padding: 0px; */
+        width: 100%;
+        margin-left: 0px;
+    }
 }
 @media (max-width:330px){
     .past-header{
-        position:relative;
+        /* position:relative; */
+        display: flex;
+        flex-direction: column;
     }
     .ph-right{
-        position:absolute;
+        /* position:absolute;
         top: -59px;
-        right: -40px;
-        scale: 0.65;
+        right: -40px; */
+        /* scale: 0.65; */
         padding: 0;
+    }
+    .tablinks {
+    font-size: 10px;
     }
 }
 </style>
@@ -371,7 +512,7 @@ color: #000000;
             <div class="col-sm-4 ph-right">
                 <!-- metric_button -->
                 <a href="track_stats_sleep.php?id=<?php echo($clientId) ?>">
-                <div class="client-card client-card-sleep " style="color:#E266A9; border: 1px solid #E266A9;">
+                <div class="client-card client-card-sleep " style="color:#E266A9; border: 1px solid rgba(125, 93, 230, 1);">
                 <img src="images/moon.svg" alt="">
                             <p style="color: #FFFFFF;">Sleep</p>
                 </div>
@@ -411,13 +552,54 @@ color: #000000;
                                                 <p class="date"><?php echo ($yearly_month->format('M Y')); ?></p>
                                                 <?php 
                                                 $yearly_month->modify("+1 Month");
-                                                if(empty($yearly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($yearly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Light Sleep</h3>
+                                                                <span>7h 30m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Deep Sleep</h3>
+                                                                <span>2h 2m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Awake</h3>
+                                                                <span>15m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
@@ -471,13 +653,54 @@ color: #000000;
                                                 <p class="date"><?php echo ($yearly_month->format('M Y')); ?></p>
                                                 <?php 
                                                 $yearly_month->modify("+1 Month");
-                                                if(empty($yearly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($yearly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Light Sleep</h3>
+                                                                <span>7h 30m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Deep Sleep</h3>
+                                                                <span>2h 2m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Awake</h3>
+                                                                <span>15m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
@@ -529,13 +752,54 @@ color: #000000;
                                                 <p class="date"><?php echo ($monthly_Month->format('d M Y')); ?></p>
                                                 <?php 
                                                 $monthly_Month->modify("+1 day");
-                                                if(empty($monthly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($monthly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Light Sleep</h3>
+                                                                <span>7h 30m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Deep Sleep</h3>
+                                                                <span>2h 2m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Awake</h3>
+                                                                <span>15m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
@@ -587,13 +851,54 @@ color: #000000;
                                                 <p class="date"><?php echo ($weekly_Day->format('d M Y')); ?></p>
                                                 <?php 
                                                 $weekly_Day->modify("+1 day");
-                                                if(empty($weekly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($weekly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Light Sleep</h3>
+                                                                <span>7h 30m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Deep Sleep</h3>
+                                                                <span>2h 2m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                        <img src="images/sleep_icon.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Awake</h3>
+                                                                <span>15m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/sleep__icon.svg" alt="">
+                                                            <p>7h 30m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 

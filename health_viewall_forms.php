@@ -33,7 +33,7 @@ body{
     font-family: 'NATS' !important;
     overflow: hidden;
  }
-  .content {
+        .content {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -118,7 +118,7 @@ padding-bottom:0.5rem;
 }
 .form-cards{
     margin-right: 30px;
-    
+
 }
 .content .created-form-container .form-card-container .form-cards {
     position: relative;
@@ -278,7 +278,7 @@ overflow-y: scroll;
     }
     .sub-con{
         margin-right: -20px;
-    }
+}
     .search-box1{
         margin-top: 120px;
         margin-left: -200px;
@@ -312,7 +312,7 @@ overflow-y: scroll;
     margin-left:20px;
   }
 }
-</style>
+        </style>
 </head>
 <body>
     <div class="content">
@@ -328,8 +328,8 @@ overflow-y: scroll;
         <div class="created-form-container">
            <p class="sub-heading">All Forms</p>
            <div class="sub-con">  
-      
-           <div class="form-card-container">
+           
+            <div class="form-card-container">
 
                 <?php
                     for ($i = 0; $i < 10; $i++) {
@@ -338,31 +338,31 @@ overflow-y: scroll;
                     <img class="vector" src="icons/form-card-vector.svg">
                     <div class="form-content">
                     <h4>Form 1 (Default)</h4>
-                    <p><span>20</span> Question</p>
+                        <p><span>20</span> Question</p>
+                    </div>
+                    <div class="options" onclick="showPopup(this)">
+                        <img src="icons/3dots.svg" alt="options" title="options">
+                    </div>
+                    <div class="option-popup">
+                        <button>Delete</button>
+                        <button>Edit</button>
+                    </div>
                 </div>
-                <div class="options" onclick="showPopup(this)">
-                    <img src="icons/3dots.svg" alt="options" title="options">
-                </div>
-                <div class="option-popup">
-                    <button>Delete</button>
-                    <button>Edit</button>
-                </div>
-            </div>
             <?php
                 }
             ?>
-        </div>
+                    </div>
             </div>
-    </div>
-    <script>
-        const optionBtn = document.querySelector(".options");
+        </div>
+        <script>
+            const optionBtn = document.querySelector(".options");
             function showPopup(e) {
             e.parentNode.children[3].classList.toggle("show");
         };
-    </script>
-    <div class="button">
+        </script>
+<div class="button">
         <a style="background-color:none" href="health_detail_form_create.php"><button class="create_btn">+</button></a>
     </div>
-</div>
+    </div>
 </body>
 </html>

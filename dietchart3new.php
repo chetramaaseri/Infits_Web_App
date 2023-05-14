@@ -133,7 +133,7 @@ body{
        display: flex;
        flex-direction: column;
        height: 90%;
-       font-family: 'Poppins';
+       
        font-style: normal;
        padding: 5px;
        /* margin-top: rem; */
@@ -155,8 +155,7 @@ body{
         position: relative;
         display:flex;
         justify-content: space-around;
-        margin-left: 3.5rem; 
-        margin-top:1.5rem;
+        margin-left: 4rem; 
         /* float: left;
         width: 50%; }
         */
@@ -165,7 +164,7 @@ body{
       .top p{
 
         margin-top: 0%;
-        font-family: 'NATS';
+        
         font-style: normal;
         font-weight: 400;
         font-size: 44px;
@@ -178,7 +177,7 @@ body{
           width: 20px;
           top: 15px;
           margin-top: 20px;
-          margin-left: 30px;
+          /* margin-left: 30px; */
          
          
      }
@@ -201,10 +200,10 @@ body{
         width: 200px !important;
         margin-left: 38rem;
         color: white;
-       font-family: 'NATS';
+      
        text-align: center;
        text-decoration: none;   
-       font-size: 20px;
+       font-size: 17px;
        font-weight:400;
        background: #9C74F5;
      }
@@ -226,9 +225,9 @@ border-radius: 10px;
         position: absolute;
         margin-left: 20px;
         margin-top: 6rem;
-        margin-left: 3.7rem;
+        margin-left: 4rem;
         
-        font-family: 'NATS';
+      
         font-style: normal;
         font-weight: 400;
         font-size: 33px;
@@ -265,16 +264,11 @@ border-radius: 10px;
     .day{
       color: black;
       /* padding: 10px; */
-    border:none;
+      border:none;
       background: none;
       margin-right:-100px;
       margin-left:-100px;
     height:39px;
-    font-family:"NATS";
-   
-font-style: normal;
-font-weight: 400;
-font-size: 26.4156px;
     }
    
     .day:active {
@@ -302,19 +296,19 @@ font-size: 26.4156px;
 }
 .btn1{
   margin-left: 70px;
-  /* padding:10px; */
-  width: 203.19px;
+  margin-bottom:10px;
+  padding:10px;
+  width: 202.19px;
   height: 48px;  
-  font-family: 'NATS';
-  font-style: normal;
-font-weight: 500;
-font-size: 25.3714px;
+
+  font-size: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
   border: 1px solid #9C74F5;
   border-radius: 10px;
   background-color:#fff;
   color:#9C74F5;
-  
-  text-align:center;
 }
 
 .btn1:focus{
@@ -330,10 +324,7 @@ font-size: 25.3714px;
   color:#fff;
 } 
 .fw-bold {
-  font-size:15px;
-  font-style:normal;
-  font-weight:400;
-  font-family:"NATS";
+  font-size:13px;
 }
   .box {
     border: 1px solid white;
@@ -374,11 +365,11 @@ font-size: 25.3714px;
   margin-left: 28px;
   margin-top: 1px;
 
-  font-family: 'NATS';
-  font-style: normal;
-  font-weight: 550;
-  font-size: 30.4156px;
-  line-height: 40px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26.4156px;
+    line-height: 40px;
   }
 
   .box h2 {
@@ -397,7 +388,7 @@ font-size: 25.3714px;
   }
 
   .left {
-    font-family: 'Poppins';
+   
     font-style: normal;
     font-weight: 500;
     font-size: 26.4156px;
@@ -409,7 +400,7 @@ font-size: 25.3714px;
 
   .right h5{
     text-align: right;
-    font-family: 'Poppins';
+  
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -478,8 +469,7 @@ font-size: 25.3714px;
     display: flex;
     align-items: center;
     color: #000000;
-    font-family: 'NATS';
-    font-style: normal;
+   font-style: normal;
     font-weight: 400;
     font-size: 25px;
     line-height: 53px;
@@ -503,7 +493,7 @@ font-size: 25.3714px;
 
   .up-right span {
 
-    font-family: 'NATS';
+   
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
@@ -564,8 +554,8 @@ font-size: 25.3714px;
         margin-right:5rem;      
      }
      .down{
-      margin-top: 42px;
-      margin-left: 37px;
+      margin-top: 35px;
+      margin-left: 39px;
     }
     .button-container{
       display: flex;
@@ -674,10 +664,7 @@ font-size: 25.3714px;
         height: 25px;
         margin-right:20px;
       }
-      .down{
-      margin-top:20px;
-      margin-left: 23px;
-    }
+   
     .button-container{
       display: flex;
       flex-direction: row;
@@ -717,11 +704,7 @@ font-size: 25.3714px;
     .top{
     margin-top:-60px;
    }
-   .content{
-    height:90%;
-    width:90%;
-    
-   }
+   
    .demo{
     flex-direction:column;
    }
@@ -765,13 +748,9 @@ font-size: 25.3714px;
         height: 25px;
         margin-right:20px;
       }
-      .down{
-      margin-top:13px;
-      margin-left: 37px;
-    }
+  
     .day-band{  
-      margin-left:1rem;
-      gap:8rem;
+      margin-left:-3rem;
       }
       
     .button-container{
@@ -805,20 +784,39 @@ font-size: 25.3714px;
 }
     
   }
-  @media screen and (min-width: 420px) and (max-width: 564px) {
-.main{
-  flex-wrap:wrap !important;
+  @media screen and (min-width: 420px) and (max-width: 540px){
+  .top{
+    margin-top:-60px;
+   }
+  .top-right .btn{
+    position:relative;
+    margin-top:-2px;
+    margin-left:-25rem;
+  }
+  .top img {
+          height:20px;
+          width: 20px;
+          margin-top: -43px;
+          margin-left: 20px;
+     } 
+     .top-right{
+          display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top:100px;
+         width: 50%; 
+      }
+  .top p{
+       width:195px;
+        margin-top:-60px;
+        font-size: 34px;
+        margin-left: auto;
+    }
+    .top-right img{
+      margin-right:217px;
+    }
 }
-.top-right .btn{
-  margin-top:42px;
-  margin-left:50px;
-  padding:0px 35px;
-}
-.top-right img{
-  margin-top:39px;
-  margin-left:30px;
-}
-}
+
   @media screen and (min-width: 0px) and (max-width: 420px) {
   .day{
     margin-right:0px;
@@ -837,13 +835,13 @@ font-size: 25.3714px;
     margin-top:20px !important;
    }
   .content{
-       /* overflow: hidden; */
+       overflow: hidden;
        display: flex;
        flex-direction: column;
        height: 90%;
-       width: 90%;
+       width: 100%;
        left: 30px;
-       font-family: 'Poppins';
+     
        font-style: normal;
        padding: 5px;
        /* margin-top: rem; */
@@ -885,9 +883,9 @@ font-size: 25.3714px;
         height: 25px;
         margin-right:20px;
       }
-      .down{
+    .down{
       margin-top: 13px;
-      left:41px;
+      left:42px;
       margin-left: auto;
     }
     .day-band{  
@@ -913,10 +911,10 @@ font-size: 25.3714px;
       font-size: 17px;      
     }    
 .box{
-    width:auto;
+    width: 390px;
     height:auto;
     margin-left: -5px;
-  
+    margin-right: 80px;
     top: 200px;
     overflow:scroll;
    }
@@ -946,8 +944,8 @@ font-size: 25.3714px;
   
 <?php $client_id = 2 ?>
     <div class="main">
-    <div class="top" style="flex-wrap:no-wrap !important;">
-    <p ><input required type="text" placeholder="New Diet Chart" class="plan_name" name="plan_name" style="border:none; width:fit-content;color:#202224;outline:none;width:285px;height:46px;font-family:'NATS';'"
+    <div class="top" style="flex-wrap:no-wrap !important;margin-top:0.5rem;margin-left:3rem !important">
+        <p ><input required type="text" placeholder="New Diet Chart" class="plan_name" name="plan_name" style="border:none; width:fit-content;color:#202224;outline:none;width:285px;height:46px;font-size:40px"
                         value="New Diet Chart"></p>
         <img src="images/Vector (1) (1).png" style="color:#7282FB;cursor:pointer;">
      </div>
@@ -956,9 +954,10 @@ font-size: 25.3714px;
            <img id="myimg" src="images/Vector (2) (1).png">
            
     </div>
+    <div class="down">Ronald Richard</div>
+   
      </div>
      <br/>
-   <div class="down">Ronald Richard</div>
    
    <br/>
 <div class="day-band">
@@ -1002,7 +1001,7 @@ font-size: 25.3714px;
                   <img src="images/7306600-removebg-preview 2.png"
                     style="width: 20.73px;height: 24px;">
                   <h5
-                    style="text-align : right ; font-size:20px ; font-weight: 400; width:191px; margin-right:50px; font-family:'NATS';">
+                    style="text-align : right ; font-size:15px ; font-weight: 400; width:191px; margin-right:50px;">
                     200 Kcal </h5>
                 </div>
 
@@ -1026,7 +1025,7 @@ font-size: 25.3714px;
                   <img src="images/7306600-removebg-preview 2.png"
                     style="width: 20.73px,height: 24px,left: 804px,top: 220px;">
                   <h5
-                    style="text-align : right ;  font-size: 20px ; font-weight: 400;margin-right:25px;font-family:'NATS' ">
+                    style="text-align : right ;  font-size: 15px ; font-weight: 400;margin-right:25px; ">
                     200 Kcal </h5>
                 </div>
               </div>

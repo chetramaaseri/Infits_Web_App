@@ -118,7 +118,8 @@ $res = mysqli_query($conn, $sql);
         position: inherit;
         justify-content: flex-end;
         display: flex;
-        margin: 0px 21px 0px -60px;
+        padding-bottom:100px;
+        /* margin:0px 21px 40px -60px !important; */
        
     }
     @media screen and (min-width:920px) and (max-width:1500px){
@@ -232,9 +233,7 @@ $res = mysqli_query($conn, $sql);
         
     </div>
 
-    <div class="recipe-add-btn" style="padding-right:100px">
-        <img src="./images/recipe_add.png" alt="">
-    </div>
+    <button class="but" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:40px;border:none; text-align:center; right:50px;position:fixed;bottom:40px;">+</button>
 
 </body>
 

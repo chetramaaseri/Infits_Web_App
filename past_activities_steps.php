@@ -422,18 +422,41 @@ color: #000000;
         flex-wrap:wrap;
     }
     .tab button {
+    background: #FFFFFF;
+    border: 1px solid #FCFBFB;
+    border-radius: 0px;
     width: 25%;
+/*height: 24px;*/
+height: 100%;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* padding: 14px 16px; */
+  transition: 0.3s;
+  font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 27px;
+
+color: #4D4D4D;
+}
+#daterange-btn{
+    position: absolute;
+    top: 5px;
+    left: 75px;
 }
     .graph_button_left{
         width:25% !important;
     }
     /* anothr */
     .past-header{
-        position:relative;
+        /* position:relative; */
     }
     .ph-right{
-        position:absolute;
-        top: -45px;
+        /* position:absolute;
+        top: -45px; */
         right: 5px;
         scale: 0.9;
         padding: 0;
@@ -456,14 +479,19 @@ color: #000000;
 }
 @media (max-width:330px){
     .past-header{
-        position:relative;
+        /* position:relative; */
+        display: flex;
+        flex-direction: column;
     }
     .ph-right{
-        position:absolute;
+        /* position:absolute;
         top: -59px;
-        right: -40px;
-        scale: 0.65;
+        right: -40px; */
+        /* scale: 0.65; */
         padding: 0;
+    }
+    .tablinks {
+    font-size: 10px;
     }
 }
 </style>
@@ -604,13 +632,80 @@ color: #000000;
                                                 <p class="date"><?php echo ($yearly_month->format('M Y')); ?></p>
                                                 <?php 
                                                 $yearly_month->modify("+1 Month");
-                                                if(empty($yearly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($yearly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 
@@ -662,13 +757,80 @@ color: #000000;
                                                 <p class="date"><?php echo ($monthly_Month->format('d M Y')); ?></p>
                                                 <?php 
                                                 $monthly_Month->modify("+1 day");
-                                                if(empty($monthly_Data)){
-                                                    echo ("<p> NO DATA FOUND </p>");
-                                                    echo ('</div>');
-                                                    // echo('<br>');
-                                                    continue;
-                                                }
+                                                // if(empty($monthly_Data)){
+                                                //     echo ("<p> NO DATA FOUND </p>");
+                                                //     echo ('</div>');
+                                                //     // echo('<br>');
+                                                //     continue;
+                                                // }
                                                 ?>
+                                                <div class="row">
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 activity-content">
+                                                        <div class="activity-left">
+                                                            <img src="images/running.svg" alt="">
+                                                            <div class="activity-details">
+                                                                <h3>Running</h3>
+                                                                <span>11:10 a.m</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-right">
+                                                            <img src="images/steps.svg" alt="">
+                                                            <p>9070 m</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="flex-box">
                                                 <?php  
                                                 while($i<$count){ 

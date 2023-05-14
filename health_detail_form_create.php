@@ -25,7 +25,6 @@
   font-family: "NATS" !important;
 
 }
-
 .content {
   display: flex;
   align-items: center;
@@ -45,24 +44,6 @@
   font-weight: 400;
   margin-top:10px;
   margin-left: -20px;
-}
-.form-title{
-  margin-top: 5px;
-  width: 60%;
-  padding: 0px 20px;
-  margin-left: 2px;
-}
-.form-title input{
-  height:34px;
-  width:100%;
-  margin-left:10px;
-  font-size: 25px;
-  font-weight: 100;
-  color:#BDBDBD;
-  font-family: 'NATS';
-  font-style: normal;
-  border: none;
-line-height: 111.34%;
 }
 .content .heading-box button#save {
   background-color: #6883fb;
@@ -94,8 +75,8 @@ line-height: 111.34%;
   padding: 10px 30px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  width:82%;
-  margin-left:-11.6rem;
+  width:85%;
+  margin-left:-10rem;
 }
 .form-values-box .options{
   margin-left: 380px;
@@ -114,10 +95,25 @@ line-height: 111.34%;
   flex-direction: column;
   align-items: flex-start;
 }
+.form-title input{
+  height:35px;
+  width:100%;
+  margin-left:10px;
+  font-size: 25px;
+  font-weight: 100;
+  color:#BDBDBD;
+  font-family: 'NATS';
+  font-style: normal;
+  border: none;
+line-height: 111.34%;
+}
+
 .flex-container .form-container .form-title {
-  width: 75%;
+  width: 79%;
+  margin-top: 5px;
   display: flex;
   align-items: center;
+  margin-left:10px;
   padding: 10px 20px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   border-radius: 13px;
@@ -135,11 +131,10 @@ line-height: 111.34%;
   width: 100%;
   margin-top: 40px;
   display: flex;
+  margin-left: auto;
   flex-direction: column;
   gap: 30px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  max-height: 380px;
+  max-height: 500px;
 }
 .content {
   display: flex;
@@ -478,6 +473,7 @@ line-height: 111.34%;
 }
 .content .flex-container .share-box h3 {
   font-size: 1.8rem;
+  margin-top: 10px;
 }
 /*   */
 .content .flex-container .share-box {
@@ -527,6 +523,8 @@ line-height: 111.34%;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 15px;
+  font-size: 20px;
+  margin-left: 22px;
 }
 .content .flex-container .share-box #selectedUser-box .selectedUser p.userName {
   margin: 0;
@@ -542,16 +540,38 @@ line-height: 111.34%;
 .content .flex-container .share-box ul#usersList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   height: 300px;
   width: 100%;
   margin-top: 20px;
-  overflow-y: auto;
+  overflow-y: scroll;
+}
+#usersList::-webkit-scrollbar{
+    width:10px; 
+}
+#usersList::-webkit-scrollar-thumb{
+  background: #888;
+}
+#usersList::-webkit-scrollbar-track {
+  background: #F3F3F3; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+#usersList::-webkit-scrollbar-thumb:hover {
+  background:  #E3E3E3;
+  border-radius: 20px; 
+}
+#checkBox{
+width:20px;
+height:20px;
+border: 2px solid #7282FB;
+
 }
 .content .flex-container .share-box ul#usersList li {
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size:26px;
   position: relative;
 }
 .content .flex-container .share-box ul#usersList li input.checkBox {
@@ -586,7 +606,56 @@ line-height: 111.34%;
   margin: 0 0 0 30px;
   cursor: pointer;
 }/*# sourceMappingURL=health_detail_form_create.css.map */
-    </style>
+
+@media screen and (max-width:1200px){
+  .content{
+    overflow-x: hidden;
+  }
+  .flex-container{
+    display: flex;
+    gap:30px;
+    flex-direction: column;
+  }
+  .form-values-box{
+    width:82%;
+  }
+  .form-question-container{
+    width: auto;
+    margin-left: 5%;
+    margin-right: -6%;
+  }
+  .form-value{
+    width:100rem;
+  }
+  #addQuestion{
+    margin-left: 9%;
+  }
+  .form-values-box .options{
+  margin-left: auto;
+  gap:20px;
+
+}
+
+.share-box{
+  margin-left:10%;
+  }
+}
+@media screen and (max-width:450px){
+
+.flex-container{
+  overflow: scroll;
+  padding: 20px;
+  }
+.form-values-box{
+  width:300px;
+  margin-left: 40px;
+}
+  .share-box{
+margin-left: -10px;
+width: 10%;
+}
+}    
+</style>
 
 </head>
 
@@ -703,12 +772,12 @@ line-height: 111.34%;
                     <!-- Don't Add Elements here Elements are Added With JavaScript -->
 
 
-                    <!-- <div class="selectedUser">
+                    <div class="selectedUser">
                         <p class="userName">Client 1</p>
                         <img src="icons/CrossX.svg" alt="Remove" title="Remove">
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="selectedUser">
+                    <div class="selectedUser">
                         <p class="userName">Client 2</p>
                         <img src="icons/CrossX.svg" alt="Remove" title="Remove">
                     </div>
@@ -721,7 +790,7 @@ line-height: 111.34%;
                     <div class="selectedUser">
                         <p class="userName">Client 4</p>
                         <img src="icons/CrossX.svg" alt="Remove" title="Remove">
-                    </div> -->
+                    </div>
 
                 </div>
 
@@ -729,17 +798,25 @@ line-height: 111.34%;
 
                     <!-- Don't Add Elements here Elements are Added With JavaScript -->
 
-
-                    <!-- <li>
+                    <li>
                         <input type="checkbox" name="checkBox" id="checkBox">
                         <label for="checkBox" class="userName">Client 1</label>
                     </li>
-
                     <li>
                         <input type="checkbox" name="checkBox" id="checkBox">
                         <label for="checkBox" class="userName">Client 2</label>
-                    </li> -->
-
+                    </li>
+                    <li>
+                        <input type="checkbox" name="checkBox" id="checkBox">
+                        <label for="checkBox" class="userName">Client 3</label>
+                    </li> <li>
+                        <input type="checkbox" name="checkBox" id="checkBox">
+                        <label for="checkBox" class="userName">Client 4</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="checkBox" id="checkBox">
+                        <label for="checkBox" class="userName">Client 5</label>
+                    </li>
                 </ul>
             </div>
         </div>

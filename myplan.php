@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+
 if(isset($_SESSION['dietitianuserID'])){
     $conn = new mysqli("localhost", "root", "", "infits");
     if($conn->connect_error){
@@ -161,7 +161,7 @@ if(isset($_SESSION['dietitianuserID'])){
 
     a:hover {
         cursor: pointer;
-            background-color: yellow;
+            background-color: none;
     }
 
     .box input {
@@ -283,6 +283,7 @@ if(isset($_SESSION['dietitianuserID'])){
 
 <body>
     <?php
+    error_reporting(0);
 include "navbar.php";
 ?>
 
@@ -374,21 +375,6 @@ if(isset($_POST['search-btn']))
 
                                 </div>
                             </div>
-                            <!-- <div class="card-upper-options">
-                                <div class="">
-                                    <div style="">
-                                        <a href="update_plan.php?id=<?php echo $row1['plan_id'] ?>"
-                                            title="Update Record" style="color#7282FB" data-toggle="tooltip"><span
-                                                class="fa fa-pencil"></span></a>
-                                    </div>
-                                    <div style="">
-                                        <a onclick="return confirm('Are you sure?')"
-                                            href="delete_plan.php?id=<?php echo $row1['plan_id'] ?>"
-                                            title="Delete Record" style="color:#7282FB" data-toggle="tooltip"><span
-                                                class="fa fa-trash "></span></a>
-                                </div>
-                            </div>
-                            </div> -->
                         </div>
                         <div class="card-middle row" style="color:#919191 !important">
                             <?php echo $row1['description']?>
@@ -442,13 +428,13 @@ else{
                                             <a href="update_plan.php?id=<?php echo $row['plan_id'] ?>"
                                                 title="Update Record"
                                                 style="color:#7282FB;height: 30px;border-radius: 8px;"
-                                                data-toggle="tooltip"><img src="./images/edit-icon.png" alt="">
+                                                data-toggle="tooltip"><img src="./images/edit-icon.svg" alt="">
                                             </a>
                                             <a onclick="return confirm('Are you sure?')"
                                                 href="delete_plan.php?id=<?php echo $row['plan_id'] ?>"
                                                 title="Delete Record"
                                                 style="color:#FF3D3D;height: 30px;border-radius: 8px;margin-top:10rem"
-                                                data-toggle="tooltip"><img src="./images/delete-icon.png" alt="">
+                                                data-toggle="tooltip"><img src="./images/delete-icon.svg" alt="">
                                             </a>
                                         </span>
                                     </div>
@@ -548,8 +534,6 @@ else{
 }
                         ?>
 
-                    <div>
-                    </div>
                 </div>
             </div>
 

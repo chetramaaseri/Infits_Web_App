@@ -643,7 +643,7 @@ color: #9C74F5;
     .tsd-right .heading span{
         font-size: 16px;
         line-height: 33.81px;
-        color: #C986CF;
+        color: #9C74F5;
 font-weight: 400;
     }
 .progress-bar-container{

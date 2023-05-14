@@ -20,8 +20,10 @@
     /* margin-bottom: 1rem;  */
 }
 #details{
+    font-family: 'Poppins';
     color: #717171;
     border: none;
+    font-size:17px;
     background-color: white;
 
 }
@@ -30,6 +32,7 @@
     border: none;
     margin-right: 4rem;
     font-size: 20px;
+    padding-top: 11px;
 }
 .dashboard_container3 {
     display: flex;
@@ -56,6 +59,7 @@
 }
 .dashboard_container4{
     margin-left: 0.4rem;
+    margin-top:-28px;
 }
 .symbols-container{
     display: flex;
@@ -129,7 +133,7 @@
     border:none;
     font-size:20px;
     margin-top:0.6rem;
-    margin-right:4rem;
+    padding-top: 4px;
 }
 .dashboard_container7{
     display:flex;
@@ -179,8 +183,9 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    margin-top:4rem;
+    margin-top:6rem;
 }
+
 @media screen and (max-width: 720px) {
     .dashboard_comtainer1{
         display: flex;
@@ -197,6 +202,7 @@
     .dashboard_container8{
         width:80%;
         margin-bottom:3rem;
+        margin-left: 9%;
     }
     .dashboard_container7{
         margin:auto;
@@ -225,11 +231,19 @@
         margin-top:-30px;
     }
     .dashboard_container12{
-        width:100% !important;
+        width:100% ;
         flex-wrap:wrap;
     }
 }
+@media screen and (min-width:920px) {
+    .left ,.right{
+    width:50%;
+}
+}
 @media screen and (max-width: 920px) {
+    .dashboard_container10{
+        flex-direction: column !important;
+    }
     .dashboard_container4{
         display: none;
     }
@@ -238,17 +252,20 @@
         flex-direction: column;
         
     }
+    .task{
+        width:90%:
+    }
     .details{
         margin-left:0px;
     } 
-    .dashboard_container12{
-        width:100% !important;
-        flex-wrap:wrap;
+    .left ,.right{
+     width:90% !important:
     }
 }
 </style>
 <body>
     <?php
+    error_reporting(0);
     include 'navbar.php';
     ?>
 
@@ -279,7 +296,7 @@
             <div style="width: 35%;" class="plus">
                 <div><a href=""><button id="btn1" class="btn-add">+</button></a></div>
             </div>
-            <div class="symbols-container col-8">
+            <div class="symbols-container">
                 <div class="symbols col-2"><img src="images/Frame.png" style="width:1.8rem"><span>Steps</span></div>
                 <div class="symbols col-2"><img src="images/Frame-1.png" style="width:1.8rem"><span>Heart Rate</span></div>
                 <div class="symbols col-2"><img src="images/Frame-2.png" style="width:1.8rem"><span>Water</span></div>
@@ -331,7 +348,7 @@
         </div>
     </div> -->
     <div class="dashboard_container10" style="display:flex;flex-direction:row; justify-content:space-between; width:100%;">
-    <div class="dashboard_container12" style="display:flex;flex-direction:column; margin-top: 0.5rem; width:40%;">
+    <div class="dashboard_container12 left" style="display:flex;flex-direction:column; margin-top: 0.5rem; ">
         <div class="task">
             <p style="font-weight:600;font-size:2rem;">My Tasks List</p>
             <div class="view"><a href="#"><button id="details">View All</button></a></div>
@@ -343,19 +360,19 @@
             </div>
             <div class="dashboard_container9">
                 <div style="font-size:24px;font-weight:500;color:#434343;">No task created for today!</div>
-                <a href="task_list.php"><button id="today">Create task</button>
+                <a href="task_list.php"><button id="today" style="margin-top: 18px;">Create task</button>
             </div>
         </div>
     </div>
-    <div class="dashboard_container12" style="display:flex;flex-direction:column; margin-top: 0.5rem; width:40%;">
+    <div class="dashboard_container12 right" style="display:flex;flex-direction:column; margin-top: 0.5rem; ">
         <div class="message" >
             <p style="font-weight:600;font-size:2rem; color:black;">Messages</p>
-            <div class="view"><a href="#"><button id="details">View All</button></a></div>
+            <div ><a href="#"><button id="details" style="margin-top: 10px;">View All</button></a></div>
         </div>
         <div class="dashboard_container8">
             <div class="dashboard_container11">
                 <div style="font-size:24px;font-weight:500;color:#434343;">No message yet!</div>
-                <a href="chat_home.php"><button id="today">Start a chat</button>
+                <a href="chat_home.php"><button id="today" style="margin-top: 18px;">Start a chat</button>
             </div>
         </div>
     </div>

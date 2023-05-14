@@ -105,6 +105,7 @@ $res = mysqli_query($conn, $sql);
         display: flex;
         margin: 0px -60px 0px -60px;
         margin-bottom: 200px;
+        
     }
     </style>
 </head>

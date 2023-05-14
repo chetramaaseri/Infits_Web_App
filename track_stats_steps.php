@@ -234,7 +234,7 @@ justify-content: center;
     display: flex;
     flex-direction: column;
     /* padding: 20px; */
-    padding-left: 56px;
+    /* padding-left: 56px; */
     gap: 20px;
 }
 /* Style the buttons that are used to open the tab content */

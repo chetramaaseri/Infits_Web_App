@@ -188,7 +188,7 @@ font-weight: 400;
 font-size: 30px;
 margin-left: -5px;
 margin-top: -30px;
-    }
+}
 .sub-con{
     padding:10px;
   height: 610px; 
@@ -211,7 +211,7 @@ margin-top: -30px;
 .sub-con::-webkit-scrollbar-thumb:hover {
   background:  #E3E3E3;
   border-radius: 20px; 
-}
+    }
 
 img.vector{
     border-bottom-right-radius:15px;

@@ -7,7 +7,7 @@ include("navbar.php");
 // }else{
 //   header('Location: client_list.php');
 //}
-?>  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +94,7 @@ line-height: 100%;
 }
 .card {
     background: #FFFFFF;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);   
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     bottom:20px;
     padding:15px;
     width:300px; 
@@ -283,7 +283,7 @@ margin-bottom: 10px;
 .card{
   display: flex;
   }
-} 
+}
 @media screen and (min-width:0px) and (max-width:720px) {
  
 .main-content{
@@ -327,7 +327,7 @@ margin-bottom: 10px;
     width:auto;
    margin-left: -1rem;
    
-  }
+}
 }
 </style>
 </head>

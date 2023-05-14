@@ -17,7 +17,8 @@
 
         font-style: normal;
         padding: 20px;
-        margin: 0px;
+        margin-top:20px;
+        left: 20px  ;
         overflow: clip;
     }
 
@@ -75,7 +76,9 @@
           height: auto;
           padding: 10px;
         }
-
+        .img1{
+          height:12rem;
+        }
         .main {
           float: none;
           margin-left: 0;
@@ -99,13 +102,13 @@
 
     <div id="content">
       <!------------------------------------------------DASHBOARD--------------------------------------------------------->
-        <h1 style="font-size: 32px; color: #202224; font-weight: 600;">Help</h1>
+        <h1 style="font-size: 40px; color:#202224; margin-left:20px; font-weight: 500;">Help</h1>
 
       <!-----------------------------------------------EVENTS--------------------------------------------------------->
       <center>
       <div class="main">
       <div class="center-flex">
-      <img src="images/help.png" height="248rem">
+      <img src="images/help.png" class="img1" height="248rem">
     </div>  
 
     <a href="FAQ.php" style="text-decoration: none;">

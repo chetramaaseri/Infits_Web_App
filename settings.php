@@ -38,13 +38,13 @@ body {
     height:100%;
         font-family: 'NATS', sans-serif !important;
         margin-bottom:2rem !important;
+        
 }
 
 .nav {
     height: 0px;
     background-color: black;
 }
-
 
 /* new */
 .container {
@@ -97,9 +97,6 @@ body {
     box-shadow: 0px 4px 8px 0px #00000040;
     /* border: none; */
     border-radius: 20px;
-
-   
-
 }
 
 .box {
@@ -126,23 +123,24 @@ body {
     height: 80px;
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 .text-center {
     display: flex;
     justify-content: center;
 }
-
 .logout {
     position: relative;
+    /* position:absolute; */
+
     background-color: #ff0000;
     color: #fff;
     padding: 13px 45px;
     font-size: 1.2rem;
     border: none;
     border-radius: 10px;
-    right: 0;
+    margin-left:80%;
 }
 
 .img-1 {
@@ -259,7 +257,7 @@ body {
 border-radius: 1.2rem;
 
 }
-.logout{
+/* .logout{
 width: 178px;
 height: 52px;
 position:absolute;
@@ -268,7 +266,7 @@ margin-top:1rem;
 margin-bottom:1rem !important;
 background: #FF0000;
 border-radius: 10px;
-}
+} */
 .mobview{
     display:none;
 }
@@ -293,6 +291,7 @@ border-radius: 18px;
 @media screen and (max-width: 720px) {
     .webview{
         display:none;
+
     }
     .mob_wrapper1{
     
@@ -386,16 +385,16 @@ height: auto !important;
               </a>
         </ul>
 
-        <!-- <div class="logout-button-box">
-            <button class="logout">Logout</button>
-        </div> -->
+        
     </div>
     <div>
         <form action="logout.php">
             <button tupe="submit" class="logout">Logout</button>
         </form>
     </div>
+   
     </div>
+
 <!--------------------------------------------------MOBVIEW------------------------------>
 
     <div class="mobview">
