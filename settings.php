@@ -37,14 +37,14 @@ $name =  explode(" ", $row['dietitianuserID'] );
 body {
     height:100%;
         font-family: 'NATS', sans-serif !important;
-        margin-bottom:2rem !important;
-        
+         /* margin-bottom:2rem !important; */
 }
 
 .nav {
     height: 0px;
     background-color: black;
 }
+
 
 /* new */
 .container {
@@ -67,6 +67,7 @@ body {
 .grid {
     margin: 0 0 0 0;
     padding: 0;
+    
     list-style: none;
     display: flex;
     text-align: center;
@@ -118,29 +119,23 @@ body {
     transform: scale(1.10);
     background-color:none;
 }
-
-.logout-button-box {
-    height: 80px;
-    display: flex;
-    align-items: flex-end;
-    /* justify-content: flex-end; */
-}
-
 .text-center {
     display: flex;
     justify-content: center;
 }
-.logout {
-    position: relative;
-    /* position:absolute; */
 
+.log{
+    position: relative;
     background-color: #ff0000;
     color: #fff;
-    padding: 13px 45px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     border: none;
     border-radius: 10px;
-    margin-left:80%;
+    padding:13px 10px;
+    width:180px;
+     margin-bottom: 30px;
+    /* margin-left:80rem;   */
+    float: right;  
 }
 
 .img-1 {
@@ -229,16 +224,6 @@ body {
     text-align: center;
 }
 
-/* .info h3 {
-    font-family: 'Pacifico', cursive; 
-    font-weight: 400;
-	color: black;
-	font-size: 42px;
-	margin: 0 30px;
-	padding: 100px 0 0 0;
-	line-height:1.5; 
-} */
-
 .info p {
     color: rgb(9, 9, 9);
     font-family: 'Pacifico', cursive; 
@@ -257,19 +242,10 @@ body {
 border-radius: 1.2rem;
 
 }
-/* .logout{
-width: 178px;
-height: 52px;
-position:absolute;
-margin-right:3%;
-margin-top:1rem;
-margin-bottom:1rem !important;
-background: #FF0000;
-border-radius: 10px;
-} */
 .mobview{
     display:none;
 }
+
 .mob_wrapper1{
     margin:10px;
     margin-left:20px;
@@ -282,33 +258,37 @@ height: 52px;
 background: #F3F5F8;
 border-radius: 18px;
 }
-@media screen and (max-width: 988px) {
+
+@media screen and (max-width: 1200px) {
     ul{
         margin-left: 0rem ;
 }
-
+.log{
+  margin-left: 300px;
+   float: left;
+}
 }
 @media screen and (max-width: 720px) {
     .webview{
         display:none;
-
     }
     .mob_wrapper1{
-    
-    margin:0.5rem;
+     margin:0.5rem;
     display: flex;
-    
-
      width: auto !important;
 height: auto !important;
-
-
-
+}
+.log{
+    transform: translate(-50%, -50%); 
+    margin-left:50%;
+    margin-top: 10%;
+    float: center;
 }
     .mobview{
         display:flex;
         flex-direction:column;
     }
+    
 }
 </style>
 
@@ -387,9 +367,9 @@ height: auto !important;
 
         
     </div>
-    <div>
+    <div class="btn">
         <form action="logout.php">
-            <button tupe="submit" class="logout">Logout</button>
+         <button type="submit" class="log">Logout</button>
         </form>
     </div>
    
@@ -429,11 +409,13 @@ height: auto !important;
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral Code</p>     
         </div>
         <div>
+        
+    </div>
+        <div class="btn">
         <form action="logout.php">
-            <button tupe="submit" class="logout">Logout</button>
+            <button type="submit" class="log">Logout</button>
         </form>
     </div>
-        
     </div>
 
 </body>

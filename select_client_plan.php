@@ -23,10 +23,10 @@ include "navbar.php";
         width: 0.5rem;
     }
     html::-webkit-scrollbar-track {
-        background-color: rgb(190,200,290);
+        background-color: rgb(230,230,290);
     }
     html::-webkit-scrollbar-thumb {
-        background: #7282FB;
+        background: rgb(230,230,230);
         border-radius: 5rem;
     }
     /* Media query for screens smaller than 576px */
@@ -66,7 +66,7 @@ include "navbar.php";
   }
 }
 
-@media (min-width: 390px) and (max-width: 601px){
+@media (min-width: 300px) and (max-width: 601px){
     .row{
         max-width: 640px !important;
     }
@@ -84,11 +84,17 @@ include "navbar.php";
         width:110% !important;
     }
 }
-@media (min-width:200px) and (max-width:380.99px){
+@media (min-width:360px) and (max-width:380.99px){
     .card{
     width: 90% !important;
     }
 }
+@media (min-width:311px) and (max-width:359.99px){
+    .card{
+    width: 78% !important;
+    }
+}
+
 /* Media query for screens larger than 1200px */
 @media (min-width: 1200px) {
   .cards {
@@ -97,21 +103,9 @@ include "navbar.php";
   }
 }
 
-    /* @media (min-width:20px) {
-        html::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-    html::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    html::-webkit-scrollbar-thumb {
-        background: #9C74F5;
-        border-radius: 5rem;
-    }
-    } */
 
     body {
-        font-family: 'NATS', sans-serif !important;
+        font-family: 'NATS'!important;
         font-style:normal;
         overflow-x:hidden;
     }
@@ -214,6 +208,8 @@ include "navbar.php";
         float: right;
         /* padding: 2px; */
         border-radius: 5px;
+        width: 300px !important;
+        
     }
 
     a:hover {
@@ -336,7 +332,7 @@ include "navbar.php";
     .col-6{
         max-width:100%;
         flex:50 50 50%;
-        margin-left:10%;
+        margin-left:0%;
     }
     </style>
     <script>
@@ -401,7 +397,7 @@ if(isset($_POST['search-btn']))
                                         style="margin-top:5px;margin-bottom:5px; font-size:20px;font-weight:bold;">
                                         <?php echo $row1['name']?></div>
                                     <div class="w-100"></div>
-                                    <div class="col-5" style="margin-top:5px;margin-bottom:5px; "><span
+                                    <div class="col-5" style="margin-top:5px;margin-bottom:5px; "><span>
                                             style="font-weight:bold">Rs.<?php echo $row1['price'] ?></span>/months
                                     </div>
                                     <div class="col-7"

@@ -627,23 +627,25 @@ line-height: 111.34%;
 @media screen and (max-width:450px){
 
 .form-question-container{
-  overflow: scroll;
-  padding: 20px;
-  /* width:20px; */
-  margin-left: 50px;
- margin-right: 50px;
-  }
- 
+ margin-left: 20px;
+ }
 .form-values-box{
-  width:280px;
-  margin-left: 120px;
-  /* padding: 20px; */
-  margin-right: 30px;
+  width:250px;
+  margin-left: 20px;
+  margin-right: 10px;
 }
 #addQuestion{
-  margin-left: 50px;
+  margin-left: 65px;
 }
 } 
+@media screen and (max-width:400px){
+  .heading-box h1{
+    margin-top: 30px !important;
+  }
+  .form-values-box{
+   margin-left: 60px;
+ }
+}
     </style>
 
 </head>

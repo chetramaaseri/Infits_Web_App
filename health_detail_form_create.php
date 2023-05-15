@@ -628,33 +628,51 @@ border: 2px solid #7282FB;
     width:100rem;
   }
   #addQuestion{
-    margin-left: 9%;
+    margin-left: 7%;
   }
   .form-values-box .options{
   margin-left: auto;
   gap:20px;
 
 }
-
 .share-box{
   margin-left:10%;
   }
 }
 @media screen and (max-width:450px){
-
 .flex-container{
-  overflow: scroll;
   padding: 20px;
+  margin-left: -80px;
   }
 .form-values-box{
-  width:300px;
-  margin-left: 40px;
+  width:280px;
+  margin-left: 15px;
 }
   .share-box{
-margin-left: -10px;
+margin-left: 20px;
 width: 10%;
 }
-}    
+} 
+@media screen and (max-width:400px){
+.share-box{
+  /* overflow: scroll; */
+  margin-right: 10px;
+}
+.flex-container{
+  overflow: scroll;
+  margin-right: -70px;
+  
+}
+#addQuestion{
+  margin-left:-10px;
+  /* overflow: scroll; */
+}
+.form-values-box{
+  margin-left: 60px;
+  overflow: scroll;
+}
+}
+
 </style>
 
 </head>

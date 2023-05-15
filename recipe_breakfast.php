@@ -45,7 +45,7 @@ body {
 
 .header {
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;
     margin: 10px;
     
     margin-left: 20px;
@@ -95,8 +95,8 @@ body {
     width:300px; 
     height:250px;
     border-radius:16px; 
-    margin-left:50px;
-    margin-right:-5px;
+    /* margin-left:50px !important;
+    margin-right:-5px; */
     margin-top:30px;
 }
 
@@ -118,6 +118,7 @@ body {
     margin-top: -20px;
     width:200px;
     margin-bottom: 5px;
+    margin-top:-10px;
 }
 
 .card-calorie {
@@ -398,14 +399,17 @@ body {
 
 @media screen and (min-width: 720px) and (max-width:1500px) {
 .heading{
-    margin-left: 30px;
-    margin-top: 9px;
+    justify-content:flex-start !important;
 }
+.header{
+    flex-direction:column !important;
+}
+
 .header h4{
     margin-top:39px;
 }
 .searchbox{
-    margin-left:-250px;
+    margin-left:50px !important;
     margin-top: 10px;
     width: 350px;
     margin-bottom: 20px;
@@ -418,10 +422,13 @@ body {
 .container1{
     left:30px;
 }
-
+ .row{
+    margin:0px auto !important;
+} 
 .card {
-    bottom:20px;
-    margin-left:30px;
+    margin:10px auto !important;
+    /* bott om:20px;
+    margin-left:30px; */
 }
 .card-food {
     font-size: 23px;
@@ -429,6 +436,7 @@ body {
     line-height: 20px;
     min-width: 180px;
     margin-bottom: 5px;
+    margin-top:-10px;
 }
 .card-calorie {
     margin-top: 5px;
@@ -451,20 +459,16 @@ body {
     font-size: 40px;
 }
 }
-@media screen and (min-width:720px) and (max-width:950px){
-    .heading{
-    margin-left: 30px;
-    margin-top: 9px;
+@media screen and (min-width:720px) and (max-width:975px){
+    .row{
+    margin: 0px auto !important;
 }
-.searchbox{
-    margin-left:-250px;
-    margin-top: 70px;
-    width: 350px;
-    margin-bottom: 20px;
+.card{
+    margin: 10px  auto !important;
 }
 }
 
-@media screen and (min-width:650px) and (max-width:710px){
+/* @media screen and (min-width:650px) and (max-width:710px){
     .butt{
     background: #9C74F5;
       border: 0px;
@@ -481,8 +485,8 @@ body {
       height: 85px;
       font-size: 40px;
   }
-}
-@media screen and (min-width:0px) and (max-width:650px){
+} */
+/* @media screen and (min-width:0px) and (max-width:650px){
     .butt{
     background: #9C74F5;
       border: 0px;
@@ -498,25 +502,26 @@ body {
       height: 85px;
       font-size: 40px;
   }
-}
+} */
 @media screen and (min-width:0px) and (max-width:720px){
    
     .searchbox{
-    margin-left: -270px;
-    margin-top: -30px;
-    width: 280px;
-    margin-bottom: 20px;
+   margin-left:20px;
     }    
     .category{
         display: flex;
         flex-direction: row;
         overflow-x: auto;
-        margin-left: 50px;
+        margin:10px auto !important;
     }
-    .heading {
-        margin-left: 70px;
+    .heading{
+    justify-content:flex-start !important;
+    margin-left:-30px;
     }
-   .header h4{
+.header{
+    flex-direction:column !important;
+}
+   /* .header h4{
     margin-top: -60px;
    }
     .header h2{
@@ -524,7 +529,7 @@ body {
         margin-top: -80px;
         
         margin-left:-20px;
-       }
+       } */
     .container1{
         grid-template-columns: auto auto auto auto;
         left: -1px;
@@ -535,13 +540,16 @@ body {
         margin-left: -200px;
            }
     .middle_wrapper a {
-        margin-right: -40px;
+        
         margin-top:10px;    
     }
     .card{
-    left: 50px;
-    bottom: 10px;
+    margin:20px auto !important;
 }
+.row{
+    margin:auto !important;
+}
+
  .card-food {
     font-size: 21.5px;
     font-weight: 500;
@@ -562,7 +570,14 @@ body {
     left:-90px;
  }
  }
-
+@media screen and (min-width:300px) and (max-width:400px){
+    input[type=search]{
+        width:150px !important;
+    }
+    h3.recipe{
+        margin-left:-20px !important;
+    }
+}
 
         </style>
     <meta charset="UTF-8">
@@ -602,12 +617,12 @@ body {
 </head>
 
 <body>
-
+<div class="main-content">
     <br>
     <div class="header" style="">
         <div class="heading" style="display:flex;justify-content:space-between;margin-top:-5px">
-            <h2 style="margin-left:50px;font-weight:500;font-size: 40px;">Recipes</h2>
-            <h4 style="margin-left:30px;color:#787885;font-size: 20px;">Breakfast</h4>
+            <h2 style="margin-left:50px;font-weight:400;font-size: 48px;">Recipes</h2>
+            <h4 style="margin-left:30px;color:#787885;font-size: 23px;">Breakfast</h4>
         </div>
         <div class="search" style="margin-right:8rem;display:flex;gap:1.5rem">
             <div class="searchbox">
@@ -655,7 +670,7 @@ body {
     </div>
 
 
-    <div class="category" style="display:flex;justify-content:flex-start;margin:20px;margin-right:30px;">
+    <!-- <div class="category" style="display:flex;justify-content:flex-start;margin:20px;margin-right:30px;">
         
         <div class="filter-outline" style="display:flex; justify-content:space-between; align-items:center; margin:10px; margin-left:55px;padding-top:1px;padding-bottom:1px;">
             <div class="filter-text" >Oats</div>
@@ -670,7 +685,7 @@ body {
             <div class="filter-text" >Pancake</div>
             <img class="filter-line"  src="./images/recipe_default.png"  style="padding-left:5px"alt="">
         </div>
-    </div>
+    </div> -->
 
 
     <!-- all recipes -->
@@ -708,20 +723,20 @@ body {
             $counter++;
 
         ?>
-            <div class="card d-flex" style="padding:15px; width:330px; height:230px;border-radius:16px; margin-left:45px;margin-right:-5px;margin-top:30px;">
+            <div class="card d-flex" style="padding:15px; width:325px; height:204px;border-radius:16px; margin:25px 20px 25px 50px;">
                 <div class="card-upper d-flex justify-content-between">
                     <p id="bu" class="card-upper-text"> Medium </p>
                     <p id="bu" class="card-upper-text"><i class="fa-solid fa-clock"></i> 20:00 </p>
                 </div>
                 <div class="img-dis" style="width:100%; text-align:center;">
-                    <img src="./images/alooparatha-eg.png" style="margin-top:-15px;height:80%; width:65%; margin-left:-20px; object-fit:cover;" />
+                    <img src="./pancakeimg/pancake.svg" style="margin-top:-50px;height:126px; width:201px;margin-left:-20px; object-fit:cover;" />
                 </div>
                 <div class="d-flex justify-content-between">
                     <p class="card-food"><?php echo $d['drecipe_name'] ?></p>
                     <div class="header">
                         <div class="dropdown ">
                             <div id="myDropdownIcon" class="dropbtn" onclick="showDropdown(event)">
-                                <img class="" src="./icons/vertical-three-dots.svg" alt="">
+                                <img class="" src="./icons/vertical-three-dots.svg" alt="" style="margin-top:9px;">
                             </div>
 
                             <div id="myDropdownContent" class="dropdown-content dropdown-card ">
@@ -735,18 +750,14 @@ body {
                     <p class="card-calorie"> <img src="./icons/calorie.svg" alt=""> <?php echo $nutritional['Calories'] ?> kcal</p>
                     <div class="d-flex align-items-center card-num">
                         <div class="card-num-circle"><?= $steps ?> </div> &nbsp;
-                        <div class="">Steps</div>
+                        <div class="">steps</div>
                     </div>
                 </div>
             </div>
         <?php } ?>
-        
+        <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;color:white;font-size:60px;border:none;position:absolute;right:50px;">+</button></a>
     </div>
-    <div class="btn">
-            <button class="butt">+</button>
-    </div>
-
-
+    
     <script>
         function myFunction() {
             const element = document.getElementById("myDIV1");

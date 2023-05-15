@@ -94,11 +94,11 @@
 }
 #btn1{
     border: none;
-    background-color: #0177FD;
+    background-color: #7282FB;
     color: white;
-    padding: 0.4rem;
+    padding: 0.5rem;
     border-radius: 100%;
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding-left: 1.1rem;
     padding-right: 1.1rem;
     position:relative;
@@ -237,7 +237,7 @@
 }
 @media screen and (min-width:920px) {
     .left ,.right{
-    width:50%;
+    width:40%;
 }
 }
 @media screen and (max-width: 920px) {
@@ -271,7 +271,7 @@
 
 <div class="dashboard">
    <div class="dashboard_comtainer1">
-            <p style="font-size: 40px;font-weight:600;margin-bottom: 0;" class="dash">Dashboard</p>
+            <p style="font-size: 40px;font-weight:600;" class="dash">Dashboard</p>
             <p style="font-weight:600;font-size:25px">Upcoming Events</p>
         
     </div>
@@ -316,37 +316,6 @@
         <div class="hyphen"><p>-</p></div>
         <div class="hyphen"><p>-</p></div>
     </div>
-
-    <!-- <div class="dashboard_container6">
-        <div class="task">
-            <p style="font-weight:600;font-size:2rem;">My Tasks List</p>
-            <div class="view"><a href="#"><button id="details">View All</button></a></div>
-        </div>
-        <div class="message" >
-            <p style="font-weight:600;font-size:2rem;">Messages</p>
-            <div class="view"><a href="#"><button id="details">View All</button></a></div>
-        </div>
-    </div>
-
-
-    <div class="dashboard_container10" style="display:flex;flex-direction:row; justify-content:space-between;">
-        <div class="dashboard_container8">
-            <div class="dashboard_container7">
-                <a href="#"><button id="today">Today</button>
-                <a href="#"><button id="upcoming">Upcoming</button>
-            </div>
-            <div class="dashboard_container9">
-                <div style="font-size:24px;font-weight:500;color:#434343;">No task created for today!</div>
-                <a href="#"><button id="today">Create task</button>
-            </div>
-        </div>
-        <div class="dashboard_container8">
-            <div class="dashboard_container11">
-                <div style="font-size:24px;font-weight:500;color:#434343;">No message yet!</div>
-                <a href="#"><button id="today">Start a chat</button>
-            </div>
-        </div>
-    </div> -->
     <div class="dashboard_container10" style="display:flex;flex-direction:row; justify-content:space-between; width:100%;">
     <div class="dashboard_container12 left" style="display:flex;flex-direction:column; margin-top: 0.5rem; ">
         <div class="task">
@@ -372,7 +341,7 @@
         <div class="dashboard_container8">
             <div class="dashboard_container11">
                 <div style="font-size:24px;font-weight:500;color:#434343;">No message yet!</div>
-                <a href="chat_home.php"><button id="today" style="margin-top: 18px;">Start a chat</button>
+                <a href="chat_home.php"><button id="today" style="">Start a chat</button>
             </div>
         </div>
     </div>
