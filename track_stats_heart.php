@@ -890,7 +890,7 @@ color: #000000;
                         <p style="color:#7D5DE6;">Sleep</p>
                     </div>
                             </a>
-                    <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
+                        <a href="track_stats_weight.php?id=<?php echo($clientId) ?>">
                         <div class="client-card" style="color:#54AFAC; border: 1px solid #54AFAC;">
                         <!-- <i style="color:#54AFAC;" class="fa-solid fa-moon"></i> -->
                         <img src="images/weight.svg" alt="">

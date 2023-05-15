@@ -21,7 +21,6 @@
         left: 20px  ;
         overflow: clip;
     }
-
     
     /*------------------HELP-----------------------*/
     .help-box{
@@ -101,10 +100,10 @@
     <?php include 'navbar.php'; ?>
 
     <div id="content">
-      <!------------------------------------------------DASHBOARD--------------------------------------------------------->
+   
         <h1 style="font-size: 40px; color:#202224; margin-left:20px; font-weight: 500;">Help</h1>
 
-      <!-----------------------------------------------EVENTS--------------------------------------------------------->
+      
       <center>
       <div class="main">
       <div class="center-flex">

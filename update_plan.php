@@ -650,7 +650,7 @@ border-radius: 10px;
         .header {
             margin-left: 2rem !important;
             margin-top: 0px !important;
-            font-size: 25px !important;
+            /* font-size: 25px !important; */
         }
 
         .event_form {
@@ -714,7 +714,7 @@ border-radius: 10px;
                 <div class="event_form">
                     <div class="evt-form">
 
-                        <!-- Different Tags -->
+<!--------------------------------------Different Tags--------------------------------------------------------->
                         <div class="tags">
                             <div class="tag_title">Tags</div>
                             <div class="tag mt-3" style="width: 100%;">
@@ -770,7 +770,7 @@ border-radius: 10px;
                         </div>
                         <!-- Tags end here -->
 
-
+<!----------------------------------PLAN DURATION------------------------------------------------------------------>
                         <br>
                         <label for="" class="subject tag_title">Plan Duration</label>
                         <div class="duration" style="width: 100%;">
@@ -803,7 +803,7 @@ border-radius: 10px;
                         </div>
                         </div>
                         <br>
-
+<!---------------------------------DESCRIPTION-------------------------------------------------------------->
         
                         <label for="" class="subject tag_title">Description</label>
                         <input required id="width" class="subject mt-3" type="text" name="description"
@@ -817,7 +817,7 @@ border-radius: 10px;
                             font-size: 20px;
                             padding:1.5rem; " />
                         <br />
-
+<!------------------------------------------FEATURES------------------------------------------------------>
                         <label for="" class="subject tag_title ">Features</label>
 
                         <div class="features_main mt-2">
@@ -829,7 +829,7 @@ border-radius: 10px;
                                 </div>
 
                             </div>
-                            <!---------------------------FEATURES POP-UP CODE ---------------------------------->
+<!--------------------------------------FEATURES POP-UP CODE----------------------------------------------------->
                             <div class="features-container">
 
                                 <div class="features_right add-feature">
@@ -841,7 +841,7 @@ border-radius: 10px;
 
                             </div>
 
-                            <!-- Pop-up form to add skills -->
+                            <!---------Pop-up form to add skills-------------->
                             <div id="add-feature-modal" class="modal">
                                 <div class="modal-content">
                                     <span class="close d-none">&times;</span>
@@ -853,14 +853,9 @@ border-radius: 10px;
                             </div>
                             <!----------------------FEATURES POP-UP CODE END------------------>
 
-                            <!-- <div class="features_right">
-                                <button type="button" class="plan_btn_add plan_btn add-textbox">
-                                    +
-                                </button>
-                            </div> -->
                         </div>
 
-                       
+<!--------------------------------------------PRICE------------------------------------------------>
 
                         <label for="" class="subject tag_title" id="width">Price</label>
                         <input required class="subject subject-text mt-3" type="number"
@@ -1052,7 +1047,7 @@ function hidePopup() {
     // Function to add skill to the skills array and display it on the page
     function addSkill(skill) {
         // Add skill to skills array
-        alert("hello");
+        // alert("hello");
         skills.push(skill);
 
         // Clear skills list container

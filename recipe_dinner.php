@@ -422,7 +422,7 @@ body {
     left:30px;
 }
 .row{
-    margin:0px auto !important;
+    margin:10px auto !important;
 }
 .card {
     margin:10px auto !important;
@@ -641,8 +641,8 @@ body {
                 <img src="./images/indian-food-composition_1284-11949-removebg-preview 1.png" class="imag im1">
                 <h3 style="margin-bottom:10px;color:#FFFFFF;font-weight: 400;margin-top:30px;margin-right:145px;font-size:32px;">All Recipe</h3>
                 <p style="margin-bottom:80px;color: rgba(255, 255, 255, 0.9);margin-top:5px; margin-right:110px;font-size:20px;">Free menu planning<br/>to suit your needs</p>
-                <img src="./images/tree branch.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;">
-                <img src="./images/tree branch.png" class="imag im2 " style="left:-13px;bottom:11px;">
+                <img src="./images/treebranch1.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;height:75px;">
+                <img src="./images/tree branch.svg" class="imag im2 " style="left:-27px;bottom:31px;height:84px;">
         </div>
         </a>
 
@@ -729,7 +729,7 @@ body {
                     <p id="bu" class="card-upper-text"><i class="fa-solid fa-clock"></i> 20:00 </p>
                 </div>
                 <div class="img-dis" style="width:100%; text-align:center;">
-                    <img src="./pancakeimg/dinner.svg" style="margin-top:-50px;height:101px; width:145px; margin-left:-20px; object-fit:cover;" />
+                    <img src="images/dinner.svg" style="margin-top:-50px;height:101px; width:145px; margin-left:-20px; object-fit:cover;" />
                 </div>
                 <div class="d-flex justify-content-between">
                     <p class="card-food"><?php echo $d['drecipe_name'] ?></p>
@@ -759,7 +759,8 @@ body {
     <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:60px;">+</button></a>
 
     </div>
-    
+    <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:60px;">+</button></a>
+
 
     <script>
         function myFunction() {

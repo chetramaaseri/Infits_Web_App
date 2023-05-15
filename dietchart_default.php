@@ -59,8 +59,8 @@
   color: #CBCBCB;
   }
   .content img{    
-  width: 300px;
-  height: 200px;
+  width: 320px;
+  height: 220px;
   margin-left: 28%;
   margin-top: 35px;
   }
@@ -68,12 +68,11 @@
   font-family: 'NATS';
   font-style: normal;
   font-weight: 400;
-  font-size: 34px;
+  font-size: 36px;
   line-height: 90%;
   text-align: center;
   color: #000000;
-  /* margin-left: %; */
-   margin-right:9%;
+   margin-right:110px;
   margin-top: -10px;
 
   }
@@ -167,7 +166,7 @@
     scrollbar-width: none;
   }
   
-/* 
+
   @media screen and (min-width: 720px) and (max-width:830px) {
 
     .content p{
@@ -266,21 +265,7 @@ margin-left:-30px;
    margin-bottom:20px;
   }
   } 
- */
- @media screen and (max-width:1300px) {
-.main-content{
-  overflow: hidden;
-}
-.sliding-cal{
-  margin-left: 1px;
-  width: auto;
-}
-.recipe-add-btn{
-  margin-right: 30px;
-  float: right;
-  margin-bottom: 10px;
-}  
- }
+
 
   </style>
   </head>

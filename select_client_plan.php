@@ -1,5 +1,5 @@
 <?php
-include "navbar.php";
+include('navbar.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,95 +18,42 @@ include "navbar.php";
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
-    @import url('https://fonts.googleapis.com/earlyaccess/nats.css');
+    
+    @font-face {
+    font-family: 'NATS';
+    src:url('font/NATS.ttf.woff') format('woff'),
+        url('font/NATS.ttf.svg#NATS') format('svg'),
+        url('font/NATS.ttf.eot'),
+        url('font/NATS.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
     html::-webkit-scrollbar {
         width: 0.5rem;
     }
     html::-webkit-scrollbar-track {
-        background-color: rgb(230,230,290);
+        background-color: rgb(190,200,290);
     }
     html::-webkit-scrollbar-thumb {
-        background: rgb(230,230,230);
+        background: #7282FB;
         border-radius: 5rem;
     }
-    /* Media query for screens smaller than 576px */
-@media (min-width: 300px) and (max-width: 575.98px) {
-  .cards {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-  }
-  .col-6 {
-    margin-left: 10% !important;
-    max-width: 100%;
-    flex: 100%;
-  }
-}
-
-/* Media query for screens between 576px and 767.98px */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Media query for screens between 768px and 991.98px */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
-}
-
-/* Media query for screens between 992px and 1199.98px */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-  }
-}
-
-@media (min-width: 300px) and (max-width: 601px){
-    .row{
-        max-width: 640px !important;
+    @media (min-width:20px) {
+        html::-webkit-scrollbar {
+        width: 0.5rem;
     }
-    /* .card{
-        width: 90% !important;
-    } */
-}
-@media (min-width: 300px) and (max-width: 450px){
-    .card{
-        width:90% !important;
+    html::-webkit-scrollbar-track {
+        background: transparent;
     }
-}
-@media (min-width: 450.01px) and (max-width: 601px){
-    .card{
-        width:110% !important;
+    html::-webkit-scrollbar-thumb {
+        background: #9C74F5;
+        border-radius: 5rem;
     }
-}
-@media (min-width:360px) and (max-width:380.99px){
-    .card{
-    width: 90% !important;
     }
-}
-@media (min-width:311px) and (max-width:359.99px){
-    .card{
-    width: 78% !important;
-    }
-}
-
-/* Media query for screens larger than 1200px */
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
-  }
-}
-
 
     body {
-        font-family: 'NATS'!important;
-        font-style:normal;
+        font-family: 'NATS', sans-serif !important;
+        font-weight:400 !important;
         overflow-x:hidden;
     }
 
@@ -267,36 +214,18 @@ include "navbar.php";
         letter-spacing:1.5px;
         
     } 
-    /* @media (min-width: 336px) and (max-width: 720px) {
+    @media (min-width: 336px) and{
         .container, .container-sm {
             max-width: 100%;
             align-self: center !important;
             display: flow-root !important;
         }
         body {
+        display: grid;
         width: 80% !important;
         }
-        .card{
-            width: 90% !important;;
-        }
-        .cards {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: grid;
-        gap: 4rem;
-        grid-template-columns: repeat(auto-fit, minmax(80%, 1fr));
     }
-    .row{
-        margin-left: 20%;
-    }
-    .search-form::before{
-        width: 90%;
-        margin:auto;
-        content: "\A";
-        white-space: pre;
-    }
-    } */
-    /* @media screen and (max-width: 470px){
+    @media screen and (max-width: 470px){
         .search-form{
            margin-right:20px
         }
@@ -349,7 +278,7 @@ include "navbar.php";
         <div class="col-6 " style="font-weight:bold;font-size:40px;letter-spacing:2px;">All Diet Plans</div>
         <div class="col-6" style="text-align:right">
             <div class="card-body" >
-                <form method="POST" class="search-form form-inline" style="max-width:400px;background: #FFFFFF;box-shadow: 0.6px 0.6px 2px 1px #ccc;
+                <form method="POST" class="search-form form-inline" style="width:400px;background: #FFFFFF;box-shadow: 0.6px 0.6px 2px 1px #ccc;
     border-radius: 0.6rem;position:relative;">
                     <input type="text" placeholder="Search Plan" class="search-box form-control w-75" id="search"
                         name="search" style="color: #667080;font-weight:600!important;font-size:20px;margin-left:30px;letter-spacing:1.5px;">

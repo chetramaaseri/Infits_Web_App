@@ -67,15 +67,15 @@ include 'css/all_recipes.css';
                 <img src="./images/breakfast-waffles-realistic-top-view-image_1284-14471-removebg-preview 1.png" class="imag im1" style="width:200px;height:179px;">
                 <h3 style="margin-bottom:10px;margin-right:135px;color: #000000;font-weight: 400;font-size:35px;margin-top:35px;">Breakfast</h3>
                 <p style="margin-bottom:100px;margin-right:100px;color: #6A6A6A;font-size:19px;">Free menu planning<br/>to suit your needs</p>
-                <img src="./images/tree branch.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;height:75px;">
-                <img src="./pancakeimg/tree branch.svg" class="imag im2 " style="left:-27px;bottom:31px;height:84px;">
+                <img src="./images/treebranch1.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;height:75px;">
+                <img src="./images/tree branch.svg" class="imag im2 " style="left:-27px;bottom:31px;height:84px;">
             </div>
     </a>
     
     <a href="recipe_lunch.php" style="color: inherit;" class="lunch" id="btn2">
             <div class="top-card" style=" background-color:#F7C8C9!important;">
                 <span class="ci ci1" style="background-color: #E0B6B6;"></span><span class="ci ci2" style="background-color: #E0B6B6;"></span>
-                <img src="./pancakeimg/lunch.png" class="imag im1" style="width:198px;height:234px;">
+                <img src="./images/lunchbox.png" class="imag im1" style="width:198px;height:234px;">
                 <h3 style="margin-bottom:10px;margin-right:180px;color: #000000;font-weight:400;font-size:35px;">Lunch</h3>
                 <p style="margin-bottom:100px;margin-right:100px;color: #6A6A6A;font-size:20px;">Free menu planning<br/>to suit your needs</p>
                 <img src="./images/book-of-recipes-concept-vector-14744961-removebg-preview 1.png" class="imag im2" style="width:35%;height:35%;left:10px;bottom:11px;transform:rotate(1deg);">

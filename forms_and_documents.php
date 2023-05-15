@@ -421,7 +421,7 @@ padding-bottom:0.5rem;
         width: 300px;
         margin-right: 30px;
     }
-    
+
     .heading-box h1{
         margin-left: 20px;
         width: 500px;
@@ -441,12 +441,12 @@ padding-bottom:0.5rem;
         margin-right: 80px;
     margin-left: 70px;
     }
-  
+
     .search-box1{
         margin-top: 170px;
         margin-left: -300px;
         margin-right: 30px;
-    }
+}
     .create_btn{
         top:86%;
    }
@@ -482,16 +482,16 @@ padding-bottom:0.5rem;
                     <img class="vector" src="icons/form-card-vector.svg">
                     <div class="form-content">
                     <h4>Form 1 (Default)</h4>
-                    <p><span>20</span> Question</p>
+                        <p><span>20</span> Question</p>
+                    </div>
+                    <div class="options" onclick="showPopup(this)">
+                        <img src="icons/3dots.svg" alt="options" title="options">
+                    </div>
+                    <div class="option-popup">
+                        <button>Delete</button>
+                        <button>Edit</button>
+                    </div>
                 </div>
-                <div class="options" onclick="showPopup(this)">
-                    <img src="icons/3dots.svg" alt="options" title="options">
-                </div>
-                <div class="option-popup">
-                    <button>Delete</button>
-                    <button>Edit</button>
-                </div>
-            </div>
             <?php
                 }
             ?>

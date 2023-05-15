@@ -395,7 +395,7 @@ body {
   }
 
 @media screen and (min-width: 720px) and (max-width:1500px) {
-.heading{
+    .heading{
     justify-content:flex-start !important;
 }
 /* .row{
@@ -514,7 +514,7 @@ body {
    
     .searchbox{
    margin-left:20px;
-    }    
+    } 
     .category{
         display: flex;
         flex-direction: row;
@@ -524,7 +524,7 @@ body {
     .heading{
     justify-content:flex-start !important;
     margin-left:-30px;
-    }
+}
 .header{
     flex-direction:column !important;
 }
@@ -558,7 +558,7 @@ body {
     /* left: 50px;
     bottom: 10px; */
 }
- .card-food {
+.card-food {
     font-size: 23px;
     font-weight: 500;
     line-height: 20px;
@@ -653,8 +653,8 @@ body {
                 <img src="./images/indian-food-composition_1284-11949-removebg-preview 1.png" class="imag im1">
                 <h3 style="margin-bottom:10px;color:#FFFFFF;font-weight: 400;margin-top:30px;margin-right:145px;font-size:32px;">All Recipe</h3>
                 <p style="margin-bottom:80px;color: rgba(255, 255, 255, 0.9);margin-top:5px; margin-right:110px;font-size:20px;">Free menu planning<br/>to suit your needs</p>
-                <img src="./images/tree branch.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;">
-                <img src="./images/tree branch.png" class="imag im2 " style="left:-13px;bottom:11px;">
+                <img src="./images/treebranch1.png" class="imag im2 im2-2" style="left:-90px;bottom:25px;height:75px;">
+                <img src="./images/tree branch.svg" class="imag im2 " style="left:-27px;bottom:31px;height:84px;">
                </div>
         </a>
 
@@ -766,10 +766,7 @@ body {
     
     <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:60px;">+</button></a>
 
-    </div>
-    
-    
-        <script>
+    <script>
         function myFunction() {
             const element = document.getElementById("myDIV1");
             let x = element.scrollLeft;
