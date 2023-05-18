@@ -401,10 +401,15 @@ body {
 .heading{
     justify-content:flex-start !important;
 }
+/* .row{
+    margin: 10px auto !important;
+}
+.card{
+    margin: 10px !important;
+} */
 .header{
     flex-direction:column !important;
 }
-
 .header h4{
     margin-top:39px;
 }
@@ -617,7 +622,7 @@ body {
 </head>
 
 <body>
-<div class="main-content">
+
     <br>
     <div class="header" style="">
         <div class="heading" style="display:flex;justify-content:space-between;margin-top:-5px">
@@ -755,7 +760,7 @@ body {
                 </div>
             </div>
         <?php } ?>
-        <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;color:white;font-size:60px;border:none;position:absolute;right:50px;">+</button></a>
+        <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:50px;">+</button></a>
     </div>
     
     <script>
