@@ -7,31 +7,20 @@ include('navbar.php');
 
 <head>
     <style>
-
-@font-face {
-    font-family: 'NATS';
-    src:url('font/NATS.ttf.woff') format('woff'),
-        url('font/NATS.ttf.svg#NATS') format('svg'),
-        url('font/NATS.ttf.eot'),
-        url('font/NATS.ttf.eot?#iefix') format('embedded-opentype'); 
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
+        body {
     font-family: "NATS", sans-serif !important;
     letter-spacing: 1px;
     font-weight: 400;   
-    background-color: #2b0e0e;
-    color: black;
     position: relative;
 }
-
-.tabcontent {
-    padding: 6px 30px;
-    border: none;
-    border-top: none;
-}
+        .header {
+            display: flex;
+            flex-direction: row !important;
+            margin: 10px;
+            margin-left: 20px;
+            justify-content: space-between;
+            letter-spacing: 0em;
+        }
 
 .searchbox {
     width: auto;
@@ -100,16 +89,20 @@ body {
     margin-top:30px;
 }
 
-.card-upper-text {
-    font-size: 15px;
-    padding: 5px 10px;
-    background-color: #FEA945;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.75);
-    border-radius: 8px;
-    color: white;
-    line-height: 18px;
-}
-.card-food {
+        .card-upper-text {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: #FEA945;
+            box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.75);
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .card-food {
     font-size: 23px;
     font-weight: 580;
     line-height: 18px;
@@ -121,17 +114,17 @@ body {
     margin-top:-10px;
 }
 
-.card-calorie {
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 12px;
-    letter-spacing: 0em;
-    text-align: left;
-    align-items: center;
-    margin-top: 5px;
-    display: flex;
-    color: #A3A1A1;
-}
+        .card-calorie {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 12px;
+            letter-spacing: 0em;
+            text-align: left;
+            align-items: center;
+            /* or 8px */
+            display: flex;
+            color: #A3A1A1;
+        }
 
 .card-num-circle {
     background: #9C74F5;
@@ -144,98 +137,13 @@ body {
     
 }
 
-.card-num {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    color: #9C74F5;
-    text-align:center;
-    
-}
-.dropdown {
-    position: absolute;
-    margin-top: -27px;
-    display: inline-block;
-    right: 0.4em;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    margin-top: 0px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 14px;
-    font-weight: 500;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content .edit-button {
-    background: #A85CF1;
-    text-align: center;
-    border-radius: 7px;
-    margin-bottom: 10px;
-}
-
-.dropdown-content .delete-button {
-    background: #FF3D3D;
-    border-radius: 7px;
-    text-align: center;
-}
-
-.show {
-    display: block !important;
-}
-
-.dropdown-card {
-    background: #FFFFFF;
-    border: 0.723941px solid #E4E4E4;
-    box-shadow: 0px 2.17182px 2.89576px rgba(0, 0, 0, 0.09);
-    border-radius: 13.0309px;
-    padding: 20px;
-}
-
-.filter-outline {
-    
-    box-sizing: border-box;
-    border: 1.5px solid #B85AEC;
-    
-    border-radius: 15px;
-    width:170px;
-    height:54px;
-}
-.filter-line {
-    width: 53px;
-    height: 53px;
-    border: none;
-    /* opacity: 0.54; */
-    border-left: 1.5px solid #9C74F5;
-    object-fit: cover;
-    margin-right:10px; 
-}
-
-.filter-text{
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size:20px;
-    color: #B85AEC;
-}
-.white {
-    color: #FFFFFF;
-}
-
-.lwhite {
-    color: rgba(255, 255, 255, 0.9);
-}
+        .card-num {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 18px;
+            color: #9C74F5;
+        }
 
 
 .container1{
@@ -329,87 +237,21 @@ body {
 
 }
 
-#myDIV1 .lunches .top-card h3::before{
-    border: 1px solid #917dda;;
-}
-#myDIV a,
-    #myDIV1 a{
-    cursor: pointer;
-}
-#myDIV1 a:hover,
-#myDIV a:hover{
-    text-decoration: none;
-}
-.container1 .top-card .im2-2{
-    transform: scale(1.6) scaleX(-1) rotate(-10deg);
-}
-.container1 .top-card .ci{
-    width: 110px;
-    position: absolute;
-    height: 100px;
-    border-radius: 50%;
-}
-.container1 .top-card .ci1{
-    top: -60px;
-    right: 50px;
-}
-.container1 .top-card .ci2{
-    bottom: -70px;
-    right: 2px;
-}
-.container-1 .top-card h5,p,br{
-    margin-right: 70px;
-    margin-bottom: 35px;
-    font-weight: 400;
-    line-height: 88%;
-}
-.recipe-add-btn{
-    position: absolute;
-    justify-content: flex-end;
-    display: flex;
-    margin-left:120rem;
-    bottom:20px;
-    top:85rem;
-    width: 250px;
-    height: 80px;
-    background: #FFFFFF;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    }
-/* .btn{
-    /* margin-top: 10px; */
-    /* position: relative; */
-    /* margin-left: 1500px; */
-
-
-    .butt{
-    
-    background: #9C74F5;
-      border: 0px;
-      color: white;
-      border-radius: 50%;
-      position: absolute;
-      bottom: 35px;
-      right: 25px;
-      margin-top: 20px;
-      width: 85px;
-      height: 85px;
-      font-size: 40px;
-  }
-
-@media screen and (min-width: 720px) and (max-width:1500px) {
-.heading{
+        /* .recipe-add-btn {
+        position: inherit;
+        justify-content: flex-end;
+        display: flex;
+       
+    } */
+    @media screen and (min-width:720px) and (max-width:1500px){
+        .heading{
     justify-content:flex-start !important;
 }
-/* .row{
-    margin: 10px auto !important;
-}
-.card{
-    margin: 10px !important;
-} */
 .header{
-    flex-direction:column !important;
-}
+        display:flex;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+       }
 .header h4{
     margin-top:39px;
 }
@@ -419,221 +261,69 @@ body {
     width: 350px;
     margin-bottom: 20px;
 }
-.category{
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-}
-.container1{
-    left:30px;
-}
-.row{
-    margin:0px auto !important;
-}
-.card {
-    margin:10px auto !important;
-    /* bottom:20px;
-    margin-left:30px; */
-}
-.card-food {
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 20px;
-    min-width: 180px;
-    margin-bottom: 5px;
-    margin-top:-10px;
-}
-.card-calorie {
-    margin-top: 5px;
-}
-.dropdown-content {
-    left:-20px;
-    top:-40px;
-}
-.butt{
-    background: #9C74F5;
-    border: 0px;
-    color: white;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 20px;
-    right: 25px;
-    margin-top: 20px;
-    width: 85px;
-    height: 85px;
-    font-size: 40px;
-}
-}
-@media screen and (min-width:720px) and (max-width:975px){
-    .row{
-    margin: 0px auto !important;
-}
-.card{
-    margin: 10px  auto !important;
-}
-}
-
-/* @media screen and (min-width:650px) and (max-width:710px){
-    .butt{
-    background: #9C74F5;
-      border: 0px;
-      color: white;
-      border-radius: 50%;
-      position: absolute;
-      bottom: 35px;
-      top:202rem;
-      margin-bottom: 20px;
-      right:200px;
-     left:20px;
-      margin:auto;
-      width: 85px;
-      height: 85px;
-      font-size: 40px;
-  }
-} */
-/* @media screen and (min-width:0px) and (max-width:650px){
-    .butt{
-    background: #9C74F5;
-      border: 0px;
-      color: white;
-      border-radius: 50%;
-      position: absolute;
-      bottom: 35px;
-      top:202rem;
-      margin-bottom: 20px;
-      left:160px;
-      margin:auto;
-      width: 85px;
-      height: 85px;
-      font-size: 40px;
-  }
-} */
-@media screen and (min-width:0px) and (max-width:720px){
+        .card{
+            margin: 20px auto !important;
+        }
+        .but{
+            position:absolute !important;
+        }
+    }
+    @media screen and (min-width:720px) and (max-width:920px) {
+       .header{
+        display:flex;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+       }
+       .searchbox{
+        margin-left:40px;
+       }
+    }
+    @media screen and (min-width:0px) and (max-width:720px) {
+        .header{
+        display:flex;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+        
+       }
+        .flex.row{
+            margin:auto;
+            margin-left:auto !important;
+        }
+        .card{
+            margin: 10px auto !important;
+        } 
+        .searchbox{
+            margin-left:14px !important;
+        }
+       
+        .but{
+            position:absolute !important;
+        }
+        .title{
+            margin-left:13px !important;
+        }
+        small{
+            margin-left:0rem !important;
+        }
+        
+    }
+    @media screen and (min-width:0px) and (max-width:420px){
+        .searchbox{
+            width:300px;
+        }
+        
+    }
    
-    .searchbox{
-   margin-left:20px;
-    }    
-    .category{
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        margin:10px auto !important;
-    }
-    .heading{
-    justify-content:flex-start !important;
-    margin-left:-30px;
-}
-.header{
-    flex-direction:column !important;
-}
-   /* .header h4{
-    margin-top: -60px;
-   }
-    .header h2{
-        font-size: 50px;
-        margin-top: -80px;
-        
-        margin-left:-20px;
-       } */
-    .container1{
-        grid-template-columns: auto auto auto auto;
-        left: -1px;
-        margin-right: 420px;
-        gap: 0.5rem;
-    }
-    .recipe{
-        margin-left: -200px;
-           }
-    .middle_wrapper a {
-        
-        margin-top:10px;    
-    }
-    .card{
-    margin:20px auto !important;
-}
-.row{
-    margin:auto !important;
-}
-
- .card-food {
-    font-size: 21.5px;
-    font-weight: 500;
-    line-height: 20px;
-    min-width: 180px;
-    margin-bottom: 5px;
-}
-.card-calorie {
-    margin-top: 5px;
-  }
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    margin-top: 0px;
-    background-color: #f9f9f9;
-    min-width: 150px;
-    left:-90px;
- }
- }
-@media screen and (min-width:300px) and (max-width:400px){
-    input[type=search]{
-        width:150px !important;
-    }
-    h3.recipe{
-        margin-left:-20px !important;
-    }
-}
-
-        </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/all_recipes.css"> -->
-
-    <!-- link ref -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <title>All Recipes</title>
+    </style>
 </head>
 
 <body>
-
-    <br>
-    <div class="header" style="">
-        <div class="heading" style="display:flex;justify-content:space-between;margin-top:-5px">
-            <h2 style="margin-left:50px;font-weight:400;font-size: 48px;">Recipes</h2>
-            <h4 style="margin-left:30px;color:#787885;font-size: 23px;">Breakfast</h4>
-        </div>
-        <div class="search" style="margin-right:8rem;display:flex;gap:1.5rem">
+    <div class="header" style="align-items:center;">
+        <div class="title" style="font-size:48px;font-weight:400;margin-left:3rem;margin-top:1.2rem;">Recipes <small style="color: #787885; font-size:20px; margin-left:1rem;">All Breakfast Recipes</small></div>
+        <div style="margin-right:2rem;display:flex;gap:1.5rem">
             <div class="searchbox">
                 <button style="background-color:white;border:none;" id="seabtn" name="seabtn"><img src="images/vec_search.png" alt=""></button>
-                <input type="search" name="sinput" placeholder="Search here" style="border:none;font-size:1.9rem;margin-left:1rem;width:200px;">
-
+                <input type="search" name="sinput" placeholder="Search" style="border:none;font-size:20px;margin-left:1rem;font-weight:400;">
             </div>
         </div>
     </div>
@@ -728,30 +418,30 @@ body {
             $counter++;
 
         ?>
-            <div class="card d-flex" style="padding:15px; width:325px; height:204px;border-radius:16px; margin:25px 20px 25px 50px;">
+            <div class="card d-flex" style="padding:15px; width:325px; border-radius:16px;height:204px;margin:25px 40px;">
                 <div class="card-upper d-flex justify-content-between">
                     <p id="bu" class="card-upper-text"> Medium </p>
                     <p id="bu" class="card-upper-text"><i class="fa-solid fa-clock"></i> 20:00 </p>
                 </div>
                 <div class="img-dis" style="width:100%; text-align:center;">
-                    <img src="./pancakeimg/pancake.svg" style="margin-top:-50px;height:126px; width:201px;margin-left:-20px; object-fit:cover;" />
+                    <img src="images/pancake.svg" style="margin-top:-63px;height:126px; width:201px;margin-left:4px; object-fit:cover;" />
                 </div>
                 <div class="d-flex justify-content-between">
                     <p class="card-food"><?php echo $d['drecipe_name'] ?></p>
                     <div class="header">
                         <div class="dropdown ">
                             <div id="myDropdownIcon" class="dropbtn" onclick="showDropdown(event)">
-                                <img class="" src="./icons/vertical-three-dots.svg" alt="" style="margin-top:9px;">
+                                <img class="" src="./icons/vertical-three-dots.svg" alt="" style="margin-top:-30px;">
                             </div>
 
-                            <div id="myDropdownContent" class="dropdown-content dropdown-card ">
+                            <div id="myDropdownContent" class="dropdown-content dropdown-card " style="display:none;">
                                 <a style="color: white;" class="edit-button" href="#">Edit</a>
                                 <a style="color: white;" class="delete-button" href="#">Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between" style="align-items:center;">
+                <div class="d-flex justify-content-between" style="align-items:center;margin-top:-8px;">
                     <p class="card-calorie"> <img src="./icons/calorie.svg" alt=""> <?php echo $nutritional['Calories'] ?> kcal</p>
                     <div class="d-flex align-items-center card-num">
                         <div class="card-num-circle"><?= $steps ?> </div> &nbsp;
@@ -760,9 +450,12 @@ body {
                 </div>
             </div>
         <?php } ?>
-        
+        <button class="but" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:40px;border:none;right:50px;position:fixed;bottom:40px;">+</button>
+
     </div>
-    <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:60px;">+</button></a>
+
+    
+
     <script>
         function myFunction() {
             const element = document.getElementById("myDIV1");

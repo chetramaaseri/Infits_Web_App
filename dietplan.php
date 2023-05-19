@@ -70,13 +70,19 @@
             padding-right:0px !important;
         }
     }
+    @media (max-width: 720px){
+        .title{
+           
+            margin-top:1rem !important;
+    }
+    }
 </style>
 <body>
 <?php
         include "navbar.php";
 ?>
         <div class="container" style="align-items:center;margin:10px;margin-left:13rem;width:auto;">
-        <div class="title" style="font-size:48px;margin-top:1.5rem;margin-left:3rem;">Diet Plan
+        <div class="title" style="font-size:40px;font-weight:400;margin-top:1.7rem;margin-left:3rem;">Diet Plan
         </div>
         <div class="" style="margin:auto;">
         <img src="images/dietplan.png" class="image" alt="..." style="margin:auto;display:flex;">
@@ -86,7 +92,7 @@
 
 </div>
         <div style="display:flex !important;flex-direction:row !important;position:absolute !important;bottom:-196px;right:30px;width:284px;height:97px;background: #FFFFFF;box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);border-radius: 50px !important;align-items:center;justify-content:center;" class="btns">
-    <p style="color:#4B9AFB;font-size:35px;padding-top:20px">Create Task</p>
+    <p style="color:#4B9AFB;font-size:35px;padding-top:20px">Create Plan</p>
     <img src="images/Vector (9).png">
 </div>
 </body>

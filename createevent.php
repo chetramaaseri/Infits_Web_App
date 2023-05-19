@@ -407,10 +407,6 @@ input {
 
 }
 
-.form_btn1{
-    padding-bottom: 40px;
-}
-} */
 </style>
 
 <body>

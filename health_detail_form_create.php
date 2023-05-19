@@ -40,10 +40,10 @@
   margin-bottom: 8px;
 }
 .content .heading-box h1 {
-  font-size: 2.3rem;
+  font-size: 40px;
   font-weight: 400;
-  margin-top:10px;
-  margin-left: -20px;
+  margin-top:2rem;
+  margin-left: -25px;
 }
 .content .heading-box button#save {
   background-color: #6883fb;
@@ -141,7 +141,7 @@ line-height: 111.34%;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  }
+}
 .content .flex-container .form-container .form-question-container .form-value {
   display: flex;
   flex-direction: column;
@@ -652,7 +652,7 @@ border: 2px solid #7282FB;
 margin-left: 20px;
 width: 10%;
 }
-} 
+}    
 @media screen and (max-width:400px){
 .share-box{
   /* overflow: scroll; */
@@ -660,7 +660,7 @@ width: 10%;
 }
 .flex-container{
   overflow: scroll;
-  margin-right: -70px;
+ 
   
 }
 #addQuestion{
@@ -673,7 +673,7 @@ width: 10%;
 }
 }
 
-</style>
+    </style>
 
 </head>
 

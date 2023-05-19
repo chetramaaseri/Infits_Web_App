@@ -1,3 +1,7 @@
+<?php
+    error_reporting(0);
+    include 'navbar.php';
+    ?>
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -9,7 +13,8 @@
 <style>
     body {
         font-family: 'NATS', sans-serif !important;
-        /* overflow: hidden !important; */
+        margin:0 !important;
+
     }
 .dashboard{
     margin-top: 1rem;
@@ -18,7 +23,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* margin-bottom: 1rem;  */
 }
 #details{
     font-family: 'NATS';
@@ -30,7 +34,7 @@
 }
 .dashboard_comtainer1{
     margin-left: 1px;
-    margin-top:20px;
+    margin-top:17px;
     }
     .dashboard_comtainer1 .sub-head{
         margin-top: -20px;
@@ -221,11 +225,7 @@
         flex-direction:column;
         flex-wrap:wrap;      
     }
-    .dashboard_container8{
-        width:80%;
-        margin-bottom:3rem;
-        margin-left: 9%;
-    }
+    
     .dashboard_container7{
         margin:auto;
         display:flex;
@@ -247,7 +247,7 @@
     .dashboard_comtainer1{
         /* flex-wrap:wrap; */
         flex-direction:column;
- }
+    }
     .dashboard_comtainer1 p{
         margin-top:-30px;
     }
@@ -269,8 +269,7 @@
     .dashboard_container7{
         display: flex;
         flex-direction: row;
-        width:30%;
-        margin-left:11rem;
+        width:auto;
     }
     .dashboard_container10{
         flex-direction: column !important;
@@ -295,10 +294,7 @@
 }
 </style>
 <body>
-    <?php
-    error_reporting(0);
-    include 'navbar.php';
-    ?>
+   
 
 <div class="dashboard">
    <div class="dashboard_comtainer1">
@@ -313,7 +309,7 @@
         </div>
     </div>
     <div class="dashboard_container3">
-            <div style="font-size:35px; font-weight:400"> Client Progress</div>
+            <div style="font-size:25px; font-weight:400"> Client Progress</div>
             <div class="details">
                 <a href="#"><button id="details">View All</button></a>
                 <a href="#"><button id="details">View Detailed Progress</button></a>
@@ -350,7 +346,7 @@
     <div class="dashboard_container10" style="display:flex;flex-direction:row; justify-content:space-between; width:100%;">
     <div class="dashboard_container12 left" style="display:flex;flex-direction:column; margin-top: 0.5rem; ">
         <div class="task">
-            <p style="font-weight:400;font-size:2rem;">My Tasks List</p>
+            <p style="font-weight:400;font-size:25px;">My Tasks List</p>
             <div class="view"><a href="#"><button id="details">View All</button></a></div>
         </div>
         <div class="dashboard_container8">
@@ -366,7 +362,7 @@
     </div>
     <div class="dashboard_container12 right" style="display:flex;flex-direction:column; margin-top: 0.5rem; ">
         <div class="message" >
-            <p style="font-weight:400;font-size:2rem; color:black;">Messages</p>
+            <p style="font-weight:400;font-size:25px; color:black;">Messages</p>
             <div ><a href="#"><button id="details" style="margin-top: 10px;">View All</button></a></div>
         </div>
         <div class="dashboard_container8">

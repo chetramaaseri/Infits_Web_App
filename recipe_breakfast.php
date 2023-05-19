@@ -427,12 +427,12 @@ body {
 .container1{
     left:30px;
 }
- .row{
+.row{
     margin:0px auto !important;
-} 
+}
 .card {
     margin:10px auto !important;
-    /* bott om:20px;
+    /* bottom:20px;
     margin-left:30px; */
 }
 .card-food {
@@ -625,9 +625,9 @@ body {
 
     <br>
     <div class="header" style="">
-        <div class="heading" style="display:flex;justify-content:space-between;margin-top:-5px">
-            <h2 style="margin-left:50px;font-weight:400;font-size: 48px;">Recipes</h2>
-            <h4 style="margin-left:30px;color:#787885;font-size: 23px;">Breakfast</h4>
+        <div class="heading" style="display:flex;justify-content:space-between">
+            <h2 style="margin-left:4rem;margin-top:1rem;font-weight:400;font-size: 40px;">Recipes</h2>
+            <h4 style="margin-left:30px;color:#787885;font-size: 23px;margin-top:2.2rem;">Breakfast</h4>
         </div>
         <div class="search" style="margin-right:8rem;display:flex;gap:1.5rem">
             <div class="searchbox">
@@ -734,7 +734,7 @@ body {
                     <p id="bu" class="card-upper-text"><i class="fa-solid fa-clock"></i> 20:00 </p>
                 </div>
                 <div class="img-dis" style="width:100%; text-align:center;">
-                    <img src="./pancakeimg/pancake.svg" style="margin-top:-50px;height:126px; width:201px;margin-left:-20px; object-fit:cover;" />
+                    <img src="images/pancake.svg" style="margin-top:-50px;height:126px; width:201px;margin-left:-20px; object-fit:cover;" />
                 </div>
                 <div class="d-flex justify-content-between">
                     <p class="card-food"><?php echo $d['drecipe_name'] ?></p>
@@ -760,9 +760,10 @@ body {
                 </div>
             </div>
         <?php } ?>
-        <a href="create_recipe.php"><button class="butt" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:50px;">+</button></a>
+    <a class="butt" href="_create_recipe.php" style="border-radius:50%;background-color:#9C74F5;width:85px;height:85px;filter: drop-shadow(0px 0px 68px rgba(0, 0, 0, 0.3));color:white;font-size:60px;border:none;position:absolute;right:50px;bottom:60px;display:flex;justify-content:center;align-items:center;">+</a>
+      
     </div>
-    
+
     <script>
         function myFunction() {
             const element = document.getElementById("myDIV1");

@@ -35,7 +35,7 @@ $name =  explode(" ", $row['dietitianuserID'] );
 
 
 body {
-    height:100%;
+   
         font-family: 'NATS', sans-serif !important;
          /* margin-bottom:2rem !important; */
 }
@@ -67,7 +67,6 @@ body {
 .grid {
     margin: 0 0 0 0;
     padding: 0;
-    
     list-style: none;
     display: flex;
     text-align: center;
@@ -124,18 +123,16 @@ body {
     justify-content: center;
 }
 
-.log{
-    position: relative;
+.logout {
+   
     background-color: #ff0000;
     color: #fff;
     font-size: 1.5rem;
     border: none;
     border-radius: 10px;
-    padding:13px 10px;
-    width:180px;
-     margin-bottom: 30px;
-    /* margin-left:80rem;   */
-    float: right;  
+    float:right;
+/* margin-top:1rem; */
+
 }
 
 .img-1 {
@@ -242,6 +239,16 @@ body {
 border-radius: 1.2rem;
 
 }
+/* .logout{
+width: 178px;
+height: 52px;
+position:absolute;
+margin-right:3%;
+margin-top:1rem;
+margin-bottom:1rem !important;
+background: #FF0000;
+border-radius: 10px;
+} */
 .mobview{
     display:none;
 }
@@ -258,31 +265,28 @@ height: 52px;
 background: #F3F5F8;
 border-radius: 18px;
 }
-
-@media screen and (max-width: 1200px) {
+    
+@media screen and (max-width: 988px) {
     ul{
         margin-left: 0rem ;
 }
-.log{
-  margin-left: 300px;
-   float: left;
-}
+
 }
 @media screen and (max-width: 720px) {
     .webview{
         display:none;
     }
     .mob_wrapper1{
-     margin:0.5rem;
+    
+    margin:0.5rem;
     display: flex;
+    
+
      width: auto !important;
 height: auto !important;
-}
-.log{
-    transform: translate(-50%, -50%); 
-    margin-left:50%;
-    margin-top: 10%;
-    float: center;
+
+
+
 }
     .mobview{
         display:flex;
@@ -365,16 +369,18 @@ height: auto !important;
               </a>
         </ul>
 
-        
+    
     </div>
-    <div class="btn">
+    
+    <div>
         <form action="logout.php">
-         <button type="submit" class="log">Logout</button>
+            <button type="submit" class="logout">Logout</button>
         </form>
     </div>
-   
     </div>
 
+    
+    
 <!--------------------------------------------------MOBVIEW------------------------------>
 
     <div class="mobview">
@@ -408,15 +414,17 @@ height: auto !important;
             <img src="icons/settings/icon1.svg" alt="">
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral Code</p>     
         </div>
+       
         <div>
         
     </div>
         <div class="btn">
         <form action="logout.php">
-            <button type="submit" class="log">Logout</button>
+            <button type="submit" class="logout">Logout</button>
         </form>
     </div>
     </div>
+   
 
 </body>
 

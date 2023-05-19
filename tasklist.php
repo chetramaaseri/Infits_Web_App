@@ -70,13 +70,19 @@
     }
 
     }
+    @media (max-width: 720px){
+        .title{
+           
+            margin-top:1rem !important;
+    }
+    }
 </style>
 <body>
 <?php
         include "navbar.php";
 ?>
         <div class="container" style="align-items:center;margin:10px;margin-left:13rem;width:auto;">
-        <div class="title" style="font-size:48px;margin-top:1.5rem;margin-left:3rem;">Task List
+        <div class="title" style="font-size:40px;font-weight:400;margin-top:1.7rem;margin-left:3rem;">Task List
         </div>
         <div class="" style="margin:auto;">
         <img src="images/Task management.png" class="image" alt="..." style="margin:auto;display:flex;">

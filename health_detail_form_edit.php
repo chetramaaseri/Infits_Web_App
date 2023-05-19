@@ -41,10 +41,10 @@
   margin-bottom: 8px;
 }
 .content .heading-box h1 {
-  font-size: 2.3rem;
+  font-size: 40px;
   font-weight: 400;
-  margin-top:10px;
-  margin-left: -20px;
+  margin-top:2rem;
+  margin-left: -25px;
 }
 
 .form-title input{
