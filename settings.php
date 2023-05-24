@@ -35,7 +35,7 @@ $name =  explode(" ", $row['dietitianuserID'] );
 
 
 body {
-    /* height:100%; */
+   
         font-family: 'NATS', sans-serif !important;
         margin-bottom:2rem !important;
 }
@@ -133,8 +133,6 @@ body {
 }
 
 .logout {
-    /* position: relative; */
-    position:absolute;
    
     background-color: #ff0000;
     color: #fff;
@@ -142,9 +140,7 @@ body {
     font-size: 1.2rem;
     border: none;
     border-radius: 10px;
-    right: 0;
-    /* margin-bottom:10rem; */
-margin-right:3%;
+    float:right;
 /* margin-top:1rem; */
 
 }
@@ -158,8 +154,8 @@ margin-right:3%;
     border-radius: 20px;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
     text-align:center;
-    width: 133px !important;
-    height: 174px !important;
+    width: 171px;
+    height: 171px !important;
 
 }
 
@@ -393,14 +389,16 @@ height: auto !important;
 
     
     </div>
+    
     <div>
         <form action="logout.php">
-            <button tupe="submit" class="logout">Logout</button>
+            <button type="submit" class="logout">Logout</button>
         </form>
     </div>
-   
     </div>
 
+    
+    
 <!--------------------------------------------------MOBVIEW------------------------------>
 
     <div class="mobview">
@@ -434,14 +432,15 @@ height: auto !important;
             <img src="icons/settings/icon1.svg" alt="">
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral To Friends</p>     
         </div>
+       
         <div>
         <form action="logout.php">
-            <button tupe="submit" class="logout">Logout</button>
+            <button type="submit" class="logout">Logout</button>
         </form>
     </div>
-        
     </div>
    
+
 </body>
 
 </html>

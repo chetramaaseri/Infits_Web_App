@@ -27,7 +27,6 @@
 
 body {
         font-family: 'NATS', serif !important;
-        overflow-y: none;
     }
 
     .card {
@@ -46,12 +45,6 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         display: flex;
     flex-wrap: wrap;
-    padding: 20px;
-    position: relative;
-    height: 30rem;
-    width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
     }
     .cancel{
         height: 46px;
@@ -68,7 +61,6 @@ body {
         box-shadow: 0px 2.04305px 5.10762px rgba(0, 0, 0, 0.25);
         border-radius: 20.4305px !important;
         padding: 14px;
-        
     }
     .kitbtn{
         background: #7282FB;
@@ -115,25 +107,7 @@ body {
     margin-left:93%;
     overflow: hidden;
     margin-bottom: 1rem;
-    position:relative;
-
 }
-.hide {
-  display: none;
-  font-size: 29px;
-    position: absolute;
-    left: 91%;
-    bottom: 91px;
-}
-.btn1:hover + .hide {
-  display: block;
-  z-index: 1000;
-}
-/* .btn1:hover .hide {
-  display: block;
-  z-index: 1000;
-} */
-
 
 .toptext{
     display:flex;
@@ -150,6 +124,13 @@ body {
 }
 .left{
     display: flex;
+}
+.hide {
+  display: none;
+}
+
+.btn1:hover + .hide {
+  display: block;
 }
 
 .col-2 {
@@ -206,7 +187,6 @@ border-radius: 15px;
     </head>
 <body>
     <?php
-    error_reporting(0);
 include "navbar.php";
 ?>
 <!-- <div class="maincontainer"> -->
@@ -234,7 +214,7 @@ include "navbar.php";
                                 <div class="row">
                                     <div class="col"
                                         style="margin-top:5px;margin-bottom:5px; font-size:30px;font-weight:400 !important;">
-                                        Healthy Diet </div>
+                                        FEATURES </div>
                                         <div class="col-2"
                                         style="margin-top:14px!important;margin-right: 15px">
                                         <img src="images/v12.svg" alt="">
@@ -474,7 +454,7 @@ include "navbar.php";
                    </div>
     <div class="btncont">
   <button class="btn1" >+</button>
-<div class="hide">Create<br>
+<div class="hide">Create
 new</div>
 </div>
 </div>

@@ -176,8 +176,8 @@ padding:10px 18px;
 }
 .left{
   font-style: normal;
-  font-weight: 550;
-  font-size: 30.4156px;
+  font-weight: 500;
+  font-size: 26.4156px;
   line-height: 40px;
   display: flex;
   align-items: center;
