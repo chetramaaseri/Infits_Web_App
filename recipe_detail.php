@@ -24,10 +24,12 @@
             .sub-1{
                 display: flex;
                 flex-direction: row;
-            }
+                justify-content: center;
+            
+               }
             .image{
-                width:50%;
-                padding:60px 300px;
+                width:27%;
+                padding:60px 20px;
             }
             .img-content h1{
                 font-size: 35px;
@@ -81,7 +83,7 @@
             .tab{
                 margin-top:-15px;
                 margin-left:35%;
-                width: 40%;
+                width: 60%;
             }
             .tab button {
                 background-color: inherit;
@@ -111,6 +113,23 @@
                 height:450px;
                 width:400px;
                 gap: 20px 80px;
+            }
+            li {
+                color: #9C5EF4;
+                width:70%;
+                line-height: 40px;
+            }
+            li span {
+                color: black;
+            }
+            #Directions{
+                width: 80%;
+                justify-content: center;
+                font-size: 25px;
+                line-height: 50px;
+                margin-left: 15rem;
+                justify-content: center;
+                margin-right: auto;
             }
             .ing{
                 display: flex;
@@ -175,32 +194,135 @@
                 display: block;
             }
 
-            @media screen and (max-width:1500px){
-                .sub-1{
-                    /* position: absolute; */
+           @media screen and (max-width:1300px){
+               .sub-1{
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+               }
+               .image{
+              width:55%;
+               margin-left: auto;
+                margin-right: auto;
+               }
+               .img-content  {
+                /* width:65%; */
+                margin-left: auto;
+                margin-right: auto;
 
-                    margin-left: auto;
-                    margin-right: auto;
-                }
+               }
                 .sub-content{
                     overflow: hidden;
-                }
+                } 
+             
                 #Ingredients{
                     display: flex;
                     flex-direction:column;
                     flex-wrap: wrap;
-                    height:800px;
+                    height:650px;
                     gap:5px;
                     margin-left: auto;
                     margin-right: auto;
                 }
+                #Directions{
+                    margin-left: 20%;
+                    margin-right: auto;
+                    /* left:20%; */
+                }
             }
+            
+            @media screen and (min-width:400px) and (max-width:768px){ 
+               .sub-1{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: -70px;
+                    margin-right: auto;
+                   
+                }
+                .image{
+                    justify-content: center;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+                .img-content{
+                    margin-top: -150px;
+                    margin-left: 150px;
+                    margin-right: auto;
+                }
+                .sub-2{
+                    margin-top: 20px;
+                    margin-left: -50px;
+                }
+            }
+             
+            @media screen and (min-width:400px) and (max-width:483px){
+                .img-content{
+                    margin-left: 80px;
+                }
+                #Ingredients{
+                    padding:20px;
+                    margin-right: 20px;
+                    margin-left: 50px;
+                    width:auto;
+                    overflow-y: scroll;
+                }
+                #Directions{
+                    padding:20px;
+                    /* margin-left:150px; */
+                    width: 100%;
+                }
+            }
+             
+            @media screen and (max-width:400px){
+                .sub-1{
+                    flex-direction: column;
+                    justify-content: center;
+                    width:auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .image{
+                    position: absolute;
+                    width:100%;
+                }
+                .img-content{
+                    margin-top:65%;
+                    justify-content: center;
+                }
+                .img-content h1{
+                    width:100%;
+                    margin-right: 130px;
+                }
+                .image-2{
+                    width:41%;
+                }
+                .image img{
+                  width: 100%;
+                  margin-left: 10px;
+                }
+                .tab{
+                    margin-top: 20px;
+                    justify-content: center;
+                }
+                #Ingredients{
+                    padding:20px;
+                    margin-right: 20px;
+                    width:auto;
+                    overflow-y: scroll;
+                }
+                #Directions{
+                    width:100%;
+                }
+            }
+            
+
         </style>
     </head>
     <body>
         <div class="main-content">
             <div class="sub-content">
                <div class="sub-1">
+               <div class="img-main">    
                     <div class="image">
                         <img src="images/recipe_detail.svg">
                         <div class="image-2">
@@ -208,6 +330,7 @@
                             <p> 20 min</p>
                         </div>
                     </div>
+                </div>
                     <div class="img-content">
                         <h1>Recipe Name</h1>
                         <div class="img-sub-content">
@@ -296,9 +419,13 @@
                     </div>
 
                     <div id="Directions" class="tabcontent">
-                        <img src="images/milk.svg">
-                        <h3>Paris</h3>
-                        <p>Paris is the capital of France.</p> 
+                        <ul >
+                            <li><span>In a large bowl, mix all-purpose flour, whole wheat flour, salt, baking powder and sugar.</span></li>
+                            <li><span>Stir in milk bananas just until moistered.</span></li>
+                            <li><span>Heat a lightly oiled griddle or frying pan over medium high heat.</span></li>
+                            <li><span>Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.</span></li>
+                            <li><span>Brown on both sides and serve hot.</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>

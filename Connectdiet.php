@@ -27,6 +27,7 @@
 
 body {
         font-family: 'NATS', serif !important;
+        overflow-y: none;
     }
 
     .card {
@@ -45,6 +46,12 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         display: flex;
     flex-wrap: wrap;
+    padding: 20px;
+    position: relative;
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
     }
     .cancel{
         height: 46px;
@@ -61,6 +68,7 @@ body {
         box-shadow: 0px 2.04305px 5.10762px rgba(0, 0, 0, 0.25);
         border-radius: 20.4305px !important;
         padding: 14px;
+        
     }
     .kitbtn{
         background: #7282FB;
@@ -467,7 +475,7 @@ include "navbar.php";
     <div class="btncont">
   <button class="btn1" >+</button>
 <div class="hide">Create<br>
-  new</div>
+new</div>
 </div>
 </div>
 </body>

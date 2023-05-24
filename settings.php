@@ -35,9 +35,9 @@ $name =  explode(" ", $row['dietitianuserID'] );
 
 
 body {
-   
+    /* height:100%; */
         font-family: 'NATS', sans-serif !important;
-         /* margin-bottom:2rem !important; */
+        margin-bottom:2rem !important;
 }
 
 .nav {
@@ -52,6 +52,7 @@ body {
     justify-content: center;
     align-items: center;
     /* height: 300px; */
+
 }
 
 .section {
@@ -88,7 +89,7 @@ body {
 
 .grid li {
     
-    height: 221px;
+    height: 174px;
     display: inline-block;
     margin: 35px;
     padding: 26px;
@@ -118,19 +119,32 @@ body {
     transform: scale(1.10);
     background-color:none;
 }
+
+.logout-button-box {
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
 .text-center {
     display: flex;
     justify-content: center;
 }
 
 .logout {
+    /* position: relative; */
+    position:absolute;
    
     background-color: #ff0000;
     color: #fff;
-    font-size: 1.5rem;
+    padding: 13px 45px;
+    font-size: 1.2rem;
     border: none;
     border-radius: 10px;
-    float:right;
+    right: 0;
+    /* margin-bottom:10rem; */
+margin-right:3%;
 /* margin-top:1rem; */
 
 }
@@ -144,8 +158,8 @@ body {
     border-radius: 20px;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
     text-align:center;
-    width: 171px;
-    height: 171px !important;
+    width: 133px !important;
+    height: 174px !important;
 
 }
 
@@ -156,8 +170,8 @@ body {
     color: #f3e7e3 !important;
     background-repeat: no-repeat;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
-    width: 171px;
-    height: 171px;
+    width: 133px;
+    height: 174px;
 
 }
 
@@ -168,8 +182,8 @@ body {
     color: #f3e7e3 !important;
     background-repeat: no-repeat;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
-    width: 171px;
-    height: 171px;
+    width: 133px;
+    height: 174px;
 }
 
 .img-4 {
@@ -179,8 +193,8 @@ body {
     color: #f3e7e3 !important;
     background-repeat: no-repeat;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
-    width: 171px;
-    height: 171px;
+    width: 133px;
+    height: 174px;
 }
 
 .img-5 {
@@ -190,8 +204,8 @@ body {
     color: #f3e7e3 !important;
     background-repeat: no-repeat;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
-    width: 171px;
-    height: 171px;
+    width: 133px;
+    height: 174px;
 }
 
 .img-6 {
@@ -201,8 +215,8 @@ body {
     color: #f3e7e3 !important;
     background-repeat: no-repeat;
     box-shadow: 2px 2px rgb(0, 0, 0)888;
-    width: 171px;
-    height: 171px;
+    width: 133px;
+    height: 174px;
 }
 
 /* .info {
@@ -221,6 +235,16 @@ body {
     text-align: center;
 }
 
+/* .info h3 {
+    font-family: 'Pacifico', cursive; 
+    font-weight: 400;
+	color: black;
+	font-size: 42px;
+	margin: 0 30px;
+	padding: 100px 0 0 0;
+	line-height:1.5; 
+} */
+
 .info p {
     color: rgb(9, 9, 9);
     font-family: 'Pacifico', cursive; 
@@ -236,7 +260,7 @@ body {
 .rounded{
   
 
-border-radius: 1.2rem;
+/* border-radius: 1.2rem; */
 
 }
 /* .logout{
@@ -252,7 +276,6 @@ border-radius: 10px;
 .mobview{
     display:none;
 }
-
 .mob_wrapper1{
     margin:10px;
     margin-left:20px;
@@ -292,7 +315,6 @@ height: auto !important;
         display:flex;
         flex-direction:column;
     }
-    
 }
 </style>
 
@@ -321,40 +343,40 @@ height: auto !important;
             <li>
                 <div class="box img-1">
                     <img src="icons/settings/icon1.svg" alt="">
-                    <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">My Profile</p>
+                    <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:2rem">My Profile</p>
                 </div>
             </li>
 </a>
- <a href="#">
+ <!-- <a href="#">
             <li>
                 <div class="box img-2"> 
                     <img src="icons/settings/icon1.svg" alt="">       
-                    <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">Referral Code</p>
+                    <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:2rem">Referral Code</p>
                   
                 </div>
             </li>
-              </a>
+              </a> -->
                <a href="about_us.php">
             <li>
                 <div class="box img-3"> 
                     <img src="icons/settings/icon2.svg" alt="">  
-                     <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">About Us</p>
+                     <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:2rem">About Us</p>
                 </div>
             </li>
              </a>
-             <a href="myachievements.php">
+             <!-- <a href="myachievements.php">
             <li>
                 <div class="box img-4">
                     <img src="icons/settings/icon4.svg" alt="">
                         <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">My Achievements</p>
                 </div>
             </li>
-             </a>
+             </a> -->
                <a href="refer_friend.php">
             <li>
                 <div class="box img-5">
                     <img src="icons/settings/icon1.svg" alt="">
-                            <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:3rem">Refer To Friends</p>
+                            <p style="text-align:center !important;font-weight: 400;color:black;font-size: 25px;margin-top:0.5rem">Refer To Friends</p>
                 </div>
             </li>
               </a>
@@ -363,7 +385,7 @@ height: auto !important;
             <li>
                 <div class="box img-6">
                     <img src="icons/settings/icon4.svg" alt="">
-                    <p style="text-align:center!important ;font-weight: 400;color:black;font-size: 25px;margin-top:3rem;">Notifications</p>
+                    <p style="text-align:center!important ;font-weight: 400;color:black;font-size: 25px;margin-top:2rem;">Notifications</p>
                 </div>
             </li>
               </a>
@@ -371,16 +393,14 @@ height: auto !important;
 
     
     </div>
-    
     <div>
         <form action="logout.php">
-            <button type="submit" class="logout">Logout</button>
+            <button tupe="submit" class="logout">Logout</button>
         </form>
     </div>
+   
     </div>
 
-    
-    
 <!--------------------------------------------------MOBVIEW------------------------------>
 
     <div class="mobview">
@@ -390,14 +410,14 @@ height: auto !important;
         </div>
         
          
-        <div class="mob_wrapper1">
+        <!-- <div class="mob_wrapper1">
             <img src="icons/settings/icon1.svg" alt="">
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral Code</p>     
-        </div>
-        <div class="mob_wrapper1">
+        </div> -->
+        <!-- <div class="mob_wrapper1">
             <img src="icons/settings/icon3.svg" alt="">
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">My Achievements</p>     
-        </div>
+        </div> -->
         <div class="mob_wrapper1">
             <img src="icons/settings/icon4.svg" alt="">
             <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Notifications</p>     
@@ -412,20 +432,18 @@ height: auto !important;
         </div>
         <div class="mob_wrapper1">
             <img src="icons/settings/icon1.svg" alt="">
-            <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral Code</p>     
+            <p style="margin-top:2px;font-size:28px;margin-left:15px;font-weight:500">Referral To Friends</p>     
         </div>
-       
         <div>
-        
-    </div>
-        <div class="btn">
         <form action="logout.php">
-            <button type="submit" class="logout">Logout</button>
+            <button tupe="submit" class="logout">Logout</button>
         </form>
     </div>
+        
     </div>
    
-
 </body>
 
-</html
+</html>
+
+
